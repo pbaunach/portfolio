@@ -1,7 +1,7 @@
 title: "Orchard — Product Design Portfolio"
 description: "Senior Product & Design portfolio featuring Orchard.careers."
-baseurl: "" # the subpath of your site, e.g. /blog
-url: ""     # set to https://your-username.github.io after deployment
+baseurl: "/portfolio" # the subpath of your site
+url: "https://pbaunach.github.io" # your GitHub Pages base URL
 
 theme: minima
 
