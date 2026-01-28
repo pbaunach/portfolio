@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<article class="case-study">
+  <header class="case-study-hero">
+    <div class="case-study-meta">
+      <p class="case-study-label">Case Study</p>
+      <h1 class="case-study-title">{{ page.title }}</h1>
+      <p class="case-study-subtitle">{{ page.tagline }}</p>
+      <dl class="case-study-details">
+        <div>
+          <dt>Role</dt>
+          <dd>{{ page.role }}</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>{{ page.timeline }}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="case-study-hero-media">
+      <div class="hero-image-placeholder">
+        <span>Orchard.careers UI — Placeholder</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="case-study-body">
+    {{ content }}
+  </section>
+</article>
+

@@ -1,0 +1,29 @@
+title: "Orchard — Product Design Portfolio"
+description: "Senior Product & Design portfolio featuring Orchard.careers."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: ""     # set to https://your-username.github.io after deployment
+
+theme: minima
+
+author:
+  name: "Your Name"
+  role: "Head of Product & Design"
+
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "case_studies"
+    values:
+      layout: case-study
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+
