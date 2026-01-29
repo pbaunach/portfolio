@@ -2,6 +2,7 @@
 layout: default
 title: About — Peter Baunach
 description: Product Design Leader with 20+ years of experience bridging strategy and execution.
+permalink: /about/
 ---
 
 <div class="about-page">
