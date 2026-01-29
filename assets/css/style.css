@@ -189,9 +189,36 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(15, 23, 42, 0.75);
+  overflow: hidden;
 }
 
-.project-cover span {
+.project-cover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-cover-wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 70%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.project-cover span,
+.project-cover-label {
+  position: relative;
+  z-index: 1;
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.85);
@@ -200,11 +227,11 @@ body {
 }
 
 .project-cover--orchard {
-  background: radial-gradient(circle at top left, #22c55e, #0ea5e9);
+  background: #131d28;
 }
 
 .project-cover--aspireship {
-  background: radial-gradient(circle at top left, #f97316, #22c55e);
+  background: #4810a4;
 }
 
 .project-cover--mindbody {
