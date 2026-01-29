@@ -27,7 +27,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
   <div class="project-grid-inner">
     <article class="project-card">
       <div class="project-cover project-cover--orchard">
-        <span>Orchard</span>
+        <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" class="project-cover-wordmark">
       </div>
       <div class="project-body">
         <h3>Scaling the “un‑scalable” career conversation.</h3>
@@ -42,7 +42,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
     <article class="project-card">
       <div class="project-cover project-cover--aspireship">
-        <span>Aspireship</span>
+        <img src="{{ '/assets/img/aspireship-wordmark-white.svg' | relative_url }}" alt="Aspireship" class="project-cover-wordmark">
       </div>
       <div class="project-body">
         <h3>Killing the "Career Reset" myth.</h3>
