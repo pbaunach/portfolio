@@ -1,106 +1,77 @@
 ---
-title: "Orchard — Reimagining Career Discovery"
-tagline: "Transforming dense education data into an intuitive, micro‑habit‑driven experience."
+title: "Orchard - Reimagining Career Discovery"
+tagline: "Transforming dense education data into an intuitive, micro-habit-driven experience."
 role: "Head of Product & Design"
 timeline: "July 2025 – Present"
 ---
 
-## 1. Executive Summary — The Hook
+## 1. The Crisis: The 5-Minute Plan
 
-**The Problem**  
-Traditional career pathing tools are often static, overwhelming, and disconnected from the daily habits of students. They focus on job titles and salary tables, not on how young people actually make decisions or build momentum.
+**The Context**  
+Nationwide, the student-to-counselor ratio makes meaningful mentorship impossible. Most high schoolers get a few rushed minutes a year to "plan" the rest of their lives.
 
-**The Vision**  
-Orchard reimagines career discovery as a continuous, conversational experience. The goal: transform dense Department of Education data into an intuitive interface that uses small, repeatable "micro‑habits" to keep students engaged over time.
+**The "Generic" Trap**  
+Without guidance, students default to "safe," broad majors like Marketing or Business because they simply **don’t have the vocabulary** for the modern workforce. They’re picking labels, not pathways.
 
-**The Outcome**  
-I led the design of a high‑fidelity, functional platform architecture that now acts as the production "source of truth" for the team—spanning information architecture, interaction patterns, and content models for future features.
+**The Goal**  
+Build an AI "Counselor-in-Pocket" that:
 
-## 2. Strategic Architecture & Data Complexity
+- Knows every job and every path.  
+- Can sit with each student for as long as it takes.  
+- Translates raw data into conversations and decisions that feel human.
 
-**The Challenge**  
-The CEO and CTO wanted to leverage complex government datasets (career outcomes, programs, locations, costs) without overwhelming students. The raw inputs were tables, CSVs, and PDFs—far removed from the way students actually think about their futures.
+## 2. Phase 1: Knowledge Discovery (Breaking the Generalist Cycle)
 
-**Design Approach**  
-I framed the problem through a design‑thinking lens:
+**Conversational Context**  
+Orchard doesn’t start with a search bar. It starts with a conversation about **lifestyle and fulfillment**:
 
-- **Understand the inputs**: Mapped DOE data structures to the real questions students ask: "What could my life look like?" "What paths are realistic for me?"  
-- **Define interaction patterns**: Instead of forms and filters, we explored conversational prompts and content "moments" that could be consumed in 2–3 minutes.  
-- **Architect the experience**: Designed a modular page architecture where data‑heavy content is surfaced through approachable components—cards, short videos, and simple visual indicators.
+- "How do you want your days to feel?"  
+- "Do you like building, analyzing, persuading, or caring?"  
 
-**Key Insight**  
-Through research into micro‑habit‑based learning, we realized that **short, consistently repeated interactions** were more valuable than occasional deep dives. This insight directly informed features like:
+The experience is designed so that a "Business" student might discover they’re actually closer to a **Product Marketing Manager**, **Revenue Operations Analyst**, or **Supply Chain Architect**, roles they’ve never heard of but are a better fit for their interests.
 
-- **"Shorts"**: Bite‑sized career concepts delivered as swipeable content.  
-- **"Videos"**: Curated clips aligned to topics students already consume—bridging entertainment and learning.  
+**The Hook**  
+We blended TikTok‑style **"day in the life" shorts** with deep‑dive data:
 
-These elements turned the platform from a static reference tool into an everyday companion.
+- Shorts capture attention and provide an emotional "this looks like me" connection.  
+- Under the surface, Orchard pulls in hard data on salary, demand, geography, and paths to entry.  
 
-## 3. The "Messy Middle": Rapid Prototyping with AI
+The design bridges the gap between **"this looks cool"** and **"this is a viable, realistic career path for me."**
 
-**Workflow Evolution**  
-Instead of a linear handoff process (wireframes → high‑fidelity → tickets), I used Cursor and AI‑assisted tooling to move from concept to functional prototypes rapidly:
+## 3. Phase 2: The Action Plan (Navigating the Paradox of Choice)
 
-- Sketched flows and IA for the conversational experience and multimodal content layout.  
-- Translated those ideas into production‑ready HTML/CSS and interaction patterns directly in code.  
-- Iterated alongside the CTO in very short feedback loops, using live prototypes as the shared artifact.
+**Path Comparison**  
+For every career, I architected a side‑by‑side comparison of:
 
-**Design‑to‑Code Synergy**  
-My role blurred traditional boundaries:
+- 4‑year degrees  
+- Apprenticeships  
+- Self‑paced bootcamps  
 
-- Defined the UX and content models.  
-- Delivered real, shippable front‑end structures (including layout, responsive behavior, and component states).  
-- Used AI to accelerate boilerplate implementation while maintaining a strong design point of view.
+The UI makes tradeoffs visible across time, cost, risk, and upside so students can compare paths **on their own terms**, not just follow a default route.
 
-**Technical Proof on GitHub Pages**  
-For this portfolio, Orchard is more than screenshots—it includes **the same architecture and components** that guided the engineering team. Hosting on GitHub Pages lets me:
+**Dynamic Roadmaps**  
+I designed a modular tracking system where students don’t just see a goal, they see a **checklist**:
 
-- Expose the information architecture and layout decisions directly in code.  
-- Show how interaction patterns are structured, not just how they look.  
+- Milestones across learning, experience, and application prep.  
+- Clear progress markers so momentum is visible and rewarding.  
 
-## 4. Interface Breakdown
+When a student’s goal shifts, for example from "Product Manager" to "Product Designer", the AI recalibrates the roadmap in real time. The interface is flexible by design, so change is expected, not penalized.
 
-**Conversational Discovery — “Orchie”**  
-On the left side of the main experience, students interact with **Orchie**, an AI assistant designed to move beyond job titles and salaries:
+## 4. The "0 to 1" Execution
 
-- Asks about lifestyle preferences, learning styles, and long‑term aspirations.  
-- Translates ambiguous goals ("I want to work with people and build things") into concrete exploration paths.  
-- Surfaces relevant Shorts, videos, and topics without forcing students into rigid forms.
+**From Ambiguity to Architecture**  
+The CEO’s brief was effectively: "What if every student had a personalized mentor that actually knew them?" My contribution was to:
 
-**Multimodal Content — Shorts & Videos**  
-The central content rail focuses on how students already consume information:
+- Translate that ambition into **information architecture**, interaction patterns, and content types.  
+- Use Cursor.ai to move quickly from narrative flows to working prototypes that stakeholders could click through.  
+- Apply Tailwind-inspired component thinking so patterns were reusable and scalable from day one.
 
-- **Shorts**: Quick, scannable concepts that make complex ideas (like ROI of different paths) approachable.  
--, **Videos**: Longer‑form, high‑intent content for when students choose to go deeper.  
+**Design to Code Synergy**  
+Rather than stopping at static mockups, I:
 
-This dual‑track design respects attention spans while still enabling depth where it matters.
+- Built production-ready layouts and components that encoded the logic of the comparison engine.  
+- Defined how the UI should respond to changing inputs (different careers, paths, constraints).  
+- Worked closely with engineering so that the **behavior in code matched the intent in design**, from conversational prompts to path comparisons and roadmap states.
 
-**Information Hierarchy — Career Topic Cards**  
-To keep exploration grounded, the interface uses bold, high‑contrast topic cards (e.g., **Product**, **Small Business**, **Healthcare**):
-
-- Provide a simple way to anchor otherwise abstract choices.  
-- Act as entry points into richer, data‑backed journeys within each domain.  
-- Visually balance the conversational and content‑driven elements on the page.
-
-## 5. Impact & Future Roadmap
-
-**Source of Truth for the Team**  
-The high‑fidelity prototypes and interaction architecture now serve as the **shared source of truth** across stakeholders:
-
-- Aligned CEO, CTO, and engineering around a concrete vision.  
-- Reduced ambiguity in handoff by tying every screen to specific data structures and content types.  
-
-**Micro‑Habit Implementation**  
-I defined the initial feature set for micro‑habit‑driven engagement:
-
-- Daily and weekly interaction patterns.  
-- Lightweight completion signals to reinforce progress.  
-- Space for future personalization based on student behavior and goals.
-
-**What’s Next**  
-From here, the roadmap includes:
-
-- Deeper personalization using behavior data from conversational interactions.  
-- Richer content taxonomies across additional domains beyond the initial three.  
-- Experiments around nudges and streaks to sustain engagement across a school year.
+The result is a platform where a previously "unscalable" conversation, thoughtful and student specific career guidance, can now happen at scale, with design and AI working together as the mentor.
 
