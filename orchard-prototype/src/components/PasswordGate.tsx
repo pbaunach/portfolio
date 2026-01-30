@@ -1,4 +1,5 @@
-import { useState, FormEvent } from 'react'
+import { useState } from 'react'
+import type { FormEvent } from 'react'
 
 const STORAGE_KEY = 'orchard-prototype-unlocked'
 
