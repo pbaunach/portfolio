@@ -27,3 +27,6 @@ highlighter: rouge
 plugins:
   - jekyll-feed
 
+exclude:
+  - orchard-prototype
+
