@@ -5,6 +5,8 @@ role: "Head of Product & Design"
 timeline: "July 2025 – Present"
 ---
 
+**[View interactive prototype](https://pbaunach.github.io/portfolio/orchard-prototype/)** *(password protected)*
+
 ## 1. The Crisis: The 5-Minute Plan
 
 **The Context**  
