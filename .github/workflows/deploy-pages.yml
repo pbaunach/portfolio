@@ -28,6 +28,8 @@ jobs:
           cache-dependency-path: orchard-prototype/package-lock.json
 
       - name: Build Orchard Prototype (Vite + React)
+        env:
+          VITE_PROTOTYPE_PASSWORD: ${{ secrets.VITE_PROTOTYPE_PASSWORD }}
         run: |
           cd orchard-prototype
           npm ci
