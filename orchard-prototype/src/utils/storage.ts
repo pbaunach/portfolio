@@ -49,17 +49,17 @@ export class StorageManager {
 export const storage = {
   // Interested jobs management
   getInterestedJobs: (): string[] => 
-    StorageManager.get(StorageKeys.INTERESTED_JOBS, []),
+    StorageManager.get<string[]>(StorageKeys.INTERESTED_JOBS, []),
   
   addInterestedJob: (jobId: string): void => {
-    const jobs = StorageManager.get(StorageKeys.INTERESTED_JOBS, []);
+    const jobs = StorageManager.get<string[]>(StorageKeys.INTERESTED_JOBS, []);
     if (!jobs.includes(jobId)) {
       StorageManager.set(StorageKeys.INTERESTED_JOBS, [...jobs, jobId]);
     }
   },
   
   removeInterestedJob: (jobId: string): void => {
-    const jobs = StorageManager.get(StorageKeys.INTERESTED_JOBS, []);
+    const jobs = StorageManager.get<string[]>(StorageKeys.INTERESTED_JOBS, []);
     StorageManager.set(StorageKeys.INTERESTED_JOBS, jobs.filter(id => id !== jobId));
   },
 
@@ -82,7 +82,7 @@ export const storage = {
     StorageManager.get(StorageKeys.AI_CONVERSATION, []),
   
   addToConversation: (message: any) => {
-    const history = StorageManager.get(StorageKeys.AI_CONVERSATION, []);
+    const history = StorageManager.get<any[]>(StorageKeys.AI_CONVERSATION, []);
     StorageManager.set(StorageKeys.AI_CONVERSATION, [...history, message]);
   },
 

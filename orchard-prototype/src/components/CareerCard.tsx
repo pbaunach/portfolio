@@ -27,7 +27,7 @@ interface CareerCardProps {
 
 const CareerCard: React.FC<CareerCardProps> = ({
   career,
-  index,
+  index: cardIndex,
   onCareerClick,
   onTopicClick,
   onToggleInterested,
@@ -43,7 +43,7 @@ const CareerCard: React.FC<CareerCardProps> = ({
     '/src/assets/short-screenshot-2.png',
     '/src/assets/short-screenshot-3.png'
   ];
-  const randomScreenshot = screenshotImages[index % screenshotImages.length];
+  const randomScreenshot = screenshotImages[cardIndex % screenshotImages.length];
   
 
   return (
