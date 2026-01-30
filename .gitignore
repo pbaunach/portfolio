@@ -22,3 +22,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Orchard prototype (Vite + React)
+orchard-prototype/node_modules/
+orchard-prototype/dist/
