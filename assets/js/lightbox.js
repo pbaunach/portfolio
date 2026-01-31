@@ -15,6 +15,8 @@
     lastFocused = trigger;
     img.src = src;
     img.alt = alt || 'Enlarged view';
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
