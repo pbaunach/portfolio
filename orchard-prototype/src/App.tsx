@@ -226,6 +226,19 @@ function App() {
     }
   }, [])
 
+  // Show "Best viewed on a Desktop" toast when loaded on mobile
+  useEffect(() => {
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+    if (isMobile) {
+      const t = setTimeout(() => {
+        setToastMessage('Best viewed on a Desktop')
+        setShowToast(true)
+        setTimeout(() => setShowToast(false), 4000)
+      }, 800)
+      return () => clearTimeout(t)
+    }
+  }, [])
+
   // Save action plans to localStorage whenever they change
   useEffect(() => {
     if (actionPlans.length > 0) {
