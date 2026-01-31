@@ -31,7 +31,9 @@ interface NavigationProps {
   onHomeClick: () => void
   onMyCareersClick?: () => void
   onCareerActionPlanClick?: () => void
-  onStateChange?: (isCollapsed: boolean, isRailMode: boolean) => void
+  onStateChange?: (isCollapsed: boolean, isRailMode: boolean, isMenuOpen?: boolean) => void
+  onMenuToggle?: () => void
+  isMenuOpen?: boolean
   isExploreComplete?: boolean
   isMyCareersComplete?: boolean
   isPlanComplete?: boolean
@@ -46,12 +48,15 @@ const Navigation: React.FC<NavigationProps> = ({
   onMyCareersClick,
   onCareerActionPlanClick,
   onStateChange,
+  onMenuToggle,
+  isMenuOpen: externalIsMenuOpen,
   isExploreComplete = false,
   isMyCareersComplete = false,
   isPlanComplete = false,
   activeTab = ''
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [internalMenuOpen, setInternalMenuOpen] = useState(false)
+  const isMenuOpen = externalIsMenuOpen !== undefined ? externalIsMenuOpen : internalMenuOpen
   const [isCollapsed, setIsCollapsed] = useState(() => {
     // Load collapsed state from localStorage, default to true (collapsed)
     if (typeof window !== 'undefined') {
@@ -80,8 +85,8 @@ const Navigation: React.FC<NavigationProps> = ({
 
   // Notify parent component of state changes
   useEffect(() => {
-    onStateChange?.(isCollapsed, isRailMode)
-  }, [isCollapsed, isRailMode, onStateChange])
+    onStateChange?.(isCollapsed, isRailMode, isMenuOpen)
+  }, [isCollapsed, isRailMode, isMenuOpen, onStateChange])
 
   // Handle window resize to determine rail mode
   useEffect(() => {
@@ -101,41 +106,66 @@ const Navigation: React.FC<NavigationProps> = ({
 
   const handleMenuToggle = () => {
     if (isRailMode) {
-      setIsMenuOpen(!isMenuOpen)
+      if (onMenuToggle) {
+        onMenuToggle()
+      } else {
+        setInternalMenuOpen(!isMenuOpen)
+      }
     } else {
       setIsCollapsed(!isCollapsed)
     }
   }
 
   const handleMenuClose = () => {
-    setIsMenuOpen(false)
+    if (onMenuToggle) {
+      // If external control, we need to close it through the parent
+      // The parent will handle closing via onMenuToggle
+    } else {
+      setInternalMenuOpen(false)
+    }
   }
 
   const handleOverviewClick = () => {
     onOverviewClick?.()
     if (isRailMode) {
-      handleMenuClose()
+      if (onMenuToggle) {
+        onMenuToggle() // Close menu via parent
+      } else {
+        setInternalMenuOpen(false)
+      }
     }
   }
 
   const handleHomeClick = () => {
     onHomeClick()
     if (isRailMode) {
-      handleMenuClose()
+      if (onMenuToggle) {
+        onMenuToggle() // Close menu via parent
+      } else {
+        setInternalMenuOpen(false)
+      }
     }
   }
 
   const handleMyCareersClick = () => {
     onMyCareersClick?.()
     if (isRailMode) {
-      handleMenuClose()
+      if (onMenuToggle) {
+        onMenuToggle() // Close menu via parent
+      } else {
+        setInternalMenuOpen(false)
+      }
     }
   }
 
   const handleCareerActionPlanClick = () => {
     onCareerActionPlanClick?.()
     if (isRailMode) {
-      handleMenuClose()
+      if (onMenuToggle) {
+        onMenuToggle() // Close menu via parent
+      } else {
+        setInternalMenuOpen(false)
+      }
     }
   }
 
@@ -145,7 +175,13 @@ const Navigation: React.FC<NavigationProps> = ({
       {isMenuOpen && isRailMode && (
         <div 
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
-          onClick={handleMenuClose}
+          onClick={() => {
+            if (onMenuToggle) {
+              onMenuToggle()
+            } else {
+              setInternalMenuOpen(false)
+            }
+          }}
         />
       )}
       
@@ -169,7 +205,13 @@ const Navigation: React.FC<NavigationProps> = ({
             
             {isRailMode && (
               <button 
-                onClick={handleMenuClose}
+                onClick={() => {
+                  if (onMenuToggle) {
+                    onMenuToggle()
+                  } else {
+                    setInternalMenuOpen(false)
+                  }
+                }}
                 className="p-2 hover:bg-midnight-medium rounded-lg transition-colors group mr-2"
               >
                 <XMarkIcon className="h-5 w-5 text-slate group-hover:text-slate-light" />

@@ -19,7 +19,9 @@ import {
   PlusIcon,
   CalendarIcon,
   ClockIcon,
-  CurrencyDollarIcon
+  CurrencyDollarIcon,
+  Bars3Icon,
+  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
@@ -120,7 +122,9 @@ function App() {
   const [previousTab, setPreviousTab] = useState<string | null>(null)
   const [isNavCollapsed, setIsNavCollapsed] = useState(true)
   const [isNavRailMode, setIsNavRailMode] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showChatSidebar, setShowChatSidebar] = useState(false)
+  const [mobileChatToggled, setMobileChatToggled] = useState(false)
   const [careerPageTab, setCareerPageTab] = useState('overview')
   const [selectedTopic, setSelectedTopic] = useState<any>(null)
   const [selectedEducationPath, setSelectedEducationPath] = useState<string | null>(null)
@@ -1561,15 +1565,33 @@ function App() {
   }
 
 
-  const handleNavigationStateChange = (isCollapsed: boolean, isRailMode: boolean) => {
+  const handleNavigationStateChange = (isCollapsed: boolean, isRailMode: boolean, isMenuOpen?: boolean) => {
     setIsNavCollapsed(isCollapsed)
     setIsNavRailMode(isRailMode)
+    if (isMenuOpen !== undefined) {
+      setIsMobileMenuOpen(isMenuOpen)
+    }
   }
 
-  // Show ChatSidebar on specific pages
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const handleChatClose = () => {
+    setMobileChatToggled(false)
+    setShowChatSidebar(false)
+  }
+
+  // Show ChatSidebar on specific pages (desktop only - mobile is controlled by toggle)
   useEffect(() => {
-    setShowChatSidebar(activeTab === 'dashboard' || activeTab === 'explore' || activeTab === 'compare' || activeTab === 'education' || activeTab === 'action-plan' || activeTab === 'action-plan-summary' || activeTab === 'action-plan-results' || activeTab === 'my-careers' || activeTab === 'career-action-plan' || activeTab === 'choose-colleges' || activeTab === 'choose-bootcamps' || activeTab === 'choose-apprenticeships' || activeTab === 'financial-aid-planning')
-  }, [activeTab])
+    if (!isNavRailMode) {
+      // Desktop: show chat on specific pages
+      setShowChatSidebar(activeTab === 'dashboard' || activeTab === 'explore' || activeTab === 'compare' || activeTab === 'education' || activeTab === 'action-plan' || activeTab === 'action-plan-summary' || activeTab === 'action-plan-results' || activeTab === 'my-careers' || activeTab === 'career-action-plan' || activeTab === 'choose-colleges' || activeTab === 'choose-bootcamps' || activeTab === 'choose-apprenticeships' || activeTab === 'financial-aid-planning')
+    } else {
+      // Mobile: only show if toggled on
+      setShowChatSidebar(mobileChatToggled)
+    }
+  }, [activeTab, isNavRailMode, mobileChatToggled])
 
   const handleBackNavigation = () => {
     console.log('🔙 Back button clicked!')
@@ -1663,6 +1685,8 @@ function App() {
           onMyCareersClick={() => setActiveTab('my-careers')}
           onCareerActionPlanClick={() => setActiveTab('career-action-plan')}
           onStateChange={handleNavigationStateChange}
+          onMenuToggle={handleMobileMenuToggle}
+          isMenuOpen={isMobileMenuOpen}
           isExploreComplete={interestedCareers.length > 0 || focusedCareers.length > 0}
           isMyCareersComplete={focusedCareers.length > 0}
           isPlanComplete={actionPlans.length > 0}
@@ -1677,9 +1701,38 @@ function App() {
         <header className="bg-midnight-medium border-b border-midnight-light px-6 py-4 sticky top-0 z-30">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
+              {/* Hamburger menu button for mobile */}
+              {isNavRailMode && (
+                <button
+                  onClick={handleMobileMenuToggle}
+                  className="p-2 hover:bg-midnight-light rounded-lg transition-colors"
+                  aria-label="Toggle menu"
+                >
+                  <Bars3Icon className="h-6 w-6 text-slate-light" />
+                </button>
+              )}
               <img src={OrchardLogo} alt="Orchard" className="h-8" />
             </div>
             <div className="flex items-center space-x-4">
+              {/* Chat toggle button */}
+              <button
+                onClick={() => {
+                  if (isNavRailMode) {
+                    setMobileChatToggled(!mobileChatToggled)
+                    setShowChatSidebar(!showChatSidebar)
+                  } else {
+                    setShowChatSidebar(!showChatSidebar)
+                  }
+                }}
+                className={`p-2 rounded-lg transition-colors relative ${
+                  showChatSidebar 
+                    ? 'bg-orchard-blue hover:bg-orchard-blue/80' 
+                    : 'hover:bg-midnight-light'
+                }`}
+                aria-label="Toggle chat"
+              >
+                <ChatBubbleLeftRightIcon className="h-6 w-6 text-white" />
+              </button>
               <button 
                 className="w-8 h-8 rounded-full bg-orchard-blue hover:bg-orchard-blue/80 transition-colors flex items-center justify-center"
                 onClick={() => setActiveTab('profile')}
@@ -2346,6 +2399,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 
@@ -2678,6 +2732,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 
@@ -3086,6 +3141,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 
@@ -3274,6 +3330,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
 
@@ -3606,6 +3663,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 
@@ -3866,6 +3924,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 
@@ -4248,6 +4307,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 <div 
@@ -4466,6 +4526,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 <div 
@@ -4678,6 +4739,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 <div 
@@ -4887,6 +4949,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 <div 
@@ -5061,6 +5124,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
                 
@@ -5612,6 +5676,7 @@ function App() {
                   formatTimestamp={formatTimestamp}
                   isNavCollapsed={isNavCollapsed}
                   isNavRailMode={isNavRailMode}
+                  onClose={handleChatClose}
                 />
                 )}
 
