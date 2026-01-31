@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { PlusIcon, ClockIcon, PaperClipIcon, ArrowUpIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import OrchieAgentSuggestion from '../assets/orchie-agent-suggestion.svg'
 import { careers } from '../data/dummyData'
+import shortScreenshot0 from '../assets/short-screenshot.png'
+import shortScreenshot1 from '../assets/short-screenshot-1.png'
+import shortScreenshot2 from '../assets/short-screenshot-2.png'
+import shortScreenshot3 from '../assets/short-screenshot-3.png'
 
 interface ChatHistory {
   id: string
@@ -69,10 +73,10 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
   
   // Video thumbnail images
   const videoThumbnails = [
-    '/src/assets/short-screenshot.png',
-    '/src/assets/short-screenshot-1.png',
-    '/src/assets/short-screenshot-2.png',
-    '/src/assets/short-screenshot-3.png'
+    shortScreenshot0,
+    shortScreenshot1,
+    shortScreenshot2,
+    shortScreenshot3
   ]
   
   return (

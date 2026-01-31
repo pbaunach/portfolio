@@ -1,5 +1,9 @@
 import React from 'react';
 import { getCareerTopics } from '../utils/dataService';
+import shortScreenshot0 from '../assets/short-screenshot.png';
+import shortScreenshot1 from '../assets/short-screenshot-1.png';
+import shortScreenshot2 from '../assets/short-screenshot-2.png';
+import shortScreenshot3 from '../assets/short-screenshot-3.png';
 
 interface CareerCardProps {
   career: {
@@ -38,10 +42,10 @@ const CareerCard: React.FC<CareerCardProps> = ({
   showWorkEnvironment = false
 }) => {
   const screenshotImages = [
-    '/src/assets/short-screenshot.png',
-    '/src/assets/short-screenshot-1.png',
-    '/src/assets/short-screenshot-2.png',
-    '/src/assets/short-screenshot-3.png'
+    shortScreenshot0,
+    shortScreenshot1,
+    shortScreenshot2,
+    shortScreenshot3
   ];
   const randomScreenshot = screenshotImages[cardIndex % screenshotImages.length];
   
