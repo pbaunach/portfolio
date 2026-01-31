@@ -249,7 +249,7 @@ layout: case-study
       </div>
     </div>
     <div class="subsection">
-      <h2>In case you missed it</h2>
+      <h2>In case you missed it …</h2>
       <div class="case-study-cta-wrapper">
         <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
         <span class="case-study-cta-helper">(password protected)</span>

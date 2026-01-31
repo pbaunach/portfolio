@@ -109,7 +109,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-main {
-  padding: 0 0 4rem;
+  padding: 0;
+}
+
+.site-main--home {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .site-footer {
@@ -412,12 +417,14 @@ h1, h2, h3, h4, h5, h6,
 
 .subsection:first-child {
   padding-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .subsection:not(:first-child) {
   border-top: 1px solid rgba(148, 163, 184, 0.15);
-  padding-top: 2rem;
-  margin-top: 0.5rem;
+  padding-top: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 /* Major section background variants – distinct band identity */
@@ -788,9 +795,6 @@ h1, h2, h3, h4, h5, h6,
     font-size: 0.9rem;
   }
 
-  .site-main {
-    padding: 0 0 3rem;
-  }
 
   .hero-card {
     padding: 1.25rem;
@@ -840,8 +844,9 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .subsection:not(:first-child) {
-    padding-top: 1.5rem;
-    margin-top: 0.25rem;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 
   .case-study-screenshot--phone {
