@@ -40,6 +40,7 @@ interface ChatSidebarProps {
   formatTimestamp: (timestamp: string) => string
   isNavCollapsed: boolean
   isNavRailMode: boolean
+  onClose?: () => void
 }
 
 const ChatSidebar: React.FC<ChatSidebarProps> = ({
@@ -60,7 +61,8 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
   dummyChatHistory,
   formatTimestamp,
   isNavCollapsed,
-  isNavRailMode
+  isNavRailMode,
+  onClose
 }) => {
   const [selectedVideoCareer, setSelectedVideoCareer] = useState<any>(null)
   const [showVideoModal, setShowVideoModal] = useState(false)
@@ -77,22 +79,35 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
     <div 
       className="bg-midnight-dark flex flex-col fixed top-16 h-[calc(100vh-4rem)] z-30"
       style={{ 
-        left: isNavCollapsed ? '4rem' : '20rem',
-        width: `${chatWidth}%`,
-        minWidth: '300px'
+        left: isNavRailMode ? '0' : (isNavCollapsed ? '4rem' : '20rem'),
+        width: isNavRailMode ? '100%' : `${chatWidth}%`,
+        minWidth: isNavRailMode ? '0' : '300px',
+        maxWidth: isNavRailMode ? '100%' : 'none'
       }}
     >
-      {/* Resize Handle */}
-      <div
-        className="absolute right-0 top-0 bottom-0 w-1 bg-midnight-light hover:bg-orchard-blue cursor-col-resize z-10"
-        onMouseDown={onResizeStart}
-      />
+      {/* Resize Handle - Hidden on mobile */}
+      {!isNavRailMode && (
+        <div
+          className="absolute right-0 top-0 bottom-0 w-1 bg-midnight-light hover:bg-orchard-blue cursor-col-resize z-10"
+          onMouseDown={onResizeStart}
+        />
+      )}
       
       {/* Chat Header */}
       <div className="p-4 border-b border-midnight-light">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-slate-light">Chat History</h2>
           <div className="flex items-center gap-3">
+            {/* Close button for mobile */}
+            {isNavRailMode && onClose && (
+              <button 
+                className="p-2 hover:bg-midnight-light rounded-lg transition-colors"
+                onClick={onClose}
+                aria-label="Close chat"
+              >
+                <XMarkIcon className="h-5 w-5 text-slate" />
+              </button>
+            )}
             <button 
               className="p-2 hover:bg-midnight-light rounded-lg transition-colors relative group"
               title="New Chat"
