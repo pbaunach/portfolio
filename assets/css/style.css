@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-main {
-  padding: 3rem 0 4rem;
+  padding: 0 0 4rem;
 }
 
 .site-footer {
@@ -463,6 +463,18 @@ h1, h2, h3, h4, h5, h6,
   border-left: 4px solid rgba(56, 189, 248, 0.25);
 }
 
+.case-study-section-inner p.case-study-wordmark,
+.case-study-wordmark {
+  text-align: center;
+  margin: 0 0 3rem;
+}
+
+.case-study-wordmark img {
+  display: inline-block;
+  height: auto;
+  max-width: 200px;
+}
+
 .case-study-body .case-study-title,
 .case-study-section-inner h1.case-study-title {
   font-size: 2rem;
@@ -777,7 +789,7 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .site-main {
-    padding: 2rem 0 3rem;
+    padding: 0 0 3rem;
   }
 
   .hero-card {

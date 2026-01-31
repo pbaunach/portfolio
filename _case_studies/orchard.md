@@ -5,6 +5,9 @@ layout: case-study
 
 <section class="case-study-section case-study-intro">
   <div class="case-study-section-inner">
+    <p class="case-study-wordmark">
+      <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
+    </p>
     <h1 class="case-study-title">Orchard: Scaling the Mentorship Gap</h1>
     <div class="case-study-callout">
       <p><strong>My Role – Head of Product and Design</strong></p>
@@ -243,6 +246,13 @@ layout: case-study
           <li><strong>AI is a UX Problem, Not Just a Tech Problem:</strong> LLMs are powerful, but without the right multimodal wrapper (like our short-form video feed) and a living roadmap, they are just another overwhelming text box.</li>
           <li><strong>Accessibility is a Competitive Advantage:</strong> By designing for a wide range of educational paths, including apprenticeships and trades, we built a more resilient product that resonates with a far larger demographic of students and state leaders.</li>
         </ul>
+      </div>
+    </div>
+    <div class="subsection">
+      <h2>In case you missed it</h2>
+      <div class="case-study-cta-wrapper">
+        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
+        <span class="case-study-cta-helper">(password protected)</span>
       </div>
     </div>
   </div>
