@@ -3,31 +3,15 @@ layout: default
 ---
 
 <article class="case-study">
-  <header class="case-study-hero">
-    <div class="case-study-meta">
-      <p class="case-study-label">Case Study</p>
-      <h1 class="case-study-title">{{ page.title }}</h1>
-      <p class="case-study-subtitle">{{ page.tagline }}</p>
-      <dl class="case-study-details">
-        <div>
-          <dt>Role</dt>
-          <dd>{{ page.role }}</dd>
-        </div>
-        <div>
-          <dt>Timeline</dt>
-          <dd>{{ page.timeline }}</dd>
-        </div>
-      </dl>
-    </div>
-    <div class="case-study-hero-media">
-      <div class="hero-image-placeholder">
-        <span>Orchard.careers UI — Placeholder</span>
-      </div>
-    </div>
-  </header>
-
   <section class="case-study-body">
     {{ content }}
   </section>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="View image full size" aria-hidden="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img class="lightbox-img" src="" alt="" />
+    </div>
+  </div>
 </article>
-
+<script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>
