@@ -24,7 +24,7 @@
       </div>
     </header>
 
-    <main class="site-main container">
+    <main class="site-main container{% if page.url == '/' or page.url == '/index.html' %} site-main--home{% endif %}">
       {{ content }}
     </main>
 

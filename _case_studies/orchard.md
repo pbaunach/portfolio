@@ -8,7 +8,7 @@ layout: case-study
     <p class="case-study-wordmark">
       <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
     </p>
-    <h1 class="case-study-title">Orchard: Scaling the Mentorship Gap</h1>
+    <h1 class="case-study-title">Orchard: A journey in ditching the database to build a mentor that actually listens</h1>
     <div class="case-study-callout">
       <p><strong>My Role – Head of Product and Design</strong></p>
       <p>(Feb 2024 – Present)</p>
@@ -249,7 +249,7 @@ layout: case-study
       </div>
     </div>
     <div class="subsection">
-      <h2>In case you missed it</h2>
+      <h2>In case you missed it …</h2>
       <div class="case-study-cta-wrapper">
         <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
         <span class="case-study-cta-helper">(password protected)</span>
