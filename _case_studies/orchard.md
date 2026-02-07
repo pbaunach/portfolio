@@ -1,5 +1,5 @@
 ---
-title: "Orchard: Scaling the Mentorship Gap"
+title: "Orchard: Embracing the Turbulence"
 layout: case-study
 ---
 
@@ -8,7 +8,7 @@ layout: case-study
     <p class="case-study-wordmark">
       <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
     </p>
-    <h1 class="case-study-title">Orchard: A journey in ditching the database to build a mentor that actually listens</h1>
+    <h1 class="case-study-title">Orchard: Embracing the Turbulence</h1>
     <div class="case-study-callout">
       <p><strong>My Role – Head of Product and Design</strong></p>
       <p>(Feb 2024 – Present)</p>
