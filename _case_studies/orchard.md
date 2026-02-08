@@ -3,7 +3,20 @@ title: "Orchard: Embracing the Turbulence"
 layout: case-study
 ---
 
-<section class="case-study-section case-study-intro">
+<nav class="case-study-nav" aria-label="On this page">
+  <ul>
+    <li><a href="#my-role">My Role</a></li>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-initial-thesis">The Initial Thesis</a></li>
+    <li><a href="#the-pivot">The Pivot</a></li>
+    <li><a href="#unexpected-turbulence">Unexpected Turbulence</a></li>
+    <li><a href="#the-north-star">The North Star</a></li>
+    <li><a href="#impact-learnings">Impact &amp; Learnings</a></li>
+    <li><a href="#prototype">Prototype</a></li>
+  </ul>
+</nav>
+
+<section id="my-role" class="case-study-section case-study-intro">
   <div class="case-study-section-inner">
     <p class="case-study-wordmark">
       <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
@@ -17,7 +30,7 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--problem">
+<section id="the-problem" class="major-section major-section--problem">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>The Problem: The Mentorship Gap</h2>
@@ -26,7 +39,7 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--thesis">
+<section id="the-initial-thesis" class="major-section major-section--thesis">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>The Initial Thesis: "If we build it, they will search"</h2>
@@ -77,7 +90,7 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--pivot">
+<section id="the-pivot" class="major-section major-section--pivot">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>The Pivot: Ditching the Dashboard</h2>
@@ -126,7 +139,7 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--turbulence">
+<section id="unexpected-turbulence" class="major-section major-section--turbulence">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Unexpected Turbulence: The ChatGPT Shift</h2>
@@ -152,7 +165,7 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--north-star">
+<section id="the-north-star" class="major-section major-section--north-star">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Contextual Mentorship</h2>
@@ -188,10 +201,6 @@ layout: case-study
       </figure>
     </div>
     <div class="subsection">
-      <h2>From "What-If" to "Action Plan"</h2>
-      <p>The real magic happens when the conversation ends and the work begins.</p>
-    </div>
-    <div class="subsection">
       <h2>The Dynamic Roadmap</h2>
       <p>We designed a living "Action Plan" that breaks down terrifying life goals into small, manageable milestones.</p>
       <figure class="case-study-screenshot">
@@ -201,9 +210,6 @@ layout: case-study
     <div class="subsection">
       <h2>The Ability to Evolve</h2>
       <p>Because high schoolers change their minds, the roadmap is modular. If a student hits a milestone and realizes they want to pivot, Orchie recalibrates the plan in real-time, removing the "failure" stigma of changing paths.</p>
-      <figure class="case-study-screenshot">
-        <div class="case-study-screenshot-placeholder">Screenshot placeholder</div>
-      </figure>
     </div>
     <div class="subsection">
       <h2>The Technical Edge: High-Fidelity as the "Source of Truth"</h2>
@@ -223,7 +229,7 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--impact">
+<section id="impact-learnings" class="major-section major-section--impact">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Impact &amp; Final Learnings</h2>
@@ -248,8 +254,7 @@ layout: case-study
         </ul>
       </div>
     </div>
-    <div class="subsection">
-      <h2>In case you missed it …</h2>
+    <div id="prototype" class="subsection">
       <div class="case-study-cta-wrapper">
         <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
         <span class="case-study-cta-helper">(password protected)</span>

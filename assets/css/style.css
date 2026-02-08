@@ -24,6 +24,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
@@ -359,6 +363,67 @@ a.project-card {
 /* Case study layout – full-width bands */
 .case-study-body {
   padding: 0;
+  position: relative;
+}
+
+/* Case study: right-hand sticky nav (desktop only) */
+.case-study-nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .case-study-nav {
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 11rem;
+  }
+
+  .case-study-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .case-study-nav li {
+    margin-bottom: 0.35rem;
+  }
+
+  .case-study-nav a {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    margin-left: 0;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .case-study-nav a:hover {
+    color: #e5e7eb;
+  }
+
+  .case-study-nav a:focus {
+    outline: none;
+    color: var(--foreground);
+  }
+
+  .case-study-nav a.active {
+    color: #fff;
+    font-weight: 700;
+    border-left: 2px solid #38bdf8;
+    border-left-color: #38bdf8;
+  }
+}
+
+/* Case study: scroll offset so anchored sections sit below the sticky header */
+.case-study-body [id] {
+  scroll-margin-top: 5rem;
 }
 
 /* Intro section (title + My Role) */
