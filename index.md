@@ -17,30 +17,27 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
 <section class="project-grid">
   <div class="project-grid-header">
-    <h2 class="section-title">Selected Work</h2>
+    <h2 class="section-title">Product Case Studies</h2>
     <p class="section-subtitle">
-      A sample of end-to-end product and design work—from architecting new products to scaling
-      learning and hiring platforms.
+      I gravitate toward complex, high-stakes challenges that require more than just a UI fix. These two projects represent my recent work in using design and AI to bridge gaps in education and career development.
     </p>
   </div>
 
   <div class="project-grid-inner">
-    <article class="project-card">
+    <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--orchard">
         <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" class="project-cover-wordmark">
       </div>
       <div class="project-body">
-        <h3>Scaling the “un‑scalable” career conversation.</h3>
+        <h3>Orchard: Embracing the Turbulence</h3>
         <p class="project-summary">
-          Helping students move past generic majors and into personalized careers and action plans.
+          Building a supportive mentor that helps students find clarity and assurance in an uncertain future.
         </p>
-        <a class="button button-primary" href="{{ '/case-studies/orchard/' | relative_url }}">
-          Read case study
-        </a>
+        <span class="button button-primary">Read case study</span>
       </div>
-    </article>
+    </a>
 
-    <article class="project-card">
+    <a href="{{ '/case-studies/aspireship/' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--aspireship">
         <img src="{{ '/assets/img/aspireship-wordmark-white.svg' | relative_url }}" alt="Aspireship" class="project-cover-wordmark">
       </div>
@@ -49,46 +46,70 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <p class="project-summary">
           A career mobility engine that helps professionals pivot into tech without starting their careers over.
         </p>
-        <a class="button button-primary" href="{{ '/case-studies/aspireship/' | relative_url }}">
-          Read case study
-        </a>
+        <span class="button button-primary">Read case study</span>
       </div>
-    </article>
+    </a>
+  </div>
+</section>
 
-    <article class="project-card">
-      <div class="project-cover project-cover--mindbody">
-        <span>Mindbody</span>
+<section class="project-grid">
+  <div class="project-grid-header">
+    <h2 class="section-title">Other notable projects</h2>
+    <p class="section-subtitle">
+      This is a small selection of work focused on Design Systems, Brand Guidelines, Personas and Demos.
+    </p>
+  </div>
+  <div class="project-grid-inner">
+    <a href="{{ '/bff/index.html' | relative_url }}" class="project-card">
+      <div class="project-cover project-cover--bff">
+        <span>BFF</span>
       </div>
       <div class="project-body">
-        <h3>Mindbody — Wellness at Scale</h3>
-        <p class="project-challenge">
-          Placeholder: designing for wellness, scheduling, and marketplace dynamics across studios,
-          instructors, and consumers.
+        <h3>Design System: BFF</h3>
+        <p class="project-summary">
+          I architected and led the development of a modern, platform-agnostic design system to bridge the gap between two companies following an acquisition.
         </p>
-        <p class="project-stat">Multi-sided experience design for a global wellness ecosystem.</p>
-        <a class="button button-ghost" href="{{ '/case-studies/mindbody/' | relative_url }}">
-          View placeholder
-        </a>
+        <span class="button button-primary">View Design System</span>
       </div>
-    </article>
+    </a>
 
-    <article class="project-card">
-      <div class="project-cover project-cover--ai">
-        <span>AI Prototyping</span>
+    <a href="{{ '/brand-guidelines/' | relative_url }}" class="project-card">
+      <div class="project-cover project-cover--frederick">
+        <span>Frederick</span>
       </div>
       <div class="project-body">
-        <h3>AI-Assisted Product Exploration</h3>
-        <p class="project-challenge">
-          Using tools like Cursor and modern frameworks to move from idea to interactive prototype
-          in hours instead of weeks.
+        <h3>Brand Guidelines: Frederick & Aspireship</h3>
+        <p class="project-summary">
+          Explaining who frederick is
         </p>
-        <p class="project-stat">
-          Placeholder: rapid, high-fidelity prototypes used to align stakeholders and de-risk bets.
-        </p>
-        <a class="button button-ghost" href="{{ '/about/' | relative_url }}">
-          Learn how I work
-        </a>
+        <span class="button button-primary">View Brand Guidelines</span>
       </div>
-    </article>
+    </a>
+
+    <a href="#" class="project-card">
+      <div class="project-cover project-cover--personas">
+        <span>Personas</span>
+      </div>
+      <div class="project-body">
+        <h3>User Personas: Frederick & Mindbody</h3>
+        <p class="project-summary">
+          User personas we identified and used.
+        </p>
+        <span class="button button-ghost">View placeholder</span>
+      </div>
+    </a>
+
+    <a href="{{ '/finserv/today/today/index.html' | relative_url }}" class="project-card">
+      <div class="project-cover project-cover--financial">
+        <span>Financial Services</span>
+      </div>
+      <div class="project-body">
+        <h3>Demo: Dreamforce '15</h3>
+        <p class="project-summary">
+          Dreamforce '15 Financial Services stage demo
+        </p>
+        <span class="button button-primary">View the Demo</span>
+      </div>
+    </a>
   </div>
 </section>
