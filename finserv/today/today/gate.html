@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Financial Services Demo – Password</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0C2235;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .gate {
+      width: 100%;
+      max-width: 24rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e3a52;
+      background: #0f2d44;
+      padding: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+    .gate h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #E4E9ED;
+    }
+    .gate p {
+      margin: 0 0 1.5rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+    .gate label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #E4E9ED;
+      margin-bottom: 0.5rem;
+    }
+    .gate input {
+      width: 100%;
+      padding: 0.625rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #1e3a52;
+      background: #0C2235;
+      color: #E4E9ED;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .gate input::placeholder {
+      color: #64748b;
+    }
+    .gate input:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+    }
+    .gate .error {
+      font-size: 0.875rem;
+      color: #f87171;
+      margin-bottom: 1rem;
+    }
+    .gate button {
+      width: 100%;
+      padding: 0.625rem 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      background: #0ea5e9;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .gate button:hover {
+      background: #0284c7;
+    }
+  </style>
+</head>
+<body>
+  <div class="gate">
+    <h1>Financial Services Demo</h1>
+    <p>This demo is password protected.</p>
+    <form id="form" method="get" action="index.html">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Enter password" autocomplete="current-password" autofocus>
+      <p id="error" class="error" aria-live="polite" hidden></p>
+      <button type="submit">Unlock</button>
+    </form>
+  </div>
+  <script>
+    (function() {
+      // Injected at deploy from GitHub secret VITE_PROTOTYPE_PASSWORD (same as Orchard prototype)
+      var EXPECTED_PASSWORD = '__FINSERV_PASSWORD_PLACEHOLDER__';
+      var STORAGE_KEY = 'finserv-demo-unlocked';
+
+      var form = document.getElementById('form');
+      var input = document.getElementById('password');
+      var errorEl = document.getElementById('error');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+        if (input.value === EXPECTED_PASSWORD) {
+          try { sessionStorage.setItem(STORAGE_KEY, 'true'); } catch (err) {}
+          window.location.href = 'index.html';
+        } else {
+          errorEl.textContent = 'Incorrect password. Try again.';
+          errorEl.hidden = false;
+          input.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

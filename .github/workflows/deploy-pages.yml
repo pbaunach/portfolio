@@ -53,6 +53,23 @@ jobs:
           mkdir -p _site/orchard-prototype
           cp -r orchard-prototype/dist/. _site/orchard-prototype/
 
+      - name: Inject password into finserv demo gate
+        env:
+          VITE_PROTOTYPE_PASSWORD: ${{ secrets.VITE_PROTOTYPE_PASSWORD }}
+        run: |
+          GATE="_site/finserv/today/today/gate.html"
+          if [ -f "$GATE" ]; then
+            node -e "
+              const fs = require('fs');
+              const pwd = process.env.VITE_PROTOTYPE_PASSWORD || 'dreamforce';
+              const escaped = pwd.replace(/\\\\/g, '\\\\\\\\').replace(/'/g, \"\\\\'\");
+              const path = '_site/finserv/today/today/gate.html';
+              let s = fs.readFileSync(path, 'utf8');
+              s = s.replace('__FINSERV_PASSWORD_PLACEHOLDER__', escaped);
+              fs.writeFileSync(path, s);
+            "
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

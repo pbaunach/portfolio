@@ -6,12 +6,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
 <section class="intro">
   <p class="intro-copy">
-    Hi! I'm <span>Peter Baunach</span>, as a Product Designer and tech enthusiast, I’ve spent the
-    last two decades at the intersection of <span>“Can we build this?”</span> and
-    <span>“Should we build this?”</span>. I focus on the 0-to-1 phase, taking raw ideas and complex
-    data and turning them into products people actually enjoy using. I’m a big believer in
-    design-led strategy, rapid AI-assisted prototyping, and the philosophy that being wrong is just
-    a faster way to get it right.
+    Hi! I'm <strong>Peter Baunach</strong>. I'm a <strong>Product Designer</strong> and <strong>Strategist</strong> who has spent the last two decades at the intersection of <strong>technical feasibility</strong> and <strong>meaningful user value</strong>. I specialize in navigating deep ambiguity: taking raw ideas and complex data and shaping them into products that feel effortless to use. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that being wrong is just a faster way to get it right. My work is built on the idea that the best products don't just solve problems; they provide the clarity and assurance people need to move forward.
   </p>
 </section>
 
@@ -62,7 +57,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
   <div class="project-grid-inner">
     <a href="{{ '/bff/index.html' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--bff">
-        <span>BFF</span>
+        <img src="{{ '/assets/img/bff-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
         <h3>Design System: BFF</h3>
@@ -75,7 +70,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
     <a href="{{ '/brand-guidelines/' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--frederick">
-        <span>Frederick</span>
+        <img src="{{ '/assets/img/fred+aspire-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
         <h3>Brand Guidelines: Frederick & Aspireship</h3>
@@ -101,7 +96,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
     <a href="{{ '/finserv/today/today/index.html' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--financial">
-        <span>Financial Services</span>
+        <img src="{{ '/assets/img/dreamforce-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
         <h3>Demo: Dreamforce '15</h3>
