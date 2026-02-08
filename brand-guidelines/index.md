@@ -48,8 +48,18 @@ layout: case-study
         </div>
       </div>
       <div id="panel-aspireship" class="tab-panel" role="tabpanel" aria-labelledby="tab-aspireship" hidden>
-        <div class="subsection">
-          <p>Aspireship brand guidelines content will be added here.</p>
+        <div class="brand-guidelines-pdf-cta">
+          <p>Here is a PDF of the guidelines if you prefer to view it that way.</p>
+          <a href="{{ '/assets/pdf/Aspireship-Design-Guidelines.pdf' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View PDF</a>
+        </div>
+        <div class="brand-guidelines-gallery">
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 1.png' | relative_url }}" alt="Aspireship brand guidelines 1"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 2.png' | relative_url }}" alt="Aspireship brand guidelines 2"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 3.png' | relative_url }}" alt="Aspireship brand guidelines 3"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 4.png' | relative_url }}" alt="Aspireship brand guidelines 4"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 5.png' | relative_url }}" alt="Aspireship brand guidelines 5"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 6.png' | relative_url }}" alt="Aspireship brand guidelines 6"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 7.png' | relative_url }}" alt="Aspireship brand guidelines 7"></figure>
         </div>
       </div>
     </div>

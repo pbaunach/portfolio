@@ -82,7 +82,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <p class="project-summary">
           Explaining who frederick is
         </p>
-        <span class="button button-ghost">View placeholder</span>
+        <span class="button button-primary">View Brand Guidelines</span>
       </div>
     </a>
 
@@ -108,7 +108,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <p class="project-summary">
           Dreamforce '15 Financial Services stage demo
         </p>
-        <span class="button button-ghost">View placeholder</span>
+        <span class="button button-primary">View the Demo</span>
       </div>
     </a>
   </div>
