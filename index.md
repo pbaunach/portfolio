@@ -81,9 +81,9 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       </div>
     </a>
 
-    <a href="#" class="project-card">
+    <a href="{{ '/user-personas/' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--personas">
-        <span>Personas</span>
+        <img src="{{ '/assets/img/personas-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
         <h3>User Personas: Frederick & Mindbody</h3>
