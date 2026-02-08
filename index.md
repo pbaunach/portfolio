@@ -17,10 +17,9 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
 <section class="project-grid">
   <div class="project-grid-header">
-    <h2 class="section-title">Selected Work</h2>
+    <h2 class="section-title">Product Case Studies</h2>
     <p class="section-subtitle">
-      A sample of end-to-end product and design work—from architecting new products to scaling
-      learning and hiring platforms.
+      I gravitate toward complex, high-stakes challenges that require more than just a UI fix. These two projects represent my recent work in using design and AI to bridge gaps in education and career development.
     </p>
   </div>
 
@@ -48,6 +47,68 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
           A career mobility engine that helps professionals pivot into tech without starting their careers over.
         </p>
         <span class="button button-primary">Read case study</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="project-grid">
+  <div class="project-grid-header">
+    <h2 class="section-title">Other notable projects</h2>
+    <p class="section-subtitle">
+      This is a small selection of work focused on Design Systems, Brand Guidelines, Personas and Demos.
+    </p>
+  </div>
+  <div class="project-grid-inner">
+    <a href="{{ '/bff/index.html' | relative_url }}" class="project-card">
+      <div class="project-cover project-cover--bff">
+        <span>BFF</span>
+      </div>
+      <div class="project-body">
+        <h3>Design System: BFF</h3>
+        <p class="project-summary">
+          I architected and led the development of a modern, platform-agnostic design system to bridge the gap between two companies following an acquisition.
+        </p>
+        <span class="button button-primary">View Design System</span>
+      </div>
+    </a>
+
+    <a href="{{ '/brand-guidelines/' | relative_url }}" class="project-card">
+      <div class="project-cover project-cover--frederick">
+        <span>Frederick</span>
+      </div>
+      <div class="project-body">
+        <h3>Brand Guidelines: Frederick & Aspireship</h3>
+        <p class="project-summary">
+          Explaining who frederick is
+        </p>
+        <span class="button button-ghost">View placeholder</span>
+      </div>
+    </a>
+
+    <a href="#" class="project-card">
+      <div class="project-cover project-cover--personas">
+        <span>Personas</span>
+      </div>
+      <div class="project-body">
+        <h3>User Personas: Frederick & Mindbody</h3>
+        <p class="project-summary">
+          User personas we identified and used.
+        </p>
+        <span class="button button-ghost">View placeholder</span>
+      </div>
+    </a>
+
+    <a href="{{ '/finserv/today/today/index.html' | relative_url }}" class="project-card">
+      <div class="project-cover project-cover--financial">
+        <span>Financial Services</span>
+      </div>
+      <div class="project-body">
+        <h3>Demo: Dreamforce '15</h3>
+        <p class="project-summary">
+          Dreamforce '15 Financial Services stage demo
+        </p>
+        <span class="button button-ghost">View placeholder</span>
       </div>
     </a>
   </div>
