@@ -6,6 +6,16 @@ layout: case-study
 <section class="case-study-section case-study-intro">
   <div class="case-study-section-inner">
     <h1 class="case-study-title">User Personas</h1>
+    <div class="case-study-callout case-study-callout--role">
+      <h3 class="case-study-callout__heading">My Role</h3>
+      <p class="case-study-callout__role-title">Designer, Facilitator, and Stakeholder</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Strategic Research Leadership:</strong> Organized and moderated leadership offsites to transform raw customer data into actionable, empathy-driven user archetypes.</li>
+        <li><strong>Knowledge Synthesis:</strong> Translated qualitative session insights into the first iteration of our persona framework, creating a shared language for the entire organization.</li>
+        <li><strong>Acquisition Integration:</strong> Spearheaded the evolution of our original research to ensure our user insights remained relevant and valuable within a new, larger corporate ecosystem.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -17,6 +27,8 @@ layout: case-study
         <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-mindbody" id="tab-mindbody" data-tab="mindbody">Mindbody</button>
       </div>
       <div id="panel-frederick" class="tab-panel active" role="tabpanel" aria-labelledby="tab-frederick">
+        <h2 class="brand-guidelines-tab-title">Frederick Personas</h2>
+        <p>These personas were the result of our first deep dive into the hearts and minds of small business owners. By facilitating collaborative sessions with key stakeholders, I helped define the motivations and pain points that would eventually drive our entire product roadmap and brand voice.</p>
         <div class="brand-guidelines-gallery">
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/frederick-personas/Asset 1.png' | relative_url }}" alt="Frederick persona 1"></figure>
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/frederick-personas/Asset 2.png' | relative_url }}" alt="Frederick persona 2"></figure>
@@ -27,6 +39,8 @@ layout: case-study
         </div>
       </div>
       <div id="panel-mindbody" class="tab-panel" role="tabpanel" aria-labelledby="tab-mindbody" hidden>
+        <h2 class="brand-guidelines-tab-title">Mindbody Personas</h2>
+        <p>Following the acquisition, I led the effort to adapt our existing research to fit a much broader and more complex ecosystem. These evolved personas served as a critical bridge, allowing the new organization to maintain a deep connection with our core users while scaling to meet the needs of a global platform.</p>
         <div class="brand-guidelines-gallery">
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/primary-personas.png' | relative_url }}" alt="Mindbody primary personas"></figure>
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/persona-thriving-thea.png' | relative_url }}" alt="Thea"></figure>

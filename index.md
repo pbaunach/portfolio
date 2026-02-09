@@ -7,7 +7,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 <section class="intro">
   <p class="intro-copy">
     Well hello!<br><br>
-    I'm <span class="intro-emphasis">Peter Baunach</span>, a <span class="intro-emphasis">Product Designer</span> and <span class="intro-emphasis">Strategist</span>. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that being wrong is just a faster way to get it right.
+    I'm <span class="intro-emphasis">Peter Baunach</span>, a <span class="intro-emphasis">Product Designer</span> and <span class="intro-emphasis">Strategist</span>. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that every iteration is another step toward finding the right answer.
   </p>
 </section>
 
@@ -40,7 +40,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
     </p>
   </div>
   <div class="project-grid-inner">
-    <a href="{{ '/bff/index.html' | relative_url }}" class="project-card">
+    <a href="{{ '/design-system/' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--bff">
         <img src="{{ '/assets/img/bff-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
@@ -79,7 +79,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       </div>
     </a>
 
-    <a href="{{ '/finserv/today/today/index.html' | relative_url }}" class="project-card">
+    <a href="{{ '/dreamforce-demo/' | relative_url }}" class="project-card">
       <div class="project-cover project-cover--financial">
         <img src="{{ '/assets/img/dreamforce-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>

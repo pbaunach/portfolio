@@ -6,6 +6,16 @@ layout: case-study
 <section class="case-study-section case-study-intro">
   <div class="case-study-section-inner">
     <h1 class="case-study-title">Brand Guidelines</h1>
+    <div class="case-study-callout case-study-callout--role">
+      <h3 class="case-study-callout__heading">My Role</h3>
+      <p class="case-study-callout__role-title">Strategic Lead and Brand Designer</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Brand Evolution:</strong> Organized and led leadership offsites to refine brand identities, ensuring the final vision unified company legacies with future product goals.</li>
+        <li><strong>Systems Architecture:</strong> Translated abstract brand values into comprehensive design guidelines and platform-agnostic component libraries for cross-functional use.</li>
+        <li><strong>Stakeholder Alignment:</strong> Acted as the primary bridge between Marketing, Product, and Engineering to ensure the new brand identity was technically feasible and consistently applied.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -17,9 +27,10 @@ layout: case-study
         <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-aspireship" id="tab-aspireship" data-tab="aspireship">Aspireship</button>
       </div>
       <div id="panel-frederick" class="tab-panel active" role="tabpanel" aria-labelledby="tab-frederick">
+        <h2 class="brand-guidelines-tab-title">Frederick Brand Guidelines</h2>
+        <p>This comprehensive guide defined our core identity, from our foundational guiding principles and brand voice to the tactical application of logos and mascot usage. It served as the strategic source of truth that unified our organizational values with a cohesive visual appearance.</p>
         <div class="brand-guidelines-pdf-cta">
-          <p>Here is a PDF of the guidelines if you prefer to view it that way.</p>
-          <a href="{{ '/assets/pdf/Frederick-Brand-Guidelines.pdf' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View PDF</a>
+          <a href="{{ '/assets/pdf/Frederick-Brand-Guidelines.pdf' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View the Frederick Brand Deck (PDF)</a>
         </div>
         <div class="brand-guidelines-gallery">
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/frederick-brand-guidelines/Asset 1.png' | relative_url }}" alt="Frederick brand guidelines 1"></figure>
@@ -48,9 +59,10 @@ layout: case-study
         </div>
       </div>
       <div id="panel-aspireship" class="tab-panel" role="tabpanel" aria-labelledby="tab-aspireship" hidden>
+        <h2 class="brand-guidelines-tab-title">Aspireship Brand Guidelines</h2>
+        <p>This project focused on establishing a clean and modern visual foundation through a refined system of typography, color, and illustration. The goal was to create a lightweight yet distinctive identity that could be easily applied across the product's digital touchpoints.</p>
         <div class="brand-guidelines-pdf-cta">
-          <p>Here is a PDF of the guidelines if you prefer to view it that way.</p>
-          <a href="{{ '/assets/pdf/Aspireship-Design-Guidelines.pdf' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View PDF</a>
+          <a href="{{ '/assets/pdf/Aspireship-Design-Guidelines.pdf' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View the Aspireship Brand Deck (PDF)</a>
         </div>
         <div class="brand-guidelines-gallery">
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/aspireship-brand-guidelines/2x/Asset 1.png' | relative_url }}" alt="Aspireship brand guidelines 1"></figure>
