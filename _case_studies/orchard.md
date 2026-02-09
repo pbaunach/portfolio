@@ -8,7 +8,7 @@ layout: case-study
     <li><a href="#my-role">My Role</a></li>
     <li><a href="#the-problem">The Problem</a></li>
     <li><a href="#the-initial-thesis">The Initial Thesis</a></li>
-    <li><a href="#the-pivot">The Pivot</a></li>
+    <li><a href="#the-pivot">A Shift in Focus</a></li>
     <li><a href="#unexpected-turbulence">Unexpected Turbulence</a></li>
     <li><a href="#the-north-star">The North Star</a></li>
     <li><a href="#impact-learnings">Impact &amp; Learnings</a></li>
@@ -22,11 +22,7 @@ layout: case-study
       <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
     </p>
     <h1 class="case-study-title">Orchard: Embracing the Turbulence</h1>
-    <div class="case-study-callout">
-      <p><strong>My Role – Head of Product and Design</strong></p>
-      <p>(Feb 2024 – Present)</p>
-      <p>I was part of the core team that developed the Orchard concept, leading the design and product strategy from the first sketch through our spin-off into a standalone company.</p>
-    </div>
+    <p class="case-study-my-role">My Role: Principal Product Designer and Product Strategist</p>
   </div>
 </section>
 
@@ -93,12 +89,8 @@ layout: case-study
 <section id="the-pivot" class="major-section major-section--pivot">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>The Pivot: Ditching the Dashboard</h2>
-      <p>With the research in hand, it was time for a reset. We realized that to help students, we had to stop acting like a school system and start acting like a discovery platform.</p>
-    </div>
-    <div class="subsection">
-      <h2>Shifting from "Search" to "Discovery"</h2>
-      <p>The biggest hurdle was the search bar: students didn't know what to ask, so they didn't ask anything.</p>
+      <h2>A Shift in Focus: Moving to Where the Value Was</h2>
+      <p>With the research in hand, it was time for a reset. We realized that to provide real value, we needed to move beyond a traditional management-style dashboard and evolve into a true discovery platform. This shift was driven by the observation that students often felt stuck at the search bar: when they didn't know what to ask, they didn't ask anything. By prioritizing an exploratory experience over a search-heavy one, we created a path for students to discover opportunities they didn't even know existed.</p>
     </div>
     <div class="subsection">
       <h2>The Feed Model</h2>
@@ -168,23 +160,16 @@ layout: case-study
 <section id="the-north-star" class="major-section major-section--north-star">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>Contextual Mentorship</h2>
-      <p>We saw an opportunity to use AI to bridge the gap between "I'm interested in this video" and "Here is exactly how I achieve this goal."</p>
+      <h2>The North Star: A Living Mentor in Every Pocket</h2>
+      <p>This phase is where 20 years of experience met the most modern tools available to turn a vision into a "source of truth" that actually works. We moved from a discovery platform to a Mentorship Engine, focusing on a four-stage journey that guides a student from initial curiosity to a concrete, trackable future.</p>
+      <p>By integrating <strong>contextual mentorship</strong>, we used AI to bridge the gap between "I'm interested in this video" and "Here is exactly how I achieve this goal." This transformed the experience from a passive library into a proactive guide, ensuring that every piece of content served as a stepping stone toward a real-world outcome.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/orchard-screens/orchard-career-exploration.png' | relative_url }}" alt="Orchard career exploration">
       </figure>
     </div>
     <div class="subsection">
-      <h2>The North Star: A Living Mentor in Every Pocket</h2>
-      <p>This phase is where 20 years of experience met the most modern tools available to turn a vision into a "source of truth" that actually works. We moved from a discovery platform to a <strong>Mentorship Engine</strong>, focusing on a four-stage journey that guides a student from initial curiosity to a concrete, trackable future.</p>
-    </div>
-    <div class="subsection">
       <h2>Enter "Orchie"</h2>
       <p>We designed Orchie to be the "Digital Counselor" in the room: a conversational AI that doesn't just regurgitate data, but asks the right questions.</p>
-      <div class="case-study-cta-wrapper">
-        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
-        <span class="case-study-cta-helper">(password protected)</span>
-      </div>
     </div>
     <div class="subsection">
       <h2>Conversational Context</h2>
@@ -214,6 +199,10 @@ layout: case-study
     <div class="subsection">
       <h2>The Technical Edge: High-Fidelity as the "Source of Truth"</h2>
       <p>Because we were moving into uncharted territory with AI-led UX, static mockups weren't enough. I pivoted our entire workflow to AI-assisted high-fidelity prototyping.</p>
+      <div class="case-study-cta-wrapper">
+        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
+        <span class="case-study-cta-helper">(password protected)</span>
+      </div>
     </div>
     <div class="subsection">
       <h2>Building in Cursor.ai</h2>
