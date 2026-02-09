@@ -33,7 +33,13 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
   }
 
   return (
-    <div className="min-h-screen bg-[#0C2235] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-[#0C2235] flex flex-col items-center justify-center p-6 gap-5">
+      <div
+        className="w-full max-w-sm rounded-xl border-2 border-[#38bdf8] bg-[#0f172a]/95 px-5 py-4 text-center text-base font-medium text-[#e5e7eb] shadow-[0_0_24px_rgba(56,189,248,0.25)] md:hidden"
+        role="status"
+      >
+        Best Viewed on a Desktop
+      </div>
       <div className="w-full max-w-sm rounded-xl border border-[#1e3a52] bg-[#0f2d44] p-8 shadow-xl">
         <h1 className="text-xl font-semibold text-[#E4E9ED] mb-1">Orchard Prototype</h1>
         <p className="text-sm text-[#94a3b8] mb-6">This prototype is password protected.</p>
