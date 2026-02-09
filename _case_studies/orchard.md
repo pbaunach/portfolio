@@ -22,7 +22,16 @@ layout: case-study
       <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
     </p>
     <h1 class="case-study-title">Orchard: Embracing the Turbulence</h1>
-    <p class="case-study-my-role">My Role: Principal Product Designer and Product Strategist</p>
+    <div class="case-study-callout case-study-callout--role">
+      <h3 class="case-study-callout__heading">My Role</h3>
+      <p class="case-study-callout__role-title">Product Design and Strategy</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Stakeholder Alignment:</strong> Navigated shifting requirements and complex technical constraints to maintain a unified product vision across cross-functional teams.</li>
+        <li><strong>Strategic Leadership:</strong> Led the critical pivot from a static database to an exploratory discovery platform based on deep user research and evidence.</li>
+        <li><strong>AI Implementation Strategy:</strong> Defined the logic and experience for the contextual mentorship engine to transform passive content into actionable career roadmaps.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
