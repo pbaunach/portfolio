@@ -9,6 +9,36 @@
   <style>
     .navigation__container { padding-top: 2rem; }
     .bff-doc-nav-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin: 0 0 1rem; padding-left: 1.5rem; }
+    @media (max-width: 768px) {
+      .documentation .navigation__container {
+        display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+      }
+      .documentation .main { margin-left: 0 !important; padding-left: 1rem; padding-right: 1rem; }
+      .documentation .page-container > div:first-child { margin-left: 0 !important; max-width: 100%; }
+      .documentation .page-container > div:first-child img { max-width: 100%; height: auto; }
+      .documentation pre { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      .documentation pre code { white-space: pre; }
+      .documentation table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      .documentation .example-container { max-width: 100%; overflow-x: auto; }
+      .documentation .bff-grid { flex-wrap: wrap; }
+      .documentation .bff-grid .bff-col { min-width: 0; }
+      .documentation [class*="bff-size--1-of-2"],
+      .documentation [class*="bff-size--1-of-3"],
+      .documentation [class*="bff-size--1-of-4"],
+      .documentation [class*="bff-size--1-of-5"],
+      .documentation [class*="bff-size--1-of-6"],
+      .documentation [class*="bff-size--2-of-3"],
+      .documentation [class*="bff-size--2-of-4"],
+      .documentation [class*="bff-size--3-of-4"] { width: 100% !important; }
+      .documentation .bff-p-horizontal--large { padding-left: 1rem; padding-right: 1rem; }
+      .documentation h1, .documentation h2 { word-wrap: break-word; }
+    }
   </style>
   <script src="assets/application-71e5e26f0526956ad43bf5323cee6d950d6a74cde5b4965ecb30caecbe4452fb.js"></script>
   <meta name="csrf-param" content="authenticity_token" />
