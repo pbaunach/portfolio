@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Orchard — Product Design Portfolio
+title: Portfolio
 description: Senior-level product design portfolio featuring 0-to-1 product work and high-impact case studies.
 ---
 
@@ -47,7 +47,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       <div class="project-body">
         <h3>Design System: BFF</h3>
         <p class="project-summary">
-          I architected and led the development of a modern, platform-agnostic design system to bridge the gap between two companies following an acquisition.
+          An exploration of building a platform-agnostic, CSS-based design system from the ground up. This project details the creation of &quot;Project BFF,&quot; a scalable framework that unified a fragmented product suite.
         </p>
         <span class="button button-primary">View Design System</span>
       </div>
@@ -60,7 +60,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       <div class="project-body">
         <h3>Brand Guidelines: Frederick & Aspireship</h3>
         <p class="project-summary">
-          Explaining who frederick is
+          A showcase of my ability to define everything from core mission and brand voice to tactical systems of color, typography, and illustration style.
         </p>
         <span class="button button-primary">View Brand Guidelines</span>
       </div>
@@ -73,7 +73,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       <div class="project-body">
         <h3>User Personas: Frederick & Mindbody</h3>
         <p class="project-summary">
-          User personas we identified and used.
+          This project highlights the creation of original, empathy-driven user archetypes at Frederick and their strategic adaptation into the broader Mindbody platform to maintain customer alignment post-acquisition.
         </p>
         <span class="button button-primary">View Personas</span>
       </div>
@@ -86,7 +86,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       <div class="project-body">
         <h3>Demo: Dreamforce '15</h3>
         <p class="project-summary">
-          Dreamforce '15 Financial Services stage demo
+          A high-profile demonstration of the Financial Services Cloud, Salesforce's first industry-vertical product. This project tracks the journey from initial story mapping and architecture to the live, high-fidelity functional prototype presented on stage for a global keynote audience.
         </p>
         <span class="button button-primary">View the Demo</span>
       </div>
