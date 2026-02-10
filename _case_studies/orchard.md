@@ -18,9 +18,6 @@ layout: case-study
 
 <section id="my-role" class="case-study-section case-study-intro">
   <div class="case-study-section-inner">
-    <p class="case-study-wordmark">
-      <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" width="180" height="40">
-    </p>
     <h1 class="case-study-title">Orchard: Embracing the Turbulence</h1>
     <div class="case-study-callout case-study-callout--role">
       <h3 class="case-study-callout__heading">My Role</h3>
