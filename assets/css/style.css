@@ -189,6 +189,7 @@ h1, h2, h3, h4, h5, h6,
 
 .project-grid:not(.project-grid--case-study) .project-grid-inner {
   grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
 }
 
 .project-card {
