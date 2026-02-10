@@ -143,7 +143,6 @@ layout: case-study
       <h2>Unexpected Turbulence: The ChatGPT Shift</h2>
       <p>We had finally found our "signal." The short-form video feed was working, students were exploring, and we felt like we had a handle on the discovery problem. Then, seemingly out of nowhere, ChatGPT was released.</p>
       <p>Suddenly, the world was flooded with AI apps. Most of them felt like dense, academic text blocks that used a lot of verbose "AI lingo" to say very little. It was a technology looking for a problem, and for a moment, it felt like the quiet, human-centric "mentorship" vibe we were building was at risk of being drowned out by the noise.</p>
-      <p>And this seemed like a perfect time to rebrand.</p>
     </div>
     <div class="subsection">
       <h2>Checking the Compass</h2>
