@@ -3,7 +3,9 @@ title: "Demo: Dreamforce '15"
 layout: case-study
 ---
 
-<section id="my-role" class="case-study-section case-study-intro">
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-demo">
+  <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
+  <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <h1 class="case-study-title">Demo: Dreamforce '15</h1>
     <div class="case-study-callout case-study-callout--role">

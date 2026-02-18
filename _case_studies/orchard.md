@@ -16,7 +16,9 @@ layout: case-study
   </ul>
 </nav>
 
-<section id="my-role" class="case-study-section case-study-intro">
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-orchard">
+  <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
+  <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <h1 class="case-study-title">Orchard: Embracing the Turbulence</h1>
     <div class="case-study-callout case-study-callout--role">
@@ -29,6 +31,10 @@ layout: case-study
         <li><strong>AI Implementation Strategy:</strong> Defined the logic and experience for the contextual mentorship engine to transform passive content into actionable career roadmaps.</li>
       </ul>
     </div>
+    <p class="case-study-intro-cta">
+      <button type="button" class="button button-ghost js-screens-carousel-open" aria-label="Open screens carousel">Just the Screens Please</button>
+      <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" class="button button-ghost" target="_blank" rel="noopener noreferrer">View Prototype</a>
+    </p>
   </div>
 </section>
 

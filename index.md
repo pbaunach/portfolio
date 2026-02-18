@@ -4,31 +4,37 @@ title: Portfolio
 description: Senior-level product design portfolio featuring 0-to-1 product work and high-impact case studies.
 ---
 
-<section class="intro">
-  <p class="intro-copy">
-    Well hello!<br><br>
-    I'm <span class="intro-emphasis">Peter Baunach</span>, a <span class="intro-emphasis">Product Designer</span> and <span class="intro-emphasis">Strategist</span>. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that every iteration is another step toward finding the right answer.
-  </p>
-</section>
+<section class="home-hero">
+  <div class="home-hero-bg parallax-hero-bg" aria-hidden="true"></div>
+  <div class="home-hero-dots parallax-hero-dots" aria-hidden="true"></div>
+  <div class="home-hero-inner">
+    <div class="intro">
+      <p class="intro-copy">
+        Well hello!<br><br>
+        I'm <span class="intro-emphasis">Peter Baunach</span>, a <span class="intro-emphasis">Product Designer</span> and <span class="intro-emphasis">Strategist</span>. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that every iteration is another step toward finding the right answer.
+      </p>
+    </div>
 
-<section class="project-grid project-grid--case-study">
-  <div class="project-grid-header">
-    <h2 class="section-title">Product Case Study</h2>
-  </div>
+    <div class="project-grid project-grid--case-study">
+      <div class="project-grid-header">
+        <h2 class="section-title">Product Case Study</h2>
+      </div>
 
-  <div class="project-grid-inner">
-    <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card project-card--feature">
-      <div class="project-cover project-cover--orchard project-cover--logo-left">
-        <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" class="project-cover-wordmark">
+      <div class="project-grid-inner">
+        <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card project-card--feature">
+          <div class="project-cover project-cover--orchard project-cover--logo-left">
+            <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" class="project-cover-wordmark">
+          </div>
+          <div class="project-body">
+            <h3>Orchard: Embracing the Turbulence</h3>
+            <p class="project-summary">
+              Building a supportive mentor that helps students find clarity and assurance in an uncertain future.
+            </p>
+            <span class="button button-primary">Read Case Study</span>
+          </div>
+        </a>
       </div>
-      <div class="project-body">
-        <h3>Orchard: Embracing the Turbulence</h3>
-        <p class="project-summary">
-          Building a supportive mentor that helps students find clarity and assurance in an uncertain future.
-        </p>
-        <span class="button button-primary">Read Case Study</span>
-      </div>
-    </a>
+    </div>
   </div>
 </section>
 

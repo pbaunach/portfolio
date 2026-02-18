@@ -3,7 +3,9 @@ title: "Design System: BFF"
 layout: case-study
 ---
 
-<section id="my-role" class="case-study-section case-study-intro">
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-bff">
+  <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
+  <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <h1 class="case-study-title">Design System: BFF</h1>
     <div class="case-study-callout case-study-callout--role">
@@ -16,6 +18,9 @@ layout: case-study
         <li><strong>Operational Strategy:</strong> Established a new cross-functional design process, turning a complex acquisition into a streamlined, collaborative workflow.</li>
       </ul>
     </div>
+    <p class="case-study-intro-cta">
+      <a href="{{ '/bff/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View BFF Documentation</a>
+    </p>
   </div>
 </section>
 
