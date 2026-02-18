@@ -51,9 +51,9 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <img src="{{ '/assets/img/bff-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
-        <h3>Design System: BFF</h3>
+        <h3>Building a Shared Language (Project BFF)</h3>
         <p class="project-summary">
-          An exploration of building a platform-agnostic, CSS-based design system from the ground up. This project details the creation of &quot;Project BFF,&quot; a scalable framework that unified a fragmented product suite.
+          I built a platform-agnostic, CSS-based design system from the ground up to unify a fragmented product suite. This project details how I established the architecture and components that scaled across our entire ecosystem, drastically simplifying the handoff between design and engineering.
         </p>
         <span class="button button-primary">View Design System</span>
       </div>
@@ -64,9 +64,9 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <img src="{{ '/assets/img/fred+aspire-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
-        <h3>Brand Guidelines: Frederick & Aspireship</h3>
+        <h3>Brand Identity: Frederick &amp; Aspireship</h3>
         <p class="project-summary">
-          A showcase of my ability to define everything from core mission and brand voice to tactical systems of color, typography, and illustration style.
+          I led the evolution of our brand from a core mission and voice down to the tactical systems of color, type, and illustration. This project shows how I created a cohesive visual story that aligns our high-level business goals with a scalable, everyday design language.
         </p>
         <span class="button button-primary">View Brand Guidelines</span>
       </div>
@@ -77,9 +77,9 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <img src="{{ '/assets/img/personas-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
-        <h3>User Personas: Frederick & Mindbody</h3>
+        <h3>The Human Side of Acquisition: Frederick &amp; Mindbody</h3>
         <p class="project-summary">
-          This project highlights the creation of original, empathy-driven user archetypes at Frederick and their strategic adaptation into the broader Mindbody platform to maintain customer alignment post-acquisition.
+          I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader Mindbody platform, ensuring our product decisions remained grounded in real user needs during the transition.
         </p>
         <span class="button button-primary">View Personas</span>
       </div>
