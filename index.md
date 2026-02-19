@@ -10,7 +10,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
   <div class="home-hero-inner">
     <div class="intro">
       <p class="intro-copy">
-        Well hello!<br><br>
+        Greetings!<br><br>
         I'm <span class="intro-emphasis">Peter Baunach</span>, a <span class="intro-emphasis">Product Designer</span> and <span class="intro-emphasis">Strategist</span>. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that every iteration is another step toward finding the right answer.
       </p>
     </div>
