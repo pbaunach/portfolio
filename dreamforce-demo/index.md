@@ -3,31 +3,26 @@ title: "Demo: Dreamforce '15"
 layout: case-study
 ---
 
-<section id="my-role" class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-demo">
+<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-demo case-study-intro--title-only">
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <h1 class="case-study-title">Demo: Dreamforce '15</h1>
-    <div class="case-study-callout case-study-callout--role">
-      <h3 class="case-study-callout__heading">My Role</h3>
-      <p class="case-study-callout__role-title">Product Strategy, Innovation, and User Experience</p>
-      <h3 class="case-study-callout__heading">My Contributions</h3>
-      <ul>
-        <li><strong>Narrative Strategy:</strong> Facilitated story mapping and whiteboarding sessions to distill complex technical capabilities into a compelling, stage-ready user narrative.</li>
-        <li><strong>Experience Architecture:</strong> Designed the end-to-end user flows and mindmaps that served as the blueprint for the innovation demo.</li>
-        <li><strong>Rapid High-Fidelity Execution:</strong> Developed high-fidelity mockups and a fully interactive prototype that allowed stakeholders to visualize and stress-test the vision before the live event.</li>
-      </ul>
+    <!--
+    <div class="case-study-hero-dashboard">
+      <img src="{{ '/assets/img/dreamforce-demo/demo-hero.png' | relative_url }}" alt="Dreamforce demo">
     </div>
+    -->
   </div>
 </section>
 
 <nav class="case-study-nav" aria-label="On this page">
   <ul>
-    <li><a href="#my-role">My Role</a></li>
     <li><a href="#story-mapping">Story Mapping</a></li>
     <li><a href="#user-flow">User Flow</a></li>
     <li><a href="#mockups">Mockups</a></li>
     <li><a href="#prototype">Prototype</a></li>
+    <li><a href="#my-role">My Role</a></li>
   </ul>
 </nav>
 
@@ -75,6 +70,21 @@ layout: case-study
         <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">Check out the Prototype</a>
         <span class="case-study-cta-helper">(password protected)</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
+  <div class="case-study-section-inner">
+    <h2 class="case-study-title">My Role</h2>
+    <div class="case-study-callout case-study-callout--role">
+      <p class="case-study-callout__role-title">Product Strategy, Innovation, and User Experience</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Narrative Strategy:</strong> Facilitated story mapping and whiteboarding sessions to distill complex technical capabilities into a compelling, stage-ready user narrative.</li>
+        <li><strong>Experience Architecture:</strong> Designed the end-to-end user flows and mindmaps that served as the blueprint for the innovation demo.</li>
+        <li><strong>Rapid High-Fidelity Execution:</strong> Developed high-fidelity mockups and a fully interactive prototype that allowed stakeholders to visualize and stress-test the vision before the live event.</li>
+      </ul>
     </div>
   </div>
 </section>

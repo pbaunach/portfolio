@@ -6,11 +6,16 @@ layout: default
   <section class="case-study-body">
     {{ content }}
   </section>
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="View image full size" aria-hidden="true">
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="View image" aria-hidden="true">
     <div class="lightbox-backdrop"></div>
     <div class="lightbox-inner">
       <button type="button" class="lightbox-close" aria-label="Close lightbox">&times;</button>
-      <img class="lightbox-img" src="" alt="" />
+      <button type="button" class="lightbox-prev" aria-label="Previous image">&larr;</button>
+      <div class="lightbox-img-wrap" title="Click to zoom in or out">
+        <img class="lightbox-img" src="" alt="" />
+      </div>
+      <button type="button" class="lightbox-next" aria-label="Next image">&rarr;</button>
+      <div class="lightbox-counter" aria-live="polite"></div>
     </div>
   </div>
   {% if page.title contains "Orchard" %}

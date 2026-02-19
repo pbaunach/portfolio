@@ -1,23 +1,18 @@
 ---
-title: "User Personas"
+title: "The Human Side of Acquisition: Frederick & Mindbody"
 layout: case-study
 ---
 
-<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-personas">
+<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-personas case-study-intro--title-only">
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">User Personas</h1>
-    <div class="case-study-callout case-study-callout--role">
-      <h3 class="case-study-callout__heading">My Role</h3>
-      <p class="case-study-callout__role-title">Designer, Facilitator, and Stakeholder</p>
-      <h3 class="case-study-callout__heading">My Contributions</h3>
-      <ul>
-        <li><strong>Strategic Research Leadership:</strong> Organized and moderated leadership offsites to transform raw customer data into actionable, empathy-driven user archetypes.</li>
-        <li><strong>Knowledge Synthesis:</strong> Translated qualitative session insights into the first iteration of our persona framework, creating a shared language for the entire organization.</li>
-        <li><strong>Acquisition Integration:</strong> Spearheaded the evolution of our original research to ensure our user insights remained relevant and valuable within a new, larger corporate ecosystem.</li>
-      </ul>
+    <h1 class="case-study-title">The Human Side of Acquisition: Frederick & Mindbody</h1>
+    <!--
+    <div class="case-study-hero-dashboard">
+      <img src="{{ '/assets/img/mindbody-personas/persona-lifestyle-liv.png' | relative_url }}" alt="Persona: Liv">
     </div>
+    -->
   </div>
 </section>
 
@@ -81,3 +76,18 @@ layout: case-study
   });
 })();
 </script>
+
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
+  <div class="case-study-section-inner">
+    <h2 class="case-study-title">My Role</h2>
+    <div class="case-study-callout case-study-callout--role">
+      <p class="case-study-callout__role-title">Designer, Facilitator, and Stakeholder</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Strategic Research Leadership:</strong> Organized and moderated leadership offsites to transform raw customer data into actionable, empathy-driven user archetypes.</li>
+        <li><strong>Knowledge Synthesis:</strong> Translated qualitative session insights into the first iteration of our persona framework, creating a shared language for the entire organization.</li>
+        <li><strong>Acquisition Integration:</strong> Spearheaded the evolution of our original research to ensure our user insights remained relevant and valuable within a new, larger corporate ecosystem.</li>
+      </ul>
+    </div>
+  </div>
+</section>

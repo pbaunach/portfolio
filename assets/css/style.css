@@ -626,6 +626,74 @@ a.project-card {
   z-index: 1;
 }
 
+/* Orchard hero with dashboard image sitting on bottom, peeking out */
+.case-study-intro--with-dashboard {
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.case-study-intro--with-dashboard .case-study-section-inner {
+  padding-bottom: 2rem;
+}
+.case-study-intro--with-dashboard .case-study-title {
+  text-align: center;
+}
+
+/* Hero with title only (no dashboard image): vertical center, title padding only */
+.case-study-intro--title-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+.case-study-intro--title-only .case-study-section-inner {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.case-study-intro--title-only .case-study-title {
+  margin: 0;
+  margin-bottom: 0;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+.case-study-intro--title-only .case-study-section-inner h1.case-study-title,
+.case-study-intro--title-only .case-study-body .case-study-title {
+  margin-bottom: 0;
+}
+
+/* Center hero titles on Design System, Brand Guidelines, Personas, Demo pages */
+.case-study-intro--theme-bff .case-study-title,
+.case-study-intro--theme-brand .case-study-title,
+.case-study-intro--theme-personas .case-study-title,
+.case-study-intro--theme-demo .case-study-title {
+  text-align: center;
+}
+
+.case-study-hero-dashboard {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -40px;
+}
+.case-study-hero-dashboard img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.case-study-intro--role-only {
+  padding-top: 2rem;
+}
+
 /* Theme: Orchard / Home (teal, cyan, deep blue) */
 .case-study-intro--theme-orchard .case-study-hero-bg {
   background:
@@ -637,13 +705,13 @@ a.project-card {
     linear-gradient(to bottom, rgba(8, 25, 48, 0.97) 0%, rgba(12, 35, 64, 0.94) 35%, rgba(15, 45, 85, 0.3) 60%, rgba(12, 30, 58, 0.4) 85%, rgba(8, 25, 48, 0.95) 100%);
 }
 
-/* Theme: BFF – green #54d48a */
+/* Theme: BFF – vibrant green #07e8a2 (design-system hero only) */
 .case-study-intro--theme-bff .case-study-hero-bg {
   background:
-    radial-gradient(ellipse 32% 140% at 35% 102%, rgba(255, 255, 255, 0.04) 0%, rgba(84, 212, 138, 0.16) 20%, transparent 60%),
-    radial-gradient(ellipse 28% 130% at 70% 100%, rgba(84, 212, 138, 0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 22% 120% at 50% 100%, rgba(84, 212, 138, 0.08) 0%, transparent 52%),
-    linear-gradient(to bottom, rgba(5, 35, 22, 0.96) 0%, rgba(8, 48, 30, 0.93) 45%, rgba(12, 55, 35, 0.4) 70%, rgba(6, 32, 20, 0.94) 100%);
+    radial-gradient(ellipse 32% 140% at 35% 102%, rgba(7, 232, 162, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse 28% 130% at 70% 100%, rgba(7, 232, 162, 0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 22% 120% at 50% 100%, rgba(7, 232, 162, 0.2) 0%, transparent 52%),
+    linear-gradient(to bottom, rgba(4, 28, 20, 0.97) 0%, rgba(6, 38, 28, 0.94) 45%, rgba(8, 50, 36, 0.6) 70%, rgba(5, 32, 24, 0.96) 100%);
 }
 
 /* Theme: Brand Guidelines – purple #4810a4, dark blue #001226 */
@@ -691,10 +759,10 @@ a.project-card {
   }
   .case-study-intro--theme-bff .case-study-hero-bg {
     background:
-      radial-gradient(ellipse 16% 140% at 35% 102%, rgba(255, 255, 255, 0.04) 0%, rgba(84, 212, 138, 0.16) 20%, transparent 60%),
-      radial-gradient(ellipse 14% 130% at 70% 100%, rgba(84, 212, 138, 0.12) 0%, transparent 55%),
-      radial-gradient(ellipse 11% 120% at 50% 100%, rgba(84, 212, 138, 0.08) 0%, transparent 52%),
-      linear-gradient(to bottom, rgba(5, 35, 22, 0.96) 0%, rgba(8, 48, 30, 0.93) 45%, rgba(12, 55, 35, 0.4) 70%, rgba(6, 32, 20, 0.94) 100%);
+      radial-gradient(ellipse 16% 140% at 35% 102%, rgba(7, 232, 162, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse 14% 130% at 70% 100%, rgba(7, 232, 162, 0.25) 0%, transparent 55%),
+      radial-gradient(ellipse 11% 120% at 50% 100%, rgba(7, 232, 162, 0.2) 0%, transparent 52%),
+      linear-gradient(to bottom, rgba(4, 28, 20, 0.97) 0%, rgba(6, 38, 28, 0.94) 45%, rgba(8, 50, 36, 0.6) 70%, rgba(5, 32, 24, 0.96) 100%);
   }
   .case-study-intro--theme-brand .case-study-hero-bg {
     background:
@@ -800,6 +868,19 @@ a.project-card {
   margin-bottom: 1.5rem;
 }
 
+/* CTA above a section title (e.g. View BFF Documentation in Design System Screens) */
+.case-study-intro-cta--above-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.subsection-cta-center {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
 .subsection:not(:first-child) {
   border-top: 1px solid rgba(148, 163, 184, 0.15);
   padding-top: 4rem;
@@ -889,7 +970,7 @@ a.project-card {
 .case-study-section-inner h1.case-study-title {
   font-size: 1.7rem;
   line-height: 1.2;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
   font-weight: 650;
 }
 
@@ -1150,7 +1231,7 @@ a.project-card {
   margin-bottom: 0;
 }
 
-/* Lightbox */
+/* Lightbox: viewport-fit by default; click image to zoom; carousel prev/next */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1158,14 +1239,15 @@ a.project-card {
   width: 100vw;
   max-width: 100%;
   height: 100vh;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.9);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
-  overflow: auto;
-  overflow-x: auto;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -1174,33 +1256,73 @@ a.project-card {
   visibility: visible;
 }
 
+/* When zoomed, allow scroll to pan */
+.lightbox.is-open.is-zoomed {
+  overflow: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
   cursor: pointer;
 }
 
-/* Inner grows with image; min-height 100vh so small images stay centered; align to start so scroll reaches all edges */
 .lightbox-inner {
   position: relative;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   z-index: 1;
-  min-height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
   box-sizing: border-box;
+}
+
+.lightbox.is-open.is-zoomed .lightbox-inner {
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  padding: 4rem 5rem 4rem 4rem;
+}
+
+/* Wrapper constrains image to viewport until zoomed; click toggles zoom */
+.lightbox-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+  max-height: 100vh;
+  cursor: zoom-in;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.lightbox.is-zoomed .lightbox-img-wrap {
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+  flex: none;
 }
 
 .lightbox-img {
   width: auto;
   height: auto;
-  max-width: none;
-  max-height: none;
-  margin: auto;
+  max-width: 100%;
+  max-height: 100vh;
   object-fit: contain;
   border-radius: var(--radius-lg);
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
   display: block;
+  pointer-events: none;
+}
+
+.lightbox.is-zoomed .lightbox-img {
+  max-width: none;
+  max-height: none;
 }
 
 .lightbox-close {
@@ -1234,26 +1356,90 @@ a.project-card {
   outline-offset: 2px;
 }
 
-/* Mobile: constrain lightbox to viewport (old behavior), no scrolling */
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-prev:focus,
+.lightbox-next:hover,
+.lightbox-next:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-prev:focus,
+.lightbox-next:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.lightbox-prev.is-hidden,
+.lightbox-next.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
-  .lightbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
   .lightbox-inner {
-    max-width: 95vw;
-    max-height: 90vh;
-    min-height: 0;
+    gap: 0.5rem;
   }
 
-  .lightbox-img {
-    max-width: 100%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
+  .lightbox.is-open.is-zoomed .lightbox-inner {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-next {
+    right: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    transition: none;
   }
 }
 
@@ -1417,6 +1603,10 @@ a.project-card {
 .case-study-intro-cta .button + a {
   margin-left: 0.75rem;
 }
+.case-study-cta--problem {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
 @media (max-width: 768px) {
   .screens-carousel-modal {
     padding: 2rem 1rem 4rem;
@@ -1536,10 +1726,6 @@ a.project-card {
     padding: 1rem;
   }
 
-  .site-main {
-    padding-top: 2rem;
-  }
-
   .site-main--home {
     padding-top: 0;
   }
@@ -1566,6 +1752,10 @@ a.project-card {
 
   .case-study-card {
     padding: 1rem 1.2rem;
+  }
+
+  .case-study-hero-dashboard {
+    margin-bottom: -65px;
   }
 
   .container {

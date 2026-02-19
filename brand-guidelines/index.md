@@ -1,23 +1,18 @@
 ---
-title: "Brand Guidelines"
+title: "Brand Identity: Frederick & Aspireship"
 layout: case-study
 ---
 
-<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-brand">
+<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-brand case-study-intro--title-only">
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">Brand Guidelines</h1>
-    <div class="case-study-callout case-study-callout--role">
-      <h3 class="case-study-callout__heading">My Role</h3>
-      <p class="case-study-callout__role-title">Strategic Lead and Brand Designer</p>
-      <h3 class="case-study-callout__heading">My Contributions</h3>
-      <ul>
-        <li><strong>Brand Evolution:</strong> Organized and led leadership offsites to refine brand identities, ensuring the final vision unified company legacies with future product goals.</li>
-        <li><strong>Systems Architecture:</strong> Translated abstract brand values into comprehensive design guidelines and platform-agnostic component libraries for cross-functional use.</li>
-        <li><strong>Stakeholder Alignment:</strong> Acted as the primary bridge between Marketing, Product, and Engineering to ensure the new brand identity was technically feasible and consistently applied.</li>
-      </ul>
+    <h1 class="case-study-title">Brand Identity: Frederick & Aspireship</h1>
+    <!--
+    <div class="case-study-hero-dashboard">
+      <img src="{{ '/assets/img/aspireship-brand-guidelines/brand-hero.png' | relative_url }}" alt="Brand guidelines">
     </div>
+    -->
   </div>
 </section>
 
@@ -105,3 +100,18 @@ layout: case-study
   });
 })();
 </script>
+
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
+  <div class="case-study-section-inner">
+    <h2 class="case-study-title">My Role</h2>
+    <div class="case-study-callout case-study-callout--role">
+      <p class="case-study-callout__role-title">Strategic Lead and Brand Designer</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Brand Evolution:</strong> Organized and led leadership offsites to refine brand identities, ensuring the final vision unified company legacies with future product goals.</li>
+        <li><strong>Systems Architecture:</strong> Translated abstract brand values into comprehensive design guidelines and platform-agnostic component libraries for cross-functional use.</li>
+        <li><strong>Stakeholder Alignment:</strong> Acted as the primary bridge between Marketing, Product, and Engineering to ensure the new brand identity was technically feasible and consistently applied.</li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,42 +1,37 @@
 ---
-title: "Design System: BFF"
+title: "Building a Shared Language (Project BFF)"
 layout: case-study
 ---
 
-<section id="my-role" class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-bff">
+<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-bff case-study-intro--title-only">
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">Design System: BFF</h1>
-    <div class="case-study-callout case-study-callout--role">
-      <h3 class="case-study-callout__heading">My Role</h3>
-      <p class="case-study-callout__role-title">Design, Code, Strategy, and Facilitation</p>
-      <h3 class="case-study-callout__heading">My Contributions</h3>
-      <ul>
-        <li><strong>Cross-Functional Alignment:</strong> Secured buy-in from Engineering, Product, and Marketing by demonstrating how a unified system would accelerate our development cycles.</li>
-        <li><strong>Systems Architecture:</strong> Designed the core component library and coded the front-end framework to ensure the system was platform-agnostic and easy for engineers to adopt.</li>
-        <li><strong>Operational Strategy:</strong> Established a new cross-functional design process, turning a complex acquisition into a streamlined, collaborative workflow.</li>
-      </ul>
+    <h1 class="case-study-title">Building a Shared Language (Project BFF)</h1>
+    <!--
+    <div class="case-study-hero-dashboard">
+      <img src="{{ '/assets/img/design-system/bff-hero.png' | relative_url }}" alt="BFF design system">
     </div>
-    <p class="case-study-intro-cta">
-      <a href="{{ '/bff/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View BFF Documentation</a>
-    </p>
+    -->
   </div>
 </section>
 
 <nav class="case-study-nav" aria-label="On this page">
   <ul>
-    <li><a href="#my-role">My Role</a></li>
     <li><a href="#design-system-screens">Design System Screens</a></li>
     <li><a href="#design-system-code">Design System Code</a></li>
     <li><a href="#design-system-in-action">Design System in Action</a></li>
     <li><a href="#design-project-framework">Design Project Framework</a></li>
+    <li><a href="#my-role">My Role</a></li>
   </ul>
 </nav>
 
 <section id="design-system-screens" class="major-section major-section--design-a">
   <div class="major-section-inner">
     <div class="subsection">
+      <p class="case-study-intro-cta case-study-intro-cta--above-title">
+        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View BFF Documentation</a>
+      </p>
       <h2>Design System Screens</h2>
       <p>We built the system using Atomic Design principles to ensure every component was modular, reusable, and logically structured. This allowed us to scale the interface rapidly while maintaining total visual consistency across both platforms.</p>
       <h3>Atoms</h3>
@@ -63,7 +58,9 @@ layout: case-study
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/design-system/bff-example.png' | relative_url }}" alt="BFF design system documentation example">
       </figure>
-      <a href="{{ '/bff/index.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View Full Documentation</a>
+      <p class="subsection-cta-center">
+        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View Full Documentation</a>
+      </p>
     </div>
   </div>
 </section>
@@ -93,6 +90,21 @@ layout: case-study
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/design-system/project-framework.png' | relative_url }}" alt="Design project framework">
       </figure>
+    </div>
+  </div>
+</section>
+
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
+  <div class="case-study-section-inner">
+    <h2 class="case-study-title">My Role</h2>
+    <div class="case-study-callout case-study-callout--role">
+      <p class="case-study-callout__role-title">Design, Code, Strategy, and Facilitation</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Cross-Functional Alignment:</strong> Secured buy-in from Engineering, Product, and Marketing by demonstrating how a unified system would accelerate our development cycles.</li>
+        <li><strong>Systems Architecture:</strong> Designed the core component library and coded the front-end framework to ensure the system was platform-agnostic and easy for engineers to adopt.</li>
+        <li><strong>Operational Strategy:</strong> Established a new cross-functional design process, turning a complex acquisition into a streamlined, collaborative workflow.</li>
+      </ul>
     </div>
   </div>
 </section>

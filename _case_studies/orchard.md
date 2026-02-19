@@ -5,7 +5,6 @@ layout: case-study
 
 <nav class="case-study-nav" aria-label="On this page">
   <ul>
-    <li><a href="#my-role">My Role</a></li>
     <li><a href="#the-problem">The Problem</a></li>
     <li><a href="#the-initial-thesis">The Initial Thesis</a></li>
     <li><a href="#the-pivot">A Shift in Focus</a></li>
@@ -13,28 +12,18 @@ layout: case-study
     <li><a href="#the-north-star">The North Star</a></li>
     <li><a href="#impact-learnings">Impact &amp; Learnings</a></li>
     <li><a href="#prototype">Prototype</a></li>
+    <li><a href="#my-role">My Role</a></li>
   </ul>
 </nav>
 
-<section id="my-role" class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-orchard">
+<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-orchard case-study-intro--with-dashboard">
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <h1 class="case-study-title">Orchard: Embracing the Turbulence</h1>
-    <div class="case-study-callout case-study-callout--role">
-      <h3 class="case-study-callout__heading">My Role</h3>
-      <p class="case-study-callout__role-title">Product Design and Strategy</p>
-      <h3 class="case-study-callout__heading">My Contributions</h3>
-      <ul>
-        <li><strong>Stakeholder Alignment:</strong> Navigated shifting requirements and complex technical constraints to maintain a unified product vision across cross-functional teams.</li>
-        <li><strong>Strategic Leadership:</strong> Led the critical pivot from a static database to an exploratory discovery platform based on deep user research and evidence.</li>
-        <li><strong>AI Implementation Strategy:</strong> Defined the logic and experience for the contextual mentorship engine to transform passive content into actionable career roadmaps.</li>
-      </ul>
+    <div class="case-study-hero-dashboard">
+      <img src="{{ '/assets/img/orchard-screens/orchard-dashboard.png' | relative_url }}" alt="Orchard dashboard">
     </div>
-    <p class="case-study-intro-cta">
-      <button type="button" class="button button-ghost js-screens-carousel-open" aria-label="Open screens carousel">Just the Screens Please</button>
-      <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" class="button button-ghost" target="_blank" rel="noopener noreferrer">View Prototype</a>
-    </p>
   </div>
 </section>
 
@@ -206,6 +195,9 @@ layout: case-study
     <div class="subsection">
       <h2>The Ability to Evolve</h2>
       <p>Because high schoolers change their minds, the roadmap is modular. If a student hits a milestone and realizes they want to pivot, Orchie recalibrates the plan in real-time, removing the "failure" stigma of changing paths.</p>
+      <figure class="case-study-screenshot">
+        <img src="{{ '/assets/img/orchard-screens/orchard-dashboard-minimize.png' | relative_url }}" alt="Orchard dashboard minimize view">
+      </figure>
     </div>
     <div class="subsection">
       <h2>The Technical Edge: High-Fidelity as the "Source of Truth"</h2>
@@ -259,6 +251,21 @@ layout: case-study
         <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
         <span class="case-study-cta-helper">(password protected)</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
+  <div class="case-study-section-inner">
+    <h2 class="case-study-title">My Role</h2>
+    <div class="case-study-callout case-study-callout--role">
+      <p class="case-study-callout__role-title">Product Design and Strategy</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Stakeholder Alignment:</strong> Navigated shifting requirements and complex technical constraints to maintain a unified product vision across cross-functional teams.</li>
+        <li><strong>Strategic Leadership:</strong> Led the critical pivot from a static database to an exploratory discovery platform based on deep user research and evidence.</li>
+        <li><strong>AI Implementation Strategy:</strong> Defined the logic and experience for the contextual mentorship engine to transform passive content into actionable career roadmaps.</li>
+      </ul>
     </div>
   </div>
 </section>
