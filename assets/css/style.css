@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6,
   padding-bottom: 3rem;
 }
 
-/* Home: hero = intro + featured product case study, abstract parallax background */
+/* Home: hero = intro + featured product case study, rainbow background */
 .home-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -131,44 +131,56 @@ h1, h2, h3, h4, h5, h6,
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #08121d;
-}
-/* Aurora-style gradient: navy sky + vertical plumes rising from bottom (parallax via JS) */
-.home-hero-bg {
-  position: absolute;
-  top: -15%;
-  left: -15%;
-  right: -15%;
-  bottom: -15%;
-  z-index: 0;
-  background:
-    /* Added accents: #00aeef, #da4453, #4810a4 */
-    radial-gradient(ellipse 22% 110% at 15% 95%, rgba(0, 174, 239, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse 20% 100% at 88% 98%, rgba(218, 68, 83, 0.08) 0%, transparent 52%),
-    radial-gradient(ellipse 28% 120% at 55% 100%, rgba(72, 16, 164, 0.09) 0%, transparent 58%),
-    /* Vertical aurora pillars – teal, cyan, deep blue */
-    radial-gradient(ellipse 26% 130% at 20% 102%, rgba(255, 255, 255, 0.04) 0%, rgba(20, 184, 166, 0.14) 18%, transparent 62%),
-    radial-gradient(ellipse 32% 140% at 45% 100%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 182, 212, 0.12) 15%, rgba(34, 211, 238, 0.05) 35%, transparent 65%),
-    radial-gradient(ellipse 28% 130% at 65% 100%, rgba(255, 255, 255, 0.03) 0%, rgba(20, 184, 166, 0.09) 20%, rgba(6, 182, 212, 0.06) 40%, transparent 65%),
-    radial-gradient(ellipse 24% 130% at 80% 100%, rgba(255, 255, 255, 0.02) 0%, rgba(12, 35, 64, 0.18) 12%, rgba(15, 45, 85, 0.1) 32%, transparent 62%),
-    radial-gradient(ellipse 20% 120% at 35% 100%, rgba(20, 184, 166, 0.1) 0%, transparent 55%),
-    /* Sky: deep navy → blue / indigo mid → navy bottom */
-    linear-gradient(to bottom, rgba(8, 25, 48, 0.97) 0%, rgba(12, 35, 64, 0.94) 35%, rgba(15, 45, 85, 0.3) 60%, rgba(12, 30, 58, 0.4) 85%, rgba(8, 25, 48, 0.95) 100%);
-  will-change: transform;
+  background: rgb(8, 25, 48);
 }
 
-/* Desktop: narrower plumes so aurora stays vertical, not stretched */
-@media (min-width: 769px) {
-  .home-hero-bg {
-    background:
-      radial-gradient(ellipse 11% 110% at 15% 95%, rgba(0, 174, 239, 0.1) 0%, transparent 55%),
-      radial-gradient(ellipse 10% 100% at 88% 98%, rgba(218, 68, 83, 0.08) 0%, transparent 52%),
-      radial-gradient(ellipse 14% 120% at 55% 100%, rgba(72, 16, 164, 0.09) 0%, transparent 58%),
-      radial-gradient(ellipse 13% 130% at 20% 102%, rgba(255, 255, 255, 0.04) 0%, rgba(20, 184, 166, 0.14) 18%, transparent 62%),
-      radial-gradient(ellipse 16% 140% at 45% 100%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 182, 212, 0.12) 15%, rgba(34, 211, 238, 0.05) 35%, transparent 65%),
-      radial-gradient(ellipse 14% 130% at 65% 100%, rgba(255, 255, 255, 0.03) 0%, rgba(20, 184, 166, 0.09) 20%, rgba(6, 182, 212, 0.06) 40%, transparent 65%),
-      radial-gradient(ellipse 12% 130% at 80% 102%, rgba(255, 255, 255, 0.02) 0%, rgba(12, 35, 64, 0.18) 12%, rgba(15, 45, 85, 0.1) 32%, transparent 62%),
-      radial-gradient(ellipse 10% 120% at 35% 100%, rgba(20, 184, 166, 0.1) 0%, transparent 55%),
-      linear-gradient(to bottom, rgba(8, 25, 48, 0.97) 0%, rgba(12, 35, 64, 0.94) 35%, rgba(15, 45, 85, 0.3) 60%, rgba(12, 30, 58, 0.4) 85%, rgba(8, 25, 48, 0.95) 100%);
+/* Animated gradient: tall strip scrolls vertically for slow color transitions */
+.home-hero-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-hero-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000vh;
+  opacity: 0.9;
+  background: linear-gradient(
+    to bottom,
+    rgb(8, 25, 48) 0%,
+    rgb(101, 91, 239) 10%,
+    rgb(250, 40, 191) 25%,
+    rgb(255, 70, 101) 40%,
+    rgb(251, 222, 78) 55%,
+    rgb(0, 251, 234) 70%,
+    rgb(85, 93, 239) 85%,
+    rgb(8, 25, 48) 100%
+  );
+  animation: hero-gradient-slide 50s ease-in-out infinite;
+}
+
+@keyframes hero-gradient-slide {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-450vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-gradient::after {
+    animation: none;
+    height: 100%;
   }
 }
 
@@ -189,7 +201,7 @@ h1, h2, h3, h4, h5, h6,
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(2, 8, 23, 0.55);
+  background: rgba(2, 8, 23, 0.72);
   z-index: 0.5;
 }
 .home-hero-inner {
@@ -197,11 +209,23 @@ h1, h2, h3, h4, h5, h6,
   z-index: 1;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0;
+  padding: 2rem;
+  background: rgba(8, 25, 48, 0.15);
+  border-radius: var(--radius-lg);
 }
 .home-hero .intro {
   margin-bottom: 2.5rem;
 }
+
+.home-hero .intro-copy,
+.home-hero .intro-copy span {
+  color: #fff;
+}
+
+.home-hero .section-title {
+  color: #fff;
+}
+
 .site-footer {
   border-top: 1px solid rgba(148, 163, 184, 0.3);
   padding: 1.5rem 0 2rem;
@@ -221,6 +245,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 300;
   font-family: 'Inter', system-ui, sans-serif;
   color: #E4E9ED;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 0, 0, 0.35);
 }
 
 .intro-copy .intro-emphasis {
@@ -603,7 +628,7 @@ a.project-card {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(2, 8, 23, 0.55);
+  background: transparent;
   z-index: 0.5;
 }
 .case-study-intro--hero .case-study-hero-bg,
@@ -658,7 +683,7 @@ a.project-card {
 .case-study-intro--title-only .case-study-title {
   margin: 0;
   margin-bottom: 0;
-  padding: 2.5rem 0;
+  padding: 0 0 2.5rem 0;
   text-align: center;
 }
 .case-study-intro--title-only .case-study-section-inner h1.case-study-title,
@@ -694,102 +719,57 @@ a.project-card {
   padding-top: 2rem;
 }
 
-/* Theme: Orchard / Home (teal, cyan, deep blue) */
+/* Case study hero: gradient (20% opacity at 25%) to full color at 100%, parallax kept via JS */
 .case-study-intro--theme-orchard .case-study-hero-bg {
-  background:
-    radial-gradient(ellipse 26% 130% at 20% 102%, rgba(255, 255, 255, 0.04) 0%, rgba(20, 184, 166, 0.14) 18%, transparent 62%),
-    radial-gradient(ellipse 32% 140% at 45% 100%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 182, 212, 0.12) 15%, rgba(34, 211, 238, 0.05) 35%, transparent 65%),
-    radial-gradient(ellipse 28% 130% at 65% 100%, rgba(255, 255, 255, 0.03) 0%, rgba(20, 184, 166, 0.09) 20%, rgba(6, 182, 212, 0.06) 40%, transparent 65%),
-    radial-gradient(ellipse 24% 130% at 80% 100%, rgba(255, 255, 255, 0.02) 0%, rgba(12, 35, 64, 0.18) 12%, rgba(15, 45, 85, 0.1) 32%, transparent 62%),
-    radial-gradient(ellipse 20% 120% at 35% 100%, rgba(20, 184, 166, 0.1) 0%, transparent 55%),
-    linear-gradient(to bottom, rgba(8, 25, 48, 0.97) 0%, rgba(12, 35, 64, 0.94) 35%, rgba(15, 45, 85, 0.3) 60%, rgba(12, 30, 58, 0.4) 85%, rgba(8, 25, 48, 0.95) 100%);
+  background: linear-gradient(to bottom, rgba(34, 59, 76, 0.2) 25%, #223b4c 100%);
 }
 
-/* Theme: BFF – vibrant green #07e8a2 (design-system hero only) */
 .case-study-intro--theme-bff .case-study-hero-bg {
-  background:
-    radial-gradient(ellipse 32% 140% at 35% 102%, rgba(7, 232, 162, 0.35) 0%, transparent 55%),
-    radial-gradient(ellipse 28% 130% at 70% 100%, rgba(7, 232, 162, 0.25) 0%, transparent 55%),
-    radial-gradient(ellipse 22% 120% at 50% 100%, rgba(7, 232, 162, 0.2) 0%, transparent 52%),
-    linear-gradient(to bottom, rgba(4, 28, 20, 0.97) 0%, rgba(6, 38, 28, 0.94) 45%, rgba(8, 50, 36, 0.6) 70%, rgba(5, 32, 24, 0.96) 100%);
+  background: linear-gradient(to bottom, rgba(84, 212, 138, 0.2) 25%, #54d48a 100%);
 }
 
-/* Theme: Brand Guidelines – purple #4810a4, dark blue #001226 */
 .case-study-intro--theme-brand .case-study-hero-bg {
-  background:
-    radial-gradient(ellipse 26% 130% at 20% 102%, rgba(255, 255, 255, 0.03) 0%, rgba(72, 16, 164, 0.18) 18%, transparent 62%),
-    radial-gradient(ellipse 32% 140% at 45% 100%, rgba(72, 16, 164, 0.12) 0%, rgba(0, 18, 38, 0.5) 40%, transparent 65%),
-    radial-gradient(ellipse 28% 130% at 65% 100%, rgba(100, 40, 180, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse 24% 130% at 80% 100%, rgba(72, 16, 164, 0.14) 0%, rgba(0, 18, 38, 0.3) 35%, transparent 62%),
-    radial-gradient(ellipse 20% 120% at 35% 100%, rgba(0, 18, 38, 0.6) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(0, 18, 38, 0.98) 0%, rgba(20, 30, 60, 0.95) 35%, rgba(40, 20, 80, 0.4) 65%, rgba(0, 18, 38, 0.95) 100%);
+  background: linear-gradient(to bottom, rgba(72, 16, 164, 0.2) 25%, #4810a4 100%);
 }
 
-/* Theme: User Personas – red #da4453 + darker blue (Brand-style) */
 .case-study-intro--theme-personas .case-study-hero-bg {
-  background:
-    radial-gradient(ellipse 26% 130% at 25% 102%, rgba(255, 255, 255, 0.03) 0%, rgba(218, 68, 83, 0.16) 18%, transparent 62%),
-    radial-gradient(ellipse 32% 140% at 55% 100%, rgba(218, 68, 83, 0.1) 0%, rgba(0, 18, 38, 0.5) 40%, transparent 65%),
-    radial-gradient(ellipse 28% 130% at 75% 100%, rgba(218, 68, 83, 0.12) 0%, rgba(0, 18, 38, 0.25) 35%, transparent 60%),
-    radial-gradient(ellipse 20% 120% at 40% 100%, rgba(0, 18, 38, 0.55) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(0, 18, 38, 0.98) 0%, rgba(15, 25, 48, 0.94) 35%, rgba(35, 15, 25, 0.4) 65%, rgba(0, 18, 38, 0.95) 100%);
+  background: linear-gradient(to bottom, rgba(218, 68, 83, 0.2) 25%, #da4453 100%);
 }
 
-/* Theme: Demo – bright blue #00adee */
 .case-study-intro--theme-demo .case-study-hero-bg {
-  background:
-    radial-gradient(ellipse 26% 130% at 20% 102%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 173, 238, 0.16) 18%, transparent 62%),
-    radial-gradient(ellipse 32% 140% at 45% 100%, rgba(255, 255, 255, 0.04) 0%, rgba(0, 173, 238, 0.14) 20%, rgba(56, 189, 248, 0.06) 40%, transparent 65%),
-    radial-gradient(ellipse 28% 130% at 65% 100%, rgba(0, 173, 238, 0.12) 0%, transparent 58%),
-    radial-gradient(ellipse 24% 130% at 80% 100%, rgba(0, 173, 238, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse 20% 120% at 35% 100%, rgba(0, 140, 220, 0.1) 0%, transparent 55%),
-    linear-gradient(to bottom, rgba(0, 25, 50, 0.97) 0%, rgba(0, 45, 85, 0.93) 40%, rgba(0, 80, 140, 0.35) 70%, rgba(0, 30, 60, 0.94) 100%);
+  background: linear-gradient(to bottom, rgba(13, 157, 218, 0.2) 25%, #0d9dda 100%);
 }
 
-/* Desktop: narrower plumes for all case study heroes (same as home) */
-@media (min-width: 769px) {
-  .case-study-intro--theme-orchard .case-study-hero-bg {
-    background:
-      radial-gradient(ellipse 13% 130% at 20% 102%, rgba(255, 255, 255, 0.04) 0%, rgba(20, 184, 166, 0.14) 18%, transparent 62%),
-      radial-gradient(ellipse 16% 140% at 45% 100%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 182, 212, 0.12) 15%, rgba(34, 211, 238, 0.05) 35%, transparent 65%),
-      radial-gradient(ellipse 14% 130% at 65% 100%, rgba(255, 255, 255, 0.03) 0%, rgba(20, 184, 166, 0.09) 20%, rgba(6, 182, 212, 0.06) 40%, transparent 65%),
-      radial-gradient(ellipse 12% 130% at 80% 100%, rgba(255, 255, 255, 0.02) 0%, rgba(12, 35, 64, 0.18) 12%, rgba(15, 45, 85, 0.1) 32%, transparent 62%),
-      radial-gradient(ellipse 10% 120% at 35% 100%, rgba(20, 184, 166, 0.1) 0%, transparent 55%),
-      linear-gradient(to bottom, rgba(8, 25, 48, 0.97) 0%, rgba(12, 35, 64, 0.94) 35%, rgba(15, 45, 85, 0.3) 60%, rgba(12, 30, 58, 0.4) 85%, rgba(8, 25, 48, 0.95) 100%);
-  }
-  .case-study-intro--theme-bff .case-study-hero-bg {
-    background:
-      radial-gradient(ellipse 16% 140% at 35% 102%, rgba(7, 232, 162, 0.35) 0%, transparent 55%),
-      radial-gradient(ellipse 14% 130% at 70% 100%, rgba(7, 232, 162, 0.25) 0%, transparent 55%),
-      radial-gradient(ellipse 11% 120% at 50% 100%, rgba(7, 232, 162, 0.2) 0%, transparent 52%),
-      linear-gradient(to bottom, rgba(4, 28, 20, 0.97) 0%, rgba(6, 38, 28, 0.94) 45%, rgba(8, 50, 36, 0.6) 70%, rgba(5, 32, 24, 0.96) 100%);
-  }
-  .case-study-intro--theme-brand .case-study-hero-bg {
-    background:
-      radial-gradient(ellipse 13% 130% at 20% 102%, rgba(255, 255, 255, 0.03) 0%, rgba(72, 16, 164, 0.18) 18%, transparent 62%),
-      radial-gradient(ellipse 16% 140% at 45% 100%, rgba(72, 16, 164, 0.12) 0%, rgba(0, 18, 38, 0.5) 40%, transparent 65%),
-      radial-gradient(ellipse 14% 130% at 65% 100%, rgba(100, 40, 180, 0.1) 0%, transparent 55%),
-      radial-gradient(ellipse 12% 130% at 80% 100%, rgba(72, 16, 164, 0.14) 0%, rgba(0, 18, 38, 0.3) 35%, transparent 62%),
-      radial-gradient(ellipse 10% 120% at 35% 100%, rgba(0, 18, 38, 0.6) 0%, transparent 50%),
-      linear-gradient(to bottom, rgba(0, 18, 38, 0.98) 0%, rgba(20, 30, 60, 0.95) 35%, rgba(40, 20, 80, 0.4) 65%, rgba(0, 18, 38, 0.95) 100%);
-  }
-  .case-study-intro--theme-personas .case-study-hero-bg {
-    background:
-      radial-gradient(ellipse 13% 130% at 25% 102%, rgba(255, 255, 255, 0.03) 0%, rgba(218, 68, 83, 0.16) 18%, transparent 62%),
-      radial-gradient(ellipse 16% 140% at 55% 100%, rgba(218, 68, 83, 0.1) 0%, rgba(0, 18, 38, 0.5) 40%, transparent 65%),
-      radial-gradient(ellipse 14% 130% at 75% 100%, rgba(218, 68, 83, 0.12) 0%, rgba(0, 18, 38, 0.25) 35%, transparent 60%),
-      radial-gradient(ellipse 10% 120% at 40% 100%, rgba(0, 18, 38, 0.55) 0%, transparent 50%),
-      linear-gradient(to bottom, rgba(0, 18, 38, 0.98) 0%, rgba(15, 25, 48, 0.94) 35%, rgba(35, 15, 25, 0.4) 65%, rgba(0, 18, 38, 0.95) 100%);
-  }
-  .case-study-intro--theme-demo .case-study-hero-bg {
-    background:
-      radial-gradient(ellipse 13% 130% at 20% 102%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 173, 238, 0.16) 18%, transparent 62%),
-      radial-gradient(ellipse 16% 140% at 45% 100%, rgba(255, 255, 255, 0.04) 0%, rgba(0, 173, 238, 0.14) 20%, rgba(56, 189, 248, 0.06) 40%, transparent 65%),
-      radial-gradient(ellipse 14% 130% at 65% 100%, rgba(0, 173, 238, 0.12) 0%, transparent 58%),
-      radial-gradient(ellipse 12% 130% at 80% 100%, rgba(0, 173, 238, 0.1) 0%, transparent 55%),
-      radial-gradient(ellipse 10% 120% at 35% 100%, rgba(0, 140, 220, 0.1) 0%, transparent 55%),
-      linear-gradient(to bottom, rgba(0, 25, 50, 0.97) 0%, rgba(0, 45, 85, 0.93) 40%, rgba(0, 80, 140, 0.35) 70%, rgba(0, 30, 60, 0.94) 100%);
-  }
+.case-study-intro--theme-bff .case-study-hero-dots,
+.case-study-intro--theme-brand .case-study-hero-dots,
+.case-study-intro--theme-personas .case-study-hero-dots,
+.case-study-intro--theme-demo .case-study-hero-dots {
+  background-image: radial-gradient(circle at 50% 50%, rgba(224, 231, 255, 0.1) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Dark panel behind title + summary (same treatment as home hero) – Design System, Brand, Personas, Demo */
+.case-study-intro--title-only .case-study-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 1.5rem auto;
+  padding: 2rem;
+  background: rgba(8, 25, 48, 0.15);
+  border-radius: var(--radius-lg);
+}
+
+.case-study-intro--title-only .case-study-hero-inner .case-study-title {
+  padding-top: 0;
+  padding-bottom: 0.75rem;
+}
+
+.case-study-intro--title-only .case-study-hero-summary {
+  margin: 0;
+  margin-top: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #fff;
 }
 
 .case-study-section-inner {
@@ -1765,8 +1745,11 @@ a.project-card {
   }
 
   .home-hero-inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .case-study-intro--title-only .case-study-hero-inner {
+    padding: 1.5rem 1rem;
   }
 
   .major-section[class*="major-section--"] {

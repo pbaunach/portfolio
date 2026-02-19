@@ -7,7 +7,10 @@ layout: case-study
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">The Human Side of Acquisition: Frederick & Mindbody</h1>
+    <div class="case-study-hero-inner">
+      <h1 class="case-study-title">The Human Side of Acquisition: Frederick & Mindbody</h1>
+      <p class="case-study-hero-summary">I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader Mindbody platform, ensuring our product decisions remained grounded in real user needs during the transition.</p>
+    </div>
     <!--
     <div class="case-study-hero-dashboard">
       <img src="{{ '/assets/img/mindbody-personas/persona-lifestyle-liv.png' | relative_url }}" alt="Persona: Liv">

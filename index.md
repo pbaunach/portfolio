@@ -5,7 +5,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 ---
 
 <section class="home-hero">
-  <div class="home-hero-bg parallax-hero-bg" aria-hidden="true"></div>
+  <div class="home-hero-gradient" aria-hidden="true"></div>
   <div class="home-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="home-hero-inner">
     <div class="intro">
@@ -23,7 +23,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       <div class="project-grid-inner">
         <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card project-card--feature">
           <div class="project-cover project-cover--orchard project-cover--logo-left">
-            <img src="{{ '/assets/img/orchard-wordmark-white.svg' | relative_url }}" alt="Orchard" class="project-cover-wordmark">
+            <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard" class="project-cover-img">
           </div>
           <div class="project-body">
             <h3>Orchard: Embracing the Turbulence</h3>

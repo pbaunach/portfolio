@@ -7,7 +7,10 @@ layout: case-study
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">Building a Shared Language (Project BFF)</h1>
+    <div class="case-study-hero-inner">
+      <h1 class="case-study-title">Building a Shared Language (Project BFF)</h1>
+      <p class="case-study-hero-summary">I built a platform-agnostic, CSS-based design system from the ground up to unify a fragmented product suite. This project details how I established the architecture and components that scaled across our entire ecosystem, drastically simplifying the handoff between design and engineering.</p>
+    </div>
     <!--
     <div class="case-study-hero-dashboard">
       <img src="{{ '/assets/img/design-system/bff-hero.png' | relative_url }}" alt="BFF design system">
@@ -54,7 +57,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Design System Code</h2>
-      <p>I architected the system using pure CSS and SASS, intentionally avoiding JavaScript dependencies to ensure it remained truly platform-agnostic. This allowed the system to be seamlessly integrated into any technical stack without the friction of framework requirements or version conflicts.</p>
+      <p>I architected the system using pure CSS and SASS, intentionally avoiding JavaScript dependencies to ensure it remained truly platform-agnostic. This allowed the system to be seamlessly integrated into any technical stack without the friction of framework requirements or version conflicts. I utilized the BEM naming convention for predictable and consistent patterns when utilized in code.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/design-system/bff-example.png' | relative_url }}" alt="BFF design system documentation example">
       </figure>

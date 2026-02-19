@@ -7,7 +7,10 @@ layout: case-study
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">Brand Identity: Frederick & Aspireship</h1>
+    <div class="case-study-hero-inner">
+      <h1 class="case-study-title">Brand Identity: Frederick & Aspireship</h1>
+      <p class="case-study-hero-summary">I led the evolution of our brand from a core mission and voice down to the tactical systems of color, type, and illustration. This project shows how I created a cohesive visual story that aligns our high-level business goals with a scalable, everyday design language.</p>
+    </div>
     <!--
     <div class="case-study-hero-dashboard">
       <img src="{{ '/assets/img/aspireship-brand-guidelines/brand-hero.png' | relative_url }}" alt="Brand guidelines">

@@ -7,7 +7,10 @@ layout: case-study
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">Demo: Dreamforce '15</h1>
+    <div class="case-study-hero-inner">
+      <h1 class="case-study-title">Demo: Dreamforce '15</h1>
+      <p class="case-study-hero-summary">A high-profile demonstration of the Financial Services Cloud, Salesforce's first industry-vertical product. This project tracks the journey from initial story mapping and architecture to the live, high-fidelity functional prototype presented on stage for a global keynote audience.</p>
+    </div>
     <!--
     <div class="case-study-hero-dashboard">
       <img src="{{ '/assets/img/dreamforce-demo/demo-hero.png' | relative_url }}" alt="Dreamforce demo">
