@@ -17,13 +17,13 @@ layout: case-study
 <nav class="case-study-nav" aria-label="On this page">
   <ul>
     <li><a href="#design-problem">Design Problem</a></li>
-    <li><a href="#campaign-hall">The Campaign Hall</a></li>
-    <li><a href="#create-campaign">Create a Campaign</a></li>
-    <li><a href="#overview">Forging a Realm</a></li>
-    <li><a href="#atlas">The Atlas</a></li>
-    <li><a href="#npcs">Character of the World</a></li>
-    <li><a href="#timeline">The Chronicle</a></li>
     <li><a href="#session-recap">The Hero's Herald</a></li>
+    <li><a href="#timeline">The Chronicle</a></li>
+    <li><a href="#npcs">Characters of the World</a></li>
+    <li><a href="#atlas">The Atlas</a></li>
+    <li><a href="#overview">Forging a Realm</a></li>
+    <li><a href="#create-campaign">Create a Campaign</a></li>
+    <li><a href="#campaign-hall">The Campaign Hall</a></li>
   </ul>
 </nav>
 
@@ -45,76 +45,16 @@ layout: case-study
   </div>
 </section>
 
-<section id="campaign-hall" class="major-section major-section--design-b">
+<section id="session-recap" class="major-section major-section--design-b">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>The Campaign Hall</h2>
+      <h2>The Hero's Herald</h2>
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I introduced a hierarchy (Active, Draft, Deactivated). This allows the DM to separate "Live Play" from "World Prep." I also made some visual distinctions for what the users role is in that campaign. Helping them quickly understand if they are a player or a DM for that campaign, reducing visual noise and mental clutter when they are just trying to get a session started.</p>
+        <p>I decided to solve the "Manual Chore" of recaps by using system triggers (dice rolls, combat events, loot gains). By turning raw event logs into a "newspaper" narrative, we remove the post-game "Creative Tax" from the DM.</p>
       </div>
       <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/dnd-campaign-builder/campaign-hall.png' | relative_url }}" alt="Campaign hall">
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="create-campaign" class="major-section major-section--design-a">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <h2>Create a Campaign</h2>
-      <div class="dnd-logic-callout">
-        <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I moved away from multiple buttons to launch different versions of creating a campaign to just one button for a cleaner interface. By creating a distinct "Fork in the Road" between Forging a Realm and Selecting a Premade, the UI helps guide a DM deciding which option lets them homebrew or run a premade module.</p>
-      </div>
-      <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/dnd-campaign-builder/create-campaign.png' | relative_url }}" alt="Create campaign">
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="overview" class="major-section major-section--design-b">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <h2>Forging a Realm</h2>
-      <div class="dnd-logic-callout">
-        <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I kept this simple and decided it shouldn't be a data-heavy dashboard, but a visual "hook" using banner imagery and high-level descriptions to set the tone for players before they dive into the technicalities of their character sheets.</p>
-      </div>
-      <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/dnd-campaign-builder/overview.png' | relative_url }}" alt="Overview">
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="atlas" class="major-section major-section--design-a">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <h2>The Atlas</h2>
-      <div class="dnd-logic-callout">
-        <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I identified that lore is often lost because it's untethered. The decision here was to link "the where" (maps) to "the what" (lore), ensuring that a DM can retrieve location-specific homebrew without breaking their flow to search a separate document.</p>
-      </div>
-      <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/dnd-campaign-builder/atlas.png' | relative_url }}" alt="Atlas">
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="npcs" class="major-section major-section--design-b">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <h2>Character of the World</h2>
-      <div class="dnd-logic-callout">
-        <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>The UX decision was to prioritize "at-a-glance" inspection, ensuring that during an improv-heavy social encounter, the DM isn't stalled by a complex interface.</p>
-      </div>
-      <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/dnd-campaign-builder/npcs.png' | relative_url }}" alt="NPCs">
+        <img src="{{ '/assets/img/dnd-campaign-builder/session-recap.png' | relative_url }}" alt="Session recap">
       </figure>
     </div>
   </div>
@@ -140,16 +80,76 @@ layout: case-study
   </div>
 </section>
 
-<section id="session-recap" class="major-section major-section--design-b">
+<section id="npcs" class="major-section major-section--design-b">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>The Hero's Herald</h2>
+      <h2>Characters of the World</h2>
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I decided to solve the "Manual Chore" of recaps by using system triggers (dice rolls, combat events, loot gains). By turning raw event logs into a "newspaper" narrative, we remove the post-game "Creative Tax" from the DM.</p>
+        <p>The UX decision was to prioritize "at-a-glance" inspection, ensuring that during an improv-heavy social encounter, the DM isn't stalled by a complex interface.</p>
       </div>
       <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/dnd-campaign-builder/session-recap.png' | relative_url }}" alt="Session recap">
+        <img src="{{ '/assets/img/dnd-campaign-builder/npcs.png' | relative_url }}" alt="NPCs">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="atlas" class="major-section major-section--design-a">
+  <div class="major-section-inner">
+    <div class="subsection">
+      <h2>The Atlas</h2>
+      <div class="dnd-logic-callout">
+        <h3 class="dnd-logic-callout__title">The Logic</h3>
+        <p>I identified that lore is often lost because it's untethered. The decision here was to link "the where" (maps) to "the what" (lore), ensuring that a DM can retrieve location-specific homebrew without breaking their flow to search a separate document.</p>
+      </div>
+      <figure class="case-study-screenshot">
+        <img src="{{ '/assets/img/dnd-campaign-builder/atlas.png' | relative_url }}" alt="Atlas">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="overview" class="major-section major-section--design-b">
+  <div class="major-section-inner">
+    <div class="subsection">
+      <h2>Forging a Realm</h2>
+      <div class="dnd-logic-callout">
+        <h3 class="dnd-logic-callout__title">The Logic</h3>
+        <p>I kept this simple and decided it shouldn't be a data-heavy dashboard, but a visual "hook" using banner imagery and high-level descriptions to set the tone for players before they dive into the technicalities of their character sheets.</p>
+      </div>
+      <figure class="case-study-screenshot">
+        <img src="{{ '/assets/img/dnd-campaign-builder/overview.png' | relative_url }}" alt="Overview">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="create-campaign" class="major-section major-section--design-a">
+  <div class="major-section-inner">
+    <div class="subsection">
+      <h2>Create a Campaign</h2>
+      <div class="dnd-logic-callout">
+        <h3 class="dnd-logic-callout__title">The Logic</h3>
+        <p>I moved away from multiple buttons to launch different versions of creating a campaign to just one button for a cleaner interface. By creating a distinct "Fork in the Road" between Forging a Realm and Selecting a Premade, the UI helps guide a DM deciding which option lets them homebrew or run a premade module.</p>
+      </div>
+      <figure class="case-study-screenshot">
+        <img src="{{ '/assets/img/dnd-campaign-builder/create-campaign.png' | relative_url }}" alt="Create campaign">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="campaign-hall" class="major-section major-section--design-b">
+  <div class="major-section-inner">
+    <div class="subsection">
+      <h2>The Campaign Hall</h2>
+      <div class="dnd-logic-callout">
+        <h3 class="dnd-logic-callout__title">The Logic</h3>
+        <p>I introduced a hierarchy (Active, Draft, Deactivated). This allows the DM to separate "Live Play" from "World Prep." I also made some visual distinctions for what the users role is in that campaign. Helping them quickly understand if they are a player or a DM for that campaign, reducing visual noise and mental clutter when they are just trying to get a session started.</p>
+      </div>
+      <figure class="case-study-screenshot">
+        <img src="{{ '/assets/img/dnd-campaign-builder/campaign-hall.png' | relative_url }}" alt="Campaign hall">
       </figure>
     </div>
   </div>
