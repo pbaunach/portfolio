@@ -30,6 +30,9 @@ layout: case-study
 <section id="design-problem" class="major-section major-section--design-a">
   <div class="major-section-inner">
     <div class="subsection">
+      <p class="dnd-pdf-button-wrap">
+        <a href="{{ '/assets/pdf/Design-Problem_Campaign-Builder.pdf' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View the PDF Version</a>
+      </p>
       <h2>Design Problem</h2>
       <div class="dnd-callouts-row">
         <div class="dnd-callout dnd-callout--problem">
@@ -51,7 +54,9 @@ layout: case-study
       <h2>The Hero's Herald</h2>
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I decided to solve the "Manual Chore" of recaps by using system triggers (dice rolls, combat events, loot gains). By turning raw event logs into a "newspaper" narrative, we remove the post-game "Creative Tax" from the DM.</p>
+        <p>I chose to address the creative tax of post-session recaps by leveraging existing system triggers, such as dice rolls, combat events, and loot gains. By transforming raw event logs into a thematic newspaper narrative, The Hero's Herald performs the heavy lifting of documentation while leaving the DM in creative control.</p>
+        <p>Having the system produce the first-draft, allows the DM to spend their energy on personal flair and capturing nuanced roleplay moments that an event log cannot track.</p>
+        <p>To drive player engagement, and provide some moments of delight, the system intentionally highlights Natural 20s and Critical Failures, surfacing those high-stakes moments that define the session's emotional arc and solidify the party's shared legacy.</p>
       </div>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/dnd-campaign-builder/session-recap.png' | relative_url }}" alt="Session recap">
@@ -65,13 +70,14 @@ layout: case-study
     <div class="subsection">
       <h2>The Chronicle</h2>
       <div class="dnd-logic-callout">
-        <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I designed the Timeline as a proactive navigation tool. By grouping Lore, NPCs, and "Launch VTT" buttons into a single chronological thread, we allow the DM to "play the campaign" as easily as their players.</p>
+        <h3 class="dnd-logic-callout__title">The Logic - The Chronicle</h3>
+        <p>I designed The Chronicle as a proactive navigation tool that organizes the campaign into chapters, providing a natural narrative path regardless of the direction the party takes. By grouping events into a logical order, the DM can maintain story momentum even when the players deviate from the expected route.</p>
+        <p>To reduce downtime, each event card unifies an atmospheric image, map data, encounter data and narrative notes in a single view. The inclusion of a "Launch VTT" button acts as a shortcut to action, allowing the DM to transition from theater-of-the-mind to tactical combat without the friction of searching a database for the correct map.</p>
       </div>
-      <h3>The Timeline Side Panel</h3>
       <div class="dnd-logic-callout">
-        <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>To solve for "Flow Interruption," I implemented a handy side panel. This ensures that when a DM is introducing an event (like The Menagerie Riots), all relevant NPCs and location data can slide in without navigating away from the main timeline. It keeps the DM's "place" secure while providing deep-dive data.</p>
+        <h3 class="dnd-logic-callout__title">The Logic - Data Panel</h3>
+        <p>To solve for flow interruption, I implemented a persistent data panel. This ensures that when introducing an event, the DM is immediately equipped with all relevant NPC and location data without ever leaving the primary view.</p>
+        <p>By interacting with contextual tokens, the panel updates to provide deep-dive information while keeping the DM's place in the timeline secure. This design choice eliminates the cognitive cost of context-switching, allowing the DM to provide detailed world-data while staying present in the performance.</p>
       </div>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/dnd-campaign-builder/timeline.png' | relative_url }}" alt="Timeline">
@@ -86,7 +92,12 @@ layout: case-study
       <h2>Characters of the World</h2>
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>The UX decision was to prioritize "at-a-glance" inspection, ensuring that during an improv-heavy social encounter, the DM isn't stalled by a complex interface.</p>
+        <p>I optimized the NPC interface for high-speed retrieval during live play. My primary goals were:</p>
+        <ul>
+          <li>Easy information retrieval eliminating the need to flip through physical notebooks for character details.</li>
+          <li>Simplified inspection with an "at-a-glance" summary of pivotal character traits.</li>
+          <li>Sustained immersion ensuring the DM remains present in the social encounter rather than getting lost in the UI.</li>
+        </ul>
       </div>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/dnd-campaign-builder/npcs.png' | relative_url }}" alt="NPCs">
@@ -102,6 +113,7 @@ layout: case-study
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
         <p>I identified that lore is often lost because it's untethered. The decision here was to link "the where" (maps) to "the what" (lore), ensuring that a DM can retrieve location-specific homebrew without breaking their flow to search a separate document.</p>
+        <p>Each dot is interactive, clicking through to the next map. Leaving a breadcrumb for easy navigation back and a nested location hierarchy.</p>
       </div>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/dnd-campaign-builder/atlas.png' | relative_url }}" alt="Atlas">
@@ -116,7 +128,7 @@ layout: case-study
       <h2>Forging a Realm</h2>
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I kept this simple and decided it shouldn't be a data-heavy dashboard, but a visual "hook" using banner imagery and high-level descriptions to set the tone for players before they dive into the technicalities of their character sheets.</p>
+        <p>I kept this simple and decided it shouldn't be a data-heavy dashboard, we can leave the stats and recap for the Hero's Herald. The overview can be a visual "hook" using banner imagery and high-level descriptions to set the tone for players before they dive into the technicalities of their character sheets.</p>
       </div>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/dnd-campaign-builder/overview.png' | relative_url }}" alt="Overview">
@@ -146,7 +158,7 @@ layout: case-study
       <h2>The Campaign Hall</h2>
       <div class="dnd-logic-callout">
         <h3 class="dnd-logic-callout__title">The Logic</h3>
-        <p>I introduced a hierarchy (Active, Draft, Deactivated). This allows the DM to separate "Live Play" from "World Prep." I also made some visual distinctions for what the users role is in that campaign. Helping them quickly understand if they are a player or a DM for that campaign, reducing visual noise and mental clutter when they are just trying to get a session started.</p>
+        <p>I introduced a hierarchy (Active, Draft, Deactivated). This allows the DM to separate "Live Play" from "World Prep." I made some visual distinctions for what the users role is in that campaign. Helping them quickly understand if they are a player or a DM for that campaign, reducing mental clutter when they are just trying to get a session started.</p>
       </div>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/dnd-campaign-builder/campaign-hall.png' | relative_url }}" alt="Campaign hall">

@@ -939,6 +939,12 @@ a.project-card {
   border-left: 4px solid rgba(56, 189, 248, 0.25);
 }
 
+/* D&D case study: PDF button above Design Problem title (uses .button .button-primary for glow) */
+#design-problem .dnd-pdf-button-wrap {
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
 /* D&D case study: stacking callouts (problem on top, opportunity below) */
 #design-problem .dnd-callouts-row {
   display: grid;
@@ -996,6 +1002,22 @@ a.project-card {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #e5e7eb;
+}
+.dnd-logic-callout p + p {
+  margin-top: 0.75rem;
+}
+.dnd-logic-callout ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.dnd-logic-callout li {
+  margin-bottom: 0.35rem;
+}
+.dnd-logic-callout li:last-child {
+  margin-bottom: 0;
 }
 
 .case-study-section-inner p.case-study-wordmark,
