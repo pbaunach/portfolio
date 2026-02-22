@@ -691,11 +691,12 @@ a.project-card {
   margin-bottom: 0;
 }
 
-/* Center hero titles on Design System, Brand Guidelines, Personas, Demo pages */
+/* Center hero titles on Design System, Brand Guidelines, Personas, Demo, D&D pages */
 .case-study-intro--theme-bff .case-study-title,
 .case-study-intro--theme-brand .case-study-title,
 .case-study-intro--theme-personas .case-study-title,
-.case-study-intro--theme-demo .case-study-title {
+.case-study-intro--theme-demo .case-study-title,
+.case-study-intro--theme-dnd .case-study-title {
   text-align: center;
 }
 
@@ -740,10 +741,15 @@ a.project-card {
   background: linear-gradient(to bottom, rgba(13, 157, 218, 0.2) 25%, #0d9dda 100%);
 }
 
+.case-study-intro--theme-dnd .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(155, 34, 38, 0.2) 25%, #9b2226 100%);
+}
+
 .case-study-intro--theme-bff .case-study-hero-dots,
 .case-study-intro--theme-brand .case-study-hero-dots,
 .case-study-intro--theme-personas .case-study-hero-dots,
-.case-study-intro--theme-demo .case-study-hero-dots {
+.case-study-intro--theme-demo .case-study-hero-dots,
+.case-study-intro--theme-dnd .case-study-hero-dots {
   background-image: radial-gradient(circle at 50% 50%, rgba(224, 231, 255, 0.1) 1px, transparent 1px);
   background-size: 28px 28px;
 }
@@ -931,6 +937,65 @@ a.project-card {
 .major-section--design-b {
   background: linear-gradient(to top, rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.28));
   border-left: 4px solid rgba(56, 189, 248, 0.25);
+}
+
+/* D&D case study: stacking callouts (problem on top, opportunity below) */
+#design-problem .dnd-callouts-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+#design-problem .dnd-callout {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg, 0.9rem);
+}
+#design-problem .dnd-callout--problem {
+  background: #161416;
+}
+#design-problem .dnd-callout--opportunity {
+  background: #313335;
+}
+#design-problem .dnd-callout__title {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-size: 21pt;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+#design-problem .dnd-callout--problem .dnd-callout__title {
+  color: #c53131;
+}
+#design-problem .dnd-callout--opportunity .dnd-callout__title {
+  color: #f2cd7e;
+}
+#design-problem .dnd-callout__blurb {
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-size: 14pt;
+  color: #f4f1ec;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* D&D case study: "The Logic" callout (transparent, hero-like) below each section blurb */
+.dnd-logic-callout {
+  background: rgba(8, 25, 48, 0.15);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0 1.5rem;
+}
+.dnd-logic-callout__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 0.5rem;
+}
+.dnd-logic-callout p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e5e7eb;
 }
 
 .case-study-section-inner p.case-study-wordmark,
