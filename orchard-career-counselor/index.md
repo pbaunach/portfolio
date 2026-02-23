@@ -26,6 +26,7 @@ layout: case-study
     <li><a href="#action-plan">Action Plan</a></li>
     <li><a href="#dashboard-complete">Dashboard Complete + Ongoing Action Plan</a></li>
     <li><a href="#mobile">Mobile Optimized</a></li>
+    <li><a href="#my-role">My Role</a></li>
     <li><a href="#read-case-study">Case Study</a></li>
   </ul>
 </nav>
@@ -150,6 +151,21 @@ layout: case-study
           <img src="{{ '/orchard-screens/mobile-05.png' | relative_url }}" alt="Mobile 05">
         </figure>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
+  <div class="case-study-section-inner">
+    <h2 class="case-study-title">My Role</h2>
+    <div class="case-study-callout case-study-callout--role">
+      <p class="case-study-callout__role-title">Product Design and Strategy</p>
+      <h3 class="case-study-callout__heading">My Contributions</h3>
+      <ul>
+        <li><strong>Stakeholder Alignment:</strong> Navigated shifting requirements and complex technical constraints to maintain a unified product vision across cross-functional teams.</li>
+        <li><strong>Strategic Leadership:</strong> Led the critical pivot from a static database to an exploratory discovery platform based on deep user research and evidence.</li>
+        <li><strong>AI Implementation Strategy:</strong> Defined the logic and experience for the contextual mentorship engine to transform passive content into actionable career roadmaps.</li>
+      </ul>
     </div>
   </div>
 </section>
