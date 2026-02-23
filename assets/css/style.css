@@ -326,6 +326,10 @@ a.project-card {
   background: rgba(15, 23, 42, 0.98);
 }
 
+.project-card--dnd:hover {
+  border-color: rgba(220, 38, 38, 0.7);
+}
+
 .project-card-actions {
   display: flex;
   flex-wrap: nowrap;
@@ -497,6 +501,10 @@ a.project-card {
   background: linear-gradient(135deg, #0c4a6e 0%, #0e7490 100%);
 }
 
+.project-cover--dnd {
+  background: linear-gradient(135deg, #1a0a0a 0%, #9b2226 100%);
+}
+
 .project-body {
   padding: 1.2rem 1.4rem 1.4rem;
   display: flex;
@@ -561,6 +569,19 @@ a.project-card {
   background: #0ea5e9;
   transform: translateY(-1px);
   box-shadow: 0 14px 40px rgba(56, 189, 248, 0.55);
+}
+
+/* Red glowy button (Passion Project / D&D) */
+.button-campaign {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+}
+
+.button-campaign:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px rgba(220, 38, 38, 0.55);
 }
 
 .button-ghost {

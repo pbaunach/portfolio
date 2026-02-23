@@ -17,7 +17,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
     <div class="project-grid project-grid--case-study">
       <div class="project-grid-header">
-        <h2 class="section-title">Product Case Study</h2>
+        <h2 class="section-title">Project Highlight</h2>
       </div>
 
       <div class="project-grid-inner">
@@ -38,6 +38,29 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="project-grid">
+  <div class="project-grid-header">
+    <h2 class="section-title">Passion Project</h2>
+    <p class="section-subtitle">
+      I'm a builder at heart and I enjoy letting my curiosity run free during my off time. Here is a "What if?" exploration where I used my own hobbies as a playground to test new patterns and imagine better futures for the products I love.
+    </p>
+  </div>
+  <div class="project-grid-inner">
+    <a href="{{ '/dnd-campaign-builder/' | relative_url }}" class="project-card project-card--dnd">
+      <div class="project-cover project-cover--dnd">
+        <img src="{{ '/assets/img/dnd-cover.png' | relative_url }}" alt="" class="project-cover-img">
+      </div>
+      <div class="project-body">
+        <h3>The Storyteller's Codex: Optimizing Lore and Logic</h3>
+        <p class="project-summary">
+          I started this project with a simple question: How can we make world-building more immersive while keeping essential data instantly accessible? This concept explores a unified interface that bridges the gap between lore and mechanics.
+        </p>
+        <span class="button button-campaign">View the Story</span>
+      </div>
+    </a>
   </div>
 </section>
 
