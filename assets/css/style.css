@@ -326,6 +326,37 @@ a.project-card {
   background: rgba(15, 23, 42, 0.98);
 }
 
+.project-card-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.project-card-actions .button {
+  flex: 1 1 50%;
+  min-width: 0;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.project-card-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card-title-link:hover {
+  color: var(--primary);
+}
+
+.project-card .project-cover a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Feature card: 50/50 row layout (must come after .project-card to override flex-direction) */
 .project-card--feature {
   flex-direction: row;
@@ -543,6 +574,22 @@ a.project-card {
   border-color: rgba(148, 163, 184, 0.9);
 }
 
+/* Outline style (logo-placeholder look): bright blue outline and text, low opacity blue background */
+.button-outline {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: none;
+}
+
+.button-outline:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.7);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+}
+
 /* Case study layout – full-width bands */
 .case-study-body {
   padding: 0;
@@ -723,6 +770,11 @@ a.project-card {
 /* Case study hero: gradient (20% opacity at 25%) to full color at 100%, parallax kept via JS */
 .case-study-intro--theme-orchard .case-study-hero-bg {
   background: linear-gradient(to bottom, rgba(34, 59, 76, 0.2) 25%, #223b4c 100%);
+}
+
+/* Orchard Career Counselor screens page: green hero gradient */
+.case-study-intro--orchard-screens-hero.case-study-intro--theme-orchard .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(60, 211, 67, 0.2) 25%, #3CD343 100%);
 }
 
 .case-study-intro--theme-bff .case-study-hero-bg {
@@ -1043,6 +1095,10 @@ a.project-card {
 
 .case-study-section-inner h2,
 .major-section-inner h2,
+.subsection--center-title h2 {
+  text-align: center;
+}
+
 .subsection h2 {
   font-size: 1.35rem;
   margin-top: 0;
@@ -1296,6 +1352,25 @@ a.project-card {
 
 .brand-guidelines-gallery .case-study-screenshot:last-child {
   margin-bottom: 0;
+}
+
+/* Orchard Career Counselor: mobile screens in one row, modest size */
+.orchard-mobile-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.orchard-mobile-row .orchard-mobile-screenshot {
+  flex: 0 1 auto;
+  margin: 0;
+  max-width: 160px;
+}
+.orchard-mobile-row .orchard-mobile-screenshot img {
+  width: 100%;
+  height: auto;
 }
 
 /* Lightbox: viewport-fit by default; click image to zoom; carousel prev/next */

@@ -21,18 +21,21 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       </div>
 
       <div class="project-grid-inner">
-        <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card project-card--feature">
-          <div class="project-cover project-cover--orchard project-cover--logo-left">
+        <div class="project-card project-card--feature">
+          <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-cover project-cover--orchard project-cover--logo-left">
             <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard" class="project-cover-img">
-          </div>
+          </a>
           <div class="project-body">
-            <h3>Orchard: Embracing the Turbulence</h3>
+            <h3><a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
             <p class="project-summary">
               Building a supportive mentor that helps students find clarity and assurance in an uncertain future.
             </p>
-            <span class="button button-primary">Read Case Study</span>
+            <p class="project-card-actions">
+              <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
+              <a href="{{ '/case-studies/orchard/' | relative_url }}" class="button button-outline">Read the Case Study</a>
+            </p>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
