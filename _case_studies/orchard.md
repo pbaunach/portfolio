@@ -204,7 +204,6 @@ layout: case-study
       <p>Because we were moving into uncharted territory with AI-led UX, static mockups weren't enough. I pivoted our entire workflow to AI-assisted high-fidelity prototyping.</p>
       <div class="case-study-cta-wrapper">
         <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
-        <span class="case-study-cta-helper">(password protected)</span>
       </div>
     </div>
     <div class="subsection">
@@ -249,7 +248,6 @@ layout: case-study
     <div id="prototype" class="subsection">
       <div class="case-study-cta-wrapper">
         <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
-        <span class="case-study-cta-helper">(password protected)</span>
       </div>
     </div>
   </div>

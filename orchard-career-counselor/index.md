@@ -26,6 +26,7 @@ layout: case-study
     <li><a href="#action-plan">Action Plan</a></li>
     <li><a href="#dashboard-complete">Dashboard Complete + Ongoing Action Plan</a></li>
     <li><a href="#mobile">Mobile Optimized</a></li>
+    <li><a href="#prototype">Prototype</a></li>
     <li><a href="#my-role">My Role</a></li>
     <li><a href="#read-case-study">Case Study</a></li>
   </ul>
@@ -157,6 +158,16 @@ layout: case-study
         <figure class="case-study-screenshot orchard-mobile-screenshot">
           <img src="{{ '/orchard-screens/mobile-05.png' | relative_url }}" alt="Mobile 05">
         </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prototype" class="major-section major-section--design-a">
+  <div class="major-section-inner">
+    <div class="subsection subsection--center-title">
+      <div class="case-study-cta-wrapper">
+        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">View prototype</a>
       </div>
     </div>
   </div>

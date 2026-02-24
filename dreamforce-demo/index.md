@@ -71,7 +71,6 @@ layout: case-study
       </figure>
       <div class="case-study-cta-wrapper">
         <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">Check out the Prototype</a>
-        <span class="case-study-cta-helper">(password protected)</span>
       </div>
     </div>
   </div>
