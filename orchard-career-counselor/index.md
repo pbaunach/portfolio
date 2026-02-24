@@ -3,13 +3,13 @@ title: "Orchard Career Counselor – Screens"
 layout: case-study
 ---
 
-<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-orchard case-study-intro--orchard-screens-hero case-study-intro--with-dashboard">
+<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-orchard case-study-intro--orchard-screens-hero case-study-intro--title-only">
   <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
-    <h1 class="case-study-title">Orchard: The AI Career Readiness Platform</h1>
-    <div class="case-study-hero-dashboard">
-      <img src="{{ '/assets/img/orchard-screens/orchard-hero.png' | relative_url }}" alt="Orchard hero">
+    <div class="case-study-hero-inner">
+      <h1 class="case-study-title">Orchard: The AI Career Readiness Platform</h1>
+      <p class="case-study-hero-summary">You'll notice a common theme throughout these screens: Orchie, our AI agent, is always available to answer questions or give a helpful nudge when a student is unsure. I designed Orchie to be a constant, supportive career counselor who is always by your side.</p>
     </div>
   </div>
 </section>
@@ -30,14 +30,6 @@ layout: case-study
     <li><a href="#read-case-study">Case Study</a></li>
   </ul>
 </nav>
-
-<section class="major-section major-section--design-b">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <p>You'll notice a common theme throughout these screens: Orchie, our AI agent, is always available to answer questions or give a helpful nudge when a student is unsure. I designed Orchie to be a constant, supportive career counselor who is always by your side.</p>
-    </div>
-  </div>
-</section>
 
 <section id="welcome-dashboard" class="major-section major-section--design-a">
   <div class="major-section-inner">
