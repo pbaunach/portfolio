@@ -31,10 +31,19 @@ layout: case-study
   </ul>
 </nav>
 
+<section class="major-section major-section--design-b">
+  <div class="major-section-inner">
+    <div class="subsection">
+      <p>You'll notice a common theme throughout these screens: Orchie, our AI agent, is always available to answer questions or give a helpful nudge when a student is unsure. I designed Orchie to be a constant, supportive career counselor who is always by your side.</p>
+    </div>
+  </div>
+</section>
+
 <section id="welcome-dashboard" class="major-section major-section--design-a">
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Welcome Dashboard</h2>
+      <p>I kept the layout simple and uncluttered so students don't feel overwhelmed when they first log in, but with a clear action on where to start.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/01.png' | relative_url }}" alt="Welcome Dashboard">
       </figure>
@@ -46,6 +55,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Explore Careers</h2>
+      <p>This screen acts like a personal matchmaker, taking a student's interests and showing them jobs they might never have considered.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/02.png' | relative_url }}" alt="Explore Careers">
       </figure>
@@ -57,6 +67,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Video Interview</h2>
+      <p>Instead of just reading about a job, students can watch real professionals, giving them a true "fly-on-the-wall" look at a typical workday.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/03.png' | relative_url }}" alt="Video Interview">
       </figure>
@@ -68,6 +79,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Career Deep Dive</h2>
+      <p>I took all the confusing data, like responsibilities and typical work environments, and organized it so it's easy to read and understand at a glance.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/04.png' | relative_url }}" alt="Career Deep Dive">
       </figure>
@@ -90,6 +102,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Education Path Comparisson</h2>
+      <p>This lets students look at multiple paths side-by-side to see which degree or training makes the most sense for their budget and goals.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/06.png' | relative_url }}" alt="Education Path Comparisson">
       </figure>
@@ -112,6 +125,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Action Plan</h2>
+      <p>I turned the big, scary idea of "the future" into a simple and manageable set of small steps to help students get from highschool to their first day at college, at a bootcamp, or on the job. Orchie will check in with them when they complete a step and adjust on the fly if their situation changes.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/08.png' | relative_url }}" alt="Action Plan">
       </figure>
@@ -123,6 +137,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Dashboard Complete + Ongoing Action Plan</h2>
+      <p>This view celebrates how much they've finished and keeps their very next goal front and center so they never feel lost.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/orchard-screens/09.png' | relative_url }}" alt="Dashboard Complete + Ongoing Action Plan">
       </figure>
