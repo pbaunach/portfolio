@@ -41,6 +41,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
   </div>
 </section>
 
+<!-- Passion Project / DnD builder – hidden for now, add back later
 <section class="project-grid">
   <div class="project-grid-header">
     <h2 class="section-title">Passion Project</h2>
@@ -63,6 +64,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
     </a>
   </div>
 </section>
+-->
 
 <section class="project-grid">
   <div class="project-grid-header">
