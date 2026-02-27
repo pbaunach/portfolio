@@ -42,6 +42,9 @@ jobs:
         run: |
           mkdir -p _site/orchard-prototype
           cp -r orchard-prototype/. _site/orchard-prototype/
+          # Ensure Vite-built assets are also available at site root for any `/assets/...` paths
+          mkdir -p _site/assets
+          cp -r orchard-prototype/assets/. _site/assets/
 
       - name: Inject password into finserv demo gate
         env:
