@@ -86,7 +86,10 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <p class="project-summary">
           I built a platform-agnostic, CSS-based design system from the ground up to unify a fragmented product suite. This project details how I established the architecture and components that scaled across our entire ecosystem, drastically simplifying the handoff between design and engineering.
         </p>
-        <span class="button button-primary">View Design System</span>
+        <p class="project-card-actions">
+          <span class="button button-primary">View Design System</span>
+          <span class="button button-outline">View Documentation</span>
+        </p>
       </div>
     </a>
 
@@ -116,7 +119,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
       </div>
     </a>
 
-    <a href="{{ '/dreamforce-demo/' | relative_url }}" class="project-card">
+    <div class="project-card">
       <div class="project-cover project-cover--financial">
         <img src="{{ '/assets/img/dreamforce-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
@@ -125,8 +128,11 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <p class="project-summary">
           A high-profile demonstration of the Financial Services Cloud, Salesforce's first industry-vertical product. This project tracks the journey from initial story mapping and architecture to the live, high-fidelity functional prototype presented on stage for a global keynote audience.
         </p>
-        <span class="button button-primary">View the Demo</span>
+        <p class="project-card-actions">
+          <a href="{{ '/dreamforce-demo/' | relative_url }}" class="button button-primary">View the Demo</a>
+          <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View Prototype</a>
+        </p>
       </div>
-    </a>
+    </div>
   </div>
 </section>
