@@ -167,7 +167,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection subsection--center-title">
       <div class="case-study-cta-wrapper">
-        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">View prototype</a>
+        <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" target="_blank" rel="noopener noreferrer" class="button button-primary">View prototype</a>
       </div>
     </div>
   </div>

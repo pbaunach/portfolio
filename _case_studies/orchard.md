@@ -203,7 +203,7 @@ layout: case-study
       <h2>The Technical Edge: High-Fidelity as the "Source of Truth"</h2>
       <p>Because we were moving into uncharted territory with AI-led UX, static mockups weren't enough. I pivoted our entire workflow to AI-assisted high-fidelity prototyping.</p>
       <div class="case-study-cta-wrapper">
-        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
+        <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
       </div>
     </div>
     <div class="subsection">
@@ -247,7 +247,7 @@ layout: case-study
     </div>
     <div id="prototype" class="subsection">
       <div class="case-study-cta-wrapper">
-        <a href="https://pbaunach.github.io/portfolio/orchard-prototype/" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
+        <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
       </div>
     </div>
   </div>
