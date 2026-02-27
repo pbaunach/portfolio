@@ -1416,6 +1416,7 @@ a.project-card {
 .orchard-mobile-row .orchard-mobile-screenshot img {
   width: 100%;
   height: auto;
+  border-radius: 0;
 }
 
 /* Lightbox: viewport-fit by default; click image to zoom; carousel prev/next */

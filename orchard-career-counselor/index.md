@@ -21,7 +21,7 @@ layout: case-study
     <li><a href="#video-interview">Video Interview</a></li>
     <li><a href="#career-deep-dive">Career Deep Dive</a></li>
     <li><a href="#dashboard-progressed">Dashboard Progressed</a></li>
-    <li><a href="#education-path-comparisson">Education Path Comparisson</a></li>
+    <li><a href="#education-path-comparisson">Continued Learning Path Comparison</a></li>
     <li><a href="#selection-review">Selection Review</a></li>
     <li><a href="#action-plan">Action Plan</a></li>
     <li><a href="#dashboard-complete">Dashboard Complete + Ongoing Action Plan</a></li>
@@ -94,10 +94,10 @@ layout: case-study
 <section id="education-path-comparisson" class="major-section major-section--design-b">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>Education Path Comparisson</h2>
-      <p>This lets students look at multiple paths side-by-side to see which degree or training makes the most sense for their budget and goals.</p>
+      <h2>Continued Learning Path Comparison</h2>
+      <p>This lets students compare various growth trajectories side-by-side, from vocational certifications and trade apprenticeships to traditional degrees. Whether they thrive in a classroom, on a job site, or in a creative studio, there is a path designed for the way they work and learn.</p>
       <figure class="case-study-screenshot">
-        <img src="{{ '/orchard-screens/06.png' | relative_url }}" alt="Education Path Comparisson">
+        <img src="{{ '/orchard-screens/06.png' | relative_url }}" alt="Continued Learning Path Comparison">
       </figure>
     </div>
   </div>
@@ -144,19 +144,16 @@ layout: case-study
       <h2>All experiences are Mobile Optimized</h2>
       <div class="orchard-mobile-row">
         <figure class="case-study-screenshot orchard-mobile-screenshot">
-          <img src="{{ '/orchard-screens/mobile-01.png' | relative_url }}" alt="Mobile 01">
+          <img src="{{ '/orchard-screens/01-mobile-home.png' | relative_url }}" alt="Mobile Home">
         </figure>
         <figure class="case-study-screenshot orchard-mobile-screenshot">
-          <img src="{{ '/orchard-screens/mobile-02.png' | relative_url }}" alt="Mobile 02">
+          <img src="{{ '/orchard-screens/02-mobile-careers.png' | relative_url }}" alt="Mobile Careers">
         </figure>
         <figure class="case-study-screenshot orchard-mobile-screenshot">
-          <img src="{{ '/orchard-screens/mobile-03.png' | relative_url }}" alt="Mobile 03">
+          <img src="{{ '/orchard-screens/03-mobile-career-page.png' | relative_url }}" alt="Mobile Career Page">
         </figure>
         <figure class="case-study-screenshot orchard-mobile-screenshot">
-          <img src="{{ '/orchard-screens/mobile-04.png' | relative_url }}" alt="Mobile 04">
-        </figure>
-        <figure class="case-study-screenshot orchard-mobile-screenshot">
-          <img src="{{ '/orchard-screens/mobile-05.png' | relative_url }}" alt="Mobile 05">
+          <img src="{{ '/orchard-screens/04-mobile-short-video.png' | relative_url }}" alt="Mobile Short Video">
         </figure>
       </div>
     </div>
