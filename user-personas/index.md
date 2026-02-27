@@ -1,5 +1,5 @@
 ---
-title: "The Human Side of Acquisition: Frederick & Mindbody"
+title: "Harmonizing Personas for an Evolving Ecosystem"
 layout: case-study
 ---
 
@@ -8,7 +8,7 @@ layout: case-study
   <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <div class="case-study-hero-inner">
-      <h1 class="case-study-title">The Human Side of Acquisition: Frederick & Mindbody</h1>
+      <h1 class="case-study-title">Harmonizing Personas for an Evolving Ecosystem</h1>
       <p class="case-study-hero-summary">I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader Mindbody platform, ensuring our product decisions remained grounded in real user needs during the transition.</p>
     </div>
     <!--

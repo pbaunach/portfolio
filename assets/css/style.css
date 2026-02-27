@@ -512,7 +512,17 @@ a.project-card {
 }
 
 .project-cover--financial {
-  background: linear-gradient(135deg, #0c4a6e 0%, #0e7490 100%);
+  background: #131d28;
+}
+
+.project-cover--financial .project-cover-img {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
 }
 
 .project-cover--dnd {
