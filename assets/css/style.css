@@ -477,6 +477,16 @@ a.project-card {
   background: #131d28;
 }
 
+.project-cover--orchard .project-cover-img {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
 .project-cover--aspireship {
   background: #4810a4;
 }
