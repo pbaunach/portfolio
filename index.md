@@ -111,7 +111,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
         <img src="{{ '/assets/img/personas-cover.png' | relative_url }}" alt="" class="project-cover-img">
       </div>
       <div class="project-body">
-        <h3>Harmonizing Personas for an Evolving Ecosystem</h3>
+        <h3>Harmonizing Personas for an Evolving Ecosystem: Frederick &amp; Mindbody</h3>
         <p class="project-summary">
           I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader Mindbody platform, ensuring our product decisions remained grounded in real user needs during the transition.
         </p>
@@ -129,7 +129,7 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
           A high-profile demonstration of the Financial Services Cloud, Salesforce's first industry-vertical product. This project tracks the journey from initial story mapping and architecture to the live, high-fidelity functional prototype presented on stage for a global keynote audience.
         </p>
         <p class="project-card-actions">
-          <a href="{{ '/dreamforce-demo/' | relative_url }}" class="button button-primary">View the Demo</a>
+          <a href="{{ '/dreamforce-demo/' | relative_url }}" class="button button-primary">View Workflow</a>
           <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View Prototype</a>
         </p>
       </div>
