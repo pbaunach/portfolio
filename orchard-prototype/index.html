@@ -4,8 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/portfolio/">
     <title>Orchard Prototype</title>
+    <script>
+      window.addEventListener('load', function () {
+        var pathParts = window.location.pathname.split('/').filter(Boolean);
+        var projectRoot = '/' + (pathParts[0] || '');
+        document.querySelectorAll('img[src^="/assets/"]').forEach(function (img) {
+          var rel = img.getAttribute('src').replace(/^\\/+/, '');
+          img.src = projectRoot + '/' + rel;
+        });
+        document.querySelectorAll('source[src^="/assets/"], video[src^="/assets/"]').forEach(function (el) {
+          var rel = el.getAttribute('src').replace(/^\\/+/, '');
+          el.src = projectRoot + '/' + rel;
+        });
+      });
+    </script>
     <script type="module" crossorigin src="./assets/index-B_fvJhmG.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-B2UcrGbz.css">
   </head>
