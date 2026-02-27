@@ -98,11 +98,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-nav a {
+  position: relative;
   text-decoration: none;
   color: var(--muted-foreground);
   font-size: 0.95rem;
   padding: 0.5rem 1rem;
-  border-radius: 0.4rem;
   transition: color 0.15s ease, background-color 0.15s ease;
   white-space: nowrap;
 }
@@ -1930,6 +1930,7 @@ a.project-card {
   }
 
   .site-nav a {
+  position: relative;
     padding: 0.4rem 0.75rem;
     font-size: 0.9rem;
   }
@@ -2024,3 +2025,9 @@ a.project-card {
   }
 }
 
+.site-nav__link--active {
+  font-weight: 600;
+  color: #f9fafb !important;
+  border-radius: 0;
+  border-bottom: 2px solid #38bdf8;
+}
