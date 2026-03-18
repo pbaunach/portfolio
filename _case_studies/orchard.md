@@ -6,7 +6,7 @@ layout: case-study
 <nav class="case-study-nav" aria-label="On this page">
   <ul>
     <li><a href="#the-problem">The Problem</a></li>
-    <li><a href="#initial-thesis-content-first">Initial Thesis: The Content-First Strategy</a></li>
+    <li><a href="#initial-hypothesis-content-first">Initial Hypothesis: The Content-First Strategy</a></li>
     <li><a href="#getting-ready-for-testing">Getting Ready for Testing</a></li>
     <li><a href="#the-pivot">A Shift in Focus</a></li>
     <li><a href="#unexpected-turbulence">Unexpected Turbulence</a></li>
@@ -38,9 +38,9 @@ layout: case-study
         </div>
       </div>
     </div>
-    <div class="subsection" id="initial-thesis-content-first">
+    <div class="subsection" id="initial-hypothesis-content-first">
       <div class="case-study-callout case-study-callout--thesis-intro">
-        <h2>Initial Thesis: The Content-First Strategy</h2>
+        <h2>Initial Hypothesis: The Content-First Strategy</h2>
         <p>Students just need a better library of high-quality content and some gamification to encourage exploring. Counselors needed a way to track progress, view trends and assign homework.</p>
       </div>
     </div>
@@ -123,7 +123,7 @@ layout: case-study
     </div>
     <div class="subsection">
       <h2>For Counselors: We Switched Our Intent</h2>
-      <p>We realized a dashboard was just another system for counselors to manage, so we shifted our intent from managing to a conversation. By helping students build a personalized career plan before their five-minute check-in, we turned a forgettable touchpoint into a high-value conversation.</p>
+      <p>We realized a dashboard was just another system for counselors to manage, so we shifted our intent from managing to a conversation. By helping students build a personalized career plan before their five-minute check-in, our goal was to turn a forgettable touchpoint into a high-value conversation.</p>
     </div>
     <div class="subsection">
       <div class="case-study-callout case-study-callout--thesis-intro">
@@ -144,12 +144,14 @@ layout: case-study
     <div class="subsection">
       <h2>Checking the Compass</h2>
       <p>Instead of just "adding a chatbot" because it was the trend, we took a step back to review our original mission. We asked ourselves a hard question: In a world where everyone has an LLM in their pocket, is our problem statement still valid? The answer was a resounding yes.</p>
-      <div class="case-study-callout">
-        <ul>
-          <li><strong>The Reality:</strong> The counselor-to-student ratio hadn't changed.</li>
-          <li><strong>The Complexity:</strong> The job market was actually becoming more confusing because of AI.</li>
-          <li><strong>The Opportunity:</strong> We realized that while generic AI was verbose and cold, a guided AI, fed by our specific career data and human-centric philosophy, could be the "Counselor-in-Pocket" we had been trying to build all along.</li>
-        </ul>
+      <div class="orchard-problem-glow">
+        <div class="orchard-problem-glow__inner">
+          <ul class="orchard-problem-glow__list">
+            <li><strong>The Reality:</strong> The counselor-to-student ratio hadn't changed.</li>
+            <li><strong>The Complexity:</strong> The job market was actually becoming more confusing because of AI.</li>
+            <li><strong>The Opportunity:</strong> We realized that while generic AI was verbose and cold, a guided AI, fed by our specific career data and human-centric philosophy, could be the "Counselor-in-Pocket" we had been trying to build all along.</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="subsection">

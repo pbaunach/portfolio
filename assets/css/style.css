@@ -1012,7 +1012,29 @@ a.project-card {
   text-align: left;
 }
 
-/* Orchard: Problem + Initial Thesis in one band — no rule between subsections */
+/* Glow callout lists (e.g. Checking the Compass) */
+.orchard-problem-glow__list {
+  margin: 0;
+  padding-left: 1.35rem;
+}
+
+.orchard-problem-glow__list li {
+  margin-bottom: 0.4rem;
+}
+
+.orchard-problem-glow__list li:last-child {
+  margin-bottom: 0;
+}
+
+.orchard-problem-glow__list strong {
+  color: var(--foreground);
+}
+
+.major-section--turbulence .orchard-problem-glow {
+  margin-top: 1.25rem;
+}
+
+/* Orchard: Problem + Initial Hypothesis in one band — no rule between subsections */
 .major-section--problem .subsection:nth-child(2) {
   border-top: none;
   padding-top: 1.25rem;
