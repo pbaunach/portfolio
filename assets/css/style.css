@@ -943,11 +943,10 @@ a.project-card {
 
 /* Subsections: aligned with their major section, subtle separation */
 .subsection {
-  padding-top: 2rem;
+  padding: 15rem 0;
 }
 
 .subsection:first-child {
-  padding-top: 0;
   margin-bottom: 1.5rem;
 }
 
@@ -966,7 +965,6 @@ a.project-card {
 
 .subsection:not(:first-child) {
   border-top: 1px solid rgba(148, 163, 184, 0.15);
-  padding-top: 4rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
@@ -2100,7 +2098,6 @@ a.project-card {
   }
 
   .subsection:not(:first-child) {
-    padding-top: 3rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
