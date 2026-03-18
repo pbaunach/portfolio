@@ -130,7 +130,7 @@ layout: case-study
         <h2>Testing: Round Two</h2>
         <p>With a solid proof-of-concept in hand, it was time to push the product further. We integrated analytics and launched to a list of ~20,000 educators. Even though they weren't our primary demographic, watching them interact unassisted provided the kind of &ldquo;raw&rdquo; data you just can't get in a lab. For the next two weeks, our morning ritual was analyzing session recordings, letting us see exactly where users thrived and where they stumbled.</p>
       </div>
-      <p>We had finally found our "signal." The short-form video feed was working, students were exploring, and we felt like we had a handle on the discovery problem.</p>
+      <p>We had finally found our "signal." The short-form video feed was working, people were exploring, and we felt like we had a handle on the discovery problem.</p>
     </div>
   </div>
 </section>
@@ -139,8 +139,7 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>Unexpected Turbulence: The ChatGPT Shift</h2>
-      <p>Then, seemingly out of nowhere, ChatGPT was released.</p>
-      <p>Suddenly, the world was flooded with AI apps. Most of them felt like dense, academic text blocks that used a lot of verbose "AI lingo" to say very little. It was a technology looking for a problem, and for a moment, it felt like the quiet, human-centric "mentorship" vibe we were building was at risk of being drowned out by the noise.</p>
+      <p>Seemingly out of nowhere, ChatGPT was released and the world was flooded with AI apps. Most of them felt like dense, academic text blocks that used a lot of verbose "AI lingo" to say very little. It was a technology looking for a problem, and for a moment, it felt like the quiet, human-centric "mentorship" vibe we were building was at risk of being drowned out by the noise.</p>
     </div>
     <div class="subsection">
       <h2>Checking the Compass</h2>
