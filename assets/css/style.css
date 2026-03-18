@@ -977,6 +977,49 @@ a.project-card {
   border-left: 4px solid rgba(148, 163, 184, 0.35);
 }
 
+/* Orchard case study: static gradient border (orchard blue ↔ green) + soft glow (no motion) */
+.orchard-problem-glow {
+  position: relative;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 2px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(19, 199, 229, 0.7) 0%,
+    rgba(60, 211, 67, 0.7) 45%,
+    rgba(19, 199, 229, 0.7) 100%
+  );
+  box-shadow:
+    0 0 18px rgba(19, 199, 229, 0.18),
+    0 0 32px rgba(60, 211, 67, 0.18);
+}
+
+.orchard-problem-glow__inner {
+  position: relative;
+  z-index: 1;
+  padding: 1.35rem 1.6rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(8, 18, 29, 0.96);
+}
+
+.major-section--problem .orchard-problem-glow__inner h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  text-align: left;
+}
+
+/* Orchard: Problem + Initial Thesis in one band — no rule between subsections */
+.major-section--problem .subsection:nth-child(2) {
+  border-top: none;
+  padding-top: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
 .major-section--thesis {
   background: rgba(34, 59, 76, 0.35);
   border-left: 4px solid rgba(148, 163, 184, 0.2);
@@ -1017,6 +1060,10 @@ a.project-card {
 .major-section--impact {
   background: rgba(34, 59, 76, 0.4);
   border-left: 4px solid rgba(56, 189, 248, 0.25);
+}
+
+.major-section--impact .subsection > h3 {
+  text-align: center;
 }
 
 /* Alternate section style (e.g. Design System in Action) – blue-gray, distinct from pivot/north-star */
@@ -1115,6 +1162,19 @@ a.project-card {
 }
 .dnd-logic-callout li:last-child {
   margin-bottom: 0;
+}
+
+/* Orchard case study: 1px bordered body paragraphs (same treatment as D&D .dnd-logic-callout) */
+.case-study--orchard .major-section .subsection > p {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0 1.5rem;
+  background: rgba(8, 25, 48, 0.15);
+}
+
+.case-study--orchard .major-section .subsection > p:first-of-type {
+  margin-top: 0;
 }
 
 .case-study-section-inner p.case-study-wordmark,
@@ -1267,6 +1327,19 @@ a.project-card {
 
 .case-study-callout strong {
   color: var(--foreground);
+}
+
+.case-study-callout--thesis-intro > h2:first-child {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: left;
+  color: var(--foreground);
+}
+
+.case-study-callout--thesis-intro > p:last-of-type {
+  margin-bottom: 0;
 }
 
 /* Role callout: more prominent, left accent */

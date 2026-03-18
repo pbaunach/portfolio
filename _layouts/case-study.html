@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="case-study">
+<article class="case-study{% if page.title contains 'Orchard' %} case-study--orchard{% endif %}">
   <section class="case-study-body">
     {{ content }}
   </section>

@@ -6,7 +6,8 @@ layout: case-study
 <nav class="case-study-nav" aria-label="On this page">
   <ul>
     <li><a href="#the-problem">The Problem</a></li>
-    <li><a href="#the-initial-thesis">The Initial Thesis</a></li>
+    <li><a href="#initial-thesis-content-first">Initial Thesis: The Content-First Strategy</a></li>
+    <li><a href="#getting-ready-for-testing">Getting Ready for Testing</a></li>
     <li><a href="#the-pivot">A Shift in Focus</a></li>
     <li><a href="#unexpected-turbulence">Unexpected Turbulence</a></li>
     <li><a href="#the-north-star">The North Star</a></li>
@@ -30,24 +31,30 @@ layout: case-study
 <section id="the-problem" class="major-section major-section--problem">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>The Problem: The Mentorship Gap</h2>
-      <p>High schoolers are expected to pick a life path before they're even allowed to rent a car. Meanwhile, career counselors are so outnumbered that most students only get a five-minute check-in once a year. The result? Kids default to "safe" or "generic" majors like Business or Marketing because they simply don't have a guiding voice to show them anything else.</p>
+      <div class="orchard-problem-glow">
+        <div class="orchard-problem-glow__inner">
+          <h2>The Problem: The Mentorship Gap</h2>
+          <p>High schoolers are expected to pick a life path before they're even allowed to rent a car. Meanwhile, career counselors are so outnumbered that most students only get a five-minute check-in once a year. The result? Kids default to "safe" or "generic" majors like Business or Marketing because they simply don't have a guiding voice to show them anything else.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subsection" id="initial-thesis-content-first">
+      <div class="case-study-callout case-study-callout--thesis-intro">
+        <h2>Initial Thesis: The Content-First Strategy</h2>
+        <p>Students just need a better library of high-quality content and some gamification to encourage exploring. Counselors needed a way to track progress, view trends and assign homework.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="the-initial-thesis" class="major-section major-section--thesis">
   <div class="major-section-inner">
-    <div class="subsection">
-      <h2>The Initial Thesis: "If we build it, they will search"</h2>
-      <p>We started with a classic assumption: students just needed a better database.</p>
+    <div class="subsection" id="getting-ready-for-testing">
+      <h2>Getting Ready for Testing</h2>
+      <p>To get ready to test our hypothesis we reached out to everyone we knew and started filming our own high-quality videos, created a gamifying experience and added quizzes to prove students were watching the videos.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/orchard-screens/student-explore-careers.png' | relative_url }}" alt="Student exploring careers">
       </figure>
-    </div>
-    <div class="subsection">
-      <h2>For Students</h2>
-      <p>A video-first searchable library with gamified quizzes to "prove" they were learning.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/orchard-screens/student-career-page-view.png' | relative_url }}" alt="Student career page view">
       </figure>
@@ -57,7 +64,7 @@ layout: case-study
     </div>
     <div class="subsection">
       <h2>For Counselors</h2>
-      <p>A complex dashboard so they could track usage and assign "homework" to students.</p>
+      <p>We designed a way to track progress and even assign "career homework" to their students.</p>
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/orchard-screens/admin-dashboard.png' | relative_url }}" alt="Admin dashboard">
       </figure>
@@ -68,8 +75,8 @@ layout: case-study
       <div class="case-study-callout">
         <ul>
           <li><strong>The "Search Bar" Bias:</strong> Students didn't "explore" because they didn't know what to ask. They defaulted to the same three careers they'd seen on TV, leaving the rest of our database untouched.</li>
-          <li><strong>Dashboard Fatigue:</strong> Counselors were already drowning in administrative tools. The last thing they wanted was another system to log into; they needed a way to make their rare 1-on-1 time more effective.</li>
           <li><strong>The Quiz Friction:</strong> We thought gamified quizzes would prove learning, but students saw them as "just more schoolwork" and disengaged immediately.</li>
+          <li><strong>Dashboard Fatigue:</strong> Counselors were already drowning in administrative tools. The last thing they wanted was another system to log into; they needed a way to make their rare 1-on-1 time more effective.</li>
         </ul>
       </div>
     </div>
@@ -95,7 +102,7 @@ layout: case-study
     </div>
     <div class="subsection">
       <h2>The Feed Model</h2>
-      <p>We replaced the traditional database UI with a mobile-first, scrollable feed of short-form video clips.</p>
+      <p>We replaced the traditional search based layout with a mobile-first, scrollable feed of short-form video clips.</p>
       <figure class="case-study-screenshot case-study-screenshot--phone">
         <img src="{{ '/assets/img/orchard-screens/careers-mobile-homepage.png' | relative_url }}" alt="Careers mobile homepage">
       </figure>
@@ -115,19 +122,14 @@ layout: case-study
       </figure>
     </div>
     <div class="subsection">
-      <h2>Empowering the Counselor</h2>
-      <p>We accepted that a dashboard was just more "admin work" for people who didn't have time for it.</p>
+      <h2>For Counselors: We Switched Our Intent</h2>
+      <p>We realized a dashboard was just another system for counselors to manage, so we shifted our intent from managing to a conversation. By helping students build a personalized career plan before their five-minute check-in, we turned a forgettable touchpoint into a high-value conversation.</p>
     </div>
     <div class="subsection">
-      <h2>The Portfolio Approach</h2>
-      <p>Instead of a tracker, we designed a simple "Favorite Careers" profile for the student.</p>
-      <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/orchard-screens/career-favorite.png' | relative_url }}" alt="Career favorite">
-      </figure>
-    </div>
-    <div class="subsection">
-      <h2>Conversation Starters</h2>
-      <p>The goal shifted from "tracking students" to "equipping students." We wanted them to walk into that one yearly meeting with a list of five careers they actually cared about, giving the counselor a massive head start.</p>
+      <div class="case-study-callout case-study-callout--thesis-intro">
+        <h2>Testing: Round Two</h2>
+        <p>With a solid proof-of-concept in hand, it was time to push the product further. We integrated analytics and launched to a list of ~20,000 educators. Even though they weren't our primary demographic, watching them interact unassisted provided the kind of &ldquo;raw&rdquo; data you just can't get in a lab. For the next two weeks, our morning ritual was analyzing session recordings, letting us see exactly where users thrived and where they stumbled.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -151,8 +153,8 @@ layout: case-study
       </div>
     </div>
     <div class="subsection">
-      <h2>Embracing the Magic</h2>
-      <p>We decided to dive in, but with a strict design rule: The AI has to serve the human story, not the other way around.</p>
+      <h2>Aligning the Tech to the Mission</h2>
+      <p>We realized LLM technology was the perfect way to make our vision of a 24/7 career counselor a reality. Our approach was simple: the AI exists to guide students and answer their questions as they build their own post-high school career plans. We made a strategic decision that the technology should never automatically assign a 'perfect career' based on an assessment. Instead, it serves as a supportive partner, keeping the student in the driver's seat of their own future.</p>
     </div>
   </div>
 </section>
@@ -161,21 +163,13 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <h2>The North Star: A Living Mentor in Every Pocket</h2>
-      <p>This phase is where 20 years of experience met the most modern tools available to turn a vision into a "source of truth" that actually works. We moved from a discovery platform to a Mentorship Engine, focusing on a four-stage journey that guides a student from initial curiosity to a concrete, trackable future.</p>
-      <p>By integrating <strong>contextual mentorship</strong>, we used AI to bridge the gap between "I'm interested in this video" and "Here is exactly how I achieve this goal." This transformed the experience from a passive library into a proactive guide, ensuring that every piece of content served as a stepping stone toward a real-world outcome.</p>
-      <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/orchard-screens/orchard-career-exploration.png' | relative_url }}" alt="Orchard career exploration">
-      </figure>
+      <p>We moved beyond a simple discovery platform to create a truly guided experience. Our goal was to turn our passive video library into a proactive mentor that walks with students from their first spark of curiosity all the way to a concrete and trackable future. By adding contextual mentorship, we used AI to bridge the gap between exploring careers and understanding exactly how to achieve a goal. This transforms every piece of content into a deliberate stepping stone, turning a library of information into an active roadmap toward a real-world career.</p>
     </div>
     <div class="subsection">
-      <h2>Enter "Orchie"</h2>
-      <p>We designed Orchie to be the "Digital Counselor" in the room: a conversational AI that doesn't just regurgitate data, but asks the right questions.</p>
-    </div>
-    <div class="subsection">
-      <h2>Conversational Context</h2>
-      <p>Instead of a search bar, Orchie helps students articulate their interests, moving them past generic "Business" majors into specific, high-growth paths.</p>
+      <h2>Enter "Orchie": The Digital Counselor</h2>
+      <p>We designed Orchie to serve as a digital counselor that moves beyond the limitations of a standard search bar. Instead of just regurgitating data, Orchie uses conversational context to help students articulate their interests and move past generic labels like 'Business' into specific, meaningful career trajectories. This shift ensures the AI isn't just an information retrieval tool, but a proactive partner that asks the right questions to help a student refine their own vision and discover a path that truly resonates with them.</p>
       <figure class="case-study-screenshot">
-        <img src="{{ '/assets/img/orchard-screens/orchard-orchie.png' | relative_url }}" alt="Orchard Orchie">
+        <img src="{{ '/assets/img/orchard-screens/orchard-dashboard.png' | relative_url }}" alt="Orchard dashboard">
       </figure>
     </div>
     <div class="subsection">
