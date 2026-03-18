@@ -97,15 +97,8 @@ layout: case-study
 <section id="the-pivot" class="major-section major-section--pivot">
   <div class="major-section-inner">
     <div class="subsection">
-      <h2>A Shift in Focus: Moving to Where the Value Was</h2>
+      <h2>A Shift in Focus: Prioritizing an Exploratory Experience</h2>
       <p>With the research in hand, it was time for a reset. We realized that to provide real value, we needed to move beyond a traditional management-style dashboard and evolve into a true discovery platform. This shift was driven by the observation that students often felt stuck at the search bar: when they didn't know what to ask, they didn't ask anything. By prioritizing an exploratory experience over a search-heavy one, we created a path for students to discover opportunities they didn't even know existed.</p>
-    </div>
-    <div class="subsection">
-      <h2>The Feed Model</h2>
-      <p>We replaced the traditional search based layout with a mobile-first, scrollable feed of short-form video clips.</p>
-      <figure class="case-study-screenshot case-study-screenshot--phone">
-        <img src="{{ '/assets/img/orchard-screens/careers-mobile-homepage.png' | relative_url }}" alt="Careers mobile homepage">
-      </figure>
     </div>
     <div class="subsection">
       <h2>The Hook</h2>
@@ -119,6 +112,13 @@ layout: case-study
       <p>By mimicking the social media patterns students already used, we saw "accidental discovery" happen. A student might scroll for a "Business" clip but stop on a "Product Designer" video because the thumbnail grabbed them.</p>
       <figure class="case-study-screenshot case-study-screenshot--phone">
         <img src="{{ '/assets/img/orchard-screens/careers-mobile-video.png' | relative_url }}" alt="Careers mobile video">
+      </figure>
+    </div>
+    <div class="subsection">
+      <h2>The Feed Model</h2>
+      <p>We replaced the traditional search based layout with a mobile-first, scrollable feed of short-form video clips.</p>
+      <figure class="case-study-screenshot case-study-screenshot--phone">
+        <img src="{{ '/assets/img/orchard-screens/careers-mobile-homepage.png' | relative_url }}" alt="Careers mobile homepage">
       </figure>
     </div>
     <div class="subsection">
