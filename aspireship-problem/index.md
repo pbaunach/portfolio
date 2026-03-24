@@ -100,7 +100,7 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
       </li>
       <li><strong>Assessment Anxiety:</strong> Users were "stalling" at the final exam out of fear of failure.
         <ul>
-          <li><strong>Solution:</strong> Added practice projects and messaging that they would have retake options.</li>
+          <li><strong>Solution:</strong> Added practice projects and messaging that they would have the option to retake the assessment.</li>
         </ul>
       </li>
     </ul>
