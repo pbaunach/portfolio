@@ -106,8 +106,9 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
     </ul>
     <h2>The Results</h2>
     <ul>
-      <li><strong>15%</strong> of all sign-ups now converted to paid (up from 3%).</li>
-      <li><strong>89%</strong> of those who reach the assessment now finished the course.</li>
+      <li><strong>Paid Conversion:</strong> Jumped from 3% to 15% (5x increase).</li>
+      <li><strong>Course Completion:</strong> rose from 45% to 89% (2x increase).</li>
+      <li><strong>Net Impact:</strong> ~10x increase in total course completions per sign-up.</li>
     </ul>
     <h2>Conclusion</h2>
     <p>By creating a baseline and analyzing our conversion funnel, I was able to take a vague issue and form concrete hypotheses to design and test against.</p>
