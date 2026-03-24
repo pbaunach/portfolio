@@ -86,7 +86,7 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
     <h2>My Approach</h2>
     <p>I started by creating a baseline and then mapping the user journey to identify where the biggest drop-off points were happening.</p>
     <h2>Baseline</h2>
-    <p>I partnered with Marketing and Engineering to reconcile our data. We moved away from perceived numbers and built a source of truth report that tracked every step from the sign up to the certificate.</p>
+    <p>I got together with Marketing and Engineering to make sure we were all looking at the same data. We defined sign-up criteria and completion criteria and then built a clear report to measure against.</p>
     <h2>User Journey</h2>
     <p>I mapped the user journey to a conversion funnel to identify any bottlenecks or drop-off points.</p>
     <p><strong>Funnel:</strong> Free Sign-up <strong>-&gt;</strong> Paid Conversion (3%) <strong>-&gt;</strong> Graded Assessment <strong>-&gt;</strong> Completion (45%)</p>
