@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | escape }}</title>
     <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    {% if page.robots %}
+    <meta name="robots" content="{{ page.robots }}">
+    {% endif %}
+    {% if page.x_robots_tag %}
+    <meta http-equiv="X-Robots-Tag" content="{{ page.x_robots_tag }}">
+    {% endif %}
     <link rel="icon" href="{{ '/assets/favicon.png' | relative_url }}" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
