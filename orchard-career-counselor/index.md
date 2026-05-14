@@ -26,7 +26,7 @@ layout: case-study
     <li><a href="#action-plan">Action Plan</a></li>
     <li><a href="#dashboard-complete">Dashboard Complete + Ongoing Action Plan</a></li>
     <li><a href="#mobile">Mobile Optimized</a></li>
-    <li><a href="#prototype">Prototype</a></li>
+    <!-- Hidden for now: <li><a href="#prototype">Prototype</a></li> -->
     <li><a href="#my-role">My Role</a></li>
     <li><a href="#read-case-study">Case Study</a></li>
   </ul>
@@ -160,6 +160,7 @@ layout: case-study
   </div>
 </section>
 
+<!-- Hidden for now:
 <section id="prototype" class="major-section major-section--design-a">
   <div class="major-section-inner">
     <div class="subsection subsection--center-title">
@@ -169,6 +170,7 @@ layout: case-study
     </div>
   </div>
 </section>
+-->
 
 <section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
   <div class="case-study-section-inner">

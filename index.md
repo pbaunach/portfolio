@@ -32,10 +32,8 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
             </p>
             <p class="project-card-actions">
               <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
-            </p>
-            <p class="project-card-actions">
               <a href="{{ '/case-studies/orchard/' | relative_url }}" class="button button-outline">Read the Case Study</a>
-              <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a>
+              <!-- Hidden for now: <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a> -->
             </p>
           </div>
         </div>

@@ -12,7 +12,7 @@ layout: case-study
     <li><a href="#unexpected-turbulence">Unexpected Turbulence</a></li>
     <li><a href="#the-north-star">The North Star</a></li>
     <li><a href="#impact-learnings">Impact &amp; Learnings</a></li>
-    <li><a href="#prototype">Prototype</a></li>
+    <!-- Hidden for now: <li><a href="#prototype">Prototype</a></li> -->
     <li><a href="#my-role">My Role</a></li>
   </ul>
 </nav>
@@ -198,9 +198,11 @@ layout: case-study
     <div class="subsection">
       <h2>The Technical Edge: High-Fidelity as the "Source of Truth"</h2>
       <p>Because we were moving into uncharted territory with AI-led UX, static mockups weren't enough. I pivoted our entire workflow to AI-assisted high-fidelity prototyping.</p>
+      <!-- Hidden for now:
       <div class="case-study-cta-wrapper">
         <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
       </div>
+      -->
     </div>
     <div class="subsection">
       <h2>Building in Cursor.ai</h2>
@@ -241,11 +243,13 @@ layout: case-study
         </ul>
       </div>
     </div>
+    <!-- Hidden for now:
     <div id="prototype" class="subsection">
       <div class="case-study-cta-wrapper">
         <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" target="_blank" rel="noopener noreferrer" class="button button-primary">Check out the Prototype</a>
       </div>
     </div>
+    -->
   </div>
 </section>
 
