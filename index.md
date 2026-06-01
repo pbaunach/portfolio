@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Portfolio
-description: Senior-level product design portfolio featuring 0-to-1 product work and high-impact case studies.
+description: Staff Product Designer focused on 0→1 AI products. 20+ years bridging strategy and execution across startups and Fortune 500 enterprises.
 ---
 
 <section class="home-hero">
@@ -9,34 +9,58 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
   <div class="home-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="home-hero-inner">
     <div class="intro">
+      <h1 class="intro-headline">
+        I design the <span class="intro-emphasis">0 &rarr; 1</span>: the messy first version nobody's built yet.
+      </h1>
       <p class="intro-copy">
-        Greetings!<br><br>
-        I'm <span class="intro-emphasis">Peter Baunach</span>, a <span class="intro-emphasis">Product Designer</span> and <span class="intro-emphasis">Strategist</span>. I'm a big believer in design-led strategy, rapid AI-assisted prototyping, and the philosophy that every iteration is another step toward finding the right answer.
+        20+ years bridging strategy and execution, from early-stage startups to Fortune 500 enterprises. Currently designing <span class="intro-emphasis">Orchard</span>, an AI College and Career Readiness counselor for high schoolers. Big believer in design-led strategy, rapid AI-assisted prototyping, and tinkering with the latest technology.
       </p>
     </div>
 
-    <div class="project-grid project-grid--case-study">
+    <div class="project-grid project-grid--split">
       <div class="project-grid-header">
-        <h2 class="section-title">Project Highlight</h2>
+        <h2 class="section-title">Project Highlights</h2>
       </div>
 
       <div class="project-grid-inner">
-        <div class="project-card project-card--feature">
-          <a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-cover project-cover--orchard project-cover--logo-left">
-            <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard" class="project-cover-img">
+        <div class="project-card project-card--split project-card--for-work">
+          <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
+            <img src="{{ '/assets/img/orchard-screens-v2/Orchard-Card.png' | relative_url }}" alt="Orchard product preview" class="project-cover-img">
           </a>
           <div class="project-body">
-            <h3><a href="{{ '/case-studies/orchard/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
+            <div class="project-meta-row">
+              <span class="project-status-chip project-status-chip--now">
+                <span class="project-status-dot" aria-hidden="true"></span>Now
+              </span>
+              <span class="project-role-label">Head of Product &amp; Design</span>
+            </div>
+            <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
             <p class="project-summary">
-              Building a supportive mentor that helps students find clarity and assurance in an uncertain future.
+              Leading 0&rarr;1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
             </p>
             <p class="project-card-actions">
               <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
-              <a href="{{ '/case-studies/orchard/' | relative_url }}" class="button button-outline">Read the Case Study</a>
-              <!-- Hidden for now: <a href="{{ '/orchard-prototype/gate.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a> -->
+              <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a>
             </p>
           </div>
         </div>
+
+        <a href="{{ '/unbound-codex/' | relative_url }}" class="project-card project-card--split project-card--for-fun">
+          <div class="project-cover project-cover--unbound project-cover--split-hero">
+            <img src="{{ '/assets/img/unbound-codex/card.png' | relative_url }}" alt="The Unbound Codex" class="project-cover-img">
+          </div>
+          <div class="project-body">
+            <div class="project-meta-row">
+              <span class="project-status-chip project-status-chip--exploring">Exploring</span>
+              <span class="project-role-label">Self-Directed</span>
+            </div>
+            <h3>The Unbound Codex</h3>
+            <p class="project-summary">
+              A living campaign codex for D&amp;D Dungeon Masters, with an AI archivist named Silias who keeps prep and play in one workflow.
+            </p>
+            <span class="button button-explore">View the Story</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -69,9 +93,9 @@ description: Senior-level product design portfolio featuring 0-to-1 product work
 
 <section class="project-grid">
   <div class="project-grid-header">
-    <h2 class="section-title">Other notable projects</h2>
+    <h2 class="section-title">Other Notable Projects</h2>
     <p class="section-subtitle">
-      This is a small selection of work focused on Design Systems, Brand Guidelines, Personas and Demos.
+      Foundation work across design systems, brand strategy, research, and prototyping.
     </p>
   </div>
   <div class="project-grid-inner">

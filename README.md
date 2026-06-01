@@ -1,4 +1,4 @@
-# Portfolio — Product Design
+# Portfolio: Product Design
 
 A Jekyll-based portfolio site hosted on GitHub Pages.
 

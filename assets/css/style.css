@@ -72,7 +72,30 @@ h1, h2, h3, h4, h5, h6,
   color: inherit;
   display: flex;
   align-items: center;
+  gap: 0.7rem;
   flex-shrink: 0;
+}
+
+.site-logo-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.site-logo-name__primary {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.005em;
+}
+
+.site-logo-name__secondary {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  margin-top: 0.1rem;
 }
 
 .logo-placeholder {
@@ -239,10 +262,36 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 3rem;
 }
 
+.intro-eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #bae6fd;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.intro-headline {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 28px rgba(0, 0, 0, 0.4);
+}
+
+.intro-headline .intro-emphasis {
+  color: #bae6fd;
+}
+
 .intro-copy {
-  font-size: 1.5rem;
-  line-height: 1.3;
-  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  font-weight: 400;
   font-family: 'Inter', system-ui, sans-serif;
   color: #E4E9ED;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 0, 0, 0.35);
@@ -253,8 +302,40 @@ h1, h2, h3, h4, h5, h6,
   color: #fff;
 }
 
-.intro-copy span {
-  color: #bae6fd;
+/* Outcomes strip: 4 stat blocks between intro and project highlights */
+.outcomes-strip {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: rgba(2, 8, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  backdrop-filter: blur(6px);
+}
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.outcome-value {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.outcome-label {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #cbd5e1;
 }
 
 .project-grid {
@@ -299,7 +380,7 @@ h1, h2, h3, h4, h5, h6,
   grid-template-columns: minmax(0, 1fr);
 }
 
-.project-grid:not(.project-grid--case-study) .project-grid-inner {
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-grid-inner {
   grid-template-columns: minmax(0, 1fr);
   gap: 3rem;
 }
@@ -401,13 +482,191 @@ a.project-card {
   padding: 2rem 2rem 2rem 1.5rem;
 }
 
+/* Split highlight: two cards side-by-side ("For Work" / "For Fun") */
+.project-grid--split .project-grid-inner {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.project-card--split {
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+}
+
+.project-card-eyebrow {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  color: var(--primary);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.project-card-eyebrow--fun {
+  background: #1a0a0a;
+  border-color: rgba(252, 165, 165, 0.75);
+  color: #fca5a5;
+}
+
+/* Card meta row: status chip + role label sitting above the title */
+.project-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 0 0.85rem;
+  flex-wrap: wrap;
+}
+
+.project-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.project-status-chip--now {
+  background: #38bdf8;
+  color: #0b1120;
+}
+
+.project-status-chip--exploring {
+  background: #34d399;
+  color: #022c22;
+}
+
+.project-status-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b91c1c;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.project-status-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #b91c1c;
+  animation: status-pulse 1.8s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes status-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-status-dot::before {
+    animation: none;
+  }
+}
+
+.project-role-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  line-height: 1;
+}
+
+.project-card--split .project-cover--split-hero {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  padding: 0;
+  display: block;
+}
+
+.project-card--split .project-cover--split-hero .project-cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Orchard hero in split: contained on a dark panel so the dashboard reads */
+.project-card--split .project-cover--orchard.project-cover--split-hero {
+  background: #131d28;
+}
+
+.project-card--split .project-cover--orchard.project-cover--split-hero .project-cover-img {
+  position: relative;
+  inset: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
+/* Unbound Codex hero in split: contained on a deep tavern-dark panel */
+.project-card--split .project-cover--unbound.project-cover--split-hero {
+  background: #1a0f0a;
+}
+
+.project-card--split .project-cover--unbound.project-cover--split-hero .project-cover-img {
+  position: relative;
+  inset: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
+.project-card--split .project-body {
+  flex: 1 1 auto;
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.6rem;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push action buttons to the bottom so both split cards' CTAs bottom-align */
+.project-card--split .project-card-actions,
+.project-card--split .project-body > .button {
+  margin-top: auto;
+}
+
 /* Other notable projects: same layout as case study (cover left, body right on desktop) */
-.project-grid:not(.project-grid--case-study) .project-card {
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card {
   flex-direction: row;
   align-items: stretch;
 }
 
-.project-grid:not(.project-grid--case-study) .project-card .project-cover {
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-cover {
   flex: 1 1 50%;
   width: 50%;
   min-width: 0;
@@ -416,7 +675,7 @@ a.project-card {
   padding: 1.25rem 1.25rem;
 }
 
-.project-grid:not(.project-grid--case-study) .project-card .project-body {
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-body {
   flex: 1 1 50%;
   width: 50%;
   min-width: 0;
@@ -586,26 +845,39 @@ a.project-card {
 .button-primary {
   background: #38bdf8;
   color: #0b1120;
-  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
 }
 
 .button-primary:hover {
   background: #0ea5e9;
   transform: translateY(-1px);
-  box-shadow: 0 14px 40px rgba(56, 189, 248, 0.55);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.25);
 }
 
 /* Red glowy button (Passion Project / D&D) */
 .button-campaign {
   background: #dc2626;
   color: #fff;
-  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
 }
 
 .button-campaign:hover {
   background: #b91c1c;
   transform: translateY(-1px);
-  box-shadow: 0 14px 40px rgba(220, 38, 38, 0.55);
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.25);
+}
+
+/* Explore button: emerald variant for self-directed projects */
+.button-explore {
+  background: #34d399;
+  color: #022c22;
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.15);
+}
+
+.button-explore:hover {
+  background: #10b981;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(52, 211, 153, 0.25);
 }
 
 .button-ghost {
@@ -632,7 +904,7 @@ a.project-card {
   border-color: rgba(56, 189, 248, 0.7);
   color: var(--primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.12);
 }
 
 /* Case study layout – full-width bands */
@@ -839,7 +1111,7 @@ a.project-card {
 }
 
 .case-study-intro--theme-dnd .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(155, 34, 38, 0.2) 25%, #9b2226 100%);
+  background: linear-gradient(to bottom, rgba(6, 78, 59, 0.2) 25%, #064e3b 100%);
 }
 
 .case-study-intro--theme-bff .case-study-hero-dots,
@@ -856,8 +1128,8 @@ a.project-card {
   position: relative;
   z-index: 1;
   max-width: 720px;
-  margin: 1.5rem auto;
-  padding: 2rem;
+  margin: 1rem auto;
+  padding: 1.75rem 2rem;
   background: rgba(8, 25, 48, 0.15);
   border-radius: var(--radius-lg);
 }
@@ -873,6 +1145,204 @@ a.project-card {
   font-size: 1.1rem;
   line-height: 1.5;
   color: #fff;
+}
+
+.case-study-hero-cta {
+  margin: 1.5rem 0 0;
+}
+
+/* Thesis card: pull-quote treatment after hero, before Act 1 */
+.case-study-thesis {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(2, 8, 23, 0), rgba(2, 8, 23, 0.55), rgba(2, 8, 23, 0));
+}
+
+.case-study-thesis-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.case-study-thesis-eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 1.1rem !important;
+}
+
+.case-study-thesis-quote {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 !important;
+  letter-spacing: -0.01em;
+}
+
+.case-study-thesis--dnd .case-study-thesis-eyebrow {
+  color: #34d399;
+}
+
+/* Act divider: bold band between acts */
+.case-study-act {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.25rem 1.5rem;
+  box-sizing: border-box;
+  background: rgba(8, 25, 48, 0.45);
+  border-top: 1px solid rgba(56, 189, 248, 0.18);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+.case-study-act-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.case-study-act-number {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.9;
+  color: var(--primary);
+  letter-spacing: -0.05em;
+}
+
+.case-study-act-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted-foreground);
+  margin: 0 0 0.4rem !important;
+  line-height: 1;
+}
+
+.case-study-act-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.55rem !important;
+  letter-spacing: -0.01em;
+}
+
+.case-study-act-intro {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0 !important;
+}
+
+.case-study-act--dnd {
+  border-top-color: rgba(52, 211, 153, 0.28);
+  border-bottom-color: rgba(52, 211, 153, 0.28);
+}
+
+.case-study-act--dnd .case-study-act-number {
+  color: #34d399;
+}
+
+/* Annotated screenshot: numbered callout markers + commentary list */
+.case-study-screenshot--callouts {
+  margin: 1.5rem 0 !important;
+}
+
+.cs-screenshot-frame {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.cs-screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.cs-callout-marker {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #38bdf8;
+  color: #020617;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(56, 189, 248, 0.22);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cs-callout-notes {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1.1rem 0 0 !important;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cs-callout-notes li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0 !important;
+}
+
+.cs-callout-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  color: var(--primary);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.case-study-screenshot--callouts.callouts-dnd .cs-callout-marker {
+  background: #34d399;
+  color: #022c22;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(52, 211, 153, 0.22);
+}
+
+.case-study-screenshot--callouts.callouts-dnd .cs-callout-num {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: #34d399;
 }
 
 .case-study-section-inner {
@@ -930,7 +1400,7 @@ a.project-card {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 2.5rem 1.5rem 3rem;
+  padding: 2rem 1.5rem 2.25rem;
   box-sizing: border-box;
   border-top: 1px solid rgba(148, 163, 184, 0.06);
   border-bottom: 1px solid rgba(148, 163, 184, 0.06);
@@ -943,7 +1413,7 @@ a.project-card {
 
 /* Subsections: aligned with their major section, subtle separation */
 .subsection {
-  padding: 15rem 0;
+  padding: 1.5rem 0;
 }
 
 .subsection:first-child {
@@ -1032,7 +1502,7 @@ a.project-card {
   margin-top: 1.25rem;
 }
 
-/* Orchard: Problem + Initial Hypothesis in one band — no rule between subsections */
+/* Orchard: Problem + Initial Hypothesis in one band, no rule between subsections */
 .major-section--problem .subsection:nth-child(2) {
   border-top: none;
   padding-top: 1.25rem;
@@ -1976,24 +2446,62 @@ a.project-card {
     flex: 1 1 auto;
   }
 
+  /* Split highlight: stack to one column on mobile */
+  .project-grid--split .project-grid-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Outcomes strip: stack to 2-column on mobile */
+  .outcomes-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .outcome-value {
+    font-size: 1.2rem;
+  }
+
+  .outcome-label {
+    font-size: 0.78rem;
+  }
+
+  /* Hero headline scales down */
+  .intro-headline {
+    font-size: 1.7rem;
+  }
+
+  .intro-eyebrow {
+    font-size: 0.78rem;
+  }
+
+  .intro-copy {
+    font-size: 1rem;
+  }
+
+  /* Split-card action buttons stack vertically on mobile so labels never wrap awkwardly */
+  .project-card--split .project-card-actions {
+    flex-wrap: wrap;
+  }
+
+  .project-card--split .project-card-actions .button {
+    flex: 1 1 100%;
+  }
+
   /* Other notable projects: stack cover on top, body below (same as case study on mobile) */
-  .project-grid:not(.project-grid--case-study) .project-card {
+  .project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card {
     flex-direction: column;
   }
 
-  .project-grid:not(.project-grid--case-study) .project-card .project-cover {
+  .project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-cover {
     width: 100%;
     aspect-ratio: 16 / 9;
     min-height: 0;
   }
 
-  .project-grid:not(.project-grid--case-study) .project-card .project-body {
+  .project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-body {
     width: 100%;
     flex: 1 1 auto;
-  }
-
-  .intro-copy {
-    font-size: 1.3rem;
   }
 
   .hero-title {
@@ -2019,13 +2527,15 @@ a.project-card {
   }
 
   .site-nav {
-    gap: 0.25rem;
+    gap: 0.1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .site-nav a {
-  position: relative;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.9rem;
+    position: relative;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.82rem;
   }
 
 

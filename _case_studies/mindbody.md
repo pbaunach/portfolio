@@ -1,5 +1,5 @@
 ---
-title: "Mindbody — Wellness at Scale"
+title: "Mindbody: Wellness at Scale"
 tagline: "Designing for studios, instructors, and consumers in a connected wellness ecosystem."
 role: "Product Design Lead"
 timeline: "Placeholder"
