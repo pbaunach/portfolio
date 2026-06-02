@@ -2,7 +2,7 @@
   'use strict';
 
   var lightbox = document.getElementById('lightbox');
-  var screenshotFigures = document.querySelectorAll('.case-study-screenshot');
+  var screenshotFigures = document.querySelectorAll('.case-study-screenshot, .cs-callout-figure');
 
   if (!lightbox || screenshotFigures.length === 0) return;
 

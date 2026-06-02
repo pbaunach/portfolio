@@ -10,7 +10,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
   <div class="home-hero-inner">
     <div class="intro">
       <h1 class="intro-headline">
-        I design the <span class="intro-emphasis">0 &rarr; 1</span>: the messy first version nobody's built yet.
+        I design and build the <span class="intro-emphasis">0 &rarr; 1</span> products that don't exist yet.
       </h1>
       <p class="intro-copy">
         20+ years bridging strategy and execution, from early-stage startups to Fortune 500 enterprises. Currently designing <span class="intro-emphasis">Orchard</span>, an AI College and Career Readiness counselor for high schoolers. Big believer in design-led strategy, rapid AI-assisted prototyping, and tinkering with the latest technology.
@@ -23,7 +23,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
       </div>
 
       <div class="project-grid-inner">
-        <div class="project-card project-card--split project-card--for-work">
+        <div class="project-card project-card--split project-card--horizontal project-card--for-work">
           <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
             <img src="{{ '/assets/img/orchard-screens-v2/Orchard-Card.png' | relative_url }}" alt="Orchard product preview" class="project-cover-img">
           </a>
@@ -45,6 +45,8 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
           </div>
         </div>
 
+        <!--
+        Hidden for now: Unbound Codex card. Uncomment to restore.
         <a href="{{ '/unbound-codex/' | relative_url }}" class="project-card project-card--split project-card--for-fun">
           <div class="project-cover project-cover--unbound project-cover--split-hero">
             <img src="{{ '/assets/img/unbound-codex/card.png' | relative_url }}" alt="The Unbound Codex" class="project-cover-img">
@@ -61,6 +63,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
             <span class="button button-explore">View the Story</span>
           </div>
         </a>
+        -->
       </div>
     </div>
   </div>

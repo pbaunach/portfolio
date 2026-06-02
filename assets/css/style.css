@@ -631,6 +631,44 @@ a.project-card {
   margin: 10px;
 }
 
+/* Horizontal card: image on the left, content on the right (full grid width) */
+.project-grid--split .project-card.project-card--horizontal {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.project-card.project-card--horizontal .project-cover--split-hero {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  aspect-ratio: auto;
+  min-height: 22rem;
+}
+
+.project-card.project-card--horizontal .project-body {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  justify-content: center;
+  padding: 2rem 2rem 2rem 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .project-grid--split .project-card.project-card--horizontal {
+    flex-direction: column;
+  }
+  .project-card.project-card--horizontal .project-cover--split-hero {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+  .project-card.project-card--horizontal .project-body {
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.6rem;
+  }
+}
+
 /* Unbound Codex hero in split: contained on a deep tavern-dark panel */
 .project-card--split .project-cover--unbound.project-cover--split-hero {
   background: #1a0f0a;
@@ -1030,6 +1068,7 @@ a.project-card {
 /* Hero with title only (no dashboard image): vertical center, title padding only */
 .case-study-intro--title-only {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0 1.5rem;
@@ -1208,7 +1247,7 @@ a.project-card {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1.5rem;
-  align-items: center;
+  align-items: start;
 }
 
 .case-study-act-number {
@@ -1242,10 +1281,382 @@ a.project-card {
 }
 
 .case-study-act-intro {
-  font-size: 0.98rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0.65rem 0 0 !important;
+  max-width: 70ch;
+}
+
+/* Hero image: full-width screenshot below title in case study hero */
+.case-study-hero-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.case-study-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+/* Editorial hero: dark, centered, serif title with cyan accent */
+.case-study-intro--editorial {
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  background: transparent;
+}
+
+.case-study-intro--editorial .case-study-section-inner {
+  max-width: 1100px;
+}
+
+.editorial-hero {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.editorial-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin: 0 0 1.5rem !important;
+}
+
+.editorial-hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  flex-shrink: 0;
+}
+
+.editorial-hero-eyebrow-sep {
+  opacity: 0.55;
+  margin: 0 0.15em;
+}
+
+.editorial-hero-title {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin: 0 auto !important;
+  max-width: 30ch;
+  text-align: center;
+}
+
+.editorial-hero-accent {
+  color: #38bdf8;
+}
+
+.editorial-hero-accent--amp {
+  color: #38bdf8;
+}
+
+.editorial-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin: 1.75rem 0 0 !important;
+}
+
+.editorial-hero-meta-sep {
+  color: rgba(148, 163, 184, 0.4);
+  font-weight: 300;
+}
+
+/* Hero image follows the title within the same section, at 75% width */
+.case-study-intro--editorial .case-study-hero-image {
+  max-width: 825px;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+
+/* Editorial thesis: serif quote with cyan italic accent, plus 3 navigation cards */
+.case-study-thesis--editorial {
+  padding: 3rem 1.5rem 5rem;
+  background: transparent;
+}
+
+.case-study-thesis--editorial .case-study-thesis-eyebrow {
+  color: #38bdf8;
+}
+
+.case-study-thesis--editorial .case-study-thesis-quote {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
+  font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+  color: #fff !important;
+  letter-spacing: -0.005em !important;
+  max-width: 26ch;
+  margin: 0 auto !important;
+}
+
+.case-study-thesis--editorial .thesis-accent {
+  color: #38bdf8;
+  font-style: italic;
+}
+
+.thesis-cards {
+  margin: 3rem auto 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.thesis-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.75rem 1.75rem 1.6rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.thesis-card:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.thesis-card:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 3px;
+}
+
+.thesis-card-num {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  letter-spacing: 0.04em;
+}
+
+.thesis-card-title {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
+  font-weight: 700 !important;
+  font-size: 1.45rem !important;
+  color: #fff !important;
+  margin: 0 0 0.6rem !important;
+  text-align: left !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.005em;
+  padding-right: 2.5rem;
+}
+
+.thesis-card-desc {
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  color: #cbd5e1 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .thesis-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Unify all content containers on the Orchard screens page to a single 1100px width
+   so the hero, thesis, act dividers, content sections, and My Role all line up */
+.case-study-intro--orchard-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--orchard-screens-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--orchard-screens-hero ~ .major-section .major-section-inner,
+.case-study-intro--orchard-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--orchard-screens-hero ~ .case-study-section .case-study-section-inner {
+  max-width: 1100px;
+}
+
+/* Unbound Codex screens hero: same hero pop-out treatment as Orchard, scoped via a unique class */
+.case-study-intro--unbound-screens-hero.case-study-intro--hero {
+  overflow: visible;
+}
+
+.case-study-intro--unbound-screens-hero.case-study-intro--title-only .case-study-section-inner {
+  max-width: 1100px;
+}
+
+.case-study-intro--unbound-screens-hero.case-study-intro--title-only .case-study-hero-inner {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.case-study-intro--unbound-screens-hero .case-study-hero-image {
+  max-width: 825px;
+  margin-bottom: -195px;
+}
+
+.case-study-intro--unbound-screens-hero .case-study-hero-bg,
+.case-study-intro--unbound-screens-hero .case-study-hero-dots {
+  bottom: 0;
+}
+
+.case-study-intro--unbound-screens-hero + .case-study-thesis {
+  padding-top: 13rem;
+}
+
+/* Unify content widths across the Unbound screens page */
+.case-study-intro--unbound-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--unbound-screens-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--unbound-screens-hero ~ .major-section .major-section-inner,
+.case-study-intro--unbound-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--unbound-screens-hero ~ .case-study-section .case-study-section-inner {
+  max-width: 1100px;
+}
+
+/* Sub-mode headings on the Unbound page use emerald to match the theme */
+.case-study-intro--unbound-screens-hero ~ .major-section .case-study-sub-mode {
+  color: #34d399 !important;
+}
+
+/* Wide content container for case study sections that need more room (side-by-side layouts) */
+.major-section-inner--wide {
+  max-width: 1200px;
+}
+
+/* Lead paragraph: prominent intro line under the section title */
+.case-study-lead {
+  font-size: 1.1rem !important;
+  line-height: 1.55 !important;
+  color: #e5e7eb !important;
+  margin: 0 0 1.75rem !important;
+}
+
+/* Side-by-side callout row: large screenshot left, commentary right */
+.case-study-callout-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin: 3.5rem 0;
+}
+
+.cs-callout-figure {
+  position: relative;
+  margin: 0 0 3rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cs-callout-figure:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-callout-row .cs-callout-figure {
+  margin: 0;
+}
+
+.cs-callout-figure:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.cs-callout-figure:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.cs-callout-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.cs-callout-notes-side {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.cs-callout-notes-side li {
+  position: relative;
+  padding-left: 36px;
+  font-size: 0.92rem;
   line-height: 1.55;
   color: #cbd5e1;
   margin: 0 !important;
+}
+
+.cs-callout-notes-side li > .cs-callout-num {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  margin-top: 0;
+}
+
+@media (min-width: 900px) {
+  .cs-callout-notes-side {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .case-study-callout-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Sub-mode heading: Explore / Plan / Learn within Section 3 */
+.case-study-sub-mode {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.55rem !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  margin: 3rem 0 0.5rem !important;
+  letter-spacing: -0.01em;
+  text-align: left !important;
+  line-height: 1.15 !important;
+}
+
+.case-study-sub-mode + p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  color: #e5e7eb !important;
+  margin: 0 0 1.25rem !important;
+}
+
+.case-study-sub-mode:first-of-type {
+  margin-top: 0 !important;
 }
 
 .case-study-act--dnd {
@@ -1409,6 +1820,10 @@ a.project-card {
 .major-section-inner {
   max-width: 720px;
   margin: 0 auto;
+}
+
+.major-section-inner.major-section-inner--wide {
+  max-width: 1200px;
 }
 
 /* Subsections: aligned with their major section, subtle separation */
