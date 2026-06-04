@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orchard v-next — a systems case study</title>
+<link rel="stylesheet" href="orchard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+<style>
+  deck-stage:not(:defined) { visibility: hidden; }
+  html, body { margin: 0; background: #060d16; }
+
+  :root {
+    --pad-x: 112px;
+    --pad-y: 84px;
+    --card: #1a3850;          /* elevated navy used for cards/rows */
+    --card-soft: #16314a;     /* slightly recessed variant */
+    --rule: #2a4a63;          /* hairline divider on navy */
+    --teal: var(--orchard-teal);
+    --green: var(--orchard-green);
+    --pink: var(--orchard-pink);
+    --purple: #9b6dd4;
+  }
+
+  /* ---- Deck-wide slide canvas ---- */
+  deck-stage section {
+    background: var(--bg-canvas);
+    color: var(--fg-body);
+    font-family: var(--font-sans);
+    overflow: hidden;
+  }
+  .slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: var(--pad-y) var(--pad-x);
+    box-sizing: border-box;
+  }
+  /* header-style content slides: pin title top, center the body block */
+  .slide.content { display: flex; flex-direction: column; }
+  .content-body { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+  .content-body > :first-child { margin-top: 0; }
+
+  /* ---- Shared header ---- */
+  .s-title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    color: var(--fg-primary);
+    margin: 0;
+    max-width: 1500px;
+    text-wrap: balance;
+  }
+  .s-rule {
+    height: 1px;
+    background: var(--rule);
+    border: none;
+    margin: 30px 0 0;
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin: 0;
+  }
+  .eyebrow.teal  { color: #4fb6cf; }
+  .eyebrow.pink  { color: #c764a0; }
+
+  /* corner logomark on content slides */
+  .corner-mark {
+    position: absolute;
+    right: var(--pad-x);
+    bottom: 42px;
+    height: 30px;
+    width: auto;
+    opacity: 0.5;
+  }
+
+  /* ---- Generic accent chip / card primitives ---- */
+  .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; border-radius: 4px 0 0 4px; }
+
+  /* ======================= SLIDE 1 — TITLE ======================= */
+  .title-slide { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .title-topbar { position: absolute; top: 0; left: 0; right: 0; height: 9px; background: var(--teal); }
+  .title-wm { position: absolute; top: 56px; left: 64px; height: 52px; opacity: 0.95; }
+  .title-landscape {
+    position: absolute; left: 0; right: 0; bottom: 0; width: 100%;
+    height: 320px; object-fit: cover; object-position: bottom; opacity: 0.55;
+    pointer-events: none;
+  }
+  .title-orchie { position: absolute; right: 150px; bottom: 150px; height: 188px; }
+  .hero {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 132px;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--fg-primary);
+    margin: 0;
+  }
+  .hero-sub {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 50px;
+    color: var(--teal);
+    margin: 28px 0 0;
+    letter-spacing: -0.01em;
+  }
+  .hero-line { width: 360px; height: 1px; background: var(--rule); margin: 52px 0 44px; }
+  .hero-name { font-size: 30px; font-weight: 600; color: var(--fg-primary); margin: 0; white-space: nowrap; }
+  .hero-role { font-size: 22px; color: var(--fg-muted); margin: 16px 0 0; white-space: nowrap; }
+  .hero-dots { display: flex; gap: 22px; margin-top: 64px; }
+  .hero-dots span { width: 22px; height: 22px; border-radius: 50%; }
+  .placeholder { color: var(--teal); }
+
+  /* ======================= SLIDE 2 — STATEMENT ======================= */
+  .stmt-slide { display: flex; align-items: center; }
+  .stmt-bar { position: absolute; left: 0; top: 220px; bottom: 220px; width: 12px; background: var(--teal); }
+  .stmt {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 86px;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    color: var(--fg-primary);
+    max-width: 1320px;
+    margin: 0;
+  }
+  .stmt em { color: var(--teal); font-style: normal; }
+  .stmt-foot {
+    position: absolute; left: var(--pad-x); bottom: 64px;
+    font-size: 22px; color: var(--fg-muted); margin: 0;
+  }
+
+  /* ======================= SLIDE 3 — KEPT / KILLED ======================= */
+  .two-col { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 72px; margin-top: 48px; }
+  .col-divider { background: var(--rule); }
+  .stack { display: flex; flex-direction: column; gap: 18px; }
+  .pill-row {
+    position: relative; background: var(--card); border: 1px solid transparent;
+    border-radius: 8px; padding: 22px 26px 22px 30px; font-size: 24px; color: var(--fg-primary);
+  }
+  .pill-row .accent-bar { width: 6px; }
+  .pill-row.kept { border-color: rgba(60,211,67,0.55); box-shadow: inset 0 0 0 1px rgba(60,211,67,0.15); }
+  .pill-row.kept .accent-bar { background: var(--teal); }
+  .pill-row.killed { background: transparent; border: 1.5px solid var(--pink); color: var(--fg-muted); }
+  .pill-row.killed .accent-bar { background: var(--pink); }
+  .col-head { margin: 0 0 22px; }
+  .src-list { display: flex; flex-direction: column; gap: 20px; margin-top: 8px; }
+  .src-item { font-size: 25px; color: var(--fg-body); }
+  .src-item.arrow::before { content: "→"; color: var(--fg-muted); margin-right: 14px; }
+  .src-item.hot { color: var(--green); }
+  .src-item.hot::before { color: var(--green); }
+  .src-quote {
+    position: relative; margin-top: 38px; padding: 8px 0 8px 34px;
+    border-left: 7px solid var(--teal);
+    font-style: italic; font-size: 30px; line-height: 1.45; color: #6f95ad;
+    max-width: 720px;
+  }
+
+  /* ======================= SLIDE 4 — THE BET (3 CARDS) ======================= */
+  .bet-caption { text-align: center; font-style: italic; font-size: 24px; color: var(--fg-muted); margin: 26px 0 0; }
+  .bet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 44px; }
+  .bet-card {
+    position: relative; background: var(--card); border-radius: 10px;
+    padding: 50px 44px 56px; overflow: hidden; min-height: 520px;
+  }
+  .bet-card .cap { position: absolute; left: 0; top: 0; right: 0; height: 7px; }
+  .bet-num { font-size: 26px; font-weight: 700; margin: 0 0 26px; }
+  .bet-h { font-size: 38px; font-weight: 800; line-height: 1.12; color: var(--fg-primary); margin: 0 0 30px; letter-spacing: -0.01em; }
+  .bet-p { font-size: 23px; line-height: 1.5; color: var(--fg-body); margin: 0; }
+
+  /* ======================= SLIDE 5 — ONE MODEL DIAGRAM ======================= */
+  .d5-grid { display: grid; grid-template-columns: 1fr 78px 1.18fr 78px 1fr; align-items: start; margin-top: 30px; }
+  .lane-head {
+    text-align: center; font-weight: 700; font-size: 22px; letter-spacing: 0.26em;
+    text-transform: uppercase; padding: 18px 0; border-radius: 8px; border: 1.5px solid;
+  }
+  .lane-head.explore { color: #6fe0d0; border-color: #1f6a72; background: linear-gradient(90deg,#10394a,#0e3d3e); }
+  .lane-head.plan    { color: #7be29a; border-color: #2a6a4a; background: linear-gradient(90deg,#11423f,#123f2a); }
+  .lane-head.learn   { color: #d989c4; border-color: #6a3a63; background: linear-gradient(90deg,#3a2540,#3d2238); }
+  .lane-sub { text-align: center; font-size: 18px; line-height: 1.4; color: var(--fg-muted); margin: 16px 0 22px; }
+  .surf-stack { display: flex; flex-direction: column; gap: 12px; }
+  .surf {
+    text-align: center; background: var(--card-soft); border: 1px solid var(--rule);
+    border-radius: 7px; padding: 15px 0; font-size: 21px; color: var(--fg-primary);
+  }
+  .pillar-box { border: 2px solid var(--teal); border-radius: 8px; overflow: hidden; }
+  .pillar-head {
+    text-align: center; font-weight: 700; font-size: 20px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--teal); padding: 16px 0; background: var(--card-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pillar-list { padding: 14px 0 18px; display: flex; flex-direction: column; gap: 12px; }
+  .pillar-list li { list-style: none; text-align: center; font-size: 22px; color: var(--fg-body); }
+  .pillar-list li::before { content: "◆ "; color: var(--teal); font-size: 16px; }
+  .out-stack { display: flex; flex-direction: column; gap: 16px; padding-top: 2px; }
+  .out {
+    position: relative; background: var(--card-soft); border: 1px solid var(--rule);
+    border-radius: 7px; padding: 17px 20px 17px 26px; font-size: 22px; color: var(--fg-primary);
+  }
+  .out .accent-bar { width: 6px; }
+  .arrow-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 200px; }
+  .arrow-lbl { font-size: 17px; margin-bottom: 8px; }
+  .arrow-line { font-size: 30px; line-height: 1; }
+  .d5-caption { text-align: center; font-style: italic; font-size: 23px; color: var(--fg-muted); margin: 34px 0 0; }
+
+  /* ======================= SLIDE 6 — AI OPERATOR FLOW ======================= */
+  .d6-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 0 70px; margin-top: 36px; position: relative; }
+  .flow { position: relative; padding-left: 74px; display: flex; flex-direction: column; gap: 0; }
+  .flow-box {
+    position: relative; background: var(--card); border-radius: 8px; padding: 24px 28px;
+    font-size: 24px; line-height: 1.3; color: var(--fg-primary);
+  }
+  .flow-box b { font-weight: 700; }
+  .flow-box .accent-bar { width: 7px; }
+  .flow-box.pink   { box-shadow: inset 0 0 0 1.5px var(--pink); }   .flow-box.pink .accent-bar { background: var(--pink); }
+  .flow-box.green  { box-shadow: inset 0 0 0 1.5px var(--green); }  .flow-box.green .accent-bar { background: var(--green); }
+  .flow-box.pillar { background: var(--card-soft); border: 2px solid var(--teal); text-align: center; color: var(--teal); font-weight: 700; letter-spacing: 0.03em; }
+  .flow-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 46px; color: var(--fg-muted); font-size: 15px; gap: 1px; }
+  .flow-arrow .gl { font-size: 22px; line-height: 1; }
+  .flow-arrow.teal .gl { color: var(--teal); }
+  .flow-arrow.green .gl { color: var(--green); }
+  /* feedback loop bracket */
+  .loop {
+    position: absolute; left: 14px; top: 34px; bottom: 60px; width: 48px;
+    border: 2px dashed var(--pink); border-right: none; border-radius: 10px 0 0 10px;
+  }
+  .loop::after {
+    content: "▶"; position: absolute; right: -9px; top: -10px; color: var(--pink); font-size: 15px;
+  }
+  .loop-lbl {
+    position: absolute; left: -2px; top: 50%; transform: translateY(-50%);
+    writing-mode: vertical-rl; font-size: 15px; font-style: italic; color: #8a5f78;
+    letter-spacing: 0.04em;
+  }
+  .annos { display: flex; flex-direction: column; padding-top: 4px; }
+  .anno { font-style: italic; font-size: 21px; line-height: 1.4; color: var(--fg-muted); }
+  .anno .hl { color: #6f95ad; font-style: italic; }
+
+  /* ======================= SLIDE 7 — TRADEOFFS / VALIDATION ======================= */
+  .tr-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 72px; margin-top: 48px; }
+  .tr-item { position: relative; padding-left: 26px; margin-bottom: 40px; }
+  .tr-item .accent-bar { width: 6px; background: var(--teal); top: 4px; bottom: 4px; }
+  .tr-h { font-size: 28px; font-weight: 700; color: var(--fg-primary); margin: 0 0 12px; }
+  .tr-p { font-size: 22px; line-height: 1.5; color: var(--fg-body); margin: 0; }
+  .va-block { margin-bottom: 50px; }
+  .va-tag { font-size: 20px; font-weight: 700; color: var(--pink); margin: 0 0 14px; }
+  .va-claim { font-size: 26px; font-style: italic; line-height: 1.4; color: var(--fg-primary); margin: 0 0 18px; }
+  .va-test { font-size: 21px; line-height: 1.5; color: var(--fg-muted); margin: 0; }
+  .va-test::before { content: "→ "; color: var(--fg-muted); }
+
+  /* ======================= SLIDE 8 — COMPARISON TABLE ======================= */
+  .cmp-head { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; margin: 38px 0 6px; }
+  .cmp-rows { display: flex; flex-direction: column; gap: 14px; }
+  .cmp-row {
+    position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px;
+    background: var(--card); border-radius: 6px; padding: 22px 30px 22px 36px; align-items: center;
+  }
+  .cmp-row .accent-bar { width: 6px; }
+  .cmp-l { font-size: 24px; color: var(--fg-primary); }
+  .cmp-r { font-size: 23px; line-height: 1.4; color: var(--fg-body); }
+  .cmp-foot { text-align: center; font-style: italic; font-size: 23px; color: #5f7c92; margin: 36px 0 0; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- ============ SLIDE 1 — TITLE ============ -->
+  <section data-label="Title">
+    <div class="slide title-slide">
+      <div class="title-topbar"></div>
+      <img class="title-wm" src="assets/wordmark-white.png" alt="Orchard" />
+      <img class="title-landscape" src="assets/landscape-bg.png" alt="" />
+      <img class="title-orchie" src="assets/orchie-wave.png" alt="Orchie" />
+
+      <h1 class="hero">Orchard v-next</h1>
+      <p class="hero-sub">a systems case study</p>
+      <div class="hero-line"></div>
+      <p class="hero-name"><span class="placeholder">[Your name]</span></p>
+      <p class="hero-role">Staff Product Designer candidate</p>
+      <div class="hero-dots">
+        <span style="background:var(--teal)"></span>
+        <span style="background:var(--green)"></span>
+        <span style="background:var(--pink)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 2 — STATEMENT ============ -->
+  <section data-label="Self-evidence">
+    <div class="slide stmt-slide">
+      <div class="stmt-bar"></div>
+      <h1 class="stmt">Career choice isn't an information problem.<br /><em>It's a self-evidence problem.</em></h1>
+      <p class="stmt-foot">Consumer surface. Platform problem.</p>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 3 — KEPT / KILLED ============ -->
+  <section data-label="Three iterations">
+    <div class="slide content">
+      <h1 class="s-title">We didn't guess our way here. Three iterations taught us.</h1>
+      <hr class="s-rule" />
+      <div class="content-body">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow teal col-head">Kept</p>
+          <div class="stack">
+            <div class="pill-row kept"><span class="accent-bar"></span><span class="placeholder">[Kept 1 — e.g. jobs-to-be-done framing]</span></div>
+            <div class="pill-row kept"><span class="accent-bar"></span><span class="placeholder">[Kept 2 — e.g. pillar model, read + write]</span></div>
+          </div>
+          <p class="eyebrow pink col-head" style="margin-top:42px;">Killed</p>
+          <div class="stack">
+            <div class="pill-row killed"><span class="accent-bar"></span><span class="placeholder">[Killed 1 — e.g. recommendation-only output]</span></div>
+            <div class="pill-row killed"><span class="accent-bar"></span><span class="placeholder">[Killed 2 — e.g. static quiz onboarding]</span></div>
+          </div>
+        </div>
+        <div class="col-divider"></div>
+        <div>
+          <p class="eyebrow teal col-head">Signal source</p>
+          <div class="src-list">
+            <div class="src-item">Discovery interviews</div>
+            <div class="src-item arrow">Eval calls (us vs. <span class="placeholder">[competitor]</span>)</div>
+            <div class="src-item arrow hot">Sharpest signal now: eval calls</div>
+          </div>
+          <blockquote class="src-quote"><span class="placeholder">[Your single most important user quote — the one that reframed everything.]</span></blockquote>
+        </div>
+      </div>
+      </div>
+      <img class="corner-mark" src="assets/logo.png" alt="" />
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 4 — THE BET ============ -->
+  <section data-label="The bet">
+    <div class="slide content">
+      <h1 class="s-title">The bet: every action becomes signal, and an AI works it with you.</h1>
+      <hr class="s-rule" />
+      <div class="content-body">
+      <p class="bet-caption">The contract every surface must pass:</p>
+      <div class="bet-grid">
+        <div class="bet-card">
+          <div class="cap" style="background:var(--teal)"></div>
+          <p class="bet-num" style="color:var(--teal)">01</p>
+          <h3 class="bet-h">Experience<br />over information</h3>
+          <p class="bet-p">Students don't need more content. They need a context where choosing feels real, consequential, and theirs. The product creates that context.</p>
+        </div>
+        <div class="bet-card">
+          <div class="cap" style="background:var(--green)"></div>
+          <p class="bet-num" style="color:var(--green)">02</p>
+          <h3 class="bet-h">Every action<br />is signal</h3>
+          <p class="bet-p">Every decision, sim move, or skill attempt updates the model. No separate tracking layer — the product is the research instrument.</p>
+        </div>
+        <div class="bet-card">
+          <div class="cap" style="background:var(--pink)"></div>
+          <p class="bet-num" style="color:var(--pink)">03</p>
+          <h3 class="bet-h">AI that builds,<br />not chats</h3>
+          <p class="bet-p">Orchie doesn't produce answers to scroll past. It produces artifacts you keep working — comparison tables, plan canvases, growth reports.</p>
+        </div>
+      </div>
+      </div>
+      <img class="corner-mark" src="assets/logo.png" alt="" />
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 5 — ONE MODEL DIAGRAM ============ -->
+  <section data-label="One model">
+    <div class="slide">
+      <h1 class="s-title">One model turns 60 surfaces into one progression.</h1>
+      <div class="d5-grid">
+        <!-- EXPLORE -->
+        <div>
+          <div class="lane-head explore">Explore</div>
+          <p class="lane-sub">Experiences —<br />every one is a doing</p>
+          <div class="surf-stack">
+            <div class="surf">Life Sim</div>
+            <div class="surf">Brain Games</div>
+            <div class="surf">Audition</div>
+            <div class="surf">Skill Path</div>
+            <div class="surf">Project Lab</div>
+            <div class="surf">Quests</div>
+            <div class="surf">College Apps</div>
+            <div class="surf">Chat</div>
+          </div>
+        </div>
+        <!-- arrow -->
+        <div class="arrow-cell">
+          <span class="arrow-lbl" style="color:var(--teal)">emit signal</span>
+          <span class="arrow-line" style="color:var(--teal)">→</span>
+        </div>
+        <!-- PLAN -->
+        <div>
+          <div class="lane-head plan">Plan</div>
+          <p class="lane-sub">One normalized model —<br />read + write</p>
+          <div class="pillar-box">
+            <div class="pillar-head">The Pillar Model</div>
+            <ul class="pillar-list">
+              <li>Purpose</li>
+              <li>Values</li>
+              <li>Strengths</li>
+              <li>Interests</li>
+              <li>Skills</li>
+              <li>Learning</li>
+              <li>Wellbeing</li>
+              <li>Career</li>
+            </ul>
+          </div>
+        </div>
+        <!-- arrow -->
+        <div class="arrow-cell">
+          <span class="arrow-lbl" style="color:var(--green)">drives</span>
+          <span class="arrow-line" style="color:var(--green)">→</span>
+        </div>
+        <!-- LEARN -->
+        <div>
+          <div class="lane-head learn">Learn</div>
+          <p class="lane-sub">Inherited by —<br />every surface</p>
+          <div class="out-stack">
+            <div class="out"><span class="accent-bar" style="background:var(--teal)"></span>Recommendations</div>
+            <div class="out"><span class="accent-bar" style="background:var(--teal)"></span>Progression</div>
+            <div class="out"><span class="accent-bar" style="background:var(--green)"></span>Growth Report</div>
+            <div class="out"><span class="accent-bar" style="background:var(--pink)"></span>Buyer reporting</div>
+          </div>
+        </div>
+      </div>
+      <p class="d5-caption">"A new surface is a mapping, not a silo."</p>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 6 — AI OPERATOR FLOW ============ -->
+  <section data-label="AI operator">
+    <div class="slide">
+      <h1 class="s-title">The AI isn't a chatbot. It's the operator of the model.</h1>
+      <div class="d6-grid">
+        <div class="flow">
+          <div class="loop"><span class="loop-lbl">external responses</span></div>
+          <div class="flow-box pink"><span class="accent-bar"></span><b>1 · User intent</b> — natural language + slash commands</div>
+          <div class="flow-arrow pink"><span class="gl">↓</span></div>
+          <div class="flow-box pink"><span class="accent-bar"></span><b>2 · Orchie reads the pillar model</b> — plans action</div>
+          <div class="flow-arrow teal"><span class="gl">↓</span>reads</div>
+          <div class="flow-box pillar">◆ &nbsp;Pillar model&nbsp; ◆<br /><span style="font-weight:400;font-size:19px;color:#6f95ad">shared state — same center as previous slide</span></div>
+          <div class="flow-arrow green"><span class="gl">↓</span>writes</div>
+          <div class="flow-box green"><span class="accent-bar"></span><b>3 · Acts</b> — builds in the desk</div>
+          <div class="flow-arrow green"><span class="gl">↓</span></div>
+          <div class="flow-box pink"><span class="accent-bar"></span><b>4 · Durable artifact</b> — comparison · plan canvas · growth report</div>
+        </div>
+        <div class="annos">
+          <div class="anno" style="height:46px;"></div>
+          <div class="anno">structured intent: NL + slash commands + palette</div>
+          <div class="anno" style="height:46px;"></div>
+          <div class="anno">on-device SmolLM2 degrades gracefully</div>
+          <div class="anno" style="height:46px;"></div>
+          <div class="anno"><span class="hl">same center as Diagram 1</span><br />one shared model, different operator</div>
+          <div class="anno" style="height:46px;"></div>
+          <div class="anno">human stays author<br />reasoning is legible</div>
+          <div class="anno" style="height:46px;"></div>
+          <div class="anno">"talk, then artifact, not scrollback"<br />you keep working it → emits signal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 7 — TRADEOFFS / VALIDATION ============ -->
+  <section data-label="Tradeoffs">
+    <div class="slide content">
+      <h1 class="s-title">What I'm not sure of yet, and how I'd find out.</h1>
+      <hr class="s-rule" />
+      <div class="content-body">
+      <div class="tr-grid">
+        <div>
+          <p class="eyebrow col-head">Honest tradeoffs</p>
+          <div class="tr-item">
+            <span class="accent-bar"></span>
+            <p class="tr-h">Shared-model constraint</p>
+            <p class="tr-p">A pillar model that serves all surfaces means no surface gets a best-in-class standalone experience. Local optimization traded for compounding coherence.</p>
+          </div>
+          <div class="tr-item">
+            <span class="accent-bar"></span>
+            <p class="tr-h">Breadth vs. depth</p>
+            <p class="tr-p">60 surfaces explored, few deeply validated. Signal is wide but thin in places. A directional bet, not a proof.</p>
+          </div>
+          <div class="tr-item">
+            <span class="accent-bar"></span>
+            <p class="tr-h">Cold start</p>
+            <p class="tr-p">The model needs real actions before it's useful. Day-1 Orchie is weaker than day-30 Orchie. The gap must be bridged by design, not time.</p>
+          </div>
+        </div>
+        <div class="col-divider"></div>
+        <div>
+          <p class="eyebrow col-head">Validation plan</p>
+          <div class="va-block">
+            <p class="va-tag">Riskiest assumption 1</p>
+            <p class="va-claim">Students will engage with life-sim decisions as a meaningful proxy for real career choice.</p>
+            <p class="va-test">Test: 5-session observational study. Measure revisit rate and unprompted "I realized…" moments. Threshold: &gt;60% return within 7 days without a prompt.</p>
+          </div>
+          <div class="va-block">
+            <p class="va-tag">Riskiest assumption 2</p>
+            <p class="va-claim">Buyers trust a shared pillar model over the bespoke assessments they already own.</p>
+            <p class="va-test">Test: buyer panel (n=8–10). Present side-by-side; score "I'd replace my current tool" 1–5. Threshold: mean ≥3.8, and they can articulate the tradeoff.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      <img class="corner-mark" src="assets/logo.png" alt="" />
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 8 — COMPARISON TABLE ============ -->
+  <section data-label="Same shape">
+    <div class="slide content">
+      <h1 class="s-title">Same shape, friendlier costume.</h1>
+      <hr class="s-rule" />
+      <div class="content-body">
+      <div class="cmp-head">
+        <p class="eyebrow">Orchard decision</p>
+        <p class="eyebrow">Enterprise platform analog</p>
+      </div>
+      <div class="cmp-rows">
+        <div class="cmp-row"><span class="accent-bar" style="background:var(--teal)"></span>
+          <div class="cmp-l">Pillar model (read + write per student)</div>
+          <div class="cmp-r">Normalized data model; every integration is a mapping, not a silo</div>
+        </div>
+        <div class="cmp-row"><span class="accent-bar" style="background:var(--teal)"></span>
+          <div class="cmp-l">60 surfaces, one progression</div>
+          <div class="cmp-r">Multi-surface analytics from a single schema — new surfaces compose in cheaply</div>
+        </div>
+        <div class="cmp-row"><span class="accent-bar" style="background:var(--green)"></span>
+          <div class="cmp-l">Life Sim → behavioral signal</div>
+          <div class="cmp-r">Behavioral instrumentation as a first-class product feature</div>
+        </div>
+        <div class="cmp-row"><span class="accent-bar" style="background:var(--pink)"></span>
+          <div class="cmp-l">Orchie builds artifacts, not chat</div>
+          <div class="cmp-r">AI layer that acts on structured state, not unstructured chat history</div>
+        </div>
+        <div class="cmp-row"><span class="accent-bar" style="background:var(--green)"></span>
+          <div class="cmp-l">Shared model vs. best-in-class tools</div>
+          <div class="cmp-r">Platform coherence over point-solution depth — the classic platform bet</div>
+        </div>
+        <div class="cmp-row"><span class="accent-bar" style="background:var(--pink)"></span>
+          <div class="cmp-l">User ≠ buyer (student vs. district)</div>
+          <div class="cmp-r">Student engagement earns institutional trust; same PLG tension in enterprise</div>
+        </div>
+      </div>
+      <p class="cmp-foot">"One model serving the student's intrinsic exploration and the buyer's accountability — that's the thesis, in either market."</p>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="deck-stage.js"></script>
+</body>
+</html>

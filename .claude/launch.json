@@ -6,6 +6,12 @@
       "runtimeExecutable": "bundle",
       "runtimeArgs": ["exec", "jekyll", "serve", "--livereload"],
       "port": 4000
+    },
+    {
+      "name": "orchard-deck",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4011", "--directory", "C:\\Cursor Apps\\Portfolio\\orchard-walk-through"],
+      "port": 4011
     }
   ]
 }

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Orchard · Systems walk-through</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="A navigable systems walk-through of Orchard." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="orchard.css" />
+<link rel="stylesheet" href="deck.css" />
+</head>
+<body>
+
+<main class="deck is-preboot" id="deck" role="region" aria-roledescription="carousel" aria-label="Orchard systems walkthrough">
+  <div class="deck-stage" id="stage">
+    <div class="deck-canvas" id="canvas">
+
+      <!-- ============ SLIDE 1 — TITLE ============ -->
+      <section class="deck-slide" data-label="Title" aria-roledescription="slide" aria-label="Title">
+        <div class="slide title-slide">
+          <img class="title-bg" src="assets/card-bg.svg" alt="" aria-hidden="true" />
+          <div class="title-glow anim-fade" aria-hidden="true"></div>
+          <div class="slide-topbar anim-fade"></div>
+          <img class="title-wm anim-fade" src="assets/wordmark-white.png" alt="Orchard" />
+          <img class="title-orchie anim" src="assets/orchie-wave.png" alt="Orchie, the Orchard mascot, waving" />
+
+          <div class="title-stack deck-stagger">
+            <h1 class="hero">Orchard</h1>
+            <p class="hero-sub">Systems walk-through</p>
+            <div class="hero-line"></div>
+            <p class="hero-name">Peter Baunach</p>
+            <p class="hero-role">Head of Product &amp; Design</p>
+            <div class="hero-dots">
+              <span style="background:var(--teal)"></span>
+              <span style="background:var(--green)"></span>
+              <span style="background:var(--pink)"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 2 — THE IMPOSSIBLE PROBLEM ============ -->
+      <section class="deck-slide" data-label="The Impossible Problem" aria-roledescription="slide" aria-label="The Impossible Problem">
+        <div class="slide stmt-slide">
+          <div class="slide-topbar anim-fade"></div>
+          <div class="stmt-block">
+            <h1 class="stmt anim" style="--d:0.08s">The Impossible Problem</h1>
+            <p class="stmt-q anim" style="--d:0.22s">How do we prepare students for a labor market that won't stop moving?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 3 — COUNSELOR INSIGHT ============ -->
+      <section class="deck-slide" data-label="The conversation" aria-roledescription="slide" aria-label="The conversation that changed the plan">
+        <div class="slide quote-slide">
+          <div class="slide-topbar anim-fade"></div>
+          <div class="quote-block">
+            <p class="eyebrow teal anim" style="--d:0.05s">The conversation that changed the plan</p>
+            <div class="quote-mark anim-fade" style="--d:0.1s" aria-hidden="true">&#8220;</div>
+            <blockquote class="quote anim" style="--d:0.16s">I have over 450 cases (students) each year. I maybe get 5 minutes with each kid to discuss academics, social pressures and career readiness. <span class="quote-kicker">I don't need more work, I need less.</span></blockquote>
+            <p class="quote-attr anim" style="--d:0.34s">High school counselor, discovery interview</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 4 — GUIDING PRINCIPLES ============ -->
+      <section class="deck-slide" data-label="Guiding principles" aria-roledescription="slide" aria-label="Guiding principles">
+        <div class="slide content">
+          <h1 class="s-title anim">Guiding principles.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.08s" />
+          <div class="content-body">
+            <p class="bet-caption anim" style="--d:0.12s">What we hold ourselves to:</p>
+            <div class="bet-grid deck-stagger">
+              <div class="bet-card">
+                <div class="cap" style="background:var(--teal)"></div>
+                <p class="bet-num" style="color:var(--teal)">01</p>
+                <h3 class="bet-h">The Student<br />is the Hero</h3>
+                <p class="bet-p">We design for the student's unique journey, perspective, and voice.</p>
+              </div>
+              <div class="bet-card">
+                <div class="cap" style="background:var(--green)"></div>
+                <p class="bet-num" style="color:var(--green)">02</p>
+                <h3 class="bet-h">Nudge,<br />Don't Do</h3>
+                <p class="bet-p">Orchie is a coach, not a crutch. We nudge and empower students to find the answers, but they must do the heavy lifting.</p>
+              </div>
+              <div class="bet-card">
+                <div class="cap" style="background:var(--pink)"></div>
+                <p class="bet-num" style="color:var(--pink)">03</p>
+                <h3 class="bet-h">Purpose in<br />Every Action</h3>
+                <p class="bet-p">Every decision we make, and every action the app takes, must contribute directly to student outcomes.</p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 5 — GROWTH REPORT / 8 PILLARS ============ -->
+      <section class="deck-slide" data-label="Growth Report" aria-roledescription="slide" aria-label="One profile, built from everything they do">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The shared profile</p>
+          <h1 class="s-title anim" style="--d:0.05s">One profile, built from everything they do.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Eight pillars, scored 0 to 400.</b> Every chat, plan, journal entry, and game moves one of them, so progress is something a student can actually see.</li>
+                  <li><b>A spider graph, not bars.</b> The shape tells the story before any number does: strengths and growth areas in a single glance.</li>
+                  <li><b>"Growth Report," not "CRI."</b> The acronym feels like a test result. A growth report feels like something you can move.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/growth" target="_blank" rel="noopener noreferrer">See a live Growth Report</a>
+              </div>
+              <img class="shot-frame anim" style="--d:0.24s" src="assets/screens/growth-report.png" alt="The Growth Report: a spider graph of eight career-readiness pillars with a 203 out of 400 score and per-pillar cards." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 6 — ORCHIE: THE MENTOR ============ -->
+      <section class="deck-slide" data-label="Orchie · mentor" aria-roledescription="slide" aria-label="Orchie the mentor">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The mentor</p>
+          <h1 class="s-title anim" style="--d:0.05s">Always an answer, and a next step.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Answer first, then a next step.</b> An open-ended "what do you think?" leaves a stuck kid more stuck, so Orchie always hands back a concrete move.</li>
+                  <li><b>@ to mention, / for commands.</b> The same patterns as the rest of Orchard, so the chat doubles as low-stakes reps for the AI fluency they'll need later.</li>
+                  <li><b>The desk stays in view.</b> Whatever a student pins gets prioritized, because that's usually what they actually came to talk about.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" target="_blank" rel="noopener noreferrer">Open the live chat</a>
+              </div>
+              <img class="shot-frame anim" style="--d:0.24s" src="assets/screens/orchie-mentor.png" alt="Orchie answering a student about their saved careers, with next-step action cards and @ / command hints." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 7 — ORCHIE: THE ENGINE ============ -->
+      <section class="deck-slide" data-label="Orchie · engine" aria-roledescription="slide" aria-label="Orchie the engine">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The engine</p>
+          <h1 class="s-title anim" style="--d:0.05s">It builds from real work, never instead of it.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Drafted from what the student actually did.</b> The bio sheet for teachers is built from 47 real observations across chats, journal, plans, and games, not a blank template.</li>
+                  <li><b>Every claim links to its source.</b> A journal entry, a plan, a quiz result. If a line doesn't sound like them, they can see why and rewrite it.</li>
+                  <li><b>Orchie writes the first pass, the student owns it.</b> Nothing leaves the desk until they've edited it. Orchie never produces the work as if it were them.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/plan/bio" target="_blank" rel="noopener noreferrer">See the live bio sheet</a>
+              </div>
+              <img class="shot-frame anim" style="--d:0.24s" src="assets/screens/orchie-artifact.png" alt="An Orchie-built bio sheet for teachers, with each section citing the exact sources it pulled from." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 8 — EXPLORE ============ -->
+      <section class="deck-slide" data-label="Explore" aria-roledescription="slide" aria-label="Explore">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">Explore</p>
+          <h1 class="s-title anim" style="--d:0.05s">Make the abstract concrete.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Life Sim spends the salary, not just shows it.</b> A student lives a virtual month on the career's pay against their real rent and bills. A number is abstract; four weeks of decisions is concrete.</li>
+                  <li><b>Every path at equal weight.</b> Four-year, bootcamp, and self-taught sit in identical cards. The layout itself says there's no default path, just paths that fit different students.</li>
+                  <li><b>Local pay, not national averages.</b> A sixteen-year-old wants to know "can I support myself doing this, here?" So we pull who's hiring and what they pay in their city.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/explore" target="_blank" rel="noopener noreferrer">Open Explore live</a>
+              </div>
+              <img class="shot-frame anim" style="--d:0.24s" src="assets/screens/explore.png" alt="An Explore career page with a Life Sim card, local pay data, equal-weight education paths, and a Day in the Life section." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 9 — PLAN ============ -->
+      <section class="deck-slide" data-label="Plan" aria-roledescription="slide" aria-label="Plan">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">Plan</p>
+          <h1 class="s-title anim" style="--d:0.05s">A plan you can't freeze in front of.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>One question at a time.</b> Building a career plan in one sitting paralyzes a kid. As a conversation, they never see the whole mountain at once.</li>
+                  <li><b>Three routes, same destination.</b> The 2-year, 4-year, and bootcamp get identical visual weight. All three end at "employed as a Software Engineer."</li>
+                  <li><b>Lands at three horizons.</b> A 90-day push, a one-year horizon, a graduation target. A goal four years out is hard to act on; one ninety days out is something you do this week.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/plan" target="_blank" rel="noopener noreferrer">Open Plan live</a>
+              </div>
+              <img class="shot-frame anim" style="--d:0.24s" src="assets/screens/plan.png" alt="The Plan conversation: Orchie asking one question at a time, three equal-weight routes, and a plan across three horizons." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 10 — LEARN ============ -->
+      <section class="deck-slide" data-label="Learn" aria-roledescription="slide" aria-label="Learn">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">Learn</p>
+          <h1 class="s-title anim" style="--d:0.05s">Skills that fit a locker break.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Quests under ten minutes.</b> Anything longer feels like assigned homework. Short enough to fit between classes, so they can practice any time.</li>
+                  <li><b>Every quest tagged to a pillar.</b> "Lifts Skills" or "Lifts Focus" right on the card, so it's never a random activity. The student knows exactly why they're playing.</li>
+                  <li><b>The stuff school skips.</b> Reading a real budget, spotting a misleading chart, giving feedback without crushing someone. In every adult life, rarely in a curriculum.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/learn" target="_blank" rel="noopener noreferrer">Open Learn live</a>
+              </div>
+              <img class="shot-frame anim" style="--d:0.24s" src="assets/screens/learn.png" alt="The Learn screen: short Skill Quests, each tagged with the Growth Report pillar it moves." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 11 — GOVERNANCE ============ -->
+      <section class="deck-slide" data-label="Governance" aria-roledescription="slide" aria-label="Governance and guardrails">
+        <div class="slide content">
+          <h1 class="s-title anim">Built to be trusted with student data.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.08s" />
+          <div class="content-body">
+            <p class="gov-lead anim" style="--d:0.12s">For a product used by minors and bought by districts, trust isn't a feature. It's the foundation.</p>
+            <div class="gov-map anim" style="--d:0.18s">
+              <p class="eyebrow teal">Governance</p>
+              <div aria-hidden="true"></div>
+              <p class="eyebrow green">Guardrails</p>
+
+              <div class="gov-policy"><span class="accent-bar"></span>We follow FERPA, and soon COPPA: student data stays protected, and Orchie never offers medical or therapeutic counseling.</div>
+              <div class="gov-arrow" aria-hidden="true">&rarr;</div>
+              <div class="gov-guards">
+                <ul>
+                  <li>Real-time PII scrubbing, so student records never reach the LLM.</li>
+                  <li>Distressed-language detection that flags and escalates to a human counselor.</li>
+                </ul>
+              </div>
+
+              <div class="gov-policy"><span class="accent-bar"></span>Our AI policy requires Orchie to cite verifiable sources and stay auditable.</div>
+              <div class="gov-arrow" aria-hidden="true">&rarr;</div>
+              <div class="gov-guards">
+                <ul>
+                  <li>Grounded in our own data plus federally compliant sources like the BLS and O*NET.</li>
+                  <li>Every stat is cited. If Orchie doesn't know, it says so rather than hallucinate.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 12 — WHAT WE ADDED AND CUT ============ -->
+      <section class="deck-slide" data-label="Added & cut" aria-roledescription="slide" aria-label="What we added and what we cut">
+        <div class="slide content">
+          <h1 class="s-title anim">What we added, and what we cut.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.08s" />
+          <div class="content-body">
+            <p class="bet-caption anim" style="--d:0.12s">Three major versions in, we learned what users wanted, and what they didn't.</p>
+            <div class="two-col" style="margin-top:30px;">
+              <div class="deck-stagger">
+                <p class="eyebrow teal col-head">Added</p>
+                <div class="stack">
+                  <div class="pill-row kept"><span class="accent-bar"></span>Orchie, both a mentor and an engine</div>
+                  <div class="pill-row kept"><span class="accent-bar"></span>A Career Readiness Index to measure growth</div>
+                  <div class="pill-row kept"><span class="accent-bar"></span>Immersive experiences over content</div>
+                </div>
+              </div>
+              <div class="col-divider"></div>
+              <div class="deck-stagger">
+                <p class="eyebrow pink col-head">Cut</p>
+                <div class="stack">
+                  <div class="pill-row killed"><span class="accent-bar"></span>Counselors assigning students a career</div>
+                  <div class="pill-row killed"><span class="accent-bar"></span>Quizzes to prove a student watched the video</div>
+                  <div class="pill-row killed"><span class="accent-bar"></span>A single, forced path through the product</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+    </div><!-- /.deck-canvas -->
+  </div><!-- /.deck-stage -->
+
+  <!-- Lightbox: click any screenshot to view it full-size -->
+  <div class="deck-lightbox" id="deck-lightbox" role="dialog" aria-modal="true" aria-label="Expanded screenshot">
+    <button class="deck-lightbox-close" type="button" aria-label="Close (Esc)">&times;</button>
+    <img src="" alt="" />
+  </div>
+
+  <!-- Nav chrome lives outside the scaled stage so it stays usable at any size -->
+  <nav class="deck-nav" id="nav" aria-label="Slide navigation">
+    <button class="deck-arrow deck-prev" type="button" aria-label="Previous slide" title="Previous (←)">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg>
+    </button>
+    <div class="deck-dots" role="group" aria-label="Slides"></div>
+    <button class="deck-arrow deck-next" type="button" aria-label="Next slide" title="Next (→)">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg>
+    </button>
+  </nav>
+
+  <div class="deck-hint" id="deck-hint" aria-hidden="true">Use &larr; &rarr; to navigate</div>
+  <div id="deck-live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;"></div>
+</main>
+
+<script src="deck.js?v=2"></script>
+</body>
+</html>

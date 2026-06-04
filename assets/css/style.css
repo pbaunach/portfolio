@@ -1351,8 +1351,8 @@ a.project-card {
 }
 
 .editorial-hero-title {
-  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
-  font-weight: 700;
+  font-family: 'Bitter', Georgia, serif;
+  font-weight: 600;
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
@@ -1406,9 +1406,9 @@ a.project-card {
 }
 
 .case-study-thesis--editorial .case-study-thesis-quote {
-  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
+  font-family: 'Bitter', Georgia, serif !important;
   font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
-  font-weight: 400 !important;
+  font-weight: 600 !important;
   line-height: 1.25 !important;
   color: #fff !important;
   letter-spacing: -0.005em !important;
@@ -1465,8 +1465,8 @@ a.project-card {
 }
 
 .thesis-card-title {
-  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
-  font-weight: 700 !important;
+  font-family: 'Bitter', Georgia, serif !important;
+  font-weight: 600 !important;
   font-size: 1.45rem !important;
   color: #fff !important;
   margin: 0 0 0.6rem !important;
@@ -2012,9 +2012,9 @@ a.project-card {
   background: #313335;
 }
 #design-problem .dnd-callout__title {
-  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-family: 'Bitter', Georgia, serif;
   font-size: 21pt;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
   margin: 0 0 0.75rem;
 }

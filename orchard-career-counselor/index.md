@@ -25,8 +25,8 @@ layout: case-study
 
 <section class="case-study-thesis case-study-thesis--editorial" aria-label="Project thesis">
   <div class="case-study-thesis-inner">
-    <p class="case-study-thesis-eyebrow">The Big Idea</p>
-    <p class="case-study-thesis-quote">The leap out of high school can feel overwhelming. <em class="thesis-accent">Orchard bridges the gap.</em></p>
+    <p class="case-study-thesis-eyebrow">The Impossible Problem</p>
+    <p class="case-study-thesis-quote">How do we prepare students for a labor market that won't stop moving?</p>
     <div class="thesis-cards">
       <a href="#orchie" class="thesis-card">
         <span class="thesis-card-num">01</span>
