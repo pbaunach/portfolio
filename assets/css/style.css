@@ -1619,6 +1619,12 @@ a.project-card {
   margin-bottom: -195px;
 }
 
+/* Hero is a laptop mockup with its own shadow; drop the card shadow/radius the flat screenshots use */
+.case-study-intro--unbound-screens-hero .case-study-hero-image img {
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .case-study-intro--unbound-screens-hero .case-study-hero-bg,
 .case-study-intro--unbound-screens-hero .case-study-hero-dots {
   bottom: 0;

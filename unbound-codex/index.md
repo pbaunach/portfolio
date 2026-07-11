@@ -29,6 +29,7 @@ permalink: /unbound-codex/
     <div class="case-study-act-number">01</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">Silias: the archivist who actually read your codex</h2>
+      <p class="case-study-act-intro">Every entry in the codex (every NPC, location, quest, faction, recap, item) is chunked, embedded, and queryable. So when Silias generates a new NPC, the political tensions I've already written about Argent and Umber are already on the page. When I ask for an encounter, the bestiary entries already in scope appear first. The AI doesn't bolt onto the side of a world. It lives inside one.</p>
     </div>
   </div>
 </section>
@@ -36,8 +37,6 @@ permalink: /unbound-codex/
 <section class="major-section">
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
-      <p class="case-study-lead">Every entry in the codex (every NPC, location, quest, faction, recap, item) is chunked, embedded, and queryable. So when Silias generates a new NPC, the political tensions I've already written about Argent and Umber are already on the page. When I ask for an encounter, the bestiary entries already in scope appear first. The AI doesn't bolt onto the side of a world. It lives inside one.</p>
-
       <h3 class="case-study-sub-mode">Smart links</h3>
       <p>Every entity in the codex carries its own embeddings. The "@" syntax lets me reference any of them while writing, and the right rail surfaces what's mentioned on the current view. Edit an entry once and the new information propagates everywhere it's referenced.</p>
       <div class="case-study-callout-row">
@@ -94,6 +93,7 @@ permalink: /unbound-codex/
     <div class="case-study-act-number">02</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">Prep that respects the rest of your week</h2>
+      <p class="case-study-act-intro">The codex covers everything a DM actually touches in a week. Atlas, NPCs, quests, encounter builder, battle maps, bestiary, spells, items. Silias sits one keystroke away to answer any question while I prep. When the session runs, a single toggle controls what the party sees vs. what stays in my head.</p>
     </div>
   </div>
 </section>
@@ -101,8 +101,6 @@ permalink: /unbound-codex/
 <section class="major-section">
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
-      <p class="case-study-lead">The codex covers everything a DM actually touches in a week. Atlas, NPCs, quests, encounter builder, battle maps, bestiary, spells, items. Silias sits one keystroke away to answer any question while I prep. When the session runs, a single toggle controls what the party sees vs. what stays in my head.</p>
-
       <h3 class="case-study-sub-mode">The Atlas</h3>
       <p>The world made spatial. Hand-drawn maps for each region, pins for locations, lore that surfaces on hover. The GM/Player toggle at the top is the most important control on the page. One click flips what the table can see.</p>
       <div class="case-study-callout-row">

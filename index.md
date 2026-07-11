@@ -101,7 +101,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
   <div class="project-grid-inner project-grid-inner--side">
 
     <div class="side-card">
-      <a href="https://telby.io" class="side-card-cover side-card-cover--telby" target="_blank" rel="noopener noreferrer" aria-label="Visit Telby.io">
+      <a href="{{ '/telby-icon-builder/' | relative_url }}" class="side-card-cover side-card-cover--telby" aria-label="View the Telby deep dive">
         <span class="side-card-placeholder">Telby<span class="side-card-placeholder-dot">.</span></span>
         <img src="{{ '/assets/img/telby/card.png' | relative_url }}" alt="Telby.io icon editor" class="side-card-img" onerror="this.remove()">
       </a>
@@ -110,20 +110,20 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
           <span class="side-card-role">AI SVG Icon Builder</span>
         </div>
         <h3 class="side-card-title">
-          <a href="https://telby.io" target="_blank" rel="noopener noreferrer">Telby</a>
+          <a href="{{ '/telby-icon-builder/' | relative_url }}">Telby</a>
         </h3>
         <p class="side-card-summary">
           A builder&ndash;critic agent loop: an enriched prompt is human-reviewed, generated, then scored by a vision model against a temperature threshold. Shipped on pass, or looped back with notes to iterate.
         </p>
         <p class="project-card-actions side-card-actions">
           <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
-          <a href="https://telby.io" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit telby.io</a>
+          <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit telby.io</a>
         </p>
       </div>
     </div>
 
     <div class="side-card">
-      <a href="https://unboundcodex.com" class="side-card-cover side-card-cover--unbound" target="_blank" rel="noopener noreferrer" aria-label="Visit Unbound Codex">
+      <a href="{{ '/unbound-codex/' | relative_url }}" class="side-card-cover side-card-cover--unbound" aria-label="View the Unbound Codex deep dive">
         <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
         <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="The Unbound Codex campaign dashboard" class="side-card-img" onerror="this.remove()">
       </a>
@@ -132,7 +132,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
           <span class="side-card-role">RAG-Based TTRPG Agent</span>
         </div>
         <h3 class="side-card-title">
-          <a href="https://unboundcodex.com" target="_blank" rel="noopener noreferrer">Unbound Codex</a>
+          <a href="{{ '/unbound-codex/' | relative_url }}">Unbound Codex</a>
         </h3>
         <p class="side-card-summary">
           A game-mastering agent using vectorized rulesets and human-in-the-loop workflows to minimize hallucinations and co-author a cohesive narrative.
