@@ -29,9 +29,6 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
           </a>
           <div class="project-body">
             <div class="project-meta-row">
-              <span class="project-status-chip project-status-chip--now">
-                <span class="project-status-dot" aria-hidden="true"></span>Now
-              </span>
               <span class="project-role-label">Head of Product &amp; Design</span>
             </div>
             <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
@@ -93,6 +90,62 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
   </div>
 </section>
 -->
+
+<section class="project-grid project-grid--side">
+  <div class="project-grid-header">
+    <h2 class="section-title">Side Projects</h2>
+    <p class="section-subtitle">
+      Nights-and-weekends builds where I push on agent architectures and AI-assisted workflows. Shipped, live, and still evolving.
+    </p>
+  </div>
+  <div class="project-grid-inner project-grid-inner--side">
+
+    <div class="side-card">
+      <a href="https://telby.io" class="side-card-cover side-card-cover--telby" target="_blank" rel="noopener noreferrer" aria-label="Visit Telby.io">
+        <span class="side-card-placeholder">Telby<span class="side-card-placeholder-dot">.</span></span>
+        <img src="{{ '/assets/img/telby/card.png' | relative_url }}" alt="Telby.io icon editor" class="side-card-img" onerror="this.remove()">
+      </a>
+      <div class="side-card-body">
+        <div class="side-card-meta">
+          <span class="side-card-role">AI SVG Icon Builder</span>
+        </div>
+        <h3 class="side-card-title">
+          <a href="https://telby.io" target="_blank" rel="noopener noreferrer">Telby</a>
+        </h3>
+        <p class="side-card-summary">
+          A builder&ndash;critic agent loop: an enriched prompt is human-reviewed, generated, then scored by a vision model against a temperature threshold. Shipped on pass, or looped back with notes to iterate.
+        </p>
+        <p class="project-card-actions side-card-actions">
+          <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
+          <a href="https://telby.io" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit telby.io</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <a href="https://unboundcodex.com" class="side-card-cover side-card-cover--unbound" target="_blank" rel="noopener noreferrer" aria-label="Visit Unbound Codex">
+        <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
+        <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="The Unbound Codex campaign dashboard" class="side-card-img" onerror="this.remove()">
+      </a>
+      <div class="side-card-body">
+        <div class="side-card-meta">
+          <span class="side-card-role">RAG-Based TTRPG Agent</span>
+        </div>
+        <h3 class="side-card-title">
+          <a href="https://unboundcodex.com" target="_blank" rel="noopener noreferrer">Unbound Codex</a>
+        </h3>
+        <p class="side-card-summary">
+          A game-mastering agent using vectorized rulesets and human-in-the-loop workflows to minimize hallucinations and co-author a cohesive narrative.
+        </p>
+        <p class="project-card-actions side-card-actions">
+          <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
+          <a href="https://unboundcodex.com" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit the Site</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <section class="project-grid">
   <div class="project-grid-header">
