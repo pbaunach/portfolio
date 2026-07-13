@@ -95,7 +95,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
   <div class="project-grid-header">
     <h2 class="section-title">Side Projects</h2>
     <p class="section-subtitle">
-      Nights-and-weekends builds where I push on agent architectures and AI-assisted workflows. Shipped, live, and still evolving.
+      I'm a builder at heart, so I'm always messing around with something new on the side. Here's a look at what I've been working on lately.
     </p>
   </div>
   <div class="project-grid-inner project-grid-inner--side">

@@ -1601,37 +1601,17 @@ a.project-card {
 }
 
 /* Unbound Codex screens hero: same hero pop-out treatment as Orchard, scoped via a unique class */
-.case-study-intro--unbound-screens-hero.case-study-intro--hero {
-  overflow: visible;
+/* Match the editorial hero used on the Orchard and Telby pages (transparent
+   background, centered serif title). Emerald accent for the D&D theme. */
+.case-study-intro--unbound-screens-hero .editorial-hero-accent {
+  color: #34d399;
 }
 
-.case-study-intro--unbound-screens-hero.case-study-intro--title-only .case-study-section-inner {
-  max-width: 1100px;
-}
-
-.case-study-intro--unbound-screens-hero.case-study-intro--title-only .case-study-hero-inner {
-  max-width: 1100px;
-  width: 100%;
-}
-
-.case-study-intro--unbound-screens-hero .case-study-hero-image {
-  max-width: 825px;
-  margin-bottom: -195px;
-}
-
-/* Hero is a laptop mockup with its own shadow; drop the card shadow/radius the flat screenshots use */
+/* Hero image is a laptop mockup that carries its own shadow, so drop the card
+   shadow/radius the flat screenshots use. */
 .case-study-intro--unbound-screens-hero .case-study-hero-image img {
   box-shadow: none;
   border-radius: 0;
-}
-
-.case-study-intro--unbound-screens-hero .case-study-hero-bg,
-.case-study-intro--unbound-screens-hero .case-study-hero-dots {
-  bottom: 0;
-}
-
-.case-study-intro--unbound-screens-hero + .case-study-thesis {
-  padding-top: 13rem;
 }
 
 /* Unify content widths across the Unbound screens page */

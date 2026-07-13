@@ -10,7 +10,7 @@ layout: case-study
         Telby: the <span class="editorial-hero-accent">living</span> icon design system
       </h1>
       <p class="editorial-hero-meta">
-        <span>Solo &mdash; Design &amp; Engineering</span>
+        <span>Solo Design &amp; Engineering</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
         <span>0&rarr;1</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
@@ -52,7 +52,7 @@ layout: case-study
     <div class="case-study-act-number">01</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">A living token system</h2>
-      <p class="case-study-act-intro">Most icon libraries bake a hex value and a stroke width into every file, so a rebrand means editing hundreds of SVGs by hand. Telby binds each icon to a shared contract of tokens instead. Change a token once and every icon that references it restyles together, across every theme, weight, and size.</p>
+      <p class="case-study-act-intro">Most icon libraries bake a color and a stroke width into every file. So a rebrand means opening hundreds of SVGs and editing them by hand. Telby ties each icon to a shared set of tokens instead. Change one token and every icon that uses it updates at once, across every theme, weight, and size.</p>
     </div>
   </div>
 </section>
@@ -69,10 +69,10 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 60%; --y: 57%;">4</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> The ledger is the contract every icon binds to. I made "edit a value and it cascades to every icon using it" the headline of the page, because that single behavior is the entire reason Telby exists.</li>
-          <li><span class="cs-callout-num">2</span> Modes are columns, not separate files. Light, dark, and brand sit side by side so you author a theme by scanning down a column, and a new theme is one "＋ Add theme" away instead of a fork of the whole set.</li>
-          <li><span class="cs-callout-num">3</span> Every token shows its usage count. "primary" reads 100, it's the ink in all hundred icons, so before you touch a value you can see exactly how much of the set it moves instead of restyling everything by surprise.</li>
-          <li><span class="cs-callout-num">4</span> Cells inherit until overridden. "secondary" simply follows "primary" (the ↳), and dark only diverges where you say so, so the common case is empty and the exceptions are the only thing you maintain.</li>
+          <li><span class="cs-callout-num">1</span> The ledger is the contract every icon binds to. I put "edit a value and it cascades to every icon using it" front and center on the page, because that one behavior is the whole reason Telby exists.</li>
+          <li><span class="cs-callout-num">2</span> Modes are columns, not separate files. Light, dark, and brand sit side by side, so you build a theme by scanning down a column. Adding a new one is a single "＋ Add theme" click, not a fork of the whole set.</li>
+          <li><span class="cs-callout-num">3</span> Every token shows how many icons use it. "primary" reads 100, it's the ink in all hundred icons, so before you change a value you can see exactly how much of the set it will move. No restyling the world by surprise.</li>
+          <li><span class="cs-callout-num">4</span> Cells inherit until you override them. "secondary" just follows "primary" (that's the ↳), and dark only breaks away where you tell it to. The common case stays empty, so the only thing you maintain is the exceptions.</li>
         </ol>
       </div>
 
@@ -84,9 +84,9 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 42%; --y: 30%;">3</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Roles are the parts a shape plays, "the accent," "the outline," assigned in the editor and mapped to a token here. This is the layer that lets the assistant and bulk edits reason about an icon instead of poking at raw hex values.</li>
-          <li><span class="cs-callout-num">2</span> There's a "where new shapes start" default, so every shape you draw is already system-bound. You opt out of the system deliberately (a detached shape follows no role); you never have to remember to opt in.</li>
-          <li><span class="cs-callout-num">3</span> Adding a mode to a role is how duotone works. The accent role maps to "secondary" in mono and re-points to the "spot" hue in duo, so the same 100 drawings render as flat outlines or two-tone without a second copy. It replaced an earlier hack that faked two-color icons with token aliases.</li>
+          <li><span class="cs-callout-num">1</span> Roles are the parts a shape plays, "the accent," "the outline." You assign them in the editor and map them to a token here. This is the layer that lets the assistant and bulk edits reason about an icon, instead of poking at raw hex values.</li>
+          <li><span class="cs-callout-num">2</span> New shapes start bound to the system by default, so everything you draw already follows it. Opting out is a deliberate choice (a detached shape follows no role); you never have to remember to opt in.</li>
+          <li><span class="cs-callout-num">3</span> Duotone is just a mode added to a role. The accent role maps to "secondary" in mono and re-points to the "spot" hue in duo, so the same 100 drawings render as flat outlines or two-tone with no second copy. It replaced an earlier hack that faked two-color icons with token aliases.</li>
         </ol>
       </div>
 
@@ -99,10 +99,10 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 50%; --y: 86%;">4</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Stroke weight is a token too, "thin / normal / thick," not a number typed into each path. An icon set with a coherent weight ramp is one of the things that separates a real library from a pile of exports.</li>
-          <li><span class="cs-callout-num">2</span> Radius is a shared scalar on the same footing as color and stroke. The softness of every corner in the set is one value, so "make the whole family a touch rounder" is a single edit.</li>
-          <li><span class="cs-callout-num">3</span> The stroke ladder validates the whole weight scale at once. A green/amber/red dot per weight per size answers the question icon designers actually lose sleep over: does this stay pixel-crisp when it's shrunk to 16?</li>
-          <li><span class="cs-callout-num">4</span> When weights collide on the pixel grid, it says so plainly and offers to retune the values in one undo, instead of leaving you to discover the blur in production.</li>
+          <li><span class="cs-callout-num">1</span> Stroke weight is a token too, "thin / normal / thick," not a number typed into each path. A coherent weight ramp is one of the things that separates a real library from a pile of exports.</li>
+          <li><span class="cs-callout-num">2</span> Corner radius is shared too, on the same footing as color and stroke. The softness of every corner in the set is one value, so "make the whole family a touch rounder" is a single edit.</li>
+          <li><span class="cs-callout-num">3</span> The stroke ladder checks the whole weight scale at once. A green/amber/red dot for each weight at each size answers the question icon designers actually lose sleep over: does this stay pixel-crisp when it's shrunk to 16?</li>
+          <li><span class="cs-callout-num">4</span> When two weights collide on the pixel grid, it tells you plainly and offers to retune them in a single undo, instead of letting you find the blur in production.</li>
         </ol>
       </div>
     </div>
@@ -114,7 +114,7 @@ layout: case-study
     <div class="case-study-act-number">02</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">Build with AI</h2>
-      <p class="case-study-act-intro">You shouldn't have to choose between drawing every icon by hand and getting a generic one from a model that ignores your system. Telby's assistant plans, draws, and refines on the same canvas you edit, and everything it makes is bound to your tokens from the first stroke. It's a builder&ndash;critic loop: draft, score against the request, refine, repeat.</p>
+      <p class="case-study-act-intro">You shouldn't have to choose between drawing every icon by hand and taking a generic one from a model that ignores your system. Telby's assistant plans, draws, and refines right on the canvas you edit, and everything it makes is bound to your tokens from the first stroke. It's a builder-critic loop: draft, score it against the request, refine, repeat.</p>
     </div>
   </div>
 </section>
@@ -133,10 +133,10 @@ layout: case-study
         </figure>
         <ol class="cs-callout-notes-side">
           <li><span class="cs-callout-num">1</span> Plan first is on by default. The assistant proposes a numbered plan you can read, edit, and approve before a single anchor is drawn. The person stays the author; the model is the pair of hands.</li>
-          <li><span class="cs-callout-num">2</span> This is the critic half of the loop. The builder draws, then a vision model looks at the actual rendered icon and scores it against the request, and the build refines until it passes or hits the round limit. A model that never sees its own output just confidently hands you the wrong thing.</li>
-          <li><span class="cs-callout-num">3</span> Token authoring has three explicit levels, Grounded, Create, Full. Grounded (the default) can only use tokens you already have, so the safe setting is also the default and the assistant can't quietly invent a fourth blue.</li>
-          <li><span class="cs-callout-num">4</span> Every build targets a new icon or the one on the canvas. "Fix this corner" edits in place; "a bell" mints and names a fresh icon, so the assistant is equally a drafting tool and an editing tool.</li>
-          <li><span class="cs-callout-num">5</span> The context card shows exactly what the run is grounded in, the current icon, its size, a live thumbnail, so there's no guessing which icon a follow-up like "make it heavier" will change.</li>
+          <li><span class="cs-callout-num">2</span> This is the critic half of the loop. The builder draws, then a vision model looks at the actual rendered icon, scores it against the request, and keeps refining until it passes or hits the round limit. A model that never sees its own output just confidently hands you the wrong thing.</li>
+          <li><span class="cs-callout-num">3</span> Token authoring has three clear levels: Grounded, Create, Full. Grounded (the default) can only use tokens you already have, so the safe setting is also the default, and the assistant can't quietly invent a fourth blue.</li>
+          <li><span class="cs-callout-num">4</span> Every build targets a new icon or the one already on the canvas. "Fix this corner" edits in place; "a bell" mints and names a fresh icon, so the assistant is equally a drafting tool and an editing tool.</li>
+          <li><span class="cs-callout-num">5</span> The context card shows exactly what the run is working from: the current icon, its size, a live thumbnail. So there's no guessing which icon a follow-up like "make it heavier" will change.</li>
         </ol>
       </div>
     </div>
@@ -148,7 +148,7 @@ layout: case-study
     <div class="case-study-act-number">03</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">Draw it. Ship it.</h2>
-      <p class="case-study-act-intro">The same surface where you draft is the one that publishes. Draw with a real pen, shapes, and boolean operations on a snapping grid built for icons, not general illustration, audit the whole set for consistency, then publish a clean, versioned, token-backed package your apps install and tree-shake. Nothing to re-export, nothing to drift.</p>
+      <p class="case-study-act-intro">The surface where you draft is the one that publishes. Draw with a real pen, shapes, and boolean operations on a snapping grid built for icons rather than general illustration. Audit the whole set for consistency. Then publish a clean, versioned, token-backed package your apps install and tree-shake. Nothing to re-export, nothing to drift.</p>
     </div>
   </div>
 </section>
@@ -167,11 +167,11 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 25%; --y: 89%;">5</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> A snapping drafting grid, not an infinite art board. The whole editor is scoped to what icon work actually needs, so the constraints do the aligning for you instead of a floating pixel you have to nudge.</li>
-          <li><span class="cs-callout-num">2</span> The tool rail is icon-specific: pen, shapes, boolean ops, per-corner radius, construction guides. I judged every feature by one test, does it survive being exported as a flat SVG, which is why there are no vector networks and there is per-corner radius.</li>
-          <li><span class="cs-callout-num">3</span> A shape's role is assigned right in the inspector, this arrow's head sits on the "accent" role. Pick a role and the shape inherits that role's token everywhere, in every theme and both the mono and duotone palettes, forever.</li>
-          <li><span class="cs-callout-num">4</span> Stroke and fill read a token, not a hex. Width says "normal," not "2px," so this icon rides the whole set's weight ramp instead of freezing a number that a rebrand would strand.</li>
-          <li><span class="cs-callout-num">5</span> A live preview at 16, 24, and 48 sits on the canvas the entire time. Icons are drawn big and used small, so the small size is never an afterthought you discover is broken later.</li>
+          <li><span class="cs-callout-num">1</span> A snapping drafting grid, not an infinite art board. The whole editor is scoped to what icon work actually needs, so the constraints do the aligning for you instead of leaving you to nudge a floating pixel into place.</li>
+          <li><span class="cs-callout-num">2</span> The tool rail is icon-specific: pen, shapes, boolean ops, per-corner radius, construction guides. I judged every feature by one test, does it survive being exported as a flat SVG. That's why there are no vector networks, and why per-corner radius made the cut.</li>
+          <li><span class="cs-callout-num">3</span> You assign a shape's role right in the inspector, this arrow's head sits on the "accent" role. Pick a role and the shape inherits that role's token everywhere, in every theme and both the mono and duotone palettes, for good.</li>
+          <li><span class="cs-callout-num">4</span> Stroke and fill read a token, not a hex. Width says "normal," not "2px," so this icon rides the whole set's weight ramp instead of freezing a number that the next rebrand would strand.</li>
+          <li><span class="cs-callout-num">5</span> A live preview at 16, 24, and 48 sits on the canvas the whole time. Icons are drawn big and used small, so the small size is never an afterthought you find out is broken later.</li>
         </ol>
       </div>
 
@@ -185,10 +185,10 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 95%; --y: 8%;">4</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> The consistency audit is the library's conscience: hard-coded styles, visual weight, duplicate names, role drift, role parity. A living system needs a way to catch the moment an icon quietly stops following it, so the checks are always on and always visible, "all checks passing" across the whole 100.</li>
-          <li><span class="cs-callout-num">2</span> Sets, categories, and tags organize the library without moving anything. An icon can sit in a set and carry tags at once, which is how a real team finds "the outline navigation icons" without a rigid folder tree.</li>
-          <li><span class="cs-callout-num">3</span> You can render the whole grid in any theme and either palette. Auditing the set the way it will actually ship, in dark, in brand, in duotone, is the point; a library that only ever previews in light is hiding half its bugs.</li>
-          <li><span class="cs-callout-num">4</span> Publish produces a versioned, token-backed package apps install and tree-shake, and the editor is the source of truth. There is no separate export-and-hope step, which is the step where drift is born.</li>
+          <li><span class="cs-callout-num">1</span> The consistency audit is the library's conscience: hard-coded styles, visual weight, duplicate names, role drift, role parity. A living system needs a way to catch the moment an icon quietly stops following it, so the checks run constantly and stay visible, "all checks passing" across the whole 100.</li>
+          <li><span class="cs-callout-num">2</span> Sets, categories, and tags organize the library without moving anything. An icon can live in a set and carry tags at the same time, which is how a real team finds "the outline navigation icons" without a rigid folder tree.</li>
+          <li><span class="cs-callout-num">3</span> You can render the whole grid in any theme and either palette. The point is to audit the set the way it will actually ship, in dark, in brand, in duotone. A library that only ever previews in light is hiding half its bugs.</li>
+          <li><span class="cs-callout-num">4</span> Publish produces a versioned, token-backed package apps install and tree-shake, and the editor stays the source of truth. There's no separate export-and-hope step, which is exactly where drift is born.</li>
         </ol>
       </div>
     </div>
@@ -210,12 +210,12 @@ layout: case-study
   <div class="case-study-section-inner">
     <h2 class="case-study-title">My Role</h2>
     <div class="case-study-callout case-study-callout--role">
-      <p class="case-study-callout__role-title">Solo &mdash; Design &amp; Engineering</p>
+      <p class="case-study-callout__role-title">Solo Design &amp; Engineering</p>
       <h3 class="case-study-callout__heading">My Contributions</h3>
       <ul>
         <li><strong>0&rarr;1 product design and strategy:</strong> Defined the whole surface, the token model, the editor, and the publish pipeline, as one coherent system rather than a drawing tool with features bolted on.</li>
         <li><strong>The living token model:</strong> Designed the token contract (colors per mode, stroke and radius as shared scalars) and the semantic-role layer on top of it, so one change cascades across an entire set. The hardest and most-iterated part of the project.</li>
-        <li><strong>The AI builder&ndash;critic loop:</strong> Designed a builder that drafts against your tokens and a vision critic that scores the rendered icon and loops until it fits, with a plan-first review step so the person stays the author.</li>
+        <li><strong>The AI builder-critic loop:</strong> Designed a builder that drafts against your tokens and a vision critic that scores the rendered icon and loops until it fits, with a plan-first review step so the person stays the author.</li>
         <li><strong>Design engineering:</strong> Built the running app end to end, a custom SVG editor, the token compiler, the consistency audits, and a themeable <code>&lt;telby-icon&gt;</code> web-component export.</li>
       </ul>
     </div>

@@ -4,12 +4,19 @@ layout: case-study
 permalink: /unbound-codex/
 ---
 
-<section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-dnd case-study-intro--unbound-screens-hero case-study-intro--title-only">
-  <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
-  <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
+<section class="case-study-section case-study-intro case-study-intro--unbound-screens-hero case-study-intro--editorial">
   <div class="case-study-section-inner">
-    <div class="case-study-hero-inner">
-      <h1 class="case-study-title">The Unbound Codex</h1>
+    <div class="editorial-hero">
+      <h1 class="editorial-hero-title">
+        The <span class="editorial-hero-accent">Unbound</span> Codex
+      </h1>
+      <p class="editorial-hero-meta">
+        <span>Solo Design &amp; Engineering</span>
+        <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
+        <span>0&rarr;1</span>
+        <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
+        <span>2025&ndash;26</span>
+      </p>
     </div>
   </div>
   <figure class="case-study-hero-image">
@@ -48,7 +55,7 @@ permalink: /unbound-codex/
         </figure>
         <ol class="cs-callout-notes-side">
           <li><span class="cs-callout-num">1</span> The "@" syntax references any entity in the codex. Silias inherits the full context I've written about it without me re-explaining anything.</li>
-          <li><span class="cs-callout-num">2</span> Smart Links in the right rail expose every entity mentioned on the current page. One click jumps to that entry's full entry.</li>
+          <li><span class="cs-callout-num">2</span> Smart Links in the right rail expose every entity mentioned on the current page. One click jumps straight to that entry.</li>
           <li><span class="cs-callout-num">3</span> Editing one entry propagates everywhere it's referenced. The codex stays consistent without manual cleanup.</li>
         </ol>
       </div>
@@ -93,7 +100,7 @@ permalink: /unbound-codex/
     <div class="case-study-act-number">02</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">Prep that respects the rest of your week</h2>
-      <p class="case-study-act-intro">The codex covers everything a DM actually touches in a week. Atlas, NPCs, quests, encounter builder, battle maps, bestiary, spells, items. Silias sits one keystroke away to answer any question while I prep. When the session runs, a single toggle controls what the party sees vs. what stays in my head.</p>
+      <p class="case-study-act-intro">The codex covers everything a DM actually touches in a week. Atlas, NPCs, quests, encounter builder, battle maps, bestiary, spells, items. Silias sits one keystroke away to answer any question while I prep. When the session runs, a single toggle controls what the party sees versus what stays in my head.</p>
     </div>
   </div>
 </section>
