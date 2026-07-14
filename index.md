@@ -1,67 +1,28 @@
 ---
 layout: default
 title: Portfolio
-description: Staff Product Designer focused on 0→1 AI products. 20+ years bridging strategy and execution across startups and Fortune 500 enterprises.
+description: Product Designer with 20+ years turning ambiguous, early-stage ideas into products people rely on, from startups to Fortune 500 enterprises.
 ---
 
 <section class="home-hero">
-  <div class="home-hero-gradient" aria-hidden="true"></div>
-  <div class="home-hero-dots parallax-hero-dots" aria-hidden="true"></div>
   <div class="home-hero-inner">
-    <div class="intro">
-      <h1 class="intro-headline">
-        I design and build the <span class="intro-emphasis">0 &rarr; 1</span> products that don't exist yet.
-      </h1>
+    <h1 class="intro-headline">
+      Designing from <span class="intro-emphasis">Zero to Scale</span>
+    </h1>
+    <div class="home-hero-body">
       <p class="intro-copy">
-        20+ years bridging strategy and execution, from early-stage startups to Fortune 500 enterprises. Currently designing <span class="intro-emphasis">Orchard</span>, an AI College and Career Readiness counselor for high schoolers. Big believer in design-led strategy, rapid AI-assisted prototyping, and tinkering with the latest technology.
+        I am a Product Designer with 20+ years of experience transforming highly ambiguous, early-stage ideas into products people rely on. Whether acting as a founding designer at early-stage startups or leading core product overhauls at Fortune 500 enterprises, I bridge the gap between high-level strategy and technical execution.
       </p>
-    </div>
-
-    <div class="project-grid project-grid--split">
-      <div class="project-grid-header">
-        <h2 class="section-title">Project Highlights</h2>
-      </div>
-
-      <div class="project-grid-inner">
-        <div class="project-card project-card--split project-card--horizontal project-card--for-work">
-          <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
-            <img src="{{ '/assets/img/orchard-screens-v2/Orchard-Card.png' | relative_url }}" alt="Orchard product preview" class="project-cover-img">
-          </a>
-          <div class="project-body">
-            <div class="project-meta-row">
-              <span class="project-role-label">Head of Product &amp; Design</span>
-            </div>
-            <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
-            <p class="project-summary">
-              Leading 0&rarr;1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
-            </p>
-            <p class="project-card-actions">
-              <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
-              <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a>
-            </p>
-          </div>
+      <dl class="home-hero-meta">
+        <div class="hero-meta-row">
+          <dt>What I'm up to</dt>
+          <dd>Currently designing <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="hero-meta-link">Orchard</a>, an AI-powered college and career readiness platform.</dd>
         </div>
-
-        <!--
-        Hidden for now: Unbound Codex card. Uncomment to restore.
-        <a href="{{ '/unbound-codex/' | relative_url }}" class="project-card project-card--split project-card--for-fun">
-          <div class="project-cover project-cover--unbound project-cover--split-hero">
-            <img src="{{ '/assets/img/unbound-codex/card.png' | relative_url }}" alt="The Unbound Codex" class="project-cover-img">
-          </div>
-          <div class="project-body">
-            <div class="project-meta-row">
-              <span class="project-status-chip project-status-chip--exploring">Exploring</span>
-              <span class="project-role-label">Self-Directed</span>
-            </div>
-            <h3>The Unbound Codex</h3>
-            <p class="project-summary">
-              A living campaign codex for D&amp;D Dungeon Masters, with an AI archivist named Silias who keeps prep and play in one workflow.
-            </p>
-            <span class="button button-explore">View the Story</span>
-          </div>
-        </a>
-        -->
-      </div>
+        <div class="hero-meta-row">
+          <dt>My approach</dt>
+          <dd>Driven by design-led strategy, rapid AI-assisted prototyping, and hands-on technical tinkering.</dd>
+        </div>
+      </dl>
     </div>
   </div>
 </section>
@@ -91,6 +52,33 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
 </section>
 -->
 
+<section class="project-grid project-grid--split">
+  <div class="project-grid-header">
+    <h2 class="section-title">Project Highlight</h2>
+  </div>
+
+  <div class="project-grid-inner">
+    <div class="project-card project-card--split project-card--horizontal project-card--for-work">
+      <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
+        <img src="{{ '/assets/img/orchard-screens-v2/Orchard-Card.png' | relative_url }}" alt="Orchard product preview" class="project-cover-img">
+      </a>
+      <div class="project-body">
+        <div class="project-meta-row">
+          <span class="project-role-label">Head of Product &amp; Design</span>
+        </div>
+        <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
+        <p class="project-summary">
+          Leading 0&rarr;1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
+        </p>
+        <p class="project-card-actions">
+          <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
+          <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="project-grid project-grid--side">
   <div class="project-grid-header">
     <h2 class="section-title">Side Projects</h2>
@@ -117,7 +105,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
         </p>
         <p class="project-card-actions side-card-actions">
           <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
-          <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit telby.io</a>
+          <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
         </p>
       </div>
     </div>
@@ -139,7 +127,7 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
         </p>
         <p class="project-card-actions side-card-actions">
           <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
-          <a href="https://unboundcodex.com" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit the Site</a>
+          <a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
         </p>
       </div>
     </div>
@@ -147,70 +135,60 @@ description: Staff Product Designer focused on 0→1 AI products. 20+ years brid
   </div>
 </section>
 
-<section class="project-grid">
-  <div class="project-grid-header">
+<section class="project-grid project-grid--archive">
+  <div class="archive-header">
     <h2 class="section-title">Other Notable Projects</h2>
-    <p class="section-subtitle">
-      Foundation work across design systems, brand strategy, research, and prototyping.
-    </p>
+    <span class="archive-meta">03 / Archive</span>
   </div>
-  <div class="project-grid-inner">
-    <div class="project-card">
-      <div class="project-cover project-cover--bff">
-        <img src="{{ '/assets/img/bff-cover.png' | relative_url }}" alt="" class="project-cover-img">
+  <ol class="archive-list">
+    <li class="archive-row">
+      <span class="archive-num">01</span>
+      <div class="archive-main">
+        <h3 class="archive-title">Building a Shared Language <span class="archive-title-sub">(Project BFF)</span></h3>
+        <p class="archive-desc">A platform-agnostic, CSS-based design system built from the ground up to unify a fragmented product suite and simplify design-to-eng handoff.</p>
       </div>
-      <div class="project-body">
-        <h3>Building a Shared Language (Project BFF)</h3>
-        <p class="project-summary">
-          I built a platform-agnostic, CSS-based design system from the ground up to unify a fragmented product suite. This project details how I established the architecture and components that scaled across our entire ecosystem, drastically simplifying the handoff between design and engineering.
-        </p>
-        <p class="project-card-actions">
-          <a href="{{ '/design-system/' | relative_url }}" class="button button-primary">View Design System</a>
-          <a href="{{ '/bff/index.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View Documentation</a>
-        </p>
+      <span class="archive-tag">Design Systems</span>
+      <div class="archive-links">
+        <a href="{{ '/design-system/' | relative_url }}" class="archive-link">System <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="{{ '/bff/index.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">Docs <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
-    </div>
+    </li>
 
-    <a href="{{ '/brand-guidelines/' | relative_url }}" class="project-card">
-      <div class="project-cover project-cover--frederick">
-        <img src="{{ '/assets/img/fred+aspire-cover.png' | relative_url }}" alt="" class="project-cover-img">
+    <li class="archive-row">
+      <span class="archive-num">02</span>
+      <div class="archive-main">
+        <h3 class="archive-title">Brand Identity<span class="archive-title-sub">: Frederick &amp; Aspireship</span></h3>
+        <p class="archive-desc">Brand evolution from a core mission and voice down to the tactical systems of color, type, and illustration. One cohesive, scalable visual story.</p>
       </div>
-      <div class="project-body">
-        <h3>Brand Identity: Frederick &amp; Aspireship</h3>
-        <p class="project-summary">
-          I led the evolution of our brand from a core mission and voice down to the tactical systems of color, type, and illustration. This project shows how I created a cohesive visual story that aligns our high-level business goals with a scalable, everyday design language.
-        </p>
-        <span class="button button-primary">View Brand Guidelines</span>
+      <span class="archive-tag">Brand Strategy</span>
+      <div class="archive-links">
+        <a href="{{ '/brand-guidelines/' | relative_url }}" class="archive-link">Guidelines <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
-    </a>
+    </li>
 
-    <a href="{{ '/user-personas/' | relative_url }}" class="project-card">
-      <div class="project-cover project-cover--personas">
-        <img src="{{ '/assets/img/personas-cover.png' | relative_url }}" alt="" class="project-cover-img">
+    <li class="archive-row">
+      <span class="archive-num">03</span>
+      <div class="archive-main">
+        <h3 class="archive-title">Harmonizing Personas<span class="archive-title-sub">: Frederick &amp; Mindbody</span></h3>
+        <p class="archive-desc">Original, empathy-driven archetypes, integrated into the broader Mindbody platform post-acquisition to keep product decisions grounded in real needs.</p>
       </div>
-      <div class="project-body">
-        <h3>Harmonizing Personas for an Evolving Ecosystem: Frederick &amp; Mindbody</h3>
-        <p class="project-summary">
-          I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader Mindbody platform, ensuring our product decisions remained grounded in real user needs during the transition.
-        </p>
-        <span class="button button-primary">View Personas</span>
+      <span class="archive-tag">Research</span>
+      <div class="archive-links">
+        <a href="{{ '/user-personas/' | relative_url }}" class="archive-link">Personas <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
-    </a>
+    </li>
 
-    <div class="project-card">
-      <div class="project-cover project-cover--financial">
-        <img src="{{ '/assets/img/dreamforce-cover.png' | relative_url }}" alt="" class="project-cover-img">
+    <li class="archive-row">
+      <span class="archive-num">04</span>
+      <div class="archive-main">
+        <h3 class="archive-title">Demo<span class="archive-title-sub">: Dreamforce '15</span></h3>
+        <p class="archive-desc">Salesforce's first industry-vertical product, Financial Services Cloud, taken from story mapping to the live functional prototype presented on a global keynote stage.</p>
       </div>
-      <div class="project-body">
-        <h3>Demo: Dreamforce '15</h3>
-        <p class="project-summary">
-          A high-profile demonstration of the Financial Services Cloud, Salesforce's first industry-vertical product. This project tracks the journey from initial story mapping and architecture to the live, high-fidelity functional prototype presented on stage for a global keynote audience.
-        </p>
-        <p class="project-card-actions">
-          <a href="{{ '/dreamforce-demo/' | relative_url }}" class="button button-primary">View Workflow</a>
-          <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="button button-outline" target="_blank" rel="noopener noreferrer">View Prototype</a>
-        </p>
+      <span class="archive-tag">Prototyping</span>
+      <div class="archive-links">
+        <a href="{{ '/dreamforce-demo/' | relative_url }}" class="archive-link">Workflow <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">Prototype <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
-    </div>
-  </div>
+    </li>
+  </ol>
 </section>

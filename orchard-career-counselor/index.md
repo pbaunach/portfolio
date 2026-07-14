@@ -26,7 +26,7 @@ layout: case-study
 <section class="case-study-thesis case-study-thesis--editorial" aria-label="Project thesis">
   <div class="case-study-thesis-inner">
     <p class="case-study-thesis-eyebrow">The Impossible Problem</p>
-    <p class="case-study-thesis-quote">How do we prepare students for a labor market that won't stop moving?</p>
+    <p class="case-study-thesis-quote">How do we prepare students for a labor market that <span class="thesis-accent">won't stop moving</span>?</p>
     <div class="thesis-cards">
       <a href="#orchie" class="thesis-card">
         <span class="thesis-card-num">01</span>

@@ -26,7 +26,7 @@ layout: case-study
 <section class="case-study-thesis case-study-thesis--editorial" aria-label="Project thesis">
   <div class="case-study-thesis-inner">
     <p class="case-study-thesis-eyebrow">The Drift Problem</p>
-    <p class="case-study-thesis-quote">An icon set isn't a folder of SVGs. It's a system, and systems <span class="thesis-accent">drift</span>.</p>
+    <p class="case-study-thesis-quote">An icon set isn't a folder of static assets, it's a system that <span class="thesis-accent">drifts out of sync</span> without shared rules.</p>
     <div class="thesis-cards">
       <a href="#tokens" class="thesis-card">
         <span class="thesis-card-num">01</span>

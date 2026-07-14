@@ -1,18 +1,19 @@
-/* Design tokens (shadcn/ui-inspired) */
+/* Design tokens (Telby-inspired light theme) */
 :root {
-  --background: #020817;
-  --foreground: #f9fafb;
-  --muted: #0f172a;
-  --muted-foreground: #9ca3af;
-  --card: #020617;
-  --card-foreground: #e5e7eb;
-  --border: rgba(148, 163, 184, 0.3);
-  --primary: #38bdf8;
-  --primary-foreground: #0b1120;
+  --background: #f5f8fa;
+  --foreground: #16202b;
+  --muted: #e8ecef;
+  --muted-foreground: #5c6373;
+  --card: #ffffff;
+  --card-foreground: #2d3542;
+  --border: rgba(22, 32, 43, 0.12);
+  --primary: #2a4be0;
+  --primary-hover: #1f3bc0;
+  --primary-foreground: #ffffff;
   --radius-lg: 0.9rem;
   --radius-xl: 1.2rem;
-  --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.55);
-  --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.35);
+  --shadow-soft: 0 18px 50px rgba(22, 32, 43, 0.12);
+  --shadow-subtle: 0 8px 24px rgba(22, 32, 43, 0.07);
 }
 
 /* Basic reset */
@@ -29,10 +30,10 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: var(--foreground);
-  background: radial-gradient(circle at top, #0b1120, #020617 55%, #020617);
+  background: var(--background);
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -40,7 +41,7 @@ h1, h2, h3, h4, h5, h6,
 .section-title,
 .case-study-title,
 .logo-placeholder {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 .container {
@@ -51,9 +52,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-header {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(245, 248, 250, 0.82);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -83,11 +84,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-logo-name__primary {
-  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
   color: var(--foreground);
-  letter-spacing: 0.005em;
+  letter-spacing: -0.01em;
   line-height: 1.05;
 }
 
@@ -96,7 +97,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-logo-name__secondary {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Archivo', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 400;
   color: var(--muted-foreground);
@@ -110,8 +111,8 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: rgba(42, 75, 224, 0.15);
+  border: 1px solid rgba(42, 75, 224, 0.4);
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
@@ -129,16 +130,18 @@ h1, h2, h3, h4, h5, h6,
 .site-nav a {
   position: relative;
   text-decoration: none;
-  color: var(--muted-foreground);
+  color: var(--foreground);
   font-size: 0.95rem;
+  font-weight: 500;
   padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   transition: color 0.15s ease, background-color 0.15s ease;
   white-space: nowrap;
 }
 
 .site-nav a:hover {
-  color: var(--foreground);
-  background-color: rgba(15, 23, 42, 0.8);
+  color: var(--primary);
+  background-color: rgba(42, 75, 224, 0.08);
 }
 
 .site-main {
@@ -149,110 +152,124 @@ h1, h2, h3, h4, h5, h6,
   padding-bottom: 3rem;
 }
 
-/* Home: hero = intro + featured product case study, rainbow background */
+/* Home hero: editorial two-column intro (headline, then copy + meta table) */
 .home-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   margin-bottom: 0;
-  padding: 3rem 0 3.5rem;
+  padding: 4.5rem 0 3.25rem;
   box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid #08121d;
-  background: rgb(8, 25, 48);
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgba(22, 32, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 32, 43, 0.04) 1px, transparent 1px);
+  background-size: 46px 46px;
+  border-bottom: 1px solid var(--border);
 }
 
-/* Animated gradient: tall strip scrolls vertically for slow color transitions */
-.home-hero-gradient {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.home-hero-gradient::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1000vh;
-  opacity: 0.9;
-  background: linear-gradient(
-    to bottom,
-    rgb(8, 25, 48) 0%,
-    rgb(101, 91, 239) 10%,
-    rgb(250, 40, 191) 25%,
-    rgb(255, 70, 101) 40%,
-    rgb(251, 222, 78) 55%,
-    rgb(0, 251, 234) 70%,
-    rgb(85, 93, 239) 85%,
-    rgb(8, 25, 48) 100%
-  );
-  animation: hero-gradient-slide 50s ease-in-out infinite;
-}
-
-@keyframes hero-gradient-slide {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-450vh);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-hero-gradient::after {
-    animation: none;
-    height: 100%;
-  }
-}
-
-/* Stars: uniform small dots, very light blue-white */
-.home-hero-dots {
-  position: absolute;
-  top: -15%;
-  left: -15%;
-  right: -15%;
-  bottom: -15%;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle at 50% 50%, rgba(224, 231, 255, 0.1) 1px, transparent 1px);
-  background-size: 28px 28px;
-  will-change: transform;
-}
-.home-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(2, 8, 23, 0.72);
-  z-index: 0.5;
-}
 .home-hero-inner {
-  position: relative;
-  z-index: 1;
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
-  background: rgba(8, 25, 48, 0.15);
-  border-radius: var(--radius-lg);
-}
-.home-hero .intro {
-  margin-bottom: 2.5rem;
+  padding: 0 1.5rem;
 }
 
-.home-hero .intro-copy,
-.home-hero .intro-copy span {
-  color: #fff;
+.home-hero .intro-headline {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+  margin: 0;
+  white-space: nowrap;
+  text-shadow: none;
 }
 
-.home-hero .section-title {
-  color: #fff;
+.home-hero .intro-emphasis {
+  color: var(--primary);
+}
+
+.home-hero-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem 4rem;
+  align-items: start;
+  margin-top: 2.75rem;
+}
+
+.home-hero .intro-copy {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--foreground);
+  margin: 0;
+  max-width: 46ch;
+  text-shadow: none;
+}
+
+/* Hero meta: labeled Currently / Building / Focus / Discipline rows */
+.home-hero-meta {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-meta-row {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding: 0.85rem 0;
+}
+
+.hero-meta-row:first-child {
+  padding-top: 0;
+}
+
+.hero-meta-row dt {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  line-height: 1.4;
+}
+
+.hero-meta-row dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.hero-meta-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-meta-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .home-hero-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .home-hero .intro-headline {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-meta-row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
 }
 
 .site-footer {
@@ -269,43 +286,40 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .intro-eyebrow {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #bae6fd;
+  color: var(--primary);
   margin-bottom: 1rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .intro-headline {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 2.4rem;
   line-height: 1.15;
   font-weight: 700;
-  color: #fff;
+  color: var(--foreground);
   letter-spacing: -0.01em;
   margin-bottom: 1.25rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 28px rgba(0, 0, 0, 0.4);
 }
 
 .intro-headline .intro-emphasis {
-  color: #bae6fd;
+  color: var(--primary);
 }
 
 .intro-copy {
   font-size: 1.1rem;
   line-height: 1.55;
   font-weight: 400;
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #E4E9ED;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 0, 0, 0.35);
+  font-family: 'Archivo', system-ui, sans-serif;
+  color: var(--muted-foreground);
 }
 
 .intro-copy .intro-emphasis {
   font-weight: 700;
-  color: #fff;
+  color: var(--foreground);
 }
 
 /* Outcomes strip: 4 stat blocks between intro and project highlights */
@@ -317,9 +331,9 @@ h1, h2, h3, h4, h5, h6,
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
   border-radius: var(--radius-lg);
-  background: rgba(2, 8, 23, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  backdrop-filter: blur(6px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
 }
 
 .outcome {
@@ -330,10 +344,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .outcome-value {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--foreground);
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
@@ -341,7 +355,7 @@ h1, h2, h3, h4, h5, h6,
 .outcome-label {
   font-size: 0.82rem;
   line-height: 1.4;
-  color: #cbd5e1;
+  color: var(--muted-foreground);
 }
 
 .project-grid {
@@ -372,7 +386,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .section-subtitle {
-  color: #e5e7eb;
+  color: var(--muted-foreground);
   font-size: 0.98rem;
 }
 
@@ -394,7 +408,7 @@ h1, h2, h3, h4, h5, h6,
 .project-card {
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--card);
   box-shadow: var(--shadow-subtle);
   overflow: hidden;
   display: flex;
@@ -411,10 +425,10 @@ a.project-card {
 }
 
 .project-card:hover {
-  border-color: rgba(56, 189, 248, 0.7);
+  border-color: rgba(42, 75, 224, 0.55);
   transform: translateY(-2px);
   box-shadow: var(--shadow-soft);
-  background: rgba(15, 23, 42, 0.98);
+  background: var(--card);
 }
 
 .project-card--dnd:hover {
@@ -509,10 +523,10 @@ a.project-card {
   align-items: center;
   padding: 0.32rem 0.75rem;
   border-radius: 999px;
-  background: #020617;
-  border: 1px solid rgba(56, 189, 248, 0.7);
+  background: var(--card);
+  border: 1px solid rgba(42, 75, 224, 0.7);
   color: var(--primary);
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -541,7 +555,7 @@ a.project-card {
   gap: 0.45rem;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -550,7 +564,7 @@ a.project-card {
 }
 
 .project-status-chip--now {
-  background: #38bdf8;
+  background: var(--primary);
   color: #0b1120;
 }
 
@@ -560,7 +574,7 @@ a.project-card {
 }
 
 .project-role-label {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -735,7 +749,7 @@ a.project-card {
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.85);
-  color: #e5e7eb;
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.75rem;
 }
 
@@ -762,7 +776,7 @@ a.project-card {
 }
 
 .project-cover--ai {
-  background: radial-gradient(circle at top left, #6366f1, #38bdf8);
+  background: radial-gradient(circle at top left, #6366f1, var(--primary));
 }
 
 .project-cover--bff {
@@ -809,7 +823,7 @@ a.project-card {
 
 .project-challenge {
   font-size: 0.92rem;
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 
 .project-stat {
@@ -819,7 +833,7 @@ a.project-card {
 
 .project-context {
   font-size: 0.9rem;
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 
 .project-meta {
@@ -830,7 +844,7 @@ a.project-card {
 .project-summary {
   font-size: 0.98rem;
   line-height: 1.7;
-  color: #e5e7eb;
+  color: var(--card-foreground);
   font-weight: 400;
   padding: 10px 0 30px;
 }
@@ -850,15 +864,15 @@ a.project-card {
 }
 
 .button-primary {
-  background: #38bdf8;
-  color: #0b1120;
-  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 4px 12px rgba(42, 75, 224, 0.18);
 }
 
 .button-primary:hover {
-  background: #0ea5e9;
+  background: var(--primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 6px 18px rgba(42, 75, 224, 0.28);
 }
 
 /* Red glowy button (Passion Project / D&D) */
@@ -889,29 +903,29 @@ a.project-card {
 
 .button-ghost {
   background: transparent;
-  color: #e5e7eb;
-  border: 1px solid rgba(148, 163, 184, 0.5);
+  color: var(--foreground);
+  border: 1px solid var(--border);
 }
 
 .button-ghost:hover {
-  background: rgba(15, 23, 42, 0.9);
-  border-color: rgba(148, 163, 184, 0.9);
+  background: rgba(22, 32, 43, 0.05);
+  border-color: rgba(22, 32, 43, 0.25);
 }
 
-/* Outline style (logo-placeholder look): bright blue outline and text, low opacity blue background */
+/* Outline style: blue outline and text, low-opacity blue background */
 .button-outline {
-  background: rgba(56, 189, 248, 0.15);
+  background: rgba(42, 75, 224, 0.08);
   color: var(--primary);
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  border: 1px solid rgba(42, 75, 224, 0.35);
   box-shadow: none;
 }
 
 .button-outline:hover {
-  background: rgba(56, 189, 248, 0.25);
-  border-color: rgba(56, 189, 248, 0.7);
+  background: rgba(42, 75, 224, 0.14);
+  border-color: rgba(42, 75, 224, 0.6);
   color: var(--primary);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 2px 8px rgba(42, 75, 224, 0.14);
 }
 
 /* Side Projects: compact two-up cards with screenshot-ready cover */
@@ -925,7 +939,7 @@ a.project-card {
   flex-direction: column;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--card);
   box-shadow: var(--shadow-subtle);
   overflow: hidden;
   transition: border-color 0.18s ease, transform 0.18s ease,
@@ -933,10 +947,10 @@ a.project-card {
 }
 
 .side-card:hover {
-  border-color: rgba(56, 189, 248, 0.7);
+  border-color: rgba(42, 75, 224, 0.55);
   transform: translateY(-2px);
   box-shadow: var(--shadow-soft);
-  background: rgba(15, 23, 42, 0.98);
+  background: var(--card);
 }
 
 .side-card-cover {
@@ -993,7 +1007,7 @@ a.project-card {
 }
 
 .side-card-role {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -1034,6 +1048,149 @@ a.project-card {
 @media (max-width: 720px) {
   .project-grid.project-grid--side .project-grid-inner.project-grid-inner--side {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Archive list: text-forward alternative to image cards (Other Notable Projects) */
+.project-grid--archive {
+  gap: 0;
+}
+
+.archive-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-header .section-title {
+  margin-bottom: 0;
+}
+
+.archive-meta {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive-row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 9rem 8.5rem;
+  grid-template-areas: "num main tag links";
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-num {
+  grid-area: num;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding-top: 0.15rem;
+}
+
+.archive-main {
+  grid-area: main;
+}
+
+.archive-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+}
+
+.archive-title-sub {
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+.archive-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+  margin: 0;
+  max-width: 54ch;
+}
+
+.archive-tag {
+  grid-area: tag;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  padding-top: 0.2rem;
+}
+
+.archive-links {
+  grid-area: links;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-top: 0.2rem;
+}
+
+.archive-link {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.archive-link-arrow {
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: transform 0.15s ease;
+}
+
+.archive-link:hover {
+  color: var(--primary-hover);
+}
+
+.archive-link:hover .archive-link-arrow {
+  transform: translateX(2px);
+}
+
+@media (max-width: 720px) {
+  .archive-row {
+    grid-template-columns: 1.75rem 1fr;
+    grid-template-areas:
+      "num main"
+      "num tag"
+      "num links";
+    gap: 0.5rem 1rem;
+  }
+
+  .archive-tag {
+    padding-top: 0.4rem;
+  }
+
+  .archive-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 0.35rem;
   }
 }
 
@@ -1082,7 +1239,7 @@ a.project-card {
   }
 
   .case-study-nav a:hover {
-    color: #e5e7eb;
+    color: var(--card-foreground);
   }
 
   .case-study-nav a:focus {
@@ -1091,10 +1248,10 @@ a.project-card {
   }
 
   .case-study-nav a.active {
-    color: #fff;
+    color: var(--foreground);
     font-weight: 700;
-    border-left: 2px solid #38bdf8;
-    border-left-color: #38bdf8;
+    border-left: 2px solid var(--primary);
+    border-left-color: var(--primary);
   }
 }
 
@@ -1208,7 +1365,7 @@ a.project-card {
   height: auto;
   display: block;
   vertical-align: bottom;
-  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 -12px 40px rgba(22, 32, 43, 0.1);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 .case-study-intro--role-only {
@@ -1217,32 +1374,32 @@ a.project-card {
 
 /* Case study hero: gradient (20% opacity at 25%) to full color at 100%, parallax kept via JS */
 .case-study-intro--theme-orchard .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(34, 59, 76, 0.2) 25%, #223b4c 100%);
+  background: linear-gradient(to bottom, rgba(34, 59, 76, 0.04) 25%, rgba(34, 59, 76, 0.12) 100%);
 }
 
 /* Orchard Career Counselor screens page: green hero gradient */
 .case-study-intro--orchard-screens-hero.case-study-intro--theme-orchard .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(60, 211, 67, 0.2) 25%, #3CD343 100%);
+  background: linear-gradient(to bottom, rgba(60, 211, 67, 0.05) 25%, rgba(60, 211, 67, 0.15) 100%);
 }
 
 .case-study-intro--theme-bff .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(84, 212, 138, 0.2) 25%, #54d48a 100%);
+  background: linear-gradient(to bottom, rgba(84, 212, 138, 0.05) 25%, rgba(84, 212, 138, 0.16) 100%);
 }
 
 .case-study-intro--theme-brand .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(72, 16, 164, 0.2) 25%, #4810a4 100%);
+  background: linear-gradient(to bottom, rgba(72, 16, 164, 0.04) 25%, rgba(72, 16, 164, 0.12) 100%);
 }
 
 .case-study-intro--theme-personas .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(218, 68, 83, 0.2) 25%, #da4453 100%);
+  background: linear-gradient(to bottom, rgba(218, 68, 83, 0.05) 25%, rgba(218, 68, 83, 0.13) 100%);
 }
 
 .case-study-intro--theme-demo .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(13, 157, 218, 0.2) 25%, #0d9dda 100%);
+  background: linear-gradient(to bottom, rgba(13, 157, 218, 0.05) 25%, rgba(13, 157, 218, 0.14) 100%);
 }
 
 .case-study-intro--theme-dnd .case-study-hero-bg {
-  background: linear-gradient(to bottom, rgba(6, 78, 59, 0.2) 25%, #064e3b 100%);
+  background: linear-gradient(to bottom, rgba(6, 78, 59, 0.05) 25%, rgba(6, 78, 59, 0.14) 100%);
 }
 
 .case-study-intro--theme-bff .case-study-hero-dots,
@@ -1261,7 +1418,7 @@ a.project-card {
   max-width: 720px;
   margin: 1rem auto;
   padding: 1.75rem 2rem;
-  background: rgba(8, 25, 48, 0.15);
+  background: transparent;
   border-radius: var(--radius-lg);
 }
 
@@ -1275,7 +1432,7 @@ a.project-card {
   margin-top: 0;
   font-size: 1.1rem;
   line-height: 1.5;
-  color: #fff;
+  color: rgba(226, 232, 240, 0.85);
 }
 
 .case-study-hero-cta {
@@ -1289,7 +1446,7 @@ a.project-card {
   margin-right: calc(50% - 50vw);
   padding: 3rem 1.5rem;
   text-align: center;
-  background: linear-gradient(to bottom, rgba(2, 8, 23, 0), rgba(2, 8, 23, 0.55), rgba(2, 8, 23, 0));
+  background: transparent;
 }
 
 .case-study-thesis-inner {
@@ -1298,7 +1455,7 @@ a.project-card {
 }
 
 .case-study-thesis-eyebrow {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.24em;
@@ -1308,11 +1465,11 @@ a.project-card {
 }
 
 .case-study-thesis-quote {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 1.7rem;
   line-height: 1.3;
   font-weight: 600;
-  color: #fff;
+  color: var(--foreground);
   margin: 0 !important;
   letter-spacing: -0.01em;
 }
@@ -1328,9 +1485,9 @@ a.project-card {
   margin-right: calc(50% - 50vw);
   padding: 2.25rem 1.5rem;
   box-sizing: border-box;
-  background: rgba(8, 25, 48, 0.45);
-  border-top: 1px solid rgba(56, 189, 248, 0.18);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+  background: var(--muted);
+  border-top: 1px solid rgba(42, 75, 224, 0.18);
+  border-bottom: 1px solid rgba(42, 75, 224, 0.18);
 }
 
 .case-study-act-inner {
@@ -1343,7 +1500,7 @@ a.project-card {
 }
 
 .case-study-act-number {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 4rem;
   font-weight: 800;
   line-height: 0.9;
@@ -1352,7 +1509,7 @@ a.project-card {
 }
 
 .case-study-act-label {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1363,11 +1520,11 @@ a.project-card {
 }
 
 .case-study-act-title {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 1.55rem;
   line-height: 1.1;
   font-weight: 700;
-  color: #fff;
+  color: var(--foreground);
   margin: 0 0 0.55rem !important;
   letter-spacing: -0.01em;
 }
@@ -1375,7 +1532,7 @@ a.project-card {
 .case-study-act-intro {
   font-size: 1rem;
   line-height: 1.6;
-  color: #cbd5e1;
+  color: var(--muted-foreground);
   margin: 0.65rem 0 0 !important;
   max-width: 70ch;
 }
@@ -1396,7 +1553,7 @@ a.project-card {
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 40px rgba(22, 32, 43, 0.13);
   margin: 0;
 }
 
@@ -1420,12 +1577,12 @@ a.project-card {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #38bdf8;
+  color: var(--primary);
   margin: 0 0 1.5rem !important;
 }
 
@@ -1433,7 +1590,7 @@ a.project-card {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #38bdf8;
+  background: var(--primary);
   flex-shrink: 0;
 }
 
@@ -1448,18 +1605,18 @@ a.project-card {
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
-  color: #fff;
+  color: var(--foreground);
   margin: 0 auto !important;
   max-width: 30ch;
   text-align: center;
 }
 
 .editorial-hero-accent {
-  color: #38bdf8;
+  color: var(--primary);
 }
 
 .editorial-hero-accent--amp {
-  color: #38bdf8;
+  color: var(--primary);
 }
 
 .editorial-hero-meta {
@@ -1468,10 +1625,10 @@ a.project-card {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.9rem;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #cbd5e1;
+  color: var(--muted-foreground);
   margin: 1.75rem 0 0 !important;
 }
 
@@ -1494,7 +1651,7 @@ a.project-card {
 }
 
 .case-study-thesis--editorial .case-study-thesis-eyebrow {
-  color: #38bdf8;
+  color: var(--primary);
 }
 
 .case-study-thesis--editorial .case-study-thesis-quote {
@@ -1502,14 +1659,14 @@ a.project-card {
   font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
   font-weight: 600 !important;
   line-height: 1.25 !important;
-  color: #fff !important;
+  color: var(--foreground) !important;
   letter-spacing: -0.005em !important;
   max-width: 26ch;
   margin: 0 auto !important;
 }
 
 .case-study-thesis--editorial .thesis-accent {
-  color: #38bdf8;
+  color: var(--primary);
   font-style: italic;
 }
 
@@ -1527,21 +1684,21 @@ a.project-card {
   text-decoration: none;
   color: inherit;
   padding: 1.75rem 1.75rem 1.6rem;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   text-align: left;
   transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .thesis-card:hover {
-  border-color: rgba(56, 189, 248, 0.55);
+  border-color: rgba(42, 75, 224, 0.55);
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .thesis-card:focus-visible {
-  outline: 2px solid #38bdf8;
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
 
@@ -1549,7 +1706,7 @@ a.project-card {
   position: absolute;
   top: 1.75rem;
   right: 1.75rem;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--muted-foreground);
@@ -1560,7 +1717,7 @@ a.project-card {
   font-family: 'Bitter', Georgia, serif !important;
   font-weight: 600 !important;
   font-size: 1.45rem !important;
-  color: #fff !important;
+  color: var(--foreground) !important;
   margin: 0 0 0.6rem !important;
   text-align: left !important;
   line-height: 1.2 !important;
@@ -1571,7 +1728,7 @@ a.project-card {
 .thesis-card-desc {
   font-size: 0.92rem !important;
   line-height: 1.55 !important;
-  color: #cbd5e1 !important;
+  color: var(--muted-foreground) !important;
   margin: 0 !important;
 }
 
@@ -1600,19 +1757,8 @@ a.project-card {
   max-width: 1100px;
 }
 
-/* Unbound Codex screens hero: same hero pop-out treatment as Orchard, scoped via a unique class */
-/* Match the editorial hero used on the Orchard and Telby pages (transparent
-   background, centered serif title). Emerald accent for the D&D theme. */
-.case-study-intro--unbound-screens-hero .editorial-hero-accent {
-  color: #34d399;
-}
-
-/* Hero image is a laptop mockup that carries its own shadow, so drop the card
-   shadow/radius the flat screenshots use. */
-.case-study-intro--unbound-screens-hero .case-study-hero-image img {
-  box-shadow: none;
-  border-radius: 0;
-}
+/* Unbound Codex screens page: same treatment as Telby/Orchard (blue accent, flat
+   screenshot hero inheriting the shared rounded-corner + soft-shadow). */
 
 /* Unify content widths across the Unbound screens page */
 .case-study-intro--unbound-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
@@ -1621,11 +1767,6 @@ a.project-card {
 .case-study-intro--unbound-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
 .case-study-intro--unbound-screens-hero ~ .case-study-section .case-study-section-inner {
   max-width: 1100px;
-}
-
-/* Sub-mode headings on the Unbound page use emerald to match the theme */
-.case-study-intro--unbound-screens-hero ~ .major-section .case-study-sub-mode {
-  color: #34d399 !important;
 }
 
 /* Wide content container for case study sections that need more room (side-by-side layouts) */
@@ -1637,7 +1778,7 @@ a.project-card {
 .case-study-lead {
   font-size: 1.1rem !important;
   line-height: 1.55 !important;
-  color: #e5e7eb !important;
+  color: var(--card-foreground) !important;
   margin: 0 0 1.75rem !important;
 }
 
@@ -1698,7 +1839,7 @@ a.project-card {
   padding-left: 36px;
   font-size: 0.92rem;
   line-height: 1.55;
-  color: #cbd5e1;
+  color: var(--muted-foreground);
   margin: 0 !important;
 }
 
@@ -1725,7 +1866,7 @@ a.project-card {
 
 /* Sub-mode heading: Explore / Plan / Learn within Section 3 */
 .case-study-sub-mode {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 1.55rem !important;
   font-weight: 700 !important;
   color: var(--primary) !important;
@@ -1738,7 +1879,7 @@ a.project-card {
 .case-study-sub-mode + p {
   font-size: 1rem !important;
   line-height: 1.6 !important;
-  color: #e5e7eb !important;
+  color: var(--card-foreground) !important;
   margin: 0 0 1.25rem !important;
 }
 
@@ -1782,15 +1923,15 @@ a.project-card {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #38bdf8;
-  color: #020617;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: var(--primary);
+  color: #fff;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(56, 189, 248, 0.22);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(42, 75, 224, 0.22);
   z-index: 2;
   pointer-events: none;
 }
@@ -1810,7 +1951,7 @@ a.project-card {
   align-items: start;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: #cbd5e1;
+  color: var(--muted-foreground);
   margin: 0 !important;
 }
 
@@ -1818,10 +1959,10 @@ a.project-card {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.5);
+  background: rgba(42, 75, 224, 0.15);
+  border: 1px solid rgba(42, 75, 224, 0.5);
   color: var(--primary);
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.75rem;
   display: flex;
@@ -1889,7 +2030,7 @@ a.project-card {
 .case-study-cta-helper {
   font-size: 0.875rem;
   font-style: italic;
-  color: rgba(148, 163, 184, 0.85);
+  color: var(--muted-foreground);
   margin: 0;
 }
 
@@ -1943,8 +2084,8 @@ a.project-card {
 
 /* Major section background variants – distinct band identity */
 .major-section--problem {
-  background: rgba(15, 23, 42, 0.28);
-  border-left: 4px solid rgba(148, 163, 184, 0.35);
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.18);
 }
 
 /* Orchard case study: static gradient border (orchard blue ↔ green) + soft glow (no motion) */
@@ -1970,7 +2111,7 @@ a.project-card {
   z-index: 1;
   padding: 1.35rem 1.6rem 1.5rem;
   border-radius: 12px;
-  background: rgba(8, 18, 29, 0.96);
+  background: var(--card);
 }
 
 .major-section--problem .orchard-problem-glow__inner h2 {
@@ -2013,22 +2154,22 @@ a.project-card {
 }
 
 .major-section--thesis {
-  background: rgba(34, 59, 76, 0.35);
-  border-left: 4px solid rgba(148, 163, 184, 0.2);
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.12);
 }
 
 .major-section--pivot {
-  background: rgba(15, 23, 42, 0.48);
-  border-left: 4px solid rgba(56, 189, 248, 0.2);
+  background: rgba(42, 75, 224, 0.05);
+  border-left: 4px solid rgba(42, 75, 224, 0.35);
 }
 
 .major-section--turbulence {
   position: relative;
-  background: rgba(34, 59, 76, 0.35);
-  border: 2px solid #38bdf8;
+  background: rgba(42, 75, 224, 0.05);
+  border: 2px solid var(--primary);
   border-radius: 0.75rem;
   padding: 3rem 1.5rem 3.5rem;
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 24px rgba(42, 75, 224, 0.12);
   overflow: hidden;
 }
 
@@ -2045,13 +2186,13 @@ a.project-card {
 }
 
 .major-section--north-star {
-  background: rgba(15, 23, 42, 0.52);
-  border-left: 4px solid rgba(56, 189, 248, 0.45);
+  background: rgba(42, 75, 224, 0.05);
+  border-left: 4px solid rgba(42, 75, 224, 0.45);
 }
 
 .major-section--impact {
-  background: rgba(34, 59, 76, 0.4);
-  border-left: 4px solid rgba(56, 189, 248, 0.25);
+  background: rgba(42, 75, 224, 0.05);
+  border-left: 4px solid rgba(42, 75, 224, 0.25);
 }
 
 .major-section--impact .subsection > h3 {
@@ -2060,19 +2201,19 @@ a.project-card {
 
 /* Alternate section style (e.g. Design System in Action) – blue-gray, distinct from pivot/north-star */
 .major-section--alt {
-  background: rgba(34, 59, 76, 0.5);
-  border-left: 4px solid rgba(148, 163, 184, 0.4);
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.18);
 }
 
 /* Design system page: two alternating section styles for clear visual break */
 .major-section--design-a {
-  background: rgba(34, 59, 76, 0.35);
-  border-left: 4px solid rgba(148, 163, 184, 0.25);
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.14);
 }
 
 .major-section--design-b {
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.28));
-  border-left: 4px solid rgba(56, 189, 248, 0.25);
+  background: linear-gradient(to top, rgba(42, 75, 224, 0.07), rgba(42, 75, 224, 0.02));
+  border-left: 4px solid rgba(42, 75, 224, 0.25);
 }
 
 /* D&D case study: PDF button above Design Problem title (uses .button .button-primary for glow) */
@@ -2121,8 +2262,8 @@ a.project-card {
 
 /* D&D case study: "The Logic" callout (transparent, hero-like) below each section blurb */
 .dnd-logic-callout {
-  background: rgba(8, 25, 48, 0.15);
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(42, 75, 224, 0.04);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0 1.5rem;
@@ -2137,7 +2278,7 @@ a.project-card {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 .dnd-logic-callout p + p {
   margin-top: 0.75rem;
@@ -2145,7 +2286,7 @@ a.project-card {
 .dnd-logic-callout ul {
   margin: 0.5rem 0 0;
   padding-left: 1.25rem;
-  color: #e5e7eb;
+  color: var(--card-foreground);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -2158,11 +2299,11 @@ a.project-card {
 
 /* Orchard case study: 1px bordered body paragraphs (same treatment as D&D .dnd-logic-callout) */
 .case-study--orchard .major-section .subsection > p {
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0 1.5rem;
-  background: rgba(8, 25, 48, 0.15);
+  background: rgba(42, 75, 224, 0.04);
 }
 
 .case-study--orchard .major-section .subsection > p:first-of-type {
@@ -2223,7 +2364,7 @@ a.project-card {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 
 .case-study-section-inner h3:first-child,
@@ -2236,7 +2377,7 @@ a.project-card {
 .major-section-inner p,
 .subsection p {
   margin-bottom: 1rem;
-  color: #e5e7eb;
+  color: var(--card-foreground);
   line-height: 1.65;
 }
 
@@ -2252,7 +2393,7 @@ a.project-card {
 .subsection ul {
   padding-left: 1.35rem;
   margin-bottom: 1rem;
-  color: #e5e7eb;
+  color: var(--card-foreground);
   line-height: 1.65;
 }
 
@@ -2287,7 +2428,7 @@ a.project-card {
 
 /* Callout blocks (role, findings) */
 .case-study-callout {
-  background: #223B4C;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.5rem 1.75rem;
@@ -2297,7 +2438,7 @@ a.project-card {
 .case-study-my-role {
   margin: 1rem 0 0;
   font-size: 1rem;
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 
 .case-study-callout p {
@@ -2336,9 +2477,11 @@ a.project-card {
 
 /* Role callout: more prominent, left accent */
 .case-study-callout--role {
-  background: rgba(34, 59, 76, 0.9);
-  border-left: 4px solid #38bdf8;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  background: var(--card);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow-subtle);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .case-study-callout--role .case-study-callout__heading {
@@ -2355,7 +2498,7 @@ a.project-card {
 
 .case-study-callout--role .case-study-callout__role-title {
   font-size: 1.05rem;
-  color: #bae6fd;
+  color: var(--primary);
   margin-bottom: 0;
   margin-top: 0;
   font-weight: 500;
@@ -2396,8 +2539,8 @@ a.project-card {
 
 /* Brand guidelines / User personas tabs (shadcn-style) */
 .brand-guidelines-tabs-section {
-  background: rgba(15, 23, 42, 0.35);
-  border-left: 4px solid rgba(148, 163, 184, 0.35);
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.18);
 }
 
 .brand-guidelines-tabs .tabs-header {
@@ -2411,8 +2554,8 @@ a.project-card {
   margin-right: auto;
   padding: 0.35rem;
   border-radius: var(--radius-lg);
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 .brand-guidelines-tabs .tab-btn {
@@ -2428,14 +2571,14 @@ a.project-card {
 }
 
 .brand-guidelines-tabs .tab-btn:hover {
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 
 .brand-guidelines-tabs .tab-btn.active {
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.15);
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 1px #38bdf8, 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: var(--primary);
+  background: rgba(42, 75, 224, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .brand-guidelines-tabs .tab-panel {
@@ -2884,8 +3027,8 @@ a.project-card {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: var(--radius-lg);
-  border: 2px dashed rgba(148, 163, 184, 0.4);
-  background: rgba(15, 23, 42, 0.5);
+  border: 2px dashed rgba(22, 32, 43, 0.25);
+  background: var(--muted);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2911,7 +3054,7 @@ a.project-card {
 .about-content {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #e5e7eb;
+  color: var(--card-foreground);
 }
 
 .about-content p {
@@ -3129,9 +3272,53 @@ a.project-card {
   }
 }
 
-.site-nav__link--active {
+.site-nav a.site-nav__link--active {
   font-weight: 600;
-  color: #f9fafb !important;
+  color: var(--primary) !important;
   border-radius: 0;
-  border-bottom: 2px solid #38bdf8;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* ============================================================
+   Deep-dive hero treatments
+   ============================================================ */
+
+/* Other Notable Projects (Design System, Brand, Personas, Dreamforce):
+   dark hero modeled on telby.io's dark CTA — deep navy, subtle grid, light title. */
+.case-study-intro--title-only {
+  background: #0b1220;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Override each theme's light wash → uniform deep navy */
+.case-study-intro--theme-bff.case-study-intro--title-only .case-study-hero-bg,
+.case-study-intro--theme-brand.case-study-intro--title-only .case-study-hero-bg,
+.case-study-intro--theme-personas.case-study-intro--title-only .case-study-hero-bg,
+.case-study-intro--theme-demo.case-study-intro--title-only .case-study-hero-bg {
+  background: #0b1220;
+}
+
+/* Grid pattern instead of dots on the dark hero */
+.case-study-intro--title-only .case-study-hero-dots {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+.case-study-intro--title-only .case-study-title {
+  color: #f5f8fa;
+}
+
+/* Side projects + Orchard (editorial heroes): keep light, add a subtle light grid
+   and the same 1px bottom border as the landing-page hero */
+.case-study-intro--editorial {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgba(22, 32, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 32, 43, 0.04) 1px, transparent 1px);
+  background-size: 46px 46px;
+  border-bottom: 1px solid var(--border);
 }
