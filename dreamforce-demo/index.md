@@ -70,7 +70,7 @@ layout: case-study
         <img src="{{ '/assets/img/dreamforce-demo/asset 4.png' | relative_url }}" alt="Interactive prototype">
       </figure>
       <div class="case-study-cta-wrapper">
-        <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">Check out the Prototype</a>
+        <a href="{{ '/finserv/today/today/index.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">Check out the Prototype</a>
       </div>
     </div>
   </div>

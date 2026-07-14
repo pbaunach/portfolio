@@ -187,7 +187,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
       <span class="archive-tag">Prototyping</span>
       <div class="archive-links">
         <a href="{{ '/dreamforce-demo/' | relative_url }}" class="archive-link">Workflow <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="{{ '/finserv/today/today/gate.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">Prototype <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
+        <a href="{{ '/finserv/today/today/index.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">Prototype <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
     </li>
   </ol>
