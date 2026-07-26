@@ -61,6 +61,32 @@ permalink: /unbound-codex/
 <section class="major-section">
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
+      <h3 class="case-study-sub-mode">The grounding loop</h3>
+      <p>Under the panel is a retrieval-augmented loop with one rule: Silias can only answer from what's in the codex, and can only change it with your say-so. Every entry is embedded ahead of time, a question retrieves against that store, the answer cites what it used, and any write is a staged proposal you approve before it lands. Three things can feed that loop &mdash; a request in chat, a recorded session mined for the moments worth keeping, or lore you write by hand &mdash; and every one of them converges on the same human approval gate before anything becomes canon. It's the same reason a legal or research tool has to be grounded, verifiable, and human-gated, applied to a campaign world.</p>
+      <div class="case-study-callout-row">
+        <figure class="cs-callout-figure">
+          <img src="{{ '/assets/img/unbound-codex/uc-rag-flow.png' | relative_url }}" alt="Flow diagram of the Unbound Codex grounding loop. A user request (with history) and the embedded codex feed a model decision: answer or act. Answers are grounded and cited and stop there; actions choose a tool and stage a proposal. Two other inputs feed the same staged proposal: a recorded session transcribed to a recap, and manual lore entry with suggested smart links. Every proposal reaches a human 'User approved?' gate. Yes saves it to the codex, chunked and re-embedded, closing the loop. No sends it back to refine or reject, with nothing committed.">
+          <span class="cs-callout-marker" style="--x: 34%; --y: 7%;">1</span>
+          <span class="cs-callout-marker" style="--x: 56%; --y: 21%;">2</span>
+          <span class="cs-callout-marker" style="--x: 65%; --y: 30.5%;">3</span>
+          <span class="cs-callout-marker" style="--x: 43%; --y: 46%;">4</span>
+          <span class="cs-callout-marker" style="--x: 82%; --y: 19%;">5</span>
+          <span class="cs-callout-marker" style="--x: 15%; --y: 63.5%;">6</span>
+          <span class="cs-callout-marker" style="--x: 44%; --y: 61.5%;">7</span>
+          <span class="cs-callout-marker" style="--x: 26%; --y: 87%;">8</span>
+        </figure>
+        <ol class="cs-callout-notes-side">
+          <li><span class="cs-callout-num">1</span> Everything starts from one store: the codex, chunked and embedded ahead of time. A request arrives with its own history and retrieves against this, never the open web. The colors carry meaning too, so you can read who owns each step at a glance: gray is the system, blue is a human, yellow is the model.</li>
+          <li><span class="cs-callout-num">2</span> The model's first move is to decide read vs. write. A plain question and a request that would change the world take different paths, and only one of them gets guardrails. This single fork is the whole safety model.</li>
+          <li><span class="cs-callout-num">3</span> A question that just needs an answer stops right here, grounded in the campaign (with the SRD filling the rules gaps) and citing what it leaned on. Nothing changed, so nothing needs approving.</li>
+          <li><span class="cs-callout-num">4</span> The write path never touches canon directly. The model picks a tool and stages a new entry as a card, a proposal and never a silent edit. Everything that could change the world is funneled through this one staging step.</li>
+          <li><span class="cs-callout-num">5</span> The second input is a night of play. Upload the audio, a voice-to-text pass saves the full transcript for reference (not embedded) and drafts a recap, and the beats worth keeping arrive as the same kind of staged proposal. The AI gets to be proactive without ever being unilateral.</li>
+          <li><span class="cs-callout-num">6</span> The third input is just me writing lore by hand, and even that runs through the model's "suggest smart links" before it saves, so a hand-written entry still gets cross-referenced into the rest of the world. Every path ends up embedded the same way.</li>
+          <li><span class="cs-callout-num">7</span> This is the node the whole diagram is built around. However a change got here (a chat action, a mined suggestion, hand-written lore) it can't become canon until I say yes. Reject loops it back to refine or regenerate, and until I approve, nothing is written. The human stays the author.</li>
+          <li><span class="cs-callout-num">8</span> Approve and the entry is chunked, embedded, and (via the dashed line back to the top) folded into the same store the next question retrieves against. The loop closes: the corpus Silias reasons over grows from play, not just from prep.</li>
+        </ol>
+      </div>
+
       <h3 class="case-study-sub-mode">Always one keystroke away, always grounded</h3>
       <p>Silias rides along on every screen in a panel that never leaves. He answers in-character from the campaign's own canon, cites the entries he leaned on ("Grounded in: Campaign / SRD"), and turns any answer into a scene, an NPC, or the next beat. The point is a collaborator you can trust because you can see exactly where every claim came from.</p>
       <div class="case-study-callout-row">

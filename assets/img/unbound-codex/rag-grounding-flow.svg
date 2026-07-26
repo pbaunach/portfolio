@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1660" font-family="Archivo, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#16202b" flood-opacity="0.10"/>
+    </filter>
+    <marker id="ah-dark" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L10,6 L1,11 z" fill="#4a5563"/>
+    </marker>
+    <marker id="ah-red" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L10,6 L1,11 z" fill="#e8512e"/>
+    </marker>
+    <marker id="ah-green" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L10,6 L1,11 z" fill="#5cb85c"/>
+    </marker>
+    <marker id="ah-muted" markerWidth="11" markerHeight="11" refX="8" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L9,5.5 L1,10 z" fill="#9aa3ad"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1160" height="1660" fill="#ffffff"/>
+
+  <!-- ==================== EDGES (drawn first, under nodes) ==================== -->
+  <g fill="none" stroke-width="2.6">
+    <!-- A: User Question -> Retrieve -->
+    <path d="M560,159 L560,273" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- B: Codex -> Retrieve -->
+    <path d="M325,340 L424,340" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- K: Codex grounds generation -> Grounded Answer -->
+    <path d="M205,404 L205,585 L424,585" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- S1: Recorded Session -> Transcribe & Suggest -->
+    <path d="M205,874 L205,968" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- S2: Transcribe & Suggest -> Staged Proposal -->
+    <path d="M325,1035 L424,1035" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- C: Retrieve -> Grounded Answer -->
+    <path d="M560,404 L560,518" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- D: Grounded Answer -> Write? -->
+    <path d="M560,649 L560,707" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- E: Write? (no) -> Cited Answer -->
+    <path d="M676,810 L812,810" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- F: Write? (yes) -> Staged Proposal -->
+    <path d="M560,911 L560,968" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- G: Staged Proposal -> DM Approves? -->
+    <path d="M560,1099 L560,1167" stroke="#4a5563" marker-end="url(#ah-dark)"/>
+    <!-- H: DM Approves? (no) -> Refine / Reject -->
+    <path d="M676,1270 L812,1270" stroke="#e8512e" marker-end="url(#ah-red)"/>
+    <!-- I: Refine / Reject -> back to Staged Proposal -->
+    <path d="M935,1210 L935,1035 L695,1035" stroke="#e8512e" marker-end="url(#ah-red)"/>
+    <!-- J: DM Approves? (yes) -> Committed -->
+    <path d="M560,1371 L560,1433" stroke="#5cb85c" marker-end="url(#ah-green)"/>
+  </g>
+  <!-- L: feedback — committed entries re-embedded into the codex -->
+  <path d="M560,1564 L560,1600 L40,1600 L40,340 L82,340" fill="none" stroke="#9aa3ad" stroke-width="1.8" stroke-dasharray="7 6" marker-end="url(#ah-muted)"/>
+
+  <!-- edge labels -->
+  <g font-size="15" font-weight="600">
+    <text x="744" y="800" text-anchor="middle" fill="#5c6373">answer only</text>
+    <text x="575" y="946" fill="#5c6373">write</text>
+    <text x="744" y="1259" text-anchor="middle" fill="#e8512e">rejected</text>
+    <text x="575" y="1406" fill="#3f8f37">approved</text>
+  </g>
+
+  <!-- ==================== NODES ==================== -->
+  <!-- N1 User Question (HUMAN) -->
+  <g filter="url(#soft)">
+    <rect x="428" y="31" width="264" height="128" rx="14" fill="#e8f3fc" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="446" y="61" font-size="14" font-weight="700" letter-spacing="1.5" fill="#3b82c4">HUMAN</text>
+  <text x="560" y="89" text-anchor="middle" font-size="22" font-weight="600" fill="#2d3540">User Question</text>
+  <text x="560" y="115" text-anchor="middle" font-size="14" fill="#6b7280">Asked to Silias</text>
+
+  <!-- Codex (SYSTEM) -->
+  <g filter="url(#soft)">
+    <rect x="85" y="276" width="240" height="128" rx="14" fill="#ececee" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="103" y="306" font-size="14" font-weight="700" letter-spacing="1.5" fill="#8a929b">SYSTEM</text>
+  <text x="205" y="334" text-anchor="middle" font-size="22" font-weight="600" fill="#2d3540">The Codex</text>
+  <text x="205" y="360" text-anchor="middle" font-size="13.5" fill="#6b7280">Chunked &amp; embedded canon</text>
+
+  <!-- Recorded Session (HUMAN) -->
+  <g filter="url(#soft)">
+    <rect x="85" y="746" width="240" height="128" rx="14" fill="#e8f3fc" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="103" y="776" font-size="14" font-weight="700" letter-spacing="1.5" fill="#3b82c4">HUMAN</text>
+  <text x="205" y="804" text-anchor="middle" font-size="21" font-weight="600" fill="#2d3540">Recorded Session</text>
+  <text x="205" y="830" text-anchor="middle" font-size="13.5" fill="#6b7280">You drop in the audio</text>
+
+  <!-- Transcribe & Suggest (MODEL) -->
+  <g filter="url(#soft)">
+    <rect x="85" y="971" width="240" height="128" rx="14" fill="#fdf3d3" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="103" y="1001" font-size="14" font-weight="700" letter-spacing="1.5" fill="#cf9526">MODEL</text>
+  <text x="205" y="1029" text-anchor="middle" font-size="18.5" font-weight="600" fill="#2d3540">Transcribe &amp; Suggest</text>
+  <text x="205" y="1055" text-anchor="middle" font-size="13" fill="#6b7280">Voice to text, flags key beats</text>
+
+  <!-- Retrieve (SYSTEM) -->
+  <g filter="url(#soft)">
+    <rect x="428" y="276" width="264" height="128" rx="14" fill="#ececee" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="446" y="306" font-size="14" font-weight="700" letter-spacing="1.5" fill="#8a929b">SYSTEM</text>
+  <text x="560" y="334" text-anchor="middle" font-size="22" font-weight="600" fill="#2d3540">Retrieve</text>
+  <text x="560" y="360" text-anchor="middle" font-size="13.5" fill="#6b7280">Vector search over the codex</text>
+
+  <!-- Grounded Answer (MODEL) -->
+  <g filter="url(#soft)">
+    <rect x="428" y="521" width="264" height="128" rx="14" fill="#fdf3d3" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="446" y="551" font-size="14" font-weight="700" letter-spacing="1.5" fill="#cf9526">MODEL</text>
+  <text x="560" y="579" text-anchor="middle" font-size="22" font-weight="600" fill="#2d3540">Grounded Answer</text>
+  <text x="560" y="605" text-anchor="middle" font-size="13.5" fill="#6b7280">From retrieved canon only</text>
+
+  <!-- Write? diamond (MODEL) -->
+  <g filter="url(#soft)">
+    <polygon points="560,710 676,810 560,910 444,810" fill="#fdf3d3" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="560" y="787" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="1.5" fill="#cf9526">MODEL</text>
+  <text x="560" y="810" text-anchor="middle" font-size="20" font-weight="600" fill="#2d3540">Write to</text>
+  <text x="560" y="836" text-anchor="middle" font-size="20" font-weight="600" fill="#2d3540">the codex?</text>
+
+  <!-- Staged Proposal (MODEL) -->
+  <g filter="url(#soft)">
+    <rect x="428" y="971" width="264" height="128" rx="14" fill="#fdf3d3" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="446" y="1001" font-size="14" font-weight="700" letter-spacing="1.5" fill="#cf9526">MODEL</text>
+  <text x="560" y="1029" text-anchor="middle" font-size="22" font-weight="600" fill="#2d3540">Staged Proposal</text>
+  <text x="560" y="1055" text-anchor="middle" font-size="13.5" fill="#6b7280">NPC · quest · encounter</text>
+
+  <!-- DM Approves? diamond (HUMAN) -->
+  <g filter="url(#soft)">
+    <polygon points="560,1170 676,1270 560,1370 444,1270" fill="#e8f3fc" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="560" y="1247" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="1.5" fill="#3b82c4">HUMAN</text>
+  <text x="560" y="1281" text-anchor="middle" font-size="20" font-weight="600" fill="#2d3540">DM Approves?</text>
+
+  <!-- Committed (SYSTEM) -->
+  <g filter="url(#soft)">
+    <rect x="428" y="1436" width="264" height="128" rx="14" fill="#ececee" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="446" y="1466" font-size="14" font-weight="700" letter-spacing="1.5" fill="#8a929b">SYSTEM</text>
+  <text x="560" y="1494" text-anchor="middle" font-size="22" font-weight="600" fill="#2d3540">Committed to Codex</text>
+  <text x="560" y="1520" text-anchor="middle" font-size="13.5" fill="#6b7280">Written to canon, re-embedded</text>
+
+  <!-- Cited Answer (SYSTEM) -->
+  <g filter="url(#soft)">
+    <rect x="815" y="750" width="240" height="120" rx="14" fill="#ececee" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="833" y="780" font-size="14" font-weight="700" letter-spacing="1.5" fill="#8a929b">SYSTEM</text>
+  <text x="935" y="806" text-anchor="middle" font-size="21" font-weight="600" fill="#2d3540">Cited Answer</text>
+  <text x="935" y="832" text-anchor="middle" font-size="13.5" fill="#6b7280">Grounded in: Campaign / SRD</text>
+
+  <!-- Refine / Reject (HUMAN) -->
+  <g filter="url(#soft)">
+    <rect x="815" y="1210" width="240" height="120" rx="14" fill="#e8f3fc" stroke="#3f4a56" stroke-width="2.5"/>
+  </g>
+  <text x="833" y="1240" font-size="14" font-weight="700" letter-spacing="1.5" fill="#3b82c4">HUMAN</text>
+  <text x="935" y="1266" text-anchor="middle" font-size="21" font-weight="600" fill="#2d3540">Refine / Reject</text>
+  <text x="935" y="1292" text-anchor="middle" font-size="13.5" fill="#6b7280">Nothing writes without a yes</text>
+
+  <!-- feedback caption -->
+  <text x="90" y="1636" font-size="14" font-weight="500" fill="#8a929b">Approved entries are re-embedded, so the corpus Silias reasons over grows with play, not just prep.</text>
+</svg>
