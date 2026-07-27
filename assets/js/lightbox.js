@@ -18,7 +18,8 @@
   screenshotFigures.forEach(function (figure) {
     var im = figure.querySelector('img');
     if (im && im.src) {
-      items.push({ src: im.src, alt: im.alt || 'Enlarged view', figure: figure });
+      var isDiagram = /uc-rag-flow|vision-critic-flow/.test(im.src);
+      items.push({ src: im.src, alt: im.alt || 'Enlarged view', figure: figure, diagram: isDiagram });
     }
   });
 
@@ -32,6 +33,9 @@
     var item = items[currentIndex];
     img.src = item.src;
     img.alt = item.alt;
+    img.classList.toggle('lightbox-img--diagram', !!item.diagram);
+    img.style.width = '';
+    img.style.height = '';
     lightbox.classList.remove('is-zoomed');
     updateNav();
     updateCounter();
@@ -69,6 +73,8 @@
     document.body.style.overflow = '';
     img.src = '';
     img.alt = '';
+    img.style.width = '';
+    img.style.height = '';
     if (lastFocused && lastFocused.focus) lastFocused.focus();
     lastFocused = null;
   }
@@ -127,7 +133,18 @@
   if (imgWrap) {
     imgWrap.addEventListener('click', function (e) {
       e.stopPropagation();
+      var willZoom = !lightbox.classList.contains('is-zoomed');
       lightbox.classList.toggle('is-zoomed');
+      var item = items[currentIndex];
+      // Diagrams are huge (~5000px); cap the zoomed size at 50% of native so
+      // clicking to zoom doesn't blow them up to full resolution.
+      if (item && item.diagram && willZoom && img.naturalWidth) {
+        img.style.width = Math.round(img.naturalWidth * 0.5) + 'px';
+        img.style.height = 'auto';
+      } else {
+        img.style.width = '';
+        img.style.height = '';
+      }
     });
   }
 

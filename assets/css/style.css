@@ -2721,6 +2721,14 @@ a.project-card {
   max-height: none;
 }
 
+/* Flow diagrams have transparent backgrounds; give them a white canvas in the
+   lightbox so line and label detail isn't lost against the dark backdrop. */
+.lightbox-img--diagram {
+  background: #fff;
+  padding: 1.75rem;
+  box-sizing: border-box;
+}
+
 .lightbox-close {
   position: fixed;
   top: 1rem;

@@ -66,24 +66,38 @@ permalink: /unbound-codex/
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-rag-flow.png' | relative_url }}" alt="Flow diagram of the Unbound Codex grounding loop. A user request (with history) and the embedded codex feed a model decision: answer or act. Answers are grounded and cited and stop there; actions choose a tool and stage a proposal. Two other inputs feed the same staged proposal: a recorded session transcribed to a recap, and manual lore entry with suggested smart links. Every proposal reaches a human 'User approved?' gate. Yes saves it to the codex, chunked and re-embedded, closing the loop. No sends it back to refine or reject, with nothing committed.">
-          <span class="cs-callout-marker" style="--x: 34%; --y: 7%;">1</span>
-          <span class="cs-callout-marker" style="--x: 56%; --y: 21%;">2</span>
-          <span class="cs-callout-marker" style="--x: 65%; --y: 30.5%;">3</span>
-          <span class="cs-callout-marker" style="--x: 43%; --y: 46%;">4</span>
-          <span class="cs-callout-marker" style="--x: 82%; --y: 19%;">5</span>
-          <span class="cs-callout-marker" style="--x: 15%; --y: 63.5%;">6</span>
-          <span class="cs-callout-marker" style="--x: 44%; --y: 61.5%;">7</span>
-          <span class="cs-callout-marker" style="--x: 26%; --y: 87%;">8</span>
+          <span class="cs-callout-marker" style="--x: 44%; --y: 6.7%;">1</span>
+          <span class="cs-callout-marker" style="--x: 64.3%; --y: 6.7%;">2</span>
+          <span class="cs-callout-marker" style="--x: 66.5%; --y: 17.5%;">3</span>
+          <span class="cs-callout-marker" style="--x: 76.2%; --y: 31.5%;">4</span>
+          <span class="cs-callout-marker" style="--x: 51.5%; --y: 31.5%;">5</span>
+          <span class="cs-callout-marker" style="--x: 51.5%; --y: 46.1%;">6</span>
+          <span class="cs-callout-marker" style="--x: 51.6%; --y: 58.3%;">7</span>
+          <span class="cs-callout-marker" style="--x: 60.8%; --y: 74.7%;">8</span>
+          <span class="cs-callout-marker" style="--x: 34.5%; --y: 88.3%;">9</span>
+          <span class="cs-callout-marker" style="--x: 93.2%; --y: 19.9%;">10</span>
+          <span class="cs-callout-marker" style="--x: 93.2%; --y: 31.5%;">11</span>
+          <span class="cs-callout-marker" style="--x: 93.2%; --y: 43.9%;">12</span>
+          <span class="cs-callout-marker" style="--x: 93.2%; --y: 60.4%;">13</span>
+          <span class="cs-callout-marker" style="--x: 24.8%; --y: 64.6%;">14</span>
+          <span class="cs-callout-marker" style="--x: 15.7%; --y: 76.8%;">15</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Everything starts from one store: the codex, chunked and embedded ahead of time. A request arrives with its own history and retrieves against this, never the open web. The colors carry meaning too, so you can read who owns each step at a glance: gray is the system, blue is a human, yellow is the model.</li>
-          <li><span class="cs-callout-num">2</span> The model's first move is to decide read vs. write. A plain question and a request that would change the world take different paths, and only one of them gets guardrails. This single fork is the whole safety model.</li>
-          <li><span class="cs-callout-num">3</span> A question that just needs an answer stops right here, grounded in the campaign (with the SRD filling the rules gaps) and citing what it leaned on. Nothing changed, so nothing needs approving.</li>
-          <li><span class="cs-callout-num">4</span> The write path never touches canon directly. The model picks a tool and stages a new entry as a card, a proposal and never a silent edit. Everything that could change the world is funneled through this one staging step.</li>
-          <li><span class="cs-callout-num">5</span> The second input is a night of play. Upload the audio, a voice-to-text pass saves the full transcript for reference (not embedded) and drafts a recap, and the beats worth keeping arrive as the same kind of staged proposal. The AI gets to be proactive without ever being unilateral.</li>
-          <li><span class="cs-callout-num">6</span> The third input is just me writing lore by hand, and even that runs through the model's "suggest smart links" before it saves, so a hand-written entry still gets cross-referenced into the rest of the world. Every path ends up embedded the same way.</li>
-          <li><span class="cs-callout-num">7</span> This is the node the whole diagram is built around. However a change got here (a chat action, a mined suggestion, hand-written lore) it can't become canon until I say yes. Reject loops it back to refine or regenerate, and until I approve, nothing is written. The human stays the author.</li>
-          <li><span class="cs-callout-num">8</span> Approve and the entry is chunked, embedded, and (via the dashed line back to the top) folded into the same store the next question retrieves against. The loop closes: the corpus Silias reasons over grows from play, not just from prep.</li>
+          <li><span class="cs-callout-num">1</span> <strong>Unbound Codex</strong></li>
+          <li><span class="cs-callout-num">2</span> <strong>User Request</strong></li>
+          <li><span class="cs-callout-num">3</span> <strong>Action or Answer</strong></li>
+          <li><span class="cs-callout-num">4</span> <strong>Answer</strong></li>
+          <li><span class="cs-callout-num">5</span> <strong>Choose Tool</strong></li>
+          <li><span class="cs-callout-num">6</span> <strong>Stage a Proposal</strong></li>
+          <li><span class="cs-callout-num">7</span> <strong>User Approved?</strong></li>
+          <li><span class="cs-callout-num">8</span> <strong>Refine or Reject</strong></li>
+          <li><span class="cs-callout-num">9</span> <strong>Saved to Codex</strong></li>
+          <li><span class="cs-callout-num">10</span> <strong>Recorded Session</strong></li>
+          <li><span class="cs-callout-num">11</span> <strong>File Processed</strong></li>
+          <li><span class="cs-callout-num">12</span> <strong>Full Transcript</strong></li>
+          <li><span class="cs-callout-num">13</span> <strong>Recap</strong></li>
+          <li><span class="cs-callout-num">14</span> <strong>Manual Lore Entry</strong></li>
+          <li><span class="cs-callout-num">15</span> <strong>Suggest Smart Links</strong></li>
         </ol>
       </div>
 
