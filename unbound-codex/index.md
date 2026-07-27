@@ -83,21 +83,21 @@ permalink: /unbound-codex/
           <span class="cs-callout-marker" style="--x: 15.7%; --y: 76.8%;">15</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> <strong>Unbound Codex</strong></li>
-          <li><span class="cs-callout-num">2</span> <strong>User Request</strong></li>
-          <li><span class="cs-callout-num">3</span> <strong>Action or Answer</strong></li>
-          <li><span class="cs-callout-num">4</span> <strong>Answer</strong></li>
-          <li><span class="cs-callout-num">5</span> <strong>Choose Tool</strong></li>
-          <li><span class="cs-callout-num">6</span> <strong>Stage a Proposal</strong></li>
-          <li><span class="cs-callout-num">7</span> <strong>User Approved?</strong></li>
-          <li><span class="cs-callout-num">8</span> <strong>Refine or Reject</strong></li>
-          <li><span class="cs-callout-num">9</span> <strong>Saved to Codex</strong></li>
-          <li><span class="cs-callout-num">10</span> <strong>Recorded Session</strong></li>
-          <li><span class="cs-callout-num">11</span> <strong>File Processed</strong></li>
-          <li><span class="cs-callout-num">12</span> <strong>Full Transcript</strong></li>
-          <li><span class="cs-callout-num">13</span> <strong>Recap</strong></li>
-          <li><span class="cs-callout-num">14</span> <strong>Manual Lore Entry</strong></li>
-          <li><span class="cs-callout-num">15</span> <strong>Suggest Smart Links</strong></li>
+          <li><span class="cs-callout-num">1</span> The codex is the whole world as an embedded vector store: every NPC, location, quest, faction, recap, and item chunked and indexed ahead of time. It's the one source of truth Silias is allowed to draw from, which is what keeps answers inside your campaign instead of the open internet.</li>
+          <li><span class="cs-callout-num">2</span> A question or command from the DM, carried in with the conversation history so a follow-up still has context. The request and the retrieved codex feed the model together, so it always reasons over your canon rather than its training data.</li>
+          <li><span class="cs-callout-num">3</span> The model's first decision is whether the turn is a question to answer or a change to make. Answers retrieve and cite; actions route to a tool that stages a change. Splitting the two up front is what lets a read stay instant and a write stay gated.</li>
+          <li><span class="cs-callout-num">4</span> A question ends here: the reply is stitched from retrieved entries and cites what it leaned on, campaign canon first, ruleset and SRD only to fill the gaps. Nothing is written, and the DM can see exactly where every claim came from.</li>
+          <li><span class="cs-callout-num">5</span> For an action, the model picks the specific write tool that matches the intent: edit an NPC, create a quest, add a monster to an encounter. Resolving to a typed tool keeps the change structured and scoped, instead of a freeform edit that could touch anything.</li>
+          <li><span class="cs-callout-num">6</span> The tool never mutates anything; it builds a structured before-and-after proposal for a new or changed codex entry. This is the rule the whole system is built on: the first time the AI silently edits the wrong entity, the feature is dead, so it can only ever propose.</li>
+          <li><span class="cs-callout-num">7</span> Every path converges on one human gate. The DM reviews the staged change as an approval card and decides. The AI stays useful without ever being authoritative, and nothing becomes canon without a person saying yes.</li>
+          <li><span class="cs-callout-num">8</span> Say no and nothing touches the codex. The proposal loops back to be refined or dropped, so a bad suggestion costs a click, not a cleanup. An approved change also logs its full prior state, so any edit is one click to revert.</li>
+          <li><span class="cs-callout-num">9</span> On approval the change lands, and the new content is immediately chunked and re-embedded back into the store. That closes the loop: what you just approved is retrievable for the very next question.</li>
+          <li><span class="cs-callout-num">10</span> The second way in: drop in an audio recording of an actual session. The point is to capture the canon that happens at the table, the improvised names and turns that otherwise never get written down.</li>
+          <li><span class="cs-callout-num">11</span> The audio is transcribed with speaker separation, handling multi-hour files in a single pass. A clean, diarized transcript first is what makes everything downstream, the recap and the mined lore, trustworthy.</li>
+          <li><span class="cs-callout-num">12</span> The raw transcript is archived for reference but deliberately not embedded; a verbatim multi-hour log would swamp retrieval with noise. The moments worth keeping are mined from it and staged as proposals, so table canon reaches the codex through the same approval gate as everything else.</li>
+          <li><span class="cs-callout-num">13</span> In parallel, a model renders the transcript into a narrative recap, a readable summary in an in-world chronicler's voice, saved as its own session record and folded back into the codex so Silias can recall what actually happened later.</li>
+          <li><span class="cs-callout-num">14</span> The third way in: the DM writes lore by hand, creating, updating, or deleting entries directly. Human-authored content is canon by definition, but it still runs the same path in so it stays woven into the rest of the world.</li>
+          <li><span class="cs-callout-num">15</span> As lore is written, the model scans the prose and proposes links: connect a named entity to its existing codex id, or create the entry it's missing. Matches resolve by id from a candidate list, never by fuzzy embedding similarity, so a link never points at the wrong "Argent."</li>
         </ol>
       </div>
 
