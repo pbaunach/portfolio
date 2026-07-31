@@ -3330,3 +3330,93 @@ a.project-card {
   background-size: 46px 46px;
   border-bottom: 1px solid var(--border);
 }
+
+/* ==========================================================================
+   Case study: supporting screens + impact stats
+   Used by the Aspireship case study. A supporting screen reuses the same
+   .case-study-callout-row geometry as an annotated screen (image left,
+   text right) so the whole page keeps one rhythm. The only difference is
+   a caption in place of the numbered notes.
+   ========================================================================== */
+
+.case-study-callout-row .case-study-screenshot {
+  margin: 0;
+}
+
+.case-study-callout-row .case-study-screenshot img {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case-study-callout-row .case-study-screenshot img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.cs-screen-note {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+.cs-screen-note strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .cs-screen-note {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+/* Portrait-orientation screen: capped so a tall asset does not tower over
+   the landscape screens sharing the same column. */
+.case-study-callout-row .case-study-screenshot--portrait {
+  max-width: 560px;
+}
+
+/* Impact stat row */
+.cs-impact-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 0;
+}
+
+.cs-impact-stat {
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+}
+
+.cs-impact-stat-num {
+  display: block;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--primary);
+}
+
+.cs-impact-stat-label {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 760px) {
+  .cs-impact-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

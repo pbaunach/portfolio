@@ -76,6 +76,27 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
         </p>
       </div>
     </div>
+
+    <!-- Aspireship card – hidden for now. The page itself is live at /aspireship/.
+         When restoring this, change the section title above back to "Selected Work".
+    <div class="project-card project-card--split project-card--horizontal project-card--for-work">
+      <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
+        <img src="{{ '/assets/img/aspireship-screens/Employer-01.png' | relative_url }}" alt="Aspireship product preview" class="project-cover-img">
+      </a>
+      <div class="project-body">
+        <div class="project-meta-row">
+          <span class="project-role-label">Head of Product &amp; Design</span>
+        </div>
+        <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link">Aspireship: The Career Change Marketplace</a></h3>
+        <p class="project-summary">
+          Scaling one product across four audiences: the independent learner, the enterprise team, the hiring employer, and the internal placement staff.
+        </p>
+        <p class="project-card-actions">
+          <a href="{{ '/aspireship/' | relative_url }}" class="button button-primary">View the Screens</a>
+        </p>
+      </div>
+    </div>
+    -->
   </div>
 </section>
 
