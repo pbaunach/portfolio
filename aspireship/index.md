@@ -12,9 +12,9 @@ layout: case-study
       <p class="editorial-hero-meta">
         <span>Head of Product &amp; Design</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>0&rarr;1 to Scale</span>
+        <span>Sole product &amp; design team</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>2020&ndash;2022</span>
+        <span>2020&ndash;Present</span>
       </p>
     </div>
   </div>
@@ -51,7 +51,21 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <p>Aspireship trained people with no tech background for entry-level SaaS sales roles, then placed them with hiring companies. A restaurant manager, a teacher, a retail lead. People whose resumes were working against them.</p>
-      <p>That gave the product an unusual shape. Most learning platforms end at the certificate, and most job boards start at the resume. We had to own both ends, and the design problem was in the seam: everything a student did while learning had to double as evidence an employer would accept later. I led design across all of it, from the first free lesson to the internal dashboard the placement team ran the business on.</p>
+      <p>That gave the product an unusual shape. Most learning platforms end at the certificate, and most job boards start at the resume. We had to own both ends, and the design problem was in the seam: everything a student did while learning had to double as evidence an employer would accept later. I have led design across all of it since 2020, from the first free lesson to the internal dashboard the placement team ran the business on.</p>
+      <div class="cs-impact-stats">
+        <div class="cs-impact-stat">
+          <span class="cs-impact-stat-num">40,000+</span>
+          <span class="cs-impact-stat-label">Registered learners</span>
+        </div>
+        <div class="cs-impact-stat">
+          <span class="cs-impact-stat-num">4,000+</span>
+          <span class="cs-impact-stat-label">Paid enrollments</span>
+        </div>
+        <div class="cs-impact-stat">
+          <span class="cs-impact-stat-num">300+</span>
+          <span class="cs-impact-stat-label">Jobs posted by hiring companies</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -78,7 +92,7 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 88%; --y: 18%;">4</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Section 1 is unlocked for everyone. Free signups were converting to paid at 3%, because we were asking people to buy a career change before they knew whether they would even like the work. Giving away the first module changed the question from "is this worth the money" to "do I want to keep going."</li>
+          <li><span class="cs-callout-num">1</span> Section 1 is unlocked for everyone. Free signups were converting to paid at 3%, because we were asking people to buy a career change before they knew whether they would even like the work. Giving away the first module changed the question from "is this worth the money" to "do I want to keep going." Conversion went to 15%.</li>
           <li><span class="cs-callout-num">2</span> The upgrade prompt sits at the end of the free section rather than on a splash screen at signup. By the time anyone reaches this button they have finished four lessons and two quizzes. The ask lands after the value, not before it.</li>
           <li><span class="cs-callout-num">3</span> Locked lessons stay visible with their titles readable. Hiding them would have been tidier, but seeing "The Demo" and "Handling Objections" sitting behind the lock is what makes the upgrade concrete instead of abstract.</li>
           <li><span class="cs-callout-num">4</span> Progress reads 3% right after the first lesson. Tiny numbers early are motivating, because the bar visibly moves with every lesson at exactly the point where someone is deciding whether to come back tomorrow.</li>
@@ -89,7 +103,7 @@ layout: case-study
         <figure class="case-study-screenshot">
           <img src="{{ '/assets/img/aspireship-screens/Course-02.png' | relative_url }}" alt="Aspireship lesson player with transcript and lesson list">
         </figure>
-        <p class="cs-screen-note"><strong>Lesson view</strong> Video, transcript, study questions, and resources under one player, with the full lesson list on the right so the end is always in sight. Section 1 closes with a recorded roleplay project and a self-assessment, which is where students later stalled out of fear of failing.</p>
+        <p class="cs-screen-note"><strong>Lesson view</strong> Video, transcript, study questions, and resources under one player, with the full lesson list on the right so the end is always in sight. Section 1 closes with a recorded roleplay project and a self-assessment, which is where students stalled out of fear of failing. Practice runs, and saying plainly up front that the assessment could be retaken, took completion from 45% to 89%.</p>
       </div>
 
       <div class="case-study-callout-row">
@@ -121,7 +135,7 @@ layout: case-study
     <div class="case-study-act-number">02</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">Get Matched</h2>
-      <p class="case-study-act-intro">This is where the product stopped being a course and became a marketplace. Two sides with opposite fears: the candidate is afraid of being judged on the resume they are trying to leave behind, and the employer is afraid of hiring someone who has never done the job. The match had to move both past that at the same time.</p>
+      <p class="case-study-act-intro">This is where the product stopped being a course and became a marketplace, and where the business model actually lived: matching is what made customer acquisition cheap. Two sides with opposite fears: the candidate is afraid of being judged on the resume they are trying to leave behind, and the employer is afraid of hiring someone who has never done the job. The match had to move both past that at the same time.</p>
     </div>
   </div>
 </section>
@@ -240,40 +254,12 @@ layout: case-study
   </div>
 </section>
 
-<section class="major-section major-section--impact" id="impact">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <h3>Solving for Ambiguity</h3>
-      <p>Our CEO flagged that course completions were low relative to signups, but we had no "why" and no map of where people were dropping off.</p>
-      <p>I started by building a baseline. Marketing, Engineering, and I agreed on shared definitions for what counted as a signup and what counted as a completion, then built one report everyone measured against. With that in place I mapped the journey to a conversion funnel: free signup, paid conversion at 3%, graded assessment, completion at 45%.</p>
-      <p>Two drop-off points stood out, and both were fears rather than usability problems.</p>
-      <ul>
-        <li><strong>The paywall.</strong> People would not pay for a career change they had not tried. I redesigned onboarding to give the first module away free, which is the unlocked Section 1 above.</li>
-        <li><strong>Assessment anxiety.</strong> People stalled at the final exam rather than risk failing it. I added practice projects and made it explicit up front that the assessment could be retaken.</li>
-      </ul>
-      <div class="cs-impact-stats">
-        <div class="cs-impact-stat">
-          <span class="cs-impact-stat-num">3% &rarr; 15%</span>
-          <span class="cs-impact-stat-label">Paid conversion, a 5x increase</span>
-        </div>
-        <div class="cs-impact-stat">
-          <span class="cs-impact-stat-num">45% &rarr; 89%</span>
-          <span class="cs-impact-stat-label">Course completion, a 2x increase</span>
-        </div>
-        <div class="cs-impact-stat">
-          <span class="cs-impact-stat-num">~10x</span>
-          <span class="cs-impact-stat-label">Total completions per signup</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="my-role" class="case-study-section case-study-intro case-study-intro--role-only">
   <div class="case-study-section-inner">
     <h2 class="case-study-title">My Role</h2>
     <div class="case-study-callout case-study-callout--role">
-      <p class="case-study-callout__role-title">Head of Product &amp; Design</p>
+      <p class="case-study-callout__role-title">Head of Product &amp; Design &middot; 2020&ndash;Present</p>
+      <p>The company has been as large as sixteen people and as small as four. Through all of it, for six years, I have been the only product or design person here.</p>
       <h3 class="case-study-callout__heading">My Contributions</h3>
       <ul>
         <li><strong>Design across the full surface:</strong> One system spanning the independent learner, the enterprise team seat, the employer's hiring tools, and the internal admin our own placement team ran the business on.</li>
