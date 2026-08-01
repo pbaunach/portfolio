@@ -62,7 +62,6 @@ permalink: /unbound-codex/
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
       <h3 class="case-study-sub-mode">The grounding loop</h3>
-      <p>Under the panel is a retrieval-augmented loop with one rule: Silias can only answer from what's in the codex, and can only change it with your say-so. Every entry is embedded ahead of time, a question retrieves against that store, the answer cites what it used, and any write is a staged proposal you approve before it lands. Three things can feed that loop &mdash; a request in chat, a recorded session mined for the moments worth keeping, or lore you write by hand &mdash; and every one of them converges on the same human approval gate before anything becomes canon. It's the same reason a legal or research tool has to be grounded, verifiable, and human-gated, applied to a campaign world.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-rag-flow.png' | relative_url }}" alt="Flow diagram of the Unbound Codex grounding loop. A user request (with history) and the embedded codex feed a model decision: answer or act. Answers are grounded and cited and stop there; actions choose a tool and stage a proposal. Two other inputs feed the same staged proposal: a recorded session transcribed to a recap, and manual lore entry with suggested smart links. Every proposal reaches a human 'User approved?' gate. Yes saves it to the codex, chunked and re-embedded, closing the loop. No sends it back to refine or reject, with nothing committed.">
@@ -102,7 +101,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">Always one keystroke away, always grounded</h3>
-      <p>Silias rides along on every screen in a panel that never leaves. He answers in-character from the campaign's own canon, cites the entries he leaned on ("Grounded in: Campaign / SRD"), and turns any answer into a scene, an NPC, or the next beat. The point is a collaborator you can trust because you can see exactly where every claim came from.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-silias-overview.png' | relative_url }}" alt="Campaign overview with the Ask Silias panel and its signature gradient border">
@@ -120,7 +118,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">Nothing lands without your yes</h3>
-      <p>Ask Silias to build something and he hands back a plan, not a fait accompli. A single <em>/plan</em> can propose a connected set (an NPC, the quest they give, the location they live in) generated together so the pieces stay consistent with each other and the world. Every piece is a staged change you approve, edit, or reject. The AI is useful without ever being authoritative.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-silias-plan.png' | relative_url }}" alt="Silias returning a multi-step plan with staged NPC and quest proposals to approve or reject">
@@ -138,7 +135,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">The codex he reads from</h3>
-      <p>Lore lives as long-form, in-world documents: the "Folio" material, with hairline gold rules and no wrapper box. Entries reference each other by id, so editing one propagates everywhere it's mentioned, and a single visibility flag decides whether the party ever sees it.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-lore.png' | relative_url }}" alt="A lore entry rendered as an in-world Folio document with an entry tree">
@@ -161,7 +157,7 @@ permalink: /unbound-codex/
     <div class="case-study-act-number">02</div>
     <div class="case-study-act-content">
       <h2 class="case-study-act-title">A world you can actually run</h2>
-      <p class="case-study-act-intro">The codex covers everything a DM touches in a week: the Atlas, the cast, the threads in motion, the encounter builder, the bestiary. It's shaped around the rituals of play (prep, session, recap) rather than around tables and forms. The design through-line is a set of rules I wrote down and held to: a box means "you can click me," hairlines instead of outlines, category signaled by a tinted icon rather than a bare colored dot. The goal was software that looks designed, not generated.</p>
+      <p class="case-study-act-intro">The codex covers everything a DM touches in a week: the Atlas, the cast, the threads in motion, the graph tying them together, the encounter builder, the bestiary. It's shaped around the rituals of play (prep, session, recap) rather than around tables and forms. The design through-line is a set of rules I wrote down and held to: a box means "you can click me," hairlines instead of outlines, category signaled by a tinted icon rather than a bare colored dot. The goal was software that looks designed, not generated.</p>
     </div>
   </div>
 </section>
@@ -170,7 +166,6 @@ permalink: /unbound-codex/
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
       <h3 class="case-study-sub-mode">The Atlas</h3>
-      <p>The world made spatial. Hand-drawn regional maps, nested sub-maps, and pins that hold their lore. The GM / Player line at the top is the most important control on the page.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-atlas.png' | relative_url }}" alt="The Atlas showing a hand-drawn map of Aethel with location pins">
@@ -186,7 +181,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">Characters of the World</h3>
-      <p>NPCs get a purpose-built page, not a generic record. What you can say at the table sits beside what only you know, and the whole thing follows the de-box rules: no wrapper boxes, hairline separators, a locked panel for secrets.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-npc.png' | relative_url }}" alt="An NPC detail page for Elder Corin with at-the-table facts beside GM-only secrets">
@@ -204,7 +198,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">Threads</h3>
-      <p>The story layer players never see: what's in motion, who's driving it, and the secrets waiting to be found. It's the difference between a binder of static lore and a campaign that's actually going somewhere.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-threads.png' | relative_url }}" alt="The Threads view showing a driver, stakes, secrets and clues, and beats">
@@ -219,8 +212,26 @@ permalink: /unbound-codex/
         </ol>
       </div>
 
+      <h3 class="case-study-sub-mode">The Weave</h3>
+      <div class="case-study-callout-row">
+        <figure class="cs-callout-figure">
+          <img src="{{ '/assets/img/unbound-codex/knowledge-graph-01.png' | relative_url }}" alt="The Weave: a knowledge graph of the campaign showing entities and links, a detail panel for The Living Codex with its relationships and suggested links awaiting review, a session timeline scrubber, and Silias answering from the campaign graph">
+          <span class="cs-callout-marker" style="--x: 56%; --y: 16%;">1</span>
+          <span class="cs-callout-marker" style="--x: 64%; --y: 26%;">2</span>
+          <span class="cs-callout-marker" style="--x: 64%; --y: 67%;">3</span>
+          <span class="cs-callout-marker" style="--x: 24%; --y: 95%;">4</span>
+          <span class="cs-callout-marker" style="--x: 84%; --y: 32%;">5</span>
+        </figure>
+        <ol class="cs-callout-notes-side">
+          <li><span class="cs-callout-num">1</span> "Unconnected &middot; 14" is a filter, not a warning. Fourteen entities link to nothing, which is the most useful thing the graph can tell a DM: here is the part of your world you invented and then forgot about.</li>
+          <li><span class="cs-callout-num">2</span> The timeline scrubs the graph back through the campaign. "Through session" rebuilds the world as it stood at any point, which is how you answer the question that actually comes up at the table: what did the party know back in session four?</li>
+          <li><span class="cs-callout-num">3</span> Proposed links arrive with a confidence score and the line from the session that suggested them. A link is a claim about your canon, so it runs the same propose-review-approve gate as everything else Silias touches. Nothing gets wired up on a 51% guess without your say-so.</li>
+          <li><span class="cs-callout-num">4</span> The review queue batches every pending link with its evidence and the session it came from, so confirming them is a few minutes between sessions instead of an interruption in the middle of prep.</li>
+          <li><span class="cs-callout-num">5</span> When Silias answers, he names how many graph entities he drew on. Same principle as the rest of the panel: the citation is what separates an answer you can check from one you have to take on faith.</li>
+        </ol>
+      </div>
+
       <h3 class="case-study-sub-mode">Encounters &amp; bestiary</h3>
-      <p>Combat, social, exploration, skill. Each encounter type keeps its own color the whole way through, and the party's XP budget is always in view so a fight is calibrated to your table instead of a generic stat block.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-encounters.png' | relative_url }}" alt="The encounter builder with type filters and XP-budgeted encounter cards">
@@ -265,7 +276,6 @@ permalink: /unbound-codex/
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
       <h3 class="case-study-sub-mode">The DM Screen, live</h3>
-      <p>A prepped session opens into a live control surface: a spotlight the party sees, a session timer, and an event log running down the side. Anything in the codex (a portrait, a stat block, a map, a piece of lore) can be pushed to the table in one click.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-dmscreen.png' | relative_url }}" alt="The live DM Screen with a spotlighted NPC, a session timer, and a running event log">
@@ -283,7 +293,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">What the players see</h3>
-      <p>Players get their own view: only the lore and maps the DM has surfaced, and a version of Silias that's bound by the same wall.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-player-shared.png' | relative_url }}" alt="The player's Shared view with the same-campaign player toggle active">
@@ -299,7 +308,6 @@ permalink: /unbound-codex/
       </div>
 
       <h3 class="case-study-sub-mode">Recaps that build the world</h3>
-      <p>After the session, drop in the recording and come back to a clean narrative recap you can paste into the party chat. Underneath, Silias surfaces the lore hooks he heard but you never wrote down, so the campaign grows from the table, not just from prep.</p>
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-recap.png' | relative_url }}" alt="A session recap rendered as a clean narrative with an audio-recap action">

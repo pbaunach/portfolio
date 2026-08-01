@@ -3480,14 +3480,6 @@ a.project-card {
   margin: 12px;
 }
 
-/* Unbound Codex card cover: a UI panel, so cropping it cuts the toolbar and
-   the footer disclaimer. Contain it whole and let the card's own gradient
-   show as the surrounding plate. */
-.side-card-cover--unbound .side-card-img {
-  object-fit: contain;
-  padding: 12px;
-}
-
 /* Cropped hero image. A very wide source scaled to the hero width renders its
    detail too small to read. Constraining the box to a taller ratio and
    covering crops the sides instead, so the artwork renders larger and sharper.
