@@ -3,7 +3,7 @@ title: "Aspireship: The Career Change Marketplace"
 layout: case-study
 ---
 
-<section class="case-study-section case-study-intro case-study-intro--editorial">
+<section class="case-study-section case-study-intro case-study-intro--aspireship-hero case-study-intro--editorial">
   <div class="case-study-section-inner">
     <div class="editorial-hero">
       <h1 class="editorial-hero-title">
@@ -18,9 +18,29 @@ layout: case-study
       </p>
     </div>
   </div>
-  <figure class="case-study-hero-image">
-    <img src="{{ '/assets/img/aspireship-screens/Learning-Paths-01.png' | relative_url }}" alt="Aspireship learning paths library">
+  <figure class="case-study-hero-image case-study-hero-image--crop">
+    <img src="{{ '/assets/img/aspireship-screens/Testimonial.png' | relative_url }}" alt="A collage of Aspireship graduate posts from LinkedIn behind a five-star G2 review reading &quot;Graduated Aspireship and hired in under 30 days&quot;">
   </figure>
+</section>
+
+<section class="cs-stat-ribbon" aria-label="My impact">
+  <div class="cs-stat-ribbon-inner">
+    <p class="cs-stat-ribbon-eyebrow">My Impact</p>
+    <div class="cs-stat-ribbon-grid">
+      <div class="cs-stat-ribbon-item">
+        <span class="cs-stat-ribbon-num">45% &rarr; 89%</span>
+        <span class="cs-stat-ribbon-label">User completion rate after I redesigned the course structure and flow</span>
+      </div>
+      <div class="cs-stat-ribbon-item">
+        <span class="cs-stat-ribbon-num">3% &rarr; 15%</span>
+        <span class="cs-stat-ribbon-label">Paid conversion funnel after I ungated the first module for a real try-before-you-buy experience</span>
+      </div>
+      <div class="cs-stat-ribbon-item">
+        <span class="cs-stat-ribbon-num">300+</span>
+        <span class="cs-stat-ribbon-label">Candidates placed with employers through the matching system and algorithm I designed</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="case-study-thesis case-study-thesis--editorial" aria-label="Project thesis">
@@ -40,32 +60,9 @@ layout: case-study
       </a>
       <a href="#operate" class="thesis-card">
         <span class="thesis-card-num">03</span>
-        <h3 class="thesis-card-title">Run the Market</h3>
+        <h3 class="thesis-card-title">Operate the Market</h3>
         <p class="thesis-card-desc">The internal tooling and team admin that kept a two-sided marketplace actually moving.</p>
       </a>
-    </div>
-  </div>
-</section>
-
-<section class="major-section major-section--problem">
-  <div class="major-section-inner">
-    <div class="subsection">
-      <p>Aspireship trained people with no tech background for entry-level SaaS sales roles, then placed them with hiring companies. A restaurant manager, a teacher, a retail lead. People whose resumes were working against them.</p>
-      <p>That gave the product an unusual shape. Most learning platforms end at the certificate, and most job boards start at the resume. We had to own both ends, and the design problem was in the seam: everything a student did while learning had to double as evidence an employer would accept later. I have led design across all of it since 2020, from the first free lesson to the internal dashboard the placement team ran the business on.</p>
-      <div class="cs-impact-stats">
-        <div class="cs-impact-stat">
-          <span class="cs-impact-stat-num">40,000+</span>
-          <span class="cs-impact-stat-label">Registered learners</span>
-        </div>
-        <div class="cs-impact-stat">
-          <span class="cs-impact-stat-num">4,000+</span>
-          <span class="cs-impact-stat-label">Paid enrollments</span>
-        </div>
-        <div class="cs-impact-stat">
-          <span class="cs-impact-stat-num">300+</span>
-          <span class="cs-impact-stat-label">Jobs posted by hiring companies</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -89,13 +86,11 @@ layout: case-study
           <span class="cs-callout-marker" style="--x: 32%; --y: 48%;">1</span>
           <span class="cs-callout-marker" style="--x: 50%; --y: 69%;">2</span>
           <span class="cs-callout-marker" style="--x: 48%; --y: 89%;">3</span>
-          <span class="cs-callout-marker" style="--x: 88%; --y: 18%;">4</span>
         </figure>
         <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Section 1 is unlocked for everyone. Free signups were converting to paid at 3%, because we were asking people to buy a career change before they knew whether they would even like the work. Giving away the first module changed the question from "is this worth the money" to "do I want to keep going." Conversion went to 15%.</li>
+          <li><span class="cs-callout-num">1</span> Section 1 is unlocked for everyone. We were asking people to buy a career change before they knew whether they would even like the work. Giving away the first module changed the question from "is this worth the money" to "do I want to keep going."</li>
           <li><span class="cs-callout-num">2</span> The upgrade prompt sits at the end of the free section rather than on a splash screen at signup. By the time anyone reaches this button they have finished four lessons and two quizzes. The ask lands after the value, not before it.</li>
           <li><span class="cs-callout-num">3</span> Locked lessons stay visible with their titles readable. Hiding them would have been tidier, but seeing "The Demo" and "Handling Objections" sitting behind the lock is what makes the upgrade concrete instead of abstract.</li>
-          <li><span class="cs-callout-num">4</span> Progress reads 3% right after the first lesson. Tiny numbers early are motivating, because the bar visibly moves with every lesson at exactly the point where someone is deciding whether to come back tomorrow.</li>
         </ol>
       </div>
 
@@ -103,7 +98,7 @@ layout: case-study
         <figure class="case-study-screenshot">
           <img src="{{ '/assets/img/aspireship-screens/Course-02.png' | relative_url }}" alt="Aspireship lesson player with transcript and lesson list">
         </figure>
-        <p class="cs-screen-note"><strong>Lesson view</strong> Video, transcript, study questions, and resources under one player, with the full lesson list on the right so the end is always in sight. Section 1 closes with a recorded roleplay project and a self-assessment, which is where students stalled out of fear of failing. Practice runs, and saying plainly up front that the assessment could be retaken, took completion from 45% to 89%.</p>
+        <p class="cs-screen-note"><strong>Lesson view</strong> Video, transcript, study questions, and resources under one player, with the full lesson list on the right so the end is always in sight. Section 1 closes with a recorded roleplay project and a self-assessment, which is where students stalled out of fear of failing. Practice runs, and saying plainly up front that the assessment could be retaken, is what got them through it.</p>
       </div>
 
       <div class="case-study-callout-row">
@@ -212,7 +207,7 @@ layout: case-study
   <div class="case-study-act-inner">
     <div class="case-study-act-number">03</div>
     <div class="case-study-act-content">
-      <h2 class="case-study-act-title">Run the Market</h2>
+      <h2 class="case-study-act-title">Operate the Market</h2>
       <p class="case-study-act-intro">Marketplaces do not run themselves. Behind both customer-facing sides sat the tooling our own placement team lived in all day, and it is where the honest picture of the business showed up.</p>
     </div>
   </div>

@@ -134,15 +134,16 @@ single clause in the Act 02 intro. Resist expanding it into a section.
 - **Stat strip depth.** It sits ~1700px down because The Bet and the Problem paragraphs precede it.
   Deeper than ideal for a screener. Option: move the strip into the hero section. Not done — it's a
   structural change to an approved order. Owner's call.
-- **Hero image.** Currently `Learning-Paths-01.png`, a course-library shelf. It frames the project
-  as an LMS in the first second, which is the read the page is fighting. `Candidate-03.png`
-  (evidence-first profile) or `Employer-01.png` (match queue) would say "marketplace" immediately.
-  Recommended swap, not yet made.
+- ~~**Hero image.**~~ RESOLVED 2026-07-31. Now `Testimonial.png`: a collage of graduate posts from
+  LinkedIn behind a five-star G2 review reading "Graduated Aspireship and hired in under 30 days."
+  Leads with outcomes and social proof instead of the course-library shelf that framed the project
+  as an LMS. Renders 777×366 at its native 2.12 ratio, no upscaling.
 - **Employer count.** One query — *employers who posted at least one job* — would give a defensible
   number and put a figure on the employer side of the marketplace, which currently has none.
-- **Homepage card is intentionally still commented out** at [index.md](../index.md) (~line 80).
-  Restore it only when the deep dive is finished and a good card image exists. When restoring,
-  change the section title above it from "Project Highlight" back to "Selected Work."
+- **Homepage card is now live** at [index.md](../index.md) (~line 80), restored 2026-07-31. The
+  section title is now "Latest Work" and Orchard and Aspireship sit as two full-width
+  horizontal cards. The card image is still `Employer-01.png`, a cropped screenshot standing in for
+  a purpose-built cover like Orchard's `Orchard-Card.png`.
 
 ---
 

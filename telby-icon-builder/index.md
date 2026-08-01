@@ -110,7 +110,7 @@ layout: case-study
 
       <h3 class="case-study-sub-mode">Review the plan</h3>
       <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
+        <figure class="cs-callout-figure cs-callout-figure--half">
           <img src="{{ '/assets/img/telby/ai-2.png' | relative_url }}" alt="The plan view: the user prompt, a numbered five-step plan, per-step token chips, and the build-or-edit controls">
           <span class="cs-callout-marker" style="--x: 20%; --y: 16.5%;">1</span>
           <span class="cs-callout-marker" style="--x: 90%; --y: 23.5%;">2</span>

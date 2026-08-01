@@ -54,13 +54,13 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
 
 <section class="project-grid project-grid--split">
   <div class="project-grid-header">
-    <h2 class="section-title">Project Highlight</h2>
+    <h2 class="section-title">Latest Work</h2>
   </div>
 
   <div class="project-grid-inner">
-    <div class="project-card project-card--split project-card--horizontal project-card--for-work">
+    <div class="project-card project-card--split project-card--for-work">
       <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
-        <img src="{{ '/assets/img/orchard-screens-v2/Orchard-Card.png' | relative_url }}" alt="Orchard product preview" class="project-cover-img">
+        <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard Growth Report on desktop and the weekly summary on mobile" class="project-cover-img">
       </a>
       <div class="project-body">
         <div class="project-meta-row">
@@ -77,11 +77,9 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
       </div>
     </div>
 
-    <!-- Aspireship card – hidden for now. The page itself is live at /aspireship/.
-         When restoring this, change the section title above back to "Selected Work".
-    <div class="project-card project-card--split project-card--horizontal project-card--for-work">
+    <div class="project-card project-card--split project-card--for-work">
       <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
-        <img src="{{ '/assets/img/aspireship-screens/Employer-01.png' | relative_url }}" alt="Aspireship product preview" class="project-cover-img">
+        <img src="{{ '/assets/img/aspireship-cover.png' | relative_url }}" alt="Aspireship" class="project-cover-img">
       </a>
       <div class="project-body">
         <div class="project-meta-row">
@@ -96,7 +94,6 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
         </p>
       </div>
     </div>
-    -->
   </div>
 </section>
 
@@ -125,7 +122,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
           A builder&ndash;critic agent loop: an enriched prompt is human-reviewed, generated, then scored by a vision model against a temperature threshold. Shipped on pass, or looped back with notes to iterate.
         </p>
         <p class="project-card-actions side-card-actions">
-          <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
+          <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Screens</a>
           <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
         </p>
       </div>
@@ -134,7 +131,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
     <div class="side-card">
       <a href="{{ '/unbound-codex/' | relative_url }}" class="side-card-cover side-card-cover--unbound" aria-label="View the Unbound Codex deep dive">
         <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
-        <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="The Unbound Codex campaign dashboard" class="side-card-img" onerror="this.remove()">
+        <img src="{{ '/assets/img/unbound-cover.png' | relative_url }}" alt="The Unbound Codex assistant panel" class="side-card-img" onerror="this.remove()">
       </a>
       <div class="side-card-body">
         <div class="side-card-meta">
@@ -147,7 +144,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
           A game-mastering agent using vectorized rulesets and human-in-the-loop workflows to minimize hallucinations and co-author a cohesive narrative.
         </p>
         <p class="project-card-actions side-card-actions">
-          <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Deep Dive</a>
+          <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Screens</a>
           <a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
         </p>
       </div>
@@ -158,8 +155,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
 
 <section class="project-grid project-grid--archive">
   <div class="archive-header">
-    <h2 class="section-title">Other Notable Projects</h2>
-    <span class="archive-meta">03 / Archive</span>
+    <h2 class="section-title">Artifacts</h2>
   </div>
   <ol class="archive-list">
     <li class="archive-row">

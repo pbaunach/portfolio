@@ -23,10 +23,42 @@ layout: case-study
   </figure>
 </section>
 
-<section class="case-study-thesis case-study-thesis--editorial" aria-label="Project thesis">
+<section class="case-study-thesis case-study-thesis--editorial case-study-thesis--question" aria-label="Project thesis">
   <div class="case-study-thesis-inner">
     <p class="case-study-thesis-eyebrow">The Impossible Problem</p>
     <p class="case-study-thesis-quote">How do we prepare students for a labor market that <span class="thesis-accent">won't stop moving</span>?</p>
+  </div>
+</section>
+
+<section class="cs-problem-strip" aria-label="The problem in numbers">
+  <div class="cs-problem-strip-inner">
+    <p class="cs-problem-eyebrow">What students are up against</p>
+    <div class="cs-problem-grid">
+      <div class="cs-problem-item">
+        <span class="cs-problem-num">01</span>
+        <span class="cs-problem-lead">1:376</span>
+        <span class="cs-problem-text">Counselor to student ratio in American public schools</span>
+        <span class="cs-problem-source">American School Counselor Association</span>
+      </div>
+      <div class="cs-problem-item">
+        <span class="cs-problem-num">02</span>
+        <span class="cs-problem-lead">13&times;</span>
+        <span class="cs-problem-text">more likely to score 1300+ on the SAT if your family is in the top 1% rather than the bottom 20%</span>
+        <span class="cs-problem-source">Opportunity Insights, Harvard</span>
+      </div>
+      <div class="cs-problem-item">
+        <span class="cs-problem-num">03</span>
+        <span class="cs-problem-lead">72%</span>
+        <span class="cs-problem-text">of graduates feel only moderately, slightly, or not at all prepared for life after high school</span>
+        <span class="cs-problem-source">National readiness surveys</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-study-thesis case-study-thesis--editorial case-study-thesis--solution" aria-label="Our solution">
+  <div class="case-study-thesis-inner">
+    <p class="case-study-thesis-eyebrow">Our Solution</p>
     <div class="thesis-cards">
       <a href="#orchie" class="thesis-card">
         <span class="thesis-card-num">01</span>

@@ -7,8 +7,8 @@
   --card: #ffffff;
   --card-foreground: #2d3542;
   --border: rgba(22, 32, 43, 0.12);
-  --primary: #2a4be0;
-  --primary-hover: #1f3bc0;
+  --primary: #1a4e8c;
+  --primary-hover: #143a69;
   --primary-foreground: #ffffff;
   --radius-lg: 0.9rem;
   --radius-xl: 1.2rem;
@@ -64,7 +64,10 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  /* Vertical only. The shorthand would zero out .container's horizontal
+     padding, pinning the logo and nav to the viewport edge below 960px. */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   gap: 1.5rem;
 }
 
@@ -111,8 +114,8 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(42, 75, 224, 0.15);
-  border: 1px solid rgba(42, 75, 224, 0.4);
+  background: rgba(26, 78, 140, 0.15);
+  border: 1px solid rgba(26, 78, 140, 0.4);
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
@@ -141,7 +144,7 @@ h1, h2, h3, h4, h5, h6,
 
 .site-nav a:hover {
   color: var(--primary);
-  background-color: rgba(42, 75, 224, 0.08);
+  background-color: rgba(26, 78, 140, 0.08);
 }
 
 .site-main {
@@ -425,7 +428,7 @@ a.project-card {
 }
 
 .project-card:hover {
-  border-color: rgba(42, 75, 224, 0.55);
+  border-color: rgba(26, 78, 140, 0.55);
   transform: translateY(-2px);
   box-shadow: var(--shadow-soft);
   background: var(--card);
@@ -524,7 +527,7 @@ a.project-card {
   padding: 0.32rem 0.75rem;
   border-radius: 999px;
   background: var(--card);
-  border: 1px solid rgba(42, 75, 224, 0.7);
+  border: 1px solid rgba(26, 78, 140, 0.7);
   color: var(--primary);
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.72rem;
@@ -866,13 +869,13 @@ a.project-card {
 .button-primary {
   background: var(--primary);
   color: var(--primary-foreground);
-  box-shadow: 0 4px 12px rgba(42, 75, 224, 0.18);
+  box-shadow: 0 4px 12px rgba(26, 78, 140, 0.18);
 }
 
 .button-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(42, 75, 224, 0.28);
+  box-shadow: 0 6px 18px rgba(26, 78, 140, 0.28);
 }
 
 /* Red glowy button (Passion Project / D&D) */
@@ -914,18 +917,18 @@ a.project-card {
 
 /* Outline style: blue outline and text, low-opacity blue background */
 .button-outline {
-  background: rgba(42, 75, 224, 0.08);
+  background: rgba(26, 78, 140, 0.08);
   color: var(--primary);
-  border: 1px solid rgba(42, 75, 224, 0.35);
+  border: 1px solid rgba(26, 78, 140, 0.35);
   box-shadow: none;
 }
 
 .button-outline:hover {
-  background: rgba(42, 75, 224, 0.14);
-  border-color: rgba(42, 75, 224, 0.6);
+  background: rgba(26, 78, 140, 0.14);
+  border-color: rgba(26, 78, 140, 0.6);
   color: var(--primary);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(42, 75, 224, 0.14);
+  box-shadow: 0 2px 8px rgba(26, 78, 140, 0.14);
 }
 
 /* Side Projects: compact two-up cards with screenshot-ready cover */
@@ -947,7 +950,7 @@ a.project-card {
 }
 
 .side-card:hover {
-  border-color: rgba(42, 75, 224, 0.55);
+  border-color: rgba(26, 78, 140, 0.55);
   transform: translateY(-2px);
   box-shadow: var(--shadow-soft);
   background: var(--card);
@@ -1486,8 +1489,8 @@ a.project-card {
   padding: 2.25rem 1.5rem;
   box-sizing: border-box;
   background: var(--muted);
-  border-top: 1px solid rgba(42, 75, 224, 0.18);
-  border-bottom: 1px solid rgba(42, 75, 224, 0.18);
+  border-top: 1px solid rgba(26, 78, 140, 0.18);
+  border-bottom: 1px solid rgba(26, 78, 140, 0.18);
 }
 
 .case-study-act-inner {
@@ -1692,7 +1695,7 @@ a.project-card {
 }
 
 .thesis-card:hover {
-  border-color: rgba(42, 75, 224, 0.55);
+  border-color: rgba(26, 78, 140, 0.55);
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
@@ -1738,22 +1741,26 @@ a.project-card {
   }
 }
 
-/* Unify all content containers on the Orchard screens page to a single 1100px width
-   so the hero, thesis, act dividers, content sections, and My Role all line up */
+/* Unify every content container on a screens-style case study to a single 1100px
+   width, so the hero, thesis, act dividers, content sections and My Role all line
+   up on one measure. Opted into per page via the hero class. Without it a page
+   inherits the component defaults, which disagree with each other (760 / 720 /
+   1100 / 1200). Add new case studies to this list. */
 .case-study-intro--orchard-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
 .case-study-intro--orchard-screens-hero ~ .case-study-act .case-study-act-inner,
 .case-study-intro--orchard-screens-hero ~ .major-section .major-section-inner,
 .case-study-intro--orchard-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
-.case-study-intro--orchard-screens-hero ~ .case-study-section .case-study-section-inner {
-  max-width: 1100px;
-}
-
-/* Telby screens page: same single-width treatment as Orchard, scoped via its own hero class */
+.case-study-intro--orchard-screens-hero ~ .case-study-section .case-study-section-inner,
 .case-study-intro--telby-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
 .case-study-intro--telby-screens-hero ~ .case-study-act .case-study-act-inner,
 .case-study-intro--telby-screens-hero ~ .major-section .major-section-inner,
 .case-study-intro--telby-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
-.case-study-intro--telby-screens-hero ~ .case-study-section .case-study-section-inner {
+.case-study-intro--telby-screens-hero ~ .case-study-section .case-study-section-inner,
+.case-study-intro--aspireship-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--aspireship-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--aspireship-hero ~ .major-section .major-section-inner,
+.case-study-intro--aspireship-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--aspireship-hero ~ .case-study-section .case-study-section-inner {
   max-width: 1100px;
 }
 
@@ -1931,7 +1938,7 @@ a.project-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(42, 75, 224, 0.22);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(26, 78, 140, 0.22);
   z-index: 2;
   pointer-events: none;
 }
@@ -1959,8 +1966,8 @@ a.project-card {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(42, 75, 224, 0.15);
-  border: 1px solid rgba(42, 75, 224, 0.5);
+  background: rgba(26, 78, 140, 0.15);
+  border: 1px solid rgba(26, 78, 140, 0.5);
   color: var(--primary);
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 700;
@@ -2159,17 +2166,17 @@ a.project-card {
 }
 
 .major-section--pivot {
-  background: rgba(42, 75, 224, 0.05);
-  border-left: 4px solid rgba(42, 75, 224, 0.35);
+  background: rgba(26, 78, 140, 0.05);
+  border-left: 4px solid rgba(26, 78, 140, 0.35);
 }
 
 .major-section--turbulence {
   position: relative;
-  background: rgba(42, 75, 224, 0.05);
+  background: rgba(26, 78, 140, 0.05);
   border: 2px solid var(--primary);
   border-radius: 0.75rem;
   padding: 3rem 1.5rem 3.5rem;
-  box-shadow: 0 0 24px rgba(42, 75, 224, 0.12);
+  box-shadow: 0 0 24px rgba(26, 78, 140, 0.12);
   overflow: hidden;
 }
 
@@ -2186,13 +2193,13 @@ a.project-card {
 }
 
 .major-section--north-star {
-  background: rgba(42, 75, 224, 0.05);
-  border-left: 4px solid rgba(42, 75, 224, 0.45);
+  background: rgba(26, 78, 140, 0.05);
+  border-left: 4px solid rgba(26, 78, 140, 0.45);
 }
 
 .major-section--impact {
-  background: rgba(42, 75, 224, 0.05);
-  border-left: 4px solid rgba(42, 75, 224, 0.25);
+  background: rgba(26, 78, 140, 0.05);
+  border-left: 4px solid rgba(26, 78, 140, 0.25);
 }
 
 .major-section--impact .subsection > h3 {
@@ -2212,8 +2219,8 @@ a.project-card {
 }
 
 .major-section--design-b {
-  background: linear-gradient(to top, rgba(42, 75, 224, 0.07), rgba(42, 75, 224, 0.02));
-  border-left: 4px solid rgba(42, 75, 224, 0.25);
+  background: linear-gradient(to top, rgba(26, 78, 140, 0.07), rgba(26, 78, 140, 0.02));
+  border-left: 4px solid rgba(26, 78, 140, 0.25);
 }
 
 /* D&D case study: PDF button above Design Problem title (uses .button .button-primary for glow) */
@@ -2262,7 +2269,7 @@ a.project-card {
 
 /* D&D case study: "The Logic" callout (transparent, hero-like) below each section blurb */
 .dnd-logic-callout {
-  background: rgba(42, 75, 224, 0.04);
+  background: rgba(26, 78, 140, 0.04);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
@@ -2303,7 +2310,7 @@ a.project-card {
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0 1.5rem;
-  background: rgba(42, 75, 224, 0.04);
+  background: rgba(26, 78, 140, 0.04);
 }
 
 .case-study--orchard .major-section .subsection > p:first-of-type {
@@ -2576,7 +2583,7 @@ a.project-card {
 
 .brand-guidelines-tabs .tab-btn.active {
   color: var(--primary);
-  background: rgba(42, 75, 224, 0.15);
+  background: rgba(26, 78, 140, 0.15);
   border-color: var(--primary);
   box-shadow: 0 0 0 1px var(--primary), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -3343,8 +3350,8 @@ a.project-card {
   margin: 0;
 }
 
+/* Border lives with the shared screenshot-border rule further down. */
 .case-study-callout-row .case-study-screenshot img {
-  border: 1px solid var(--border);
   box-shadow: var(--shadow-subtle);
   cursor: zoom-in;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -3418,5 +3425,271 @@ a.project-card {
 @media (max-width: 760px) {
   .cs-impact-stats {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Case study: screenshot border
+   A 1px edge so light-UI screenshots read as framed against the page. Applies
+   to every screenshot across the case studies. On the annotated figure the
+   border sits on the figure rather than the img, so it follows the rounded
+   corners instead of being clipped by the figure's overflow.
+   ========================================================================== */
+
+.cs-callout-figure,
+.case-study-callout-row .case-study-screenshot img {
+  border: 1px solid #c0c9cf;
+}
+
+/* The two flow diagrams are drawn illustrations on a flat background, not UI
+   captures, so a frame reads as a stray box around artwork. Explicitly opted
+   out rather than excluded by a blanket pattern. */
+.cs-callout-figure:has(img[src*="vision-critic-flow"]),
+.cs-callout-figure:has(img[src*="uc-rag-flow"]) {
+  border: none;
+}
+
+/* Half-width callout figure, centered in its column. For isolated screens
+   (a single chat panel) that get blown up at the full column width.
+   Callout markers are positioned in percentages, so they scale with it. */
+.case-study-callout-row .cs-callout-figure--half {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 899px) {
+  .case-study-callout-row .cs-callout-figure--half {
+    max-width: 70%;
+  }
+}
+
+/* Aspireship card cover: a brand illustration rather than a screenshot, so it
+   is contained instead of cropped and pinned to the bottom, with the plate
+   colour matching the artwork's own background so the fill is invisible. */
+.project-card--split .project-cover--aspireship.project-cover--split-hero {
+  background: #4810a4;
+}
+
+.project-card--split .project-cover--aspireship.project-cover--split-hero .project-cover-img {
+  position: relative;
+  inset: auto;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  object-fit: contain;
+  margin: 12px;
+}
+
+/* Unbound Codex card cover: a UI panel, so cropping it cuts the toolbar and
+   the footer disclaimer. Contain it whole and let the card's own gradient
+   show as the surrounding plate. */
+.side-card-cover--unbound .side-card-img {
+  object-fit: contain;
+  padding: 12px;
+}
+
+/* Cropped hero image. A very wide source scaled to the hero width renders its
+   detail too small to read. Constraining the box to a taller ratio and
+   covering crops the sides instead, so the artwork renders larger and sharper.
+   Lower the ratio to crop harder and zoom further. */
+.case-study-hero-image--crop img {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 700px) {
+  .case-study-hero-image--crop img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ==========================================================================
+   Case study stat ribbon
+   Full-bleed band of headline outcomes. Distinct from .cs-impact-stats, which
+   is a card row sitting inside the text column.
+   ========================================================================== */
+
+.cs-stat-ribbon {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.5rem 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.cs-stat-ribbon-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cs-stat-ribbon-eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  margin: 0 0 1.75rem !important;
+}
+
+.cs-stat-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.5rem;
+  align-items: start;
+}
+
+.cs-stat-ribbon-item {
+  text-align: center;
+}
+
+.cs-stat-ribbon-num {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.cs-stat-ribbon-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 860px) {
+  .cs-stat-ribbon-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Case study problem strip
+   Full-bleed band of problem-space facts. Deliberately muted rather than
+   using the celebratory .cs-stat-ribbon treatment: these are the conditions
+   the product exists to answer, not outcomes it achieved.
+   ========================================================================== */
+
+.cs-problem-strip {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.75rem 1.5rem;
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Width and gap deliberately match .thesis-cards so each stat lands in the
+   same column as the card that answers it. */
+.cs-problem-strip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cs-problem-item {
+  text-align: center;
+}
+
+/* Index matching the .thesis-card-num of the card that answers this stat.
+   Wider tracking than the card's so it reads as a label, not another figure
+   sitting on top of a large numeral. */
+.cs-problem-num {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--muted-foreground);
+}
+
+.cs-problem-lead {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+
+.cs-problem-text {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  text-wrap: balance;
+}
+
+
+.cs-problem-source {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  opacity: 0.72;
+}
+
+/* Problem strip: eyebrow, and a grid matched to .thesis-cards so each stat
+   sits in the same column as the card that answers it. */
+.cs-problem-eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 1.75rem !important;
+}
+
+.cs-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Three-beat sequence: the question, the evidence, the answer. Split from one
+   thesis block, so the question loses its bottom air and the solution block
+   pulls its cards up under the eyebrow that replaced the quote. */
+.case-study-thesis--question {
+  padding-bottom: 2.5rem;
+}
+
+/* Wider than the shared editorial 26ch so the question lands on two lines
+   instead of three. Scoped here so the Aspireship thesis keeps its own
+   measure. balance evens the two lines out. */
+.case-study-thesis--question .case-study-thesis-quote {
+  max-width: 38ch;
+  text-wrap: balance;
+}
+
+.case-study-thesis--solution {
+  padding-top: 3rem;
+}
+
+.case-study-thesis--solution .thesis-cards {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 760px) {
+  .cs-problem-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
   }
 }
