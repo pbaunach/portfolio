@@ -11,7 +11,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
     </h1>
     <div class="home-hero-body">
       <p class="intro-copy">
-        I am a Product Designer with 20+ years of experience transforming highly ambiguous, early-stage ideas into products people rely on. Whether acting as a founding designer at early-stage startups or leading core product overhauls at Fortune 500 enterprises, I bridge the gap between high-level strategy and technical execution.
+        Product Designer with 20 years of experience turning ambiguous, early-stage problems into products people rely on. Twice as a founding designer, and repeatedly as the strategic lead rebuilding core products from the ground up. I specialize in scaling products from 0 &rarr; 1 and bridging the gap between high-level vision and technical execution, leveraging AI-native design and functional AI prototyping to shorten the loop from initial vision to production code.
       </p>
       <dl class="home-hero-meta">
         <div class="hero-meta-row">
@@ -54,7 +54,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
 
 <section class="project-grid project-grid--split">
   <div class="project-grid-header">
-    <h2 class="section-title">Latest Work</h2>
+    <h2 class="section-title">Project Highlights</h2>
   </div>
 
   <div class="project-grid-inner">

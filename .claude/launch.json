@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "portfolio",
-      "runtimeExecutable": "C:\\Ruby33-x64\\bin\\bundle.bat",
+      "runtimeExecutable": "C:\\Ruby34-x64\\bin\\bundle.bat",
       "runtimeArgs": ["exec", "jekyll", "serve", "--livereload"],
       "port": 4000
     },
