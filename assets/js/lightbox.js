@@ -18,7 +18,7 @@
   screenshotFigures.forEach(function (figure) {
     var im = figure.querySelector('img');
     if (im && im.src) {
-      var isDiagram = /uc-rag-flow|vision-critic-flow/.test(im.src);
+      var isDiagram = /uc-rag-flow|vision-critic-flow|Orchie-Flow/.test(im.src);
       items.push({ src: im.src, alt: im.alt || 'Enlarged view', figure: figure, diagram: isDiagram });
     }
   });

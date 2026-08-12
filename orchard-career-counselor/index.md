@@ -92,6 +92,13 @@ layout: case-study
 <section class="major-section">
   <div class="major-section-inner major-section-inner--wide">
     <div class="subsection">
+      <h3 class="case-study-sub-mode">How a question moves through Orchie</h3>
+      <p>Every message runs the same path: an intent and safety screen first, then either a skill or a guardrail. All four skills read the desk and the chat history before they answer, so a student never has to repeat themselves. The guardrail lane catches everything else, including the conversations Orchie shouldn't be having at all.</p>
+      <figure class="cs-callout-figure cs-callout-figure--diagram">
+        <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Flow.png' | relative_url }}" alt="Flow diagram of how Orchie handles a student question. Education and career data sources (College Scorecard, IPEDS, proprietary data, O*NET, and BLS) feed a cited data layer. A student question, or an explicitly invoked slash command, passes through an intent and safety screen. An unclear question gets a clarifying question back. Everything else routes to one of four skills: Conversation, /explore, /compare, or /plan, each of which reads the desk and chat history first. /explore checks with sources and either produces a career list with citations or tells the student there's no data on that career. Anything the screen flags drops into a guardrail lane covering off-topic questions, distress signals, and requests for a verdict. Every path either loops back into the conversation or ends with the session saved.">
+        <figcaption class="cs-figure-caption">The conversational Orchie flow. Click to enlarge.</figcaption>
+      </figure>
+
       <div class="case-study-callout-row">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/orchard-screens-v2/orchie-screens/Orchie-01.png' | relative_url }}" alt="Orchie screen 1">

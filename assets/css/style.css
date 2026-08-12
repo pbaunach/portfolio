@@ -1833,6 +1833,34 @@ a.project-card {
   margin: 0;
 }
 
+/* Full-width flow diagram: a white canvas with a hairline border so the diagram
+   reads as its own card against the page background, and room to breathe. */
+.cs-callout-figure--diagram {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+.cs-figure-caption {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* On narrow screens the diagram is already tiny; give the image back the padding. */
+@media (max-width: 768px) {
+  .cs-callout-figure--diagram {
+    padding: 0.6rem 0.6rem 0.4rem;
+  }
+
+  .cs-figure-caption {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
 .cs-callout-notes-side {
   list-style: none !important;
   padding: 0 !important;
