@@ -313,15 +313,13 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
 
 <section id="owner" class="case-study-section case-study-intro case-study-intro--role-only">
   <div class="case-study-section-inner">
-    <h2 class="case-study-title">Why I'm Sending You This</h2>
     <div class="case-study-callout case-study-callout--role">
-      <p class="case-study-callout__role-title">Frederick was Owner, for salons and studios</p>
-      <p>Different vertical, same customer. A local, owner-operated business living on repeat visits, where the operator is also the marketing department, and the booking system already knows everything you'd need to bring a lapsed customer back. Four things carry over:</p>
+      <p class="case-study-callout__role-title">Owner is solving a similar problem</p>
+      <p>Different vertical, same customer. A local, owner-operated business living on repeat visits, where the operator is also the marketing department, and the booking system already knows everything you'd need to bring a lapsed customer back.</p>
       <h3 class="case-study-callout__heading">What carries over</h3>
       <ul>
         <li><strong>Trust is the adoption barrier, not features.</strong> The owners who said no weren't missing a capability. They wouldn't let software talk to their customers unseen. Preview, test send, plain-English summaries, visible history: none of that shows up on a comparison chart, and all of it is what gets the switch flipped.</li>
         <li><strong>Booking-system integration is the moat.</strong> A standalone email tool can't ask who hasn't been in for 90 days and has nothing on the calendar. It doesn't have the data. That's why the segmentation work mattered more than the email editor.</li>
-        <li><strong>Attribution has to be believable.</strong> Frederick credited revenue for sales to anyone who'd been sent an email, opened or not, and owners trusted the whole product less for it. One had switched to a competitor whose numbers were smaller and therefore more credible. Under-claim and show your work.</li>
         <li><strong>Model the objects before the screens.</strong> Eleven owners with eleven processes isn't a spec you can satisfy feature by feature. Getting to distribution, offer, and contacts as separable parts is how one system fit all of them, and it's how I'd come at a restaurant's ordering, loyalty, and win-back surfaces.</li>
       </ul>
       <h3 class="case-study-callout__heading">My Role</h3>
