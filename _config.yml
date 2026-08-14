@@ -29,4 +29,7 @@ plugins:
 
 exclude:
   - orchard-prototype
+  # Raw source for /frederick-automations/ (originals + the internal Denver
+  # research PDF). Processed copies live in assets/img/frederick-automations/.
+  - frederick-marketing-automation
 

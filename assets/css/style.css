@@ -1477,6 +1477,17 @@ a.project-card {
   letter-spacing: -0.01em;
 }
 
+/* Context line under a thesis quote: names the study the claim above rests on,
+   so a stat band following it has an antecedent instead of arriving cold. */
+.case-study-thesis-context {
+  max-width: 62ch;
+  margin: 1.4rem auto 0 !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  text-wrap: pretty;
+}
+
 .case-study-thesis--dnd .case-study-thesis-eyebrow {
   color: #34d399;
 }
@@ -1760,7 +1771,12 @@ a.project-card {
 .case-study-intro--aspireship-hero ~ .case-study-act .case-study-act-inner,
 .case-study-intro--aspireship-hero ~ .major-section .major-section-inner,
 .case-study-intro--aspireship-hero ~ .major-section .major-section-inner.major-section-inner--wide,
-.case-study-intro--aspireship-hero ~ .case-study-section .case-study-section-inner {
+.case-study-intro--aspireship-hero ~ .case-study-section .case-study-section-inner,
+.case-study-intro--frederick-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--frederick-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--frederick-hero ~ .major-section .major-section-inner,
+.case-study-intro--frederick-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--frederick-hero ~ .case-study-section .case-study-section-inner {
   max-width: 1100px;
 }
 
