@@ -1,6 +1,6 @@
 User-agent: *
 Disallow: /aspireship-problem/
-Disallow: /frederick-automations/
+Disallow: /frederick-marketing/
 
 # AI-focused crawlers
 User-agent: GPTBot

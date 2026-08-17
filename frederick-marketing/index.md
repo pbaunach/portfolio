@@ -1,7 +1,7 @@
 ---
 title: "Frederick: Marketing on Autopilot for Local Business"
 layout: case-study
-permalink: /frederick-automations/
+permalink: /frederick-marketing/
 description: "How Frederick turned a local business owner's manual follow-up into automated marketing they actually trusted to run."
 robots: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
 x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
@@ -314,14 +314,6 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
 <section id="owner" class="case-study-section case-study-intro case-study-intro--role-only">
   <div class="case-study-section-inner">
     <div class="case-study-callout case-study-callout--role">
-      <p class="case-study-callout__role-title">Owner is solving a similar problem</p>
-      <p>Different vertical, same customer. A local, owner-operated business living on repeat visits, where the operator is also the marketing department, and the booking system already knows everything you'd need to bring a lapsed customer back.</p>
-      <h3 class="case-study-callout__heading">What carries over</h3>
-      <ul>
-        <li><strong>Trust is the adoption barrier, not features.</strong> The owners who said no weren't missing a capability. They wouldn't let software talk to their customers unseen. Preview, test send, plain-English summaries, visible history: none of that shows up on a comparison chart, and all of it is what gets the switch flipped.</li>
-        <li><strong>Booking-system integration is the moat.</strong> A standalone email tool can't ask who hasn't been in for 90 days and has nothing on the calendar. It doesn't have the data. That's why the segmentation work mattered more than the email editor.</li>
-        <li><strong>Model the objects before the screens.</strong> Eleven owners with eleven processes isn't a spec you can satisfy feature by feature. Getting to distribution, offer, and contacts as separable parts is how one system fit all of them, and it's how I'd come at a restaurant's ordering, loyalty, and win-back surfaces.</li>
-      </ul>
       <h3 class="case-study-callout__heading">My Role</h3>
       <ul>
         <li><strong>Research:</strong> Requested and scoped the Denver study with my product counterpart, then used it to reset what we built and how we sold it, including dropping "fill your classes" as the lead message once the study showed this segment didn't want it.</li>
