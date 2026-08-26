@@ -1,17 +1,17 @@
 ---
 layout: default
 title: Portfolio
-description: Product Designer with 20+ years turning ambiguous, early-stage ideas into products people rely on, from startups to Fortune 500 enterprises.
+description: Founding Product Designer with 20 years of experience building 0-to-1 web apps and AI interfaces. Expertise in AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
 ---
 
 <section class="home-hero">
   <div class="home-hero-inner">
     <h1 class="intro-headline">
-      Designing from <span class="intro-emphasis">Zero to Scale</span>
+      From Prototype <span class="intro-emphasis">to Production</span>
     </h1>
     <div class="home-hero-body">
       <p class="intro-copy">
-        Product Designer with 20 years of experience turning ambiguous, early-stage problems into products people rely on. Twice as a founding designer, and repeatedly as the strategic lead rebuilding core products from the ground up. I specialize in scaling products from 0 &rarr; 1 and bridging the gap between high-level vision and technical execution, leveraging AI-native design and functional AI prototyping to shorten the loop from initial vision to production code.
+        I am a Founding Product Designer with 20 years of experience building 0-to-1 web apps and AI interfaces. I designed and scaled Frederick from $200k to $10M ARR across 2,500 businesses as the sole designer prior to an acquisition by MINDBODY. My expertise spans AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
       </p>
       <dl class="home-hero-meta">
         <div class="hero-meta-row">
@@ -68,7 +68,7 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
         </div>
         <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
         <p class="project-summary">
-          Leading 0&rarr;1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
+          Leading 0-to-1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
         </p>
         <p class="project-card-actions">
           <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
@@ -186,8 +186,8 @@ description: Product Designer with 20+ years turning ambiguous, early-stage idea
     <li class="archive-row">
       <span class="archive-num">03</span>
       <div class="archive-main">
-        <h3 class="archive-title">Harmonizing Personas<span class="archive-title-sub">: Frederick &amp; Mindbody</span></h3>
-        <p class="archive-desc">Original, empathy-driven archetypes, integrated into the broader Mindbody platform post-acquisition to keep product decisions grounded in real needs.</p>
+        <h3 class="archive-title">Harmonizing Personas<span class="archive-title-sub">: Frederick &amp; MINDBODY</span></h3>
+        <p class="archive-desc">Original, empathy-driven archetypes, integrated into the broader MINDBODY platform post-acquisition to keep product decisions grounded in real needs.</p>
       </div>
       <span class="archive-tag">Research</span>
       <div class="archive-links">

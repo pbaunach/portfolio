@@ -4,8 +4,8 @@ layout: case-study
 ---
 
 <section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-bff case-study-intro--title-only">
-  <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
-  <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
+  <div class="case-study-hero-bg" aria-hidden="true"></div>
+  <div class="case-study-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <div class="case-study-hero-inner">
       <h1 class="case-study-title">Building a Shared Language (Project BFF)</h1>

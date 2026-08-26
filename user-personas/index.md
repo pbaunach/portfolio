@@ -1,15 +1,15 @@
 ---
-title: "Harmonizing Personas for an Evolving Ecosystem: Frederick & Mindbody"
+title: "Harmonizing Personas for an Evolving Ecosystem: Frederick & MINDBODY"
 layout: case-study
 ---
 
 <section class="case-study-section case-study-intro case-study-intro--hero case-study-intro--theme-personas case-study-intro--title-only">
-  <div class="case-study-hero-bg parallax-hero-bg" aria-hidden="true"></div>
-  <div class="case-study-hero-dots parallax-hero-dots" aria-hidden="true"></div>
+  <div class="case-study-hero-bg" aria-hidden="true"></div>
+  <div class="case-study-hero-dots" aria-hidden="true"></div>
   <div class="case-study-section-inner">
     <div class="case-study-hero-inner">
-      <h1 class="case-study-title">Harmonizing Personas for an Evolving Ecosystem: Frederick & Mindbody</h1>
-      <p class="case-study-hero-summary">I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader Mindbody platform, ensuring our product decisions remained grounded in real user needs during the transition.</p>
+      <h1 class="case-study-title">Harmonizing Personas for an Evolving Ecosystem: Frederick & MINDBODY</h1>
+      <p class="case-study-hero-summary">I developed original, empathy-driven archetypes at Frederick to ensure we truly understood our customers. After our acquisition, I led the work to integrate these personas into the broader MINDBODY platform, ensuring our product decisions remained grounded in real user needs during the transition.</p>
     </div>
     <!--
     <div class="case-study-hero-dashboard">
@@ -24,7 +24,7 @@ layout: case-study
     <div class="brand-guidelines-tabs">
       <div class="tabs-header" role="tablist" aria-label="User personas sections">
         <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-frederick" id="tab-frederick" data-tab="frederick">Frederick</button>
-        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-mindbody" id="tab-mindbody" data-tab="mindbody">Mindbody</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-mindbody" id="tab-mindbody" data-tab="mindbody">MINDBODY</button>
       </div>
       <div id="panel-frederick" class="tab-panel active" role="tabpanel" aria-labelledby="tab-frederick">
         <h2 class="brand-guidelines-tab-title">Frederick Personas</h2>
@@ -39,10 +39,10 @@ layout: case-study
         </div>
       </div>
       <div id="panel-mindbody" class="tab-panel" role="tabpanel" aria-labelledby="tab-mindbody" hidden>
-        <h2 class="brand-guidelines-tab-title">Mindbody Personas</h2>
+        <h2 class="brand-guidelines-tab-title">MINDBODY Personas</h2>
         <p>Following the acquisition, I led the effort to adapt our existing research to fit a much broader and more complex ecosystem. These evolved personas served as a critical bridge, allowing the new organization to maintain a deep connection with our core users while scaling to meet the needs of a global platform.</p>
         <div class="brand-guidelines-gallery">
-          <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/primary-personas.png' | relative_url }}" alt="Mindbody primary personas"></figure>
+          <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/primary-personas.png' | relative_url }}" alt="MINDBODY primary personas"></figure>
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/persona-thriving-thea.png' | relative_url }}" alt="Thea"></figure>
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/persona-lifestyle-liv.png' | relative_url }}" alt="Liv"></figure>
           <figure class="case-study-screenshot"><img src="{{ '/assets/img/mindbody-personas/persona-ambitious-adrian.png' | relative_url }}" alt="Adrian"></figure>

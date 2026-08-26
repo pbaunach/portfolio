@@ -13,7 +13,7 @@ permalink: /unbound-codex/
       <p class="editorial-hero-meta">
         <span>Solo Design &amp; Engineering</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>0&rarr;1</span>
+        <span>0-to-1</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
         <span>2025&ndash;26</span>
       </p>

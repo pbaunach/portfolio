@@ -12,7 +12,7 @@ layout: case-study
       <p class="editorial-hero-meta">
         <span>Solo Design &amp; Engineering</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>0&rarr;1</span>
+        <span>0-to-1</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
         <span>2026</span>
       </p>
@@ -302,7 +302,7 @@ layout: case-study
       <p class="case-study-callout__role-title">Solo Design &amp; Engineering</p>
       <h3 class="case-study-callout__heading">My Contributions</h3>
       <ul>
-        <li><strong>0&rarr;1 product design and strategy:</strong> Defined the whole surface, the token model, the editor, and the publish pipeline, as one coherent system rather than a drawing tool with features bolted on.</li>
+        <li><strong>0-to-1 product design and strategy:</strong> Defined the whole surface, the token model, the editor, and the publish pipeline, as one coherent system rather than a drawing tool with features bolted on.</li>
         <li><strong>The living token model:</strong> Designed the token contract (colors per mode, stroke and radius as shared scalars) and the semantic-role layer on top of it, so one change cascades across an entire set. The hardest and most-iterated part of the project.</li>
         <li><strong>The AI builder-critic loop:</strong> Designed a builder that drafts against your tokens and a vision critic that scores the rendered icon and loops until it fits, with a plan-first review step so the person stays the author.</li>
         <li><strong>Design engineering:</strong> Built the running app end to end, a custom SVG editor, the token compiler, the consistency audits, and a themeable <code>&lt;telby-icon&gt;</code> web-component export.</li>

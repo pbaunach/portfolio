@@ -16,7 +16,7 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
       <p class="editorial-hero-meta">
         <span>Product Design Lead</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>Frederick, acquired by Mindbody</span>
+        <span>Frederick, acquired by MINDBODY</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
         <span>2018</span>
       </p>
@@ -319,7 +319,7 @@ x_robots_tag: "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslat
         <li><strong>Research:</strong> Requested and scoped the Denver study with my product counterpart, then used it to reset what we built and how we sold it, including dropping "fill your classes" as the lead message once the study showed this segment didn't want it.</li>
         <li><strong>System design:</strong> Authored the automation framework, the object model and rulebooks every automation and campaign was assembled from.</li>
         <li><strong>Product design:</strong> Designed the automations dashboard, the three-question settings pattern, preview and test, and the smart list builder, then ran them through lo-fi testing with owners and into production.</li>
-        <li><strong>Brand and personas:</strong> Also led Frederick's <a href="{{ '/brand-guidelines/' | relative_url }}">brand identity</a> and its <a href="{{ '/user-personas/' | relative_url }}">customer personas</a>, which I integrated into the broader Mindbody platform after the acquisition.</li>
+        <li><strong>Brand and personas:</strong> Also led Frederick's <a href="{{ '/brand-guidelines/' | relative_url }}">brand identity</a> and its <a href="{{ '/user-personas/' | relative_url }}">customer personas</a>, which I integrated into the broader MINDBODY platform after the acquisition.</li>
       </ul>
     </div>
   </div>

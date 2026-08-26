@@ -12,7 +12,7 @@ layout: case-study
       <p class="editorial-hero-meta">
         <span>Head of Product &amp; Design</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>0&rarr;1</span>
+        <span>0-to-1</span>
         <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
         <span>2025&ndash;26</span>
       </p>
@@ -291,7 +291,7 @@ layout: case-study
       <p class="case-study-callout__role-title">Head of Product &amp; Design</p>
       <h3 class="case-study-callout__heading">My Contributions</h3>
       <ul>
-        <li><strong>0&rarr;1 product design and strategy:</strong> Defined the surface, the modes, and the philosophy. Designed Orchie, the Career Readiness Index, and the Explore / Plan / Learn structure as one cohesive system.</li>
+        <li><strong>0-to-1 product design and strategy:</strong> Defined the surface, the modes, and the philosophy. Designed Orchie, the Career Readiness Index, and the Explore / Plan / Learn structure as one cohesive system.</li>
         <li><strong>AI as a coach, not a doer:</strong> Established the Orchie guidelines: surface options, ask better questions, never produce the student's work. Orchie is there to nudge the student when they get stuck and help keep the momentum when they're on a roll.</li>
         <li><strong>Making growth measurable:</strong> Designed the CRI and its eight pillars so the score moves on real behavior. The hardest design call on the project, and the one that has taken the most iterations.</li>
         <li><strong>Prototyping:</strong> Built the working prototype with AI so stakeholders and test users interact with the same thing.</li>
