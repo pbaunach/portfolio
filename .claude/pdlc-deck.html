@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Enablement & PDLC Operations Leader - Role Charter</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f1f5f9;
+    color: #0f172a;
+  }
+
+  .slide {
+    width: 960px;
+    height: 540px;
+    padding: 36px 48px;
+    background-color: #ffffff;
+    margin: 0 auto 30px auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* Slide Headers & Footers */
+  .slide-header {
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 8px;
+  }
+  .slide-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 2px 0;
+  }
+  .slide-header p {
+    font-size: 11px;
+    color: #64748b;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .slide-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 16px 0;
+  }
+
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    font-size: 10px;
+    color: #94a3b8;
+  }
+
+  /* Title Slide */
+  .title-slide {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .title-slide h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+  }
+  .title-slide h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #38bdf8;
+    margin: 0 0 28px 0;
+  }
+  .title-slide .badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #cbd5e1;
+  }
+
+  /* Grids & Cards */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+
+  .card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .card-blue {
+    background-color: #f0f9ff;
+    border-color: #bae6fd;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0369a1;
+    margin: 0 0 6px 0;
+  }
+  .card p, .card ul {
+    font-size: 11px;
+    color: #334155;
+    margin: 0;
+    line-height: 1.45;
+  }
+  .card ul { padding-left: 14px; }
+  .card li { margin-bottom: 4px; }
+
+  /* Callout Banner */
+  .callout {
+    background-color: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    color: #14532d;
+    margin-bottom: 14px;
+  }
+
+  /* Table Styling */
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+  th { background-color: #f1f5f9; color: #0f172a; font-weight: 600; }
+  td strong { color: #0284c7; }
+
+  @media print {
+    body { background-color: #ffffff; padding: 0; }
+    .slide { box-shadow: none; border: none; margin: 0; width: 100%; height: 100vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide title-slide">
+  <div>
+    <p style="color: #38bdf8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; margin-bottom: 8px;">Executive Role Charter</p>
+    <h1>Product Enablement & PDLC Operations Leader</h1>
+    <h3>Standardizing & Operationalizing Product Delivery in a Federated Enterprise</h3>
+  </div>
+  <div class="badge">Role Alignment & Definition Deck | Enterprise Product Organization</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Organizational Context</p>
+    <h2>Operating Context: Decentralized & Autonomous Environment</h2>
+  </div>
+  <div class="slide-body">
+    <div class="callout">
+      <strong>Core Challenge:</strong> Multi-tiered independence across business units (BUs) and product lines leads to fragmented development lifecycles, redundant tooling, variable quality, and inconsistent speed-to-market.
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>1. Multi-Area Autonomy</h3>
+        <p>Large enterprise structure with distinct company areas operating independently, each with unique operational cultures and legacy practices.</p>
+      </div>
+      <div class="card">
+        <h3>2. Business Unit Disconnect</h3>
+        <p>Business units within each area operate as standalone entities, leading to duplicative operational efforts and siloed knowledge.</p>
+      </div>
+      <div class="card">
+        <h3>3. Product-Level Isolation</h3>
+        <p>Individual product teams utilize bespoke processes for discovery, stage-gates, and delivery, making portfolio-level visibility difficult.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 2</span>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Mission & Value Proposition</p>
+    <h2>Role Charter: High-Level Purpose & Strategy</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card card-blue" style="display:flex; flex-direction:column; justify-content:center;">
+        <h3 style="font-size: 16px; margin-bottom: 10px;">The Primary Charter</h3>
+        <p style="font-size: 12px; line-height: 1.5; color: #0f172a;">
+          Establish, operationalize, and scale a <strong>unified Product Development Lifecycle (PDLC) framework</strong> across all business units.<br><br>
+          Transform from fragmented, localized execution to a <strong>high-performing, standardized practice</strong> through enablement, coaching, and self-serve operational infrastructure rather than top-down mandates.
+        </p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 10px;">
+          <h3>Core Philosophy: Enablement Over Enforcement</h3>
+          <p>Build frictionless frameworks, playbooks, and toolkits that BUs <em>want</em> to adopt because they reduce overhead and accelerate product velocity.</p>
+        </div>
+        <div class="card">
+          <h3>Dual Role Focus</h3>
+          <ul>
+            <li><strong>Systems Architect:</strong> Designing the standardized PDLC framework and operational stack.</li>
+            <li><strong>Change Agent:</strong> Coaching and enabling independent BU leaders to adopt shared practices.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 3</span>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Operational Scope</p>
+    <h2>The 4 Core Pillars of the Role</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-4">
+      <div class="card">
+        <h3>1. PDLC Standardization</h3>
+        <ul>
+          <li>Define flexible 0-to-1 and enhancement lifecycles</li>
+          <li>Establish standardized stage-gate approvals</li>
+          <li>Define artifact requirements (PRDs, roadmaps)</li>
+          <li>Align taxonomy across product teams</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2. Practice & Enablement</h3>
+        <ul>
+          <li>Build self-serve PDLC playbooks & templates</li>
+          <li>Host BU onboarding & training workshops</li>
+          <li>Establish Product Center of Excellence (CoE)</li>
+          <li>Foster cross-BU Communities of Practice</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>3. Tooling & Ops Stack</h3>
+        <ul>
+          <li>Standardize product management tool stack</li>
+          <li>Configure Jira / Productboard / Confluence</li>
+          <li>Automate stage-gate tracking & reporting</li>
+          <li>Create centralized knowledge repositories</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>4. Governance & Benchmark</h3>
+        <ul>
+          <li>Establish PDLC Maturity Assessment model</li>
+          <li>Audit product health & process compliance</li>
+          <li>Gather field feedback for iteration</li>
+          <li>Benchmark efficiency across business units</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 4</span>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Outputs & Artifacts</p>
+    <h2>Primary Role Deliverables</h2>
+  </div>
+  <div class="slide-body">
+    <table>
+      <thead>
+        <tr>
+          <th>Deliverable Artifact</th>
+          <th>Description & Scope</th>
+          <th>Primary Beneficiaries</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Unified Enterprise PDLC Framework</strong></td>
+          <td>Modular, phase-by-phase playbook defining discovery, validation, build, launch, and iteration standards.</td>
+          <td>Product Managers, Engineering Leads, UX Design</td>
+        </tr>
+        <tr>
+          <td><strong>PDLC Self-Serve Toolkit</strong></td>
+          <td>Standardized templates for PRDs, Business Cases, GTM Checklists, and Stage-Gate Review Decks.</td>
+          <td>Individual Product Teams across BUs</td>
+        </tr>
+        <tr>
+          <td><strong>Product Center of Excellence (CoE) Hub</strong></td>
+          <td>Centralized knowledge portal featuring video walkthroughs, onboarding modules, and best-practice guides.</td>
+          <td>New & Existing Product Personnel</td>
+        </tr>
+        <tr>
+          <td><strong>Standardized Product Stack</strong></td>
+          <td>Unified configurations and workflows for Jira, Confluence, and product roadmapping software.</td>
+          <td>Product Operations & Tech Leadership</td>
+        </tr>
+        <tr>
+          <td><strong>BU PDLC Maturity Matrix</strong></td>
+          <td>Diagnostic benchmarking tool to assess BU operational capability and guide targeted enablement coaching.</td>
+          <td>Product Executives & BU General Managers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 5</span>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Execution Strategy</p>
+    <h2>Phased Enablement & Adoption Roadmap</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-4">
+      <div class="card">
+        <h3>Phase 1: Discovery & Audit</h3>
+        <p style="font-weight: 600; color: #64748b; margin-bottom: 6px;">Days 1 – 30</p>
+        <ul>
+          <li>Map existing BU processes</li>
+          <li>Identify operational pain points</li>
+          <li>Assess current tooling sprawl</li>
+          <li>Establish baseline maturity</li>
+        </ul>
+      </div>
+      <div class="card card-blue">
+        <h3>Phase 2: Pilot Design</h3>
+        <p style="font-weight: 600; color: #0284c7; margin-bottom: 6px;">Days 31 – 60</p>
+        <ul>
+          <li>Draft v1.0 PDLC framework</li>
+          <li>Build core templates & toolkit</li>
+          <li>Select 1–2 Lighthouse BUs</li>
+          <li>Run pilot enablement programs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Phase 3: Refine & Scale</h3>
+        <p style="font-weight: 600; color: #64748b; margin-bottom: 6px;">Days 61 – 90</p>
+        <ul>
+          <li>Incorporate pilot feedback</li>
+          <li>Launch Product CoE Hub</li>
+          <li>Roll out to secondary BUs</li>
+          <li>Establish Community of Practice</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Phase 4: Operationalize</h3>
+        <p style="font-weight: 600; color: #64748b; margin-bottom: 6px;">Days 91 – 120+</p>
+        <ul>
+          <li>Full enterprise expansion</li>
+          <li>Continuous maturity assessments</li>
+          <li>Automate portfolio reporting</li>
+          <li>Iterate PDLC based on data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 6</span>
+  </div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Measuring Impact</p>
+    <h2>Potential Metrics & Key Performance Indicators</h2>
+  </div>
+  <div class="slide-body">
+    <p style="font-size: 11px; color: #475569; margin-bottom: 12px;">
+      Rather than fixed targets, performance can be evaluated across process adoption, efficiency gains, and team enablement quality:
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Adoption & Maturity Metrics</h3>
+        <ul>
+          <li><strong>Framework Penetration:</strong> % of BUs actively operating on the standardized PDLC.</li>
+          <li><strong>Maturity Score Progression:</strong> Measurable improvement in BU maturity assessments over time.</li>
+          <li><strong>Toolkit Utilization:</strong> Engagement rates with CoE playbooks, templates, and guides.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Operational Velocity Metrics</h3>
+        <ul>
+          <li><strong>Time-to-Market Acceleration:</strong> Reduction in cycle time from initial discovery to GA release.</li>
+          <li><strong>Stage-Gate Predictability:</strong> Increased variance accuracy between planned vs. actual milestone dates.</li>
+          <li><strong>Onboarding Efficiency:</strong> Decreased time-to-ramp for new PM hires across business units.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Qualitative & Alignment Metrics</h3>
+        <ul>
+          <li><strong>PM Experience Score:</strong> Internal CSAT/NPS from product personnel regarding PDLC clarity and tooling.</li>
+          <li><strong>Cross-BU Alignment:</strong> Reduction in bespoke processes and redundant tooling costs across lines.</li>
+          <li><strong>Leadership Visibility:</strong> Improved executive satisfaction with cross-product roadmap transparency.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 7</span>
+  </div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Alignment & Expectations</p>
+    <h2>Strategic Alignment Discussion Topics</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card">
+        <h3>1. Organizational Authority & Mandate</h3>
+        <p>Is this role positioned to drive change through executive backing, or will adoption rely entirely on influence and relationship-building across BU leaders?</p>
+      </div>
+      <div class="card">
+        <h3>2. Resourcing & Operational Stack</h3>
+        <p>What budget and dedicated resources exist to support the procurement of product operations tooling and creation of Center of Excellence materials?</p>
+      </div>
+      <div class="card">
+        <h3>3. Success Timelines & Pilot BUs</h3>
+        <p>Which business units are most receptive to acting as the initial "Lighthouse" pilots, and what is the target timeline for initial enterprise impact?</p>
+      </div>
+      <div class="card">
+        <h3>4. Scope Boundaries</h3>
+        <p>Where does this role end and Product Operations / Technical Program Management begin in day-to-day execution within individual product teams?</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement Role Charter</span>
+    <span>Slide 8</span>
+  </div>
+</div>
+
+</body>
+</html>

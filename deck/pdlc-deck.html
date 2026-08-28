@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Product Enablement &amp; PDLC </title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0f172a" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --slide-w: 960px;
+    --slide-h: 540px;
+    --ink: #0f172a;
+    --accent: #0284c7;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+  html { background: #0b1220; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0b1220;
+    color: var(--ink);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Deck shell ---------- */
+
+  .deck {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    position: relative;
+    transform-origin: center center;
+    flex: none;
+  }
+
+  .slide-wrap {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* One slide at a time while presenting.
+     The incoming slide fades in ON TOP of the outgoing one, which stays fully
+     opaque underneath until the fade finishes — otherwise both sit at partial
+     opacity mid-transition and the dark page background flashes through. */
+  body:not(.overview) .slide-wrap {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body:not(.overview) .slide-wrap.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+    transition: opacity 180ms ease-out;
+  }
+  body:not(.overview) .slide-wrap.is-leaving {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body:not(.overview) .slide-wrap.is-active { transition: none; }
+    .progress { transition: none; }
+  }
+
+  /* ---------- Slide styling (carried over from the source deck) ---------- */
+
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    padding: 36px 48px;
+    background-color: #ffffff;
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+  }
+  .slide-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 2px 0;
+  }
+  .slide-header p {
+    font-size: 11px;
+    color: #64748b;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .slide-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 16px 0;
+    min-height: 0;
+  }
+
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    font-size: 10px;
+    color: #94a3b8;
+  }
+
+  .title-slide {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .title-slide h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+  .title-slide h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #38bdf8;
+    margin: 0 0 28px 0;
+  }
+  .title-slide .badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #cbd5e1;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+
+  .card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .card-blue {
+    background-color: #f0f9ff;
+    border-color: #bae6fd;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0369a1;
+    margin: 0 0 6px 0;
+  }
+  .card p, .card ul {
+    font-size: 11px;
+    color: #334155;
+    margin: 0;
+    line-height: 1.45;
+  }
+  .card ul { padding-left: 14px; }
+  .card li { margin-bottom: 4px; }
+
+  .callout {
+    background-color: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    color: #14532d;
+    margin-bottom: 14px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+  th { background-color: #f1f5f9; color: var(--ink); font-weight: 600; }
+  td strong { color: var(--accent); }
+
+  /* ---------- Overview (grid) mode ---------- */
+
+  body.overview { overflow: auto; }
+  body.overview .deck {
+    position: static;
+    display: block;
+    padding: 28px 28px 110px;
+  }
+  body.overview .stage {
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    gap: 20px;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  body.overview .slide-wrap {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    transition: outline-color 140ms ease, transform 140ms ease;
+  }
+  body.overview .slide-wrap:hover { transform: translateY(-3px); }
+  body.overview .slide-wrap.is-active { outline-color: #38bdf8; }
+  body.overview .slide-wrap .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  body.overview .slide-wrap::after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: rgba(15, 23, 42, 0.75);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  /* ---------- Chrome ---------- */
+
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: #38bdf8;
+    transition: width 220ms ease;
+    z-index: 40;
+  }
+
+  .bar {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px;
+    background: rgba(15, 23, 42, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 999px;
+    z-index: 50;
+    transition: opacity 250ms ease;
+  }
+  body.idle .bar { opacity: 0.14; }
+  .bar:hover, .bar:focus-within { opacity: 1 !important; }
+
+  .bar button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: #cbd5e1;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 9px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+  }
+  .bar button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  .bar button:disabled { opacity: 0.3; cursor: default; }
+  .bar .count {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 10px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .bar .sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 5px 3px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .edge {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 14%;
+    z-index: 20;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .edge.prev { left: 0; }
+  .edge.next { right: 0; }
+  .edge:disabled { cursor: default; }
+  body.overview .edge { display: none; }
+
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 11px;
+    color: #475569;
+    z-index: 45;
+    transition: opacity 250ms ease;
+  }
+  body.idle .hint { opacity: 0; }
+  body.overview .hint { display: none; }
+
+  @media (max-width: 760px) {
+    .hint { display: none; }
+    .bar button { padding: 9px 10px; }
+  }
+
+  /* ---------- Print / PDF ---------- */
+
+  @page { size: 960px 540px; margin: 0; }
+
+  @media print {
+    body, body.overview { background: #fff; overflow: visible; }
+    .bar, .hint, .progress, .edge { display: none !important; }
+    .deck { position: static; display: block; padding: 0; }
+    .stage {
+      display: block !important;
+      width: var(--slide-w) !important;
+      height: auto !important;
+      max-width: none;
+      margin: 0;
+      transform: none !important;
+    }
+    .slide-wrap {
+      position: relative !important;
+      inset: auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      aspect-ratio: auto !important;
+      overflow: visible !important;
+      border-radius: 0 !important;
+      outline: none !important;
+      transform: none !important;
+      break-after: page;
+      page-break-after: always;
+    }
+    .slide-wrap::after { display: none !important; }
+    .slide-wrap .slide {
+      position: relative !important;
+      transform: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<button class="edge prev" id="edgePrev" aria-label="Previous slide"></button>
+<button class="edge next" id="edgeNext" aria-label="Next slide"></button>
+
+<div class="deck" id="deck">
+  <div class="stage" id="stage">
+<!-- SLIDE 1 -->
+<div class="slide title-slide">
+  <div>
+   
+    <h1>Product Enablement &amp; PDLC </h1>
+    <h3>Unifying the Product Development Lifecycle</h3>
+  </div>
+  <div class="badge">Peebs understanding of the mandate</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>The situation</p>
+    <h2>Every team builds product a different way</h2>
+  </div>
+  <div class="slide-body">
+    <div class="callout">
+      <strong>The problem:</strong> Teams operate independently at three levels: focus area, business unit, product team. That means duplicated tooling, uneven quality, and no reliable read on when anything will ship.
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Focus areas run themselves</h3>
+        <p>Each area of the company operates on its own, with its own habits and years of legacy practice behind them.</p>
+      </div>
+      <div class="card">
+        <h3>Business units don't compare notes</h3>
+        <p>BUs work as standalone shops. The same problem gets solved several times over, and nobody shares their learnings.</p>
+      </div>
+      <div class="card">
+        <h3>Product Teams invent their own process</h3>
+        <p>Every product team runs discovery, reviews, and releases its own way. Each product pod is organized differently.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 2</span>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>The job</p>
+    <h2>What we'll do</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card card-blue" style="display:flex; flex-direction:column; justify-content:center;">
+        <h3 style="font-size: 16px; margin-bottom: 10px;">The goal</h3>
+        <p style="font-size: 12px; line-height: 1.5; color: #0f172a;">
+          Build <strong>one product development lifecycle</strong> that every business unit can actually use.<br><br>
+          Get there by making process, templates, coaching, and tooling teams can pick up on their own. <strong>Not by forcing blind adoption.</strong>
+        </p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 10px;">
+          <h3>Make it easier, don't make it required</h3>
+          <p>Teams adopt a shared process when it saves them time. The frameworks and templates have to be good enough that BUs reach for them on their own.</p>
+        </div>
+        <div class="card">
+          <h3>Two jobs at once</h3>
+          <ul>
+            <li><strong>Architect:</strong> design the lifecycle and the tooling underneath it.</li>
+            <li><strong>Coach:</strong> help BU leaders adopt it on their own terms.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 3</span>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Current Scope Understanding</p>
+    <h2>Four pillars we can build off of </h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-4">
+      <div class="card">
+        <h3>1. Define the lifecycle</h3>
+        <ul>
+          <li>One path for new products, one for improvements</li>
+          <li>Clear checkpoints, and who signs off at each</li>
+          <li>Agree what a PRD or roadmap has to include</li>
+          <li>Shared vocabulary across teams</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2. Help teams use it</h3>
+        <ul>
+          <li>Playbooks and templates teams can grab</li>
+          <li>Onboarding and workshops, BU by BU</li>
+          <li>A home base for product practice</li>
+          <li>Get PMs across BUs talking to each other</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>3. Sort out the tooling</h3>
+        <ul>
+          <li>Settle on a preferred set of product tools</li>
+          <li>Automate checkpoint tracking and reporting</li>
+          <li>One place to find things</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>4. Track how it's going</h3>
+        <ul>
+          <li>A simple way to score where each BU stands</li>
+          <li>Regular checks on product and process health</li>
+          <li>Listen to teams, fix what isn't working</li>
+          <li>Compare across BUs to find what works</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 4</span>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>What gets built</p>
+    <h2>What we'll be delivering</h2>
+  </div>
+  <div class="slide-body">
+    <table>
+      <thead>
+        <tr>
+          <th>Deliverable</th>
+          <th>What it is</th>
+          <th>Who uses it</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>The PDLC playbook</strong></td>
+          <td>Phase by phase: discovery, validation, build, launch, and what happens after.</td>
+          <td>PMs, engineering leads, designers</td>
+        </tr>
+        <tr>
+          <td><strong>Templates</strong></td>
+          <td>PRDs, business cases, launch checklists, and review decks teams can fill in.</td>
+          <td>Product teams in every BU</td>
+        </tr>
+        <tr>
+          <td><strong>A practice hub</strong></td>
+          <td>One place for walkthroughs, onboarding, and how other teams solved it.</td>
+          <td>New and current product staff</td>
+        </tr>
+        <tr>
+          <td><strong>Shared tooling</strong></td>
+          <td>A consistent setup for the preferred set of tools.</td>
+          <td>Product ops and tech leadership</td>
+        </tr>
+        <tr>
+          <td><strong>Maturity scorecard</strong></td>
+          <td>A read on where each BU stands, and where coaching would help most.</td>
+          <td>Product execs and BU general managers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 5</span>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>How it rolls out</p>
+    <h2>A mock example of how we might launch this</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-4">
+      <div class="card">
+        <h3>Phase 1: Learn the landscape</h3>
+        <ul>
+          <li>Map how each BU works today</li>
+          <li>Find what's actually painful</li>
+          <li>Inventory the tools in use</li>
+          <li>Set a baseline to measure against</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Phase 2: Build & pilot</h3>
+        <ul>
+          <li>Draft the first version of the PDLC</li>
+          <li>Build the core templates</li>
+          <li>Pick one or two willing BUs</li>
+          <li>Run it with them and watch closely</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Phase 3: Revision & expansion</h3>
+        <ul>
+          <li>Rework it around what the pilot found</li>
+          <li>Launch the practice hub</li>
+          <li>Bring on the next set of BUs</li>
+          <li>Start the cross-BU PM group</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Phase 4: The ultimate goal</h3>
+        <ul>
+          <li>Roll out company-wide</li>
+          <li>Keep scoring maturity</li>
+          <li>Automate portfolio reporting</li>
+          <li>Keep adjusting as teams push back</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 6</span>
+  </div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Measuring it</p>
+    <h2>How we'd know it's working</h2>
+  </div>
+  <div class="slide-body">
+    <p style="font-size: 11px; color: #475569; margin-bottom: 12px;">
+      Some preliminary ideas on how to measure adoption and success.
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Are teams using it?</h3>
+        <ul>
+          <li><strong>Adoption:</strong> how many BUs actually run on the shared lifecycle.</li>
+          <li><strong>Maturity:</strong> whether BU scores move up over time.</li>
+          <li><strong>Toolkit use:</strong> whether people open the templates and guides.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Is it getting faster?</h3>
+        <ul>
+          <li><strong>Cycle time:</strong> how long discovery to launch takes.</li>
+          <li><strong>Predictability:</strong> how close dates land to what was planned.</li>
+          <li><strong>Ramp-up:</strong> how quickly a new PM gets productive.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Is it better to work in?</h3>
+        <ul>
+          <li><strong>PM sentiment:</strong> whether the process feels clear and the tools usable.</li>
+          <li><strong>Duplication:</strong> fewer one-off processes and redundant licenses.</li>
+          <li><strong>Visibility:</strong> whether leadership can see the roadmap without asking.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 7</span>
+  </div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+  <div class="slide-header">
+    <p>Open questions</p>
+    <h2>Some things I'm not sure about</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card">
+        <h3>How much authority comes with this?</h3>
+        <p>Is there executive backing behind the change, or does adoption rest entirely on influence and relationships with BU leaders?</p>
+      </div>
+      <div class="card">
+        <h3>What's the budget?</h3>
+        <p>What's available for product ops tooling, and for the time it takes to build the templates and practice materials?</p>
+      </div>
+      <div class="card">
+        <h3>What's the team size?</h3>
+        <p>How big is the team going to be to get a PoC going?</p>
+      </div>
+      <div class="card">
+        <h3>Where does this role stop?</h3>
+        <p>What belongs to this role, versus product ops or program management inside the individual product teams?</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Product Enablement</span>
+    <span>Slide 8</span>
+  </div>
+</div>
+  </div>
+</div>
+
+<nav class="bar" id="bar" aria-label="Deck controls">
+  <button id="btnPrev" title="Previous (←)" aria-label="Previous slide">‹</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="btnNext" title="Next (→)" aria-label="Next slide">›</button>
+  <span class="sep"></span>
+  <button id="btnGrid" title="All slides (O)">Slides</button>
+  <button id="btnFull" title="Fullscreen (F)">Full</button>
+  <button id="btnPrint" title="Print / save as PDF (P)">PDF</button>
+</nav>
+
+<div class="hint">← → to navigate · O for all slides · F fullscreen</div>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var wraps = [];
+  var index = 0;
+
+  // Wrap each slide so present mode and grid mode can share one DOM.
+  slides.forEach(function (slide, i) {
+    var wrap = document.createElement('div');
+    wrap.className = 'slide-wrap';
+    wrap.setAttribute('data-num', i + 1);
+    slide.parentNode.insertBefore(wrap, slide);
+    wrap.appendChild(slide);
+    wrap.addEventListener('click', function () {
+      if (document.body.classList.contains('overview')) {
+        go(i);
+        setOverview(false);
+      }
+    });
+    wraps.push(wrap);
+  });
+
+  var total = wraps.length;
+  var count = document.getElementById('count');
+  var progress = document.getElementById('progress');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+  var edgePrev = document.getElementById('edgePrev');
+  var edgeNext = document.getElementById('edgeNext');
+
+  function fit() {
+    if (document.body.classList.contains('overview')) {
+      // Thumbnails: scale each slide down to its wrapper width.
+      wraps.forEach(function (wrap) {
+        var s = wrap.clientWidth / 960;
+        wrap.querySelector('.slide').style.transform = 'scale(' + s + ')';
+      });
+      return;
+    }
+    wraps.forEach(function (wrap) {
+      wrap.querySelector('.slide').style.transform = '';
+    });
+    var pad = window.innerWidth < 760 ? 16 : 48;
+    var s = Math.min(
+      (window.innerWidth - pad * 2) / 960,
+      (window.innerHeight - pad * 2) / 540
+    );
+    stage.style.transform = 'scale(' + Math.max(s, 0.1) + ')';
+  }
+
+  var leaveTimer;
+  var shown = -1;
+
+  function render() {
+    // Keep the slide we're leaving painted underneath the incoming one so the
+    // page background never shows through the crossfade.
+    clearTimeout(leaveTimer);
+    wraps.forEach(function (wrap) { wrap.classList.remove('is-leaving'); });
+
+    var outgoing = shown !== index && wraps[shown] ? wraps[shown] : null;
+    if (outgoing) { outgoing.classList.add('is-leaving'); }
+
+    wraps.forEach(function (wrap, i) {
+      wrap.classList.toggle('is-active', i === index);
+    });
+    shown = index;
+
+    if (outgoing) {
+      leaveTimer = setTimeout(function () {
+        outgoing.classList.remove('is-leaving');
+      }, 200);
+    }
+
+    count.textContent = (index + 1) + ' / ' + total;
+    progress.style.width = (total > 1 ? (index / (total - 1)) * 100 : 100) + '%';
+    var atStart = index === 0;
+    var atEnd = index === total - 1;
+    btnPrev.disabled = edgePrev.disabled = atStart;
+    btnNext.disabled = edgeNext.disabled = atEnd;
+  }
+
+  function go(i, push) {
+    var next = Math.max(0, Math.min(total - 1, i));
+    if (next === index && push !== true) { render(); return; }
+    index = next;
+    render();
+    var hash = '#' + (index + 1);
+    if (location.hash !== hash) {
+      history.replaceState(null, '', hash);
+    }
+    if (document.body.classList.contains('overview')) {
+      wraps[index].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function setOverview(on) {
+    document.body.classList.toggle('overview', on);
+    document.getElementById('btnGrid').textContent = on ? 'Present' : 'Slides';
+    fit();
+    if (on) {
+      wraps[index].scrollIntoView({ block: 'center' });
+    }
+  }
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  }
+
+  // Controls
+  btnPrev.onclick = edgePrev.onclick = function () { go(index - 1); };
+  btnNext.onclick = edgeNext.onclick = function () { go(index + 1); };
+  document.getElementById('btnGrid').onclick = function () {
+    setOverview(!document.body.classList.contains('overview'));
+  };
+  document.getElementById('btnFull').onclick = toggleFullscreen;
+  document.getElementById('btnPrint').onclick = function () {
+    var wasOverview = document.body.classList.contains('overview');
+    if (wasOverview) { setOverview(false); }
+    window.print();
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'n') {
+      go(index + 1); e.preventDefault();
+    } else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') {
+      go(index - 1); e.preventDefault();
+    } else if (k === 'Home') {
+      go(0); e.preventDefault();
+    } else if (k === 'End') {
+      go(total - 1); e.preventDefault();
+    } else if (k === 'o' || k === 'O') {
+      setOverview(!document.body.classList.contains('overview')); e.preventDefault();
+    } else if (k === 'Escape') {
+      if (document.body.classList.contains('overview')) { setOverview(false); e.preventDefault(); }
+    } else if (k === 'f' || k === 'F') {
+      toggleFullscreen(); e.preventDefault();
+    } else if (k === 'p' || k === 'P') {
+      window.print(); e.preventDefault();
+    } else if (/^[1-9]$/.test(k)) {
+      go(parseInt(k, 10) - 1); e.preventDefault();
+    }
+  });
+
+  // Touch swipe
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX;
+    ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (document.body.classList.contains('overview')) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      go(dx < 0 ? index + 1 : index - 1);
+    }
+  }, { passive: true });
+
+  // Auto-hide chrome when idle
+  var idleTimer;
+  function wake() {
+    document.body.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      document.body.classList.add('idle');
+    }, 2600);
+  }
+  ['mousemove', 'keydown', 'touchstart', 'click'].forEach(function (evt) {
+    document.addEventListener(evt, wake, { passive: true });
+  });
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function () {
+    var n = parseInt(location.hash.replace('#', ''), 10);
+    if (n) { go(n - 1, true); }
+  });
+
+  // Boot
+  var start = parseInt(location.hash.replace('#', ''), 10);
+  index = start ? Math.max(0, Math.min(total - 1, start - 1)) : 0;
+  render();
+  fit();
+  wake();
+})();
+</script>
+
+</body>
+</html>
