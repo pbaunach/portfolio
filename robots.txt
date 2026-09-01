@@ -1,7 +1,11 @@
+# Unlisted pages are kept out of search results with per-page
+# <meta name="robots" content="noindex"> (see _layouts/default.html), not with
+# Disallow rules here. Two reasons: this file is public, so listing paths
+# advertises exactly what we'd rather not surface, and a Disallow prevents
+# crawlers from ever reading the noindex tag, which can leave the URL indexed.
+
 User-agent: *
-Disallow: /aspireship-problem/
-Disallow: /frederick-marketing/
-Disallow: /deck/
+Disallow:
 
 # AI-focused crawlers
 User-agent: GPTBot
@@ -22,8 +26,8 @@ Disallow: /
 User-agent: PerplexityBot
 Disallow: /
 
-User-agent: Google-Extended
+User-agent: anthropic-ai
 Disallow: /
 
-User-agent: anthropic-ai
+User-agent: Google-Extended
 Disallow: /

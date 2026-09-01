@@ -262,9 +262,7 @@ h1, h2, h3, h4, h5, h6,
    slow third-party fetch never leaves an empty frame in the hero. */
 .gh-chart-mount {
   display: none;
-  margin-top: 2.75rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  margin-top: 3rem;
 }
 
 .gh-chart-mount.is-ready {
@@ -462,8 +460,7 @@ h1, h2, h3, h4, h5, h6,
 
 @media (max-width: 720px) {
   .gh-chart-mount {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: 2.25rem;
   }
 }
 
@@ -4018,6 +4015,30 @@ a.project-card {
   color: rgba(148, 163, 184, 0.5);
 }
 
+/* Lead-in label. The negative margin eats most of the flex gap so the colon
+   sits tight against the first item instead of reading as another list entry. */
+.orch-hero-meta-label {
+  margin-right: -0.4rem;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+/* Every card grid below is a <ul>, so it inherits the case-study list indent
+   and bottom margin. Reset them here, at a specificity that clears
+   `.case-study-body ul`, or each grid sits 1.35rem right of its own title. */
+.case-study-body .orch-stat-list,
+.case-study-body .orch-principles,
+.case-study-body .orch-reflect {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-study-body .orch-stat,
+.case-study-body .orch-principle,
+.case-study-body .orch-reflect-card {
+  margin-bottom: 0;
+}
+
 /* Shared full-bleed band + 1100px measure, matching the rest of the page. */
 .orch-problem,
 .orch-band {
@@ -4025,13 +4046,27 @@ a.project-card {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   box-sizing: border-box;
+}
+
+.orch-problem {
   padding: 3rem 1.5rem;
 }
 
-/* A hairline under every band, so consecutive sections read as separate
-   chapters rather than one long scroll. */
-.orch-band {
+/* The section header is its own full-bleed strip, so consecutive sections read
+   as separate chapters rather than one long scroll. Side padding lives on the
+   body rather than the band, so the strip can run edge to edge. */
+.orch-band-head {
+  padding: 1.15rem 1.5rem;
+  background: var(--muted);
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+
+/* Widened past the shared 1100px measure by exactly its own padding, so the
+   body's content edge lines up with the title inside the header strip. */
+.orch-band-inner.orch-band-body {
+  max-width: calc(1100px + 3rem);
+  padding: 2.5rem 1.5rem 3rem;
 }
 
 .orch-problem-inner,
@@ -4048,7 +4083,7 @@ a.project-card {
   letter-spacing: -0.015em;
   color: var(--foreground);
   text-align: left;
-  margin: 0 0 1.75rem;
+  margin: 0;
 }
 
 /* Problem: the question on the left, the evidence stacked on the right. The
@@ -4138,7 +4173,7 @@ a.project-card {
 }
 
 /* Guiding principles: dark cards, one accent colour each. */
-.orch-band--principles {
+.orch-band--principles .orch-band-body {
   padding-bottom: 3.5rem;
 }
 
@@ -4178,6 +4213,54 @@ a.project-card {
   font-size: 0.92rem;
   line-height: 1.5;
   color: rgba(226, 232, 240, 0.82);
+  margin: 0;
+}
+
+/* Closing CTA: its own quiet band so the button is not carrying the legacy
+   .subsection padding stack that used to sit around it. */
+.orch-band--cta {
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.orch-band--cta .orch-band-body {
+  padding-top: 2.25rem;
+  padding-bottom: 2.75rem;
+}
+
+/* What I'd Do Differently: bordered cards rather than the stat panel's shadow,
+   so a reflective closing section reads quieter than the evidence up top. */
+.orch-reflect {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.orch-reflect-card {
+  padding: 1.35rem 1.5rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.orch-reflect-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+
+.orch-reflect-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
   margin: 0;
 }
 
@@ -4241,7 +4324,8 @@ a.project-card {
     gap: 2rem;
   }
 
-  .orch-principles {
+  .orch-principles,
+  .orch-reflect {
     grid-template-columns: minmax(0, 1fr);
   }
 
