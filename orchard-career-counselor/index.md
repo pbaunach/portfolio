@@ -99,7 +99,7 @@ layout: case-study
         <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Desk.png' | relative_url }}" alt="Orchie chat on the left with a set of interdisciplinary career suggestions, and the desk open on the right showing the UX Engineer career card with pay, growth, security, skills, and a typical day.">
       </figure>
       <div class="orch-row-notes">
-        <p class="orch-note">Having the information a user interacts with appear on their desk serves two purposes. First it allows the student to explore deeper into the content without losing their place in the conversation. Second it provides the model with context for when the student asks a follow up question.</p>
+        <p class="orch-note">When information appears directly on the student’s desk, it solves two problems at once. First, students can dive deep into career data without losing their spot in the conversation. Second, it keeps the AI model locked onto the same context, so any follow-up question the student asks is instantly understood.</p>
       </div>
     </div>
   </div>
@@ -128,7 +128,7 @@ layout: case-study
         <img src="{{ '/assets/img/orchard-screens-v2/CRI-Simulation.png' | relative_url }}" alt="The internal CRI model simulator. Sliders on the left set the model constants, a synthetic week of student activity, a timeline since the last assessment, and the assessment baselines for each pillar. The right side shows the resulting total CRI of 217 out of 400, a radar chart of the eight pillars, and a per-dimension breakdown showing how much each activity lifted each score.">
       </figure>
       <div class="orch-row-notes">
-        <p class="orch-note">As we continued to expand and fine tune our CRI model we needed to build an internal tool for simulating how various actions would impact a student's CRI to make sure it was balanced.</p>
+        <p class="orch-note">As the CRI model grew more complex, we needed a way to make sure the scoring system stayed fair and balanced. We built an internal simulator to test how different student actions would shift their score, giving us the data needed to fine-tune the algorithm.</p>
       </div>
     </div>
 
@@ -137,7 +137,7 @@ layout: case-study
         <img src="{{ '/assets/img/orchard-screens-v2/Growth-Report.png' | relative_url }}" alt="The student-facing Growth Report in Orchard. A radar chart of the eight pillars sits next to a score of 203 out of 400, a line naming the strongest and weakest pillars, and a button to build an action plan with Orchie. Below, a card for each pillar shows its score, its definition, and a strength or growing tag.">
       </figure>
       <div class="orch-row-notes">
-        <p class="orch-note">The end result for the student is an easy to understand report that they can use to help continuously improve without guessing what they should do next.</p>
+        <p class="orch-note">In the end, students get a simple, straightforward report that takes the guesswork out of planning for the future. Instead of wondering what to do next, they get clear, actionable steps that keep them moving forward at their own pace.</p>
       </div>
     </div>
   </div>
