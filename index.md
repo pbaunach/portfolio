@@ -24,6 +24,7 @@ description: Founding Product Designer with 20 years of experience building 0-to
         </div>
       </dl>
     </div>
+    <div class="gh-chart-mount" data-username="pbaunach"></div>
   </div>
 </section>
 

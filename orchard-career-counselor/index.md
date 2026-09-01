@@ -3,203 +3,128 @@ title: "Orchard: The AI College and Career Readiness Platform"
 layout: case-study
 ---
 
-<section class="case-study-section case-study-intro case-study-intro--orchard-screens-hero case-study-intro--editorial">
+<section class="case-study-section case-study-intro case-study-intro--orchard-screens-hero case-study-intro--orchard-band">
   <div class="case-study-section-inner">
-    <div class="editorial-hero">
-      <h1 class="editorial-hero-title">
-        Orchard: the AI <span class="editorial-hero-accent">college</span> <span class="editorial-hero-accent editorial-hero-accent--amp">&amp;</span> <span class="editorial-hero-accent">career</span> readiness platform
-      </h1>
-      <p class="editorial-hero-meta">
-        <span>Head of Product &amp; Design</span>
-        <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
+    <div class="orch-hero">
+      <h1 class="orch-hero-title">Orchard</h1>
+      <p class="orch-hero-sub">Building an AI <span class="orch-hero-accent">College &amp; Career Readiness</span> Platform</p>
+      <p class="orch-hero-meta">
+        <span>Product Strategy &amp; Design</span>
+        <span class="orch-hero-meta-sep" aria-hidden="true">&middot;</span>
         <span>0-to-1</span>
-        <span class="editorial-hero-meta-sep" aria-hidden="true">|</span>
-        <span>2025&ndash;26</span>
+        <span class="orch-hero-meta-sep" aria-hidden="true">&middot;</span>
+        <span>Team Size 4</span>
       </p>
     </div>
   </div>
-  <figure class="case-study-hero-image">
-    <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Hero.png' | relative_url }}" alt="Orchard welcome desk with Orchie">
-  </figure>
 </section>
 
-<section class="case-study-thesis case-study-thesis--editorial case-study-thesis--question" aria-label="Project thesis">
-  <div class="case-study-thesis-inner">
-    <p class="case-study-thesis-eyebrow">The Impossible Problem</p>
-    <p class="case-study-thesis-quote">How do we prepare students for a labor market that <span class="thesis-accent">won't stop moving</span>?</p>
-  </div>
-</section>
-
-<section class="cs-problem-strip" aria-label="The problem in numbers">
-  <div class="cs-problem-strip-inner">
-    <p class="cs-problem-eyebrow">What students are up against</p>
-    <div class="cs-problem-grid">
-      <div class="cs-problem-item">
-        <span class="cs-problem-num">01</span>
-        <span class="cs-problem-lead">1:376</span>
-        <span class="cs-problem-text">Counselor to student ratio in American public schools</span>
-        <span class="cs-problem-source">American School Counselor Association</span>
-      </div>
-      <div class="cs-problem-item">
-        <span class="cs-problem-num">02</span>
-        <span class="cs-problem-lead">13&times;</span>
-        <span class="cs-problem-text">more likely to score 1300+ on the SAT if your family is in the top 1% rather than the bottom 20%</span>
-        <span class="cs-problem-source">Opportunity Insights, Harvard</span>
-      </div>
-      <div class="cs-problem-item">
-        <span class="cs-problem-num">03</span>
-        <span class="cs-problem-lead">72%</span>
-        <span class="cs-problem-text">of graduates feel only moderately, slightly, or not at all prepared for life after high school</span>
-        <span class="cs-problem-source">National readiness surveys</span>
-      </div>
+<section class="orch-problem" aria-label="The problem">
+  <div class="orch-problem-inner">
+    <div class="orch-problem-copy">
+      <h2 class="orch-problem-question">How do we prepare students for a labor market that won&rsquo;t stop moving?</h2>
+      <p class="orch-problem-body">High schoolers are expected to pick a life path before they're even allowed to rent a car. Meanwhile, career counselors are so outnumbered that most students only get a five-minute check-in once a year. The result? Kids don’t feel prepared so they default to "safe" or "generic" majors like Business or Marketing because they simply don't have a guiding voice to show them anything else.</p>
     </div>
+    <ul class="orch-stat-list">
+      <li class="orch-stat">
+        <span class="orch-stat-lead">1:376</span>
+        <div class="orch-stat-body">
+          <p class="orch-stat-text">Counselor to student ratio in American public schools</p>
+          <p class="orch-stat-source">American School Counselor Association</p>
+        </div>
+      </li>
+      <li class="orch-stat">
+        <span class="orch-stat-lead">13x</span>
+        <div class="orch-stat-body">
+          <p class="orch-stat-text">More likely to score 1300+ on the SAT if your family is in the top 1% rather than the bottom 20%</p>
+          <p class="orch-stat-source">Opportunity Insights, Harvard</p>
+        </div>
+      </li>
+      <li class="orch-stat">
+        <span class="orch-stat-lead">72%</span>
+        <div class="orch-stat-body">
+          <p class="orch-stat-text">Of graduates feel only moderately, slightly, or not at all prepared for life after high school</p>
+          <p class="orch-stat-source">YouScience Post-Graduation Readiness Report</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="case-study-thesis case-study-thesis--editorial case-study-thesis--solution" aria-label="Our solution">
-  <div class="case-study-thesis-inner">
-    <p class="case-study-thesis-eyebrow">Our Solution</p>
-    <div class="thesis-cards">
-      <a href="#orchie" class="thesis-card">
-        <span class="thesis-card-num">01</span>
-        <h3 class="thesis-card-title">Orchie</h3>
-        <p class="thesis-card-desc">Our AI Career Counselor. Helping students get ready for life after high school.</p>
-      </a>
-      <a href="#cri" class="thesis-card">
-        <span class="thesis-card-num">02</span>
-        <h3 class="thesis-card-title">Career Readiness Index</h3>
-        <p class="thesis-card-desc">A personalized map of where students shine and where they have room to grow, their progress made visible.</p>
-      </a>
-      <a href="#philosophy" class="thesis-card">
-        <span class="thesis-card-num">03</span>
-        <h3 class="thesis-card-title">Explore, Plan, Learn</h3>
-        <p class="thesis-card-desc">Explore the possibilities, plan out the goals, and learn the real-world skills to get there.</p>
-      </a>
-    </div>
+<section class="orch-band orch-band--principles" aria-label="Guiding principles">
+  <div class="orch-band-inner">
+    <h2 class="orch-section-title">Guiding Principles</h2>
+    <ul class="orch-principles">
+      <li class="orch-principle">
+        <h3 class="orch-principle-title orch-principle-title--cyan">The Student is the Hero</h3>
+        <p class="orch-principle-desc">We design for the student&rsquo;s unique journey, perspective and voice.</p>
+      </li>
+      <li class="orch-principle">
+        <h3 class="orch-principle-title orch-principle-title--green">Nudge, Don&rsquo;t Do</h3>
+        <p class="orch-principle-desc">Orchie is a coach, not a crutch. We nudge and empower students to find the answers, but they must do the heavy lifting.</p>
+      </li>
+      <li class="orch-principle">
+        <h3 class="orch-principle-title orch-principle-title--pink">Purpose in Every Action</h3>
+        <p class="orch-principle-desc">Every decision we make, and every action the app takes, must contribute directly to student outcomes.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="case-study-act" id="orchie" aria-label="Section 1">
-  <div class="case-study-act-inner">
-    <div class="case-study-act-number">01</div>
-    <div class="case-study-act-content">
-      <h2 class="case-study-act-title">Orchie</h2>
-      <p class="case-study-act-intro">Always guiding, never driving. We designed Orchie to be the ultimate College and Career counselor for high schoolers, offering timely nudges, tailored advice, and steady encouragement while keeping the student at the absolute center of their own growth. (And no, Orchie won't write their college essays.)</p>
-    </div>
-  </div>
-</section>
+<section class="orch-band" id="orchie" aria-label="How a question moves through Orchie">
+  <div class="orch-band-inner">
+    <h2 class="orch-section-title">How a question moves through Orchie</h2>
 
-<section class="major-section">
-  <div class="major-section-inner major-section-inner--wide">
-    <div class="subsection">
-      <h3 class="case-study-sub-mode">How a question moves through Orchie</h3>
-      <p>Every message runs the same path: an intent and safety screen first, then either a skill or a guardrail. All four skills read the desk and the chat history before they answer, so a student never has to repeat themselves. The guardrail lane catches everything else, including the conversations Orchie shouldn't be having at all.</p>
-      <figure class="cs-callout-figure cs-callout-figure--diagram">
+    <div class="orch-row">
+      <figure class="cs-callout-figure orch-row-media orch-row-media--framed">
         <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Flow.png' | relative_url }}" alt="Flow diagram of how Orchie handles a student question. Education and career data sources (College Scorecard, IPEDS, proprietary data, O*NET, and BLS) feed a cited data layer. A student question, or an explicitly invoked slash command, passes through an intent and safety screen. An unclear question gets a clarifying question back. Everything else routes to one of four skills: Conversation, /explore, /compare, or /plan, each of which reads the desk and chat history first. /explore checks with sources and either produces a career list with citations or tells the student there's no data on that career. Anything the screen flags drops into a guardrail lane covering off-topic questions, distress signals, and requests for a verdict. Every path either loops back into the conversation or ends with the session saved.">
-        <figcaption class="cs-figure-caption">The conversational Orchie flow. Click to enlarge.</figcaption>
       </figure>
-
-      <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/orchard-screens-v2/orchie-screens/Orchie-01.png' | relative_url }}" alt="Orchie screen 1">
-          <span class="cs-callout-marker" style="--x: 20%; --y: 14%;">1</span>
-          <span class="cs-callout-marker" style="--x: 74%; --y: 19%;">2</span>
-          <span class="cs-callout-marker" style="--x: 32%; --y: 89%;">3</span>
-        </figure>
-        <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Orchie will always try and respond with an answer and a next step action for the student to keep their momentum going. Having Orchie respond with an open ended question often leaves the student stunned and unsure of what to do next.</li>
-          <li><span class="cs-callout-num">2</span> The desk stays open right next to Orchie. Whatever the student has pinned gets prioritized in every answer, because that's almost always what they actually wanted to talk about.</li>
-          <li><span class="cs-callout-num">3</span> Typing @ pulls up a saved career, typing / lists commands. Those patterns show up everywhere in Orchard, so the chat doubles as a safe place to practice the AI fluency they'll need at school or work.</li>
-        </ol>
+      <div class="orch-row-notes">
+        <p class="orch-note">Every message runs the same path, an intent and safety screen first, then either a skill or a guardrail. All four skills read the desk and the chat history before they answer, so a student never has to repeat themselves. The guardrail lane catches everything else, including the conversations Orchie shouldn't be having at all.</p>
+        <p class="orch-note">Orchie will always try and respond with an answer and a next step action for the student to keep their momentum going. Having Orchie respond with an open ended question often leaves the student stunned and unsure of what to do next.</p>
       </div>
+    </div>
 
-      <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/orchard-screens-v2/orchie-screens/Orchie-02.png' | relative_url }}" alt="Orchie screen 2">
-          <span class="cs-callout-marker" style="--x: 22%; --y: 52%;">1</span>
-          <span class="cs-callout-marker" style="--x: 63%; --y: 70%;">2</span>
-          <span class="cs-callout-marker" style="--x: 87%; --y: 52%;">3</span>
-        </figure>
-        <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> When a teacher sits down to write a recommendation, the best thing they can have is concrete examples. So Orchie drafts a starting point from things the student actually did, and the student edits it before sending.</li>
-          <li><span class="cs-callout-num">2</span> Every claim links back to where it came from. A journal entry from March, a specific plan, a quiz result. If something doesn't sound like the student, they can see why and rewrite it.</li>
-          <li><span class="cs-callout-num">3</span> Orchie writes the first pass. The student edits anything that doesn't sound like them. Nothing leaves the desk without that step.</li>
-        </ol>
+    <div class="orch-row">
+      <figure class="cs-callout-figure orch-row-media">
+        <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Desk.png' | relative_url }}" alt="Orchie chat on the left with a set of interdisciplinary career suggestions, and the desk open on the right showing the UX Engineer career card with pay, growth, security, skills, and a typical day.">
+      </figure>
+      <div class="orch-row-notes">
+        <p class="orch-note">Having the information a user interacts with appear on their desk serves two purposes. First it allows the student to explore deeper into the content without losing their place in the conversation. Second it provides the model with context for when the student asks a follow up question.</p>
       </div>
-
-      <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/orchard-screens-v2/orchie-screens/Orchie-03.png' | relative_url }}" alt="Orchie screen 3">
-          <span class="cs-callout-marker" style="--x: 84%; --y: 10%;">1</span>
-          <span class="cs-callout-marker" style="--x: 39%; --y: 78%;">2</span>
-          <span class="cs-callout-marker" style="--x: 77%; --y: 69%;">3</span>
-        </figure>
-        <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Rubric scores out of 10, not letter grades. A C+ feels like a verdict. A 7 feels like something you can move.</li>
-          <li><span class="cs-callout-num">2</span> Feedback sits underneath the draft, not floating on top of it. The essay is the work, the notes are a second opinion. The student decides what to use.</li>
-          <li><span class="cs-callout-num">3</span> Orchie scores, asks questions, and points at the paragraphs that need work. There's no "auto-improve" button on purpose. The voice in a college essay has to be the student's, or the whole piece collapses.</li>
-        </ol>
-      </div>
-
     </div>
   </div>
 </section>
 
-<section class="case-study-act" id="cri" aria-label="Section 2">
-  <div class="case-study-act-inner">
-    <div class="case-study-act-number">02</div>
-    <div class="case-study-act-content">
-      <h2 class="case-study-act-title">The Career Readiness Index (CRI)</h2>
-      <p class="case-study-act-intro">A personalized map that shows students exactly where they shine and where they have room to grow. This score feeds right into their Growth Report, giving them a clear look at their progress over time. Orchie uses this data to point out the best next steps, cheering them on as they take on new challenges and level up their score.</p>
+<section class="orch-band" id="cri" aria-label="Designing and testing the Career Readiness Index">
+  <div class="orch-band-inner">
+    <h2 class="orch-section-title">Designing and Testing the Career Readiness Index (CRI)</h2>
+
+    <div class="orch-row">
+      <figure class="cs-callout-figure orch-row-media orch-row-media--framed">
+        <img src="{{ '/assets/img/orchard-screens-v2/CRI-Draft.png' | relative_url }}" alt="Three-panel working artboard for the CRI. On the left, a levelled rubric covering Self Awareness, Trajectory Knowledge, Professional Agency, Network Literacy, and Adaptive Goal Setting, with a plain-language description of what Level 1, 3, and 5 look like. In the middle, the eight pillars those criteria distilled into, each with an icon and a one-line definition: Self Awareness, Exploration, Planning, Focus, Goal Setting, Execution, Skills, and Experience. On the right, the eight-sided radar chart that plots a student's score across those pillars.">
+      </figure>
+      <div class="orch-row-notes">
+        <p class="orch-note">The CRI acts like a personal credit score for career readiness. Instead of measuring static test scores or grade compliance, it tracks a student's real-world growth across 8 core dimensions.</p>
+        <p class="orch-note">We started with a basic rubric to ground abstract ideas into observable actions. From there we distilled them into 8 distinct pillars along with a visual that allows students, counselors and parents an instant snapshot of their growth.</p>
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="major-section">
-  <div class="major-section-inner major-section-inner--wide">
-    <div class="subsection">
-      <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/orchard-screens-v2/cri-screens/CRI-01.png' | relative_url }}" alt="CRI screen 1">
-          <span class="cs-callout-marker" style="--x: 51%; --y: 28%;">1</span>
-          <span class="cs-callout-marker" style="--x: 23%; --y: 26%;">2</span>
-          <span class="cs-callout-marker" style="--x: 49%; --y: 73%;">3</span>
-          <span class="cs-callout-marker" style="--x: 43%; --y: 11%;">4</span>
-        </figure>
-        <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> A score across eight pillars we think make a student career-ready. Every nudge Orchie offers traces back to this number. We needed something measurable so a student could see real progress.</li>
-          <li><span class="cs-callout-num">2</span> A spider graph instead of bars. The shape tells the story before any of the numbers do. A student can see strengths and growth areas in one glance.</li>
-          <li><span class="cs-callout-num">3</span> Every pillar is clickable. Tap one to see what it means and the next concrete action that'll move it. The dashboard never just shows a number without showing what to do about it.</li>
-          <li><span class="cs-callout-num">4</span> We call this view the "Growth Report" not the "CRI". The acronym feels like a test result. A growth report feels like something you can work on.</li>
-        </ol>
+    <div class="orch-row">
+      <figure class="cs-callout-figure orch-row-media">
+        <img src="{{ '/assets/img/orchard-screens-v2/CRI-Simulation.png' | relative_url }}" alt="The internal CRI model simulator. Sliders on the left set the model constants, a synthetic week of student activity, a timeline since the last assessment, and the assessment baselines for each pillar. The right side shows the resulting total CRI of 217 out of 400, a radar chart of the eight pillars, and a per-dimension breakdown showing how much each activity lifted each score.">
+      </figure>
+      <div class="orch-row-notes">
+        <p class="orch-note">As we continued to expand and fine tune our CRI model we needed to build an internal tool for simulating how various actions would impact a student's CRI to make sure it was balanced.</p>
       </div>
+    </div>
 
-      <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/orchard-screens-v2/cri-screens/CRI-02.png' | relative_url }}" alt="CRI screen 2">
-          <span class="cs-callout-marker" style="--x: 77%; --y: 19%;">1</span>
-          <span class="cs-callout-marker" style="--x: 80%; --y: 60%;">2</span>
-        </figure>
-        <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> Every section in Orchard surfaces which pillars it actually moves on the Growth Report. No guessing whether an activity counts.</li>
-          <li><span class="cs-callout-num">2</span> A trail because checklists reward what's done. The next milestone stays visible right next to the completed ones, which is what actually pulls a student to keep going.</li>
-        </ol>
-      </div>
-
-      <div class="case-study-callout-row">
-        <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/orchard-screens-v2/cri-screens/CRI-03.png' | relative_url }}" alt="CRI screen 3">
-          <span class="cs-callout-marker" style="--x: 60%; --y: 17%;">1</span>
-          <span class="cs-callout-marker" style="--x: 50%; --y: 50%;">2</span>
-          <span class="cs-callout-marker" style="--x: 66%; --y: 62%;">3</span>
-          <span class="cs-callout-marker" style="--x: 70%; --y: 41%;">4</span>
-        </figure>
-        <ol class="cs-callout-notes-side">
-          <li><span class="cs-callout-num">1</span> The weekly summary opens with what the student accomplished. Leading with what they missed would shame them out of even opening it.</li>
-          <li><span class="cs-callout-num">2</span> Breaking the +38 down by pillar so the student can see which activities are doing the work. A single number tells you something moved. The breakdown tells you what to do more of.</li>
-          <li><span class="cs-callout-num">3</span> Every summary ends with a next step, picked to push the pillars that already moved this week. Reflection without a next action would just sit there.</li>
-          <li><span class="cs-callout-num">4</span> A concept block for three personal lines Orchie would write from the student's actual journal and pillar moves. Showing the intent in the design even when the local model can't yet write to that bar.</li>
-        </ol>
+    <div class="orch-row">
+      <figure class="cs-callout-figure orch-row-media">
+        <img src="{{ '/assets/img/orchard-screens-v2/Growth-Report.png' | relative_url }}" alt="The student-facing Growth Report in Orchard. A radar chart of the eight pillars sits next to a score of 203 out of 400, a line naming the strongest and weakest pillars, and a button to build an action plan with Orchie. Below, a card for each pillar shows its score, its definition, and a strength or growing tag.">
+      </figure>
+      <div class="orch-row-notes">
+        <p class="orch-note">The end result for the student is an easy to understand report that they can use to help continuously improve without guessing what they should do next.</p>
       </div>
     </div>
   </div>

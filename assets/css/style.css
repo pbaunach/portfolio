@@ -258,6 +258,224 @@ h1, h2, h3, h4, h5, h6,
   text-decoration: underline;
 }
 
+/* Hero contributions heatmap. Hidden until the JS has data, so a failed or
+   slow third-party fetch never leaves an empty frame in the hero. */
+.gh-chart-mount {
+  display: none;
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.gh-chart-mount.is-ready {
+  display: block;
+}
+
+.gh-chart {
+  --gh-cell: 13px;
+  --gh-gap: 3px;
+  --gh-gutter: 2.1rem;
+  position: relative;
+}
+
+.gh-chart-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.gh-chart-total {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.9);
+  margin: 0;
+}
+
+.gh-chart-link {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7fb3e8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.gh-chart-link:hover {
+  text-decoration: underline;
+}
+
+/* The plot is wider than a narrow viewport, so it scrolls on its own rather
+   than forcing the page sideways. */
+.gh-chart-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}
+
+/* Shrink-wrap the plot to the grid so the legend right-aligns to the last
+   column instead of to the wider hero column. Wider than a small viewport, at
+   which point the scroll container above takes over. */
+.gh-chart-plot {
+  width: max-content;
+}
+
+.gh-chart-months,
+.gh-chart-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(var(--gh-weeks), var(--gh-cell));
+  gap: var(--gh-gap);
+}
+
+.gh-chart-months {
+  margin-left: var(--gh-gutter);
+  margin-bottom: 0.4rem;
+  height: 0.9rem;
+}
+
+.gh-chart-month {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(148, 163, 184, 0.75);
+  white-space: nowrap;
+  grid-row: 1;
+}
+
+.gh-chart-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.gh-chart-days {
+  display: grid;
+  grid-template-rows: repeat(7, var(--gh-cell));
+  gap: var(--gh-gap);
+  width: var(--gh-gutter);
+  flex: none;
+}
+
+.gh-chart-day {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: var(--gh-cell);
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.gh-chart-grid {
+  grid-template-rows: repeat(7, var(--gh-cell));
+  grid-auto-columns: var(--gh-cell);
+}
+
+.gh-chart-cell {
+  width: var(--gh-cell);
+  height: var(--gh-cell);
+  border-radius: 2px;
+  background-color: var(--gh-level-0);
+  outline: 1px solid rgba(148, 163, 184, 0.06);
+  outline-offset: -1px;
+}
+
+.gh-chart-cell--pad {
+  background-color: transparent;
+  outline: none;
+}
+
+/* Ramp runs into the hero's own accent blue so the heatmap reads as part of
+   the page rather than a GitHub widget dropped onto it. */
+.gh-chart {
+  --gh-level-0: rgba(148, 163, 184, 0.11);
+  --gh-level-1: #1c3a5c;
+  --gh-level-2: #2d5f96;
+  --gh-level-3: #4a8bc9;
+  --gh-level-4: #7fb3e8;
+}
+
+.gh-chart-cell[data-level="1"] { background-color: var(--gh-level-1); }
+.gh-chart-cell[data-level="2"] { background-color: var(--gh-level-2); }
+.gh-chart-cell[data-level="3"] { background-color: var(--gh-level-3); }
+.gh-chart-cell[data-level="4"] { background-color: var(--gh-level-4); }
+
+.gh-chart-grid .gh-chart-cell:not(.gh-chart-cell--pad):hover {
+  outline: 1px solid rgba(226, 232, 240, 0.85);
+  outline-offset: 0;
+}
+
+.gh-chart-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gh-gap);
+  margin-top: 0.7rem;
+}
+
+.gh-chart-legend-text {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.gh-chart-legend-text:first-child {
+  margin-right: 0.15rem;
+}
+
+.gh-chart-legend-text:last-child {
+  margin-left: 0.15rem;
+}
+
+.gh-chart-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  background-color: #f5f8fa;
+  color: #0b1220;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.gh-chart-tip.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gh-chart-tip { transition: none; }
+}
+
+@media (max-width: 720px) {
+  .gh-chart-mount {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Below this the total and the handle collide on one line, so stack them. */
+@media (max-width: 560px) {
+  .gh-chart-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
 @media (max-width: 720px) {
   .home-hero-body {
     grid-template-columns: minmax(0, 1fr);
@@ -3727,5 +3945,319 @@ a.project-card {
   .cs-problem-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Orchard case study, top of page
+   Hero band, problem panel, guiding principles, and the media-left /
+   notes-right rows that carry the annotated screens. Everything here is
+   prefixed .orch- and lives outside .case-study-section-inner /
+   .major-section-inner, so the shared case-study typography rules (centred
+   h2s, 720px measure) do not apply and nothing leaks onto other pages.
+   ========================================================================== */
+
+/* Hero band: the same dark grid as the home hero and the artifacts pages
+   (/design-system/, /brand-guidelines/), painted straight onto the section
+   because this hero has no parallax layers. */
+.case-study-intro--orchard-band {
+  padding: 3.25rem 1.5rem 3rem;
+  text-align: center;
+  background-color: #0b1220;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.case-study-intro--orchard-band .case-study-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.case-study-intro--orchard-band .orch-hero-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.1rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #f5f8fa;
+  margin: 0 !important;
+}
+
+.case-study-intro--orchard-band .orch-hero-sub {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.05rem, 2.1vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #f5f8fa;
+  margin: 0.85rem 0 0 !important;
+  text-wrap: balance;
+}
+
+.orch-hero-accent {
+  color: #2ed6f2;
+}
+
+.case-study-intro--orchard-band .orch-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(203, 213, 225, 0.82);
+  margin: 1.15rem 0 0 !important;
+}
+
+.orch-hero-meta-sep {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+/* Shared full-bleed band + 1100px measure, matching the rest of the page. */
+.orch-problem,
+.orch-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+  padding: 3rem 1.5rem;
+}
+
+/* A hairline under every band, so consecutive sections read as separate
+   chapters rather than one long scroll. */
+.orch-band {
+  border-bottom: 1px solid var(--border);
+}
+
+.orch-problem-inner,
+.orch-band-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.orch-section-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  text-align: left;
+  margin: 0 0 1.75rem;
+}
+
+/* Problem: the question on the left, the evidence stacked on the right. The
+   copy column is vertically centred against the taller stat stack. */
+.orch-problem {
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.orch-problem-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.orch-problem-question {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  text-align: left;
+  margin: 0 0 0.85rem;
+}
+
+.orch-problem-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+.orch-stat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.orch-stat {
+  display: grid;
+  grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.35rem 1.6rem;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+}
+
+.orch-stat-lead {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  text-align: center;
+}
+
+.orch-stat-text {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+/* Attribution sits under its claim, flush right, so the eye reads number →
+   claim → source without the sources forming their own column. */
+.orch-stat-source {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  text-align: right;
+}
+
+.orch-stat-source::before {
+  content: '- ';
+}
+
+/* Guiding principles: dark cards, one accent colour each. */
+.orch-band--principles {
+  padding-bottom: 3.5rem;
+}
+
+.orch-principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.orch-principle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.6rem 1.75rem 1.75rem;
+  background: #1d3a52;
+  border-radius: var(--radius-lg);
+}
+
+.orch-principle-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.orch-principle-title--cyan { color: #2ed6f2; }
+.orch-principle-title--green { color: #3fdc4a; }
+.orch-principle-title--pink { color: #f45fa5; }
+
+.orch-principle-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.82);
+  margin: 0;
+}
+
+/* Annotated row: the artwork carries the width, the notes sit beside it in a
+   narrow column so a long diagram and a short screenshot share one rhythm. */
+.orch-row {
+  display: grid;
+  grid-template-columns: minmax(0, 3.1fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.orch-row + .orch-row {
+  margin-top: 1.75rem;
+}
+
+.orch-row-media {
+  margin: 0;
+}
+
+.orch-row-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  cursor: zoom-in;
+}
+
+/* The flow diagram is a light drawing on white, so it needs a frame and inner
+   padding to read as an object. The product screenshots do not. */
+.orch-row-media--framed {
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.orch-row-media--framed img {
+  border-radius: 0;
+}
+
+.orch-row-notes {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.orch-note {
+  margin: 0;
+  padding: 1.15rem 1.25rem;
+  background: var(--muted);
+  border-radius: var(--radius-lg);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+}
+
+@media (max-width: 900px) {
+  .orch-problem-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .orch-principles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .orch-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .orch-stat {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .orch-stat-lead {
+    text-align: left;
   }
 }
