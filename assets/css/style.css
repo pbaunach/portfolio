@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6,
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   margin-bottom: 0;
-  padding: 4.5rem 0 3.25rem;
+  padding: 2.75rem 0 3.25rem;
   box-sizing: border-box;
   background-color: #0b1220;
   background-image:
@@ -194,21 +194,22 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .home-hero-body {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 2.5rem 4rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 2.5rem 3rem;
   align-items: start;
   margin-top: 2.75rem;
 }
 
 .home-hero .intro-copy {
   font-family: 'Archivo', system-ui, sans-serif;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
   font-weight: 400;
-  color: rgba(226, 232, 240, 0.85);
+  color: #dde5ef;
   margin: 0;
-  max-width: 46ch;
+  max-width: 42ch;
   text-shadow: none;
 }
 
@@ -219,33 +220,36 @@ h1, h2, h3, h4, h5, h6,
   flex-direction: column;
 }
 
+/* Label stacked over its value rather than sitting in a 9.5rem column. Closes
+   the gap between a label and the thing it labels, and gives the values back
+   the width they were losing to it. */
 .hero-meta-row {
   display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.3rem;
   align-items: start;
-  padding: 0.85rem 0;
+  padding: 0 0 1.15rem;
 }
 
-.hero-meta-row:first-child {
-  padding-top: 0;
+.hero-meta-row:last-child {
+  padding-bottom: 0;
 }
 
 .hero-meta-row dt {
   font-family: 'Archivo', system-ui, sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.9);
+  color: #8fa7c4;
   line-height: 1.4;
 }
 
 .hero-meta-row dd {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.4;
-  color: rgba(226, 232, 240, 0.85);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #dde5ef;
 }
 
 .hero-meta-link {
@@ -581,6 +585,12 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+}
+
+/* The hero already carries 3.25rem of its own bottom padding, so the standard
+   4rem section gap stacks into a canyon under it. */
+.home-hero + .project-grid {
+  margin-top: 2.25rem;
 }
 
 .home-hero .project-grid {
@@ -3954,6 +3964,11 @@ a.project-card {
    h2s, 720px measure) do not apply and nothing leaks onto other pages.
    ========================================================================== */
 
+/* One ink for every dark card and the reflection headings on this page. */
+.case-study--orchard {
+  --orchard-ink: #0c2235;
+}
+
 /* Hero band: the same dark grid as the home hero and the artifacts pages
    (/design-system/, /brand-guidelines/), painted straight onto the section
    because this hero has no parallax layers. */
@@ -4146,7 +4161,7 @@ a.project-card {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--foreground);
+  color: var(--orchard-ink);
   text-align: center;
 }
 
@@ -4191,7 +4206,7 @@ a.project-card {
   flex-direction: column;
   gap: 0.85rem;
   padding: 1.6rem 1.75rem 1.75rem;
-  background: #1d3a52;
+  background: var(--orchard-ink);
   border-radius: var(--radius-lg);
 }
 
@@ -4252,7 +4267,7 @@ a.project-card {
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  color: var(--foreground);
+  color: var(--orchard-ink);
   margin: 0 0 0.6rem;
   text-wrap: balance;
 }
