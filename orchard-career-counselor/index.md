@@ -214,37 +214,6 @@ layout: case-study
   </div>
 </section>
 
-<section class="csb-band" id="pilot" aria-label="Where it stands">
-  <div class="csb-band-head">
-    <div class="csb-band-inner">
-      <h2 class="csb-section-title">Where It Stands</h2>
-    </div>
-  </div>
-  <div class="csb-band-inner csb-band-body">
-    <p class="csb-band-lead">Three major versions of Orchard exist. The one now going into classrooms is the third, built after research showed the video-first library was a nice-to-have rather than a driver of engagement. These are validation numbers, not outcome numbers. The pilot is the first cohort large enough to test whether the eight pillars measure anything real.</p>
-    <ul class="csb-stat-list">
-      <li class="csb-stat">
-        <span class="csb-stat-lead">4</span>
-        <div class="csb-stat-body">
-          <p class="csb-stat-text">Schools awarded a Curriki AI grant, which they applied for specifically to bring Orchard in. Outside review, outside funding, and demand nobody here had to sell.</p>
-        </div>
-      </li>
-      <li class="csb-stat">
-        <span class="csb-stat-lead">6</span>
-        <div class="csb-stat-body">
-          <p class="csb-stat-text">Pilot schools kicking off: two public, one charter, three private. The counselor economics differ sharply across those three, so holding up in all of them says Orchard isn't only a stand-in for a counselor a school can't afford.</p>
-        </div>
-      </li>
-      <li class="csb-stat">
-        <span class="csb-stat-lead">2,000+</span>
-        <div class="csb-stat-body">
-          <p class="csb-stat-text">Students in the pilot by the end of September 2026. That is the size of the test, not the result.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
 <section id="prototype" class="csb-band csb-band--cta" aria-label="Prototype">
   <div class="csb-band-inner csb-band-body">
     <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" target="_blank" rel="noopener noreferrer" class="button button-primary">View the Prototype</a>
