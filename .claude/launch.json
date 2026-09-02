@@ -4,14 +4,37 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "C:\\Ruby34-x64\\bin\\bundle.bat",
-      "runtimeArgs": ["exec", "jekyll", "serve", "--livereload"],
+      "runtimeArgs": [
+        "exec",
+        "jekyll",
+        "serve",
+        "--livereload"
+      ],
       "port": 4000
     },
     {
       "name": "orchard-deck",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4011", "--directory", "C:\\Cursor Apps\\Portfolio\\orchard-walk-through"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4011",
+        "--directory",
+        "C:\\Cursor Apps\\Portfolio\\orchard-walk-through"
+      ],
       "port": 4011
+    },
+    {
+      "name": "orchard-design-problem",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4012",
+        "--directory",
+        "C:\\Cursor Apps\\Portfolio\\orchard-design-problem"
+      ],
+      "port": 4012
     }
   ]
 }

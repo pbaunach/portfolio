@@ -32,4 +32,6 @@ exclude:
   # Raw source for /frederick-automations/ (originals + the internal Denver
   # research PDF). Processed copies live in assets/img/frederick-automations/.
   - frederick-marketing-automation
+  # Session handoff notes for the Orchard portfolio review. Never publish.
+  - _handoff
 

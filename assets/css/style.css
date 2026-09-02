@@ -3959,20 +3959,20 @@ a.project-card {
    Orchard case study, top of page
    Hero band, problem panel, guiding principles, and the media-left /
    notes-right rows that carry the annotated screens. Everything here is
-   prefixed .orch- and lives outside .case-study-section-inner /
+   prefixed .csb- and lives outside .case-study-section-inner /
    .major-section-inner, so the shared case-study typography rules (centred
    h2s, 720px measure) do not apply and nothing leaks onto other pages.
    ========================================================================== */
 
-/* One ink for every dark card and the reflection headings on this page. */
-.case-study--orchard {
-  --orchard-ink: #0c2235;
+/* One ink for every dark card and reflection heading in the band system. */
+.case-study-body {
+  --csb-ink: #0c2235;
 }
 
 /* Hero band: the same dark grid as the home hero and the artifacts pages
    (/design-system/, /brand-guidelines/), painted straight onto the section
    because this hero has no parallax layers. */
-.case-study-intro--orchard-band {
+.case-study-intro--csb-hero {
   padding: 3.25rem 1.5rem 3rem;
   text-align: center;
   background-color: #0b1220;
@@ -3983,12 +3983,12 @@ a.project-card {
   border-bottom: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-.case-study-intro--orchard-band .case-study-section-inner {
+.case-study-intro--csb-hero .case-study-section-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.case-study-intro--orchard-band .orch-hero-title {
+.case-study-intro--csb-hero .csb-hero-title {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(2.6rem, 6vw, 4.1rem);
   font-weight: 700;
@@ -3998,7 +3998,7 @@ a.project-card {
   margin: 0 !important;
 }
 
-.case-study-intro--orchard-band .orch-hero-sub {
+.case-study-intro--csb-hero .csb-hero-sub {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(1.05rem, 2.1vw, 1.5rem);
   font-weight: 600;
@@ -4009,11 +4009,11 @@ a.project-card {
   text-wrap: balance;
 }
 
-.orch-hero-accent {
+.csb-hero-accent {
   color: #2ed6f2;
 }
 
-.case-study-intro--orchard-band .orch-hero-meta {
+.case-study-intro--csb-hero .csb-hero-meta {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4026,13 +4026,13 @@ a.project-card {
   margin: 1.15rem 0 0 !important;
 }
 
-.orch-hero-meta-sep {
+.csb-hero-meta-sep {
   color: rgba(148, 163, 184, 0.5);
 }
 
 /* Lead-in label. The negative margin eats most of the flex gap so the colon
    sits tight against the first item instead of reading as another list entry. */
-.orch-hero-meta-label {
+.csb-hero-meta-label {
   margin-right: -0.4rem;
   color: rgba(148, 163, 184, 0.75);
 }
@@ -4040,37 +4040,37 @@ a.project-card {
 /* Every card grid below is a <ul>, so it inherits the case-study list indent
    and bottom margin. Reset them here, at a specificity that clears
    `.case-study-body ul`, or each grid sits 1.35rem right of its own title. */
-.case-study-body .orch-stat-list,
-.case-study-body .orch-principles,
-.case-study-body .orch-reflect {
+.case-study-body .csb-stat-list,
+.case-study-body .csb-principles,
+.case-study-body .csb-reflect {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.case-study-body .orch-stat,
-.case-study-body .orch-principle,
-.case-study-body .orch-reflect-card {
+.case-study-body .csb-stat,
+.case-study-body .csb-principle,
+.case-study-body .csb-reflect-card {
   margin-bottom: 0;
 }
 
 /* Shared full-bleed band + 1100px measure, matching the rest of the page. */
-.orch-problem,
-.orch-band {
+.csb-problem,
+.csb-band {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   box-sizing: border-box;
 }
 
-.orch-problem {
+.csb-problem {
   padding: 3rem 1.5rem;
 }
 
 /* The section header is its own full-bleed strip, so consecutive sections read
    as separate chapters rather than one long scroll. Side padding lives on the
    body rather than the band, so the strip can run edge to edge. */
-.orch-band-head {
+.csb-band-head {
   padding: 1.15rem 1.5rem;
   background: var(--muted);
   border-top: 1px solid var(--border);
@@ -4079,18 +4079,18 @@ a.project-card {
 
 /* Widened past the shared 1100px measure by exactly its own padding, so the
    body's content edge lines up with the title inside the header strip. */
-.orch-band-inner.orch-band-body {
+.csb-band-inner.csb-band-body {
   max-width: calc(1100px + 3rem);
   padding: 2.5rem 1.5rem 3rem;
 }
 
-.orch-problem-inner,
-.orch-band-inner {
+.csb-problem-inner,
+.csb-band-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.orch-section-title {
+.csb-section-title {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(1.3rem, 2.4vw, 1.7rem);
   font-weight: 700;
@@ -4103,7 +4103,7 @@ a.project-card {
 
 /* Problem: the question on the left, the evidence stacked on the right. The
    copy column is vertically centred against the taller stat stack. */
-.orch-problem {
+.csb-problem {
   background: var(--muted);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -4111,14 +4111,14 @@ a.project-card {
   padding-bottom: 3.5rem;
 }
 
-.orch-problem-inner {
+.csb-problem-inner {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
   gap: 3rem;
   align-items: center;
 }
 
-.orch-problem-question {
+.csb-problem-question {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(1.15rem, 2.1vw, 1.5rem);
   font-weight: 700;
@@ -4129,14 +4129,14 @@ a.project-card {
   margin: 0 0 0.85rem;
 }
 
-.orch-problem-body {
+.csb-problem-body {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--card-foreground);
   margin: 0;
 }
 
-.orch-stat-list {
+.csb-stat-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -4144,7 +4144,7 @@ a.project-card {
   gap: 1rem;
 }
 
-.orch-stat {
+.csb-stat {
   display: grid;
   grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
   gap: 1.25rem;
@@ -4155,17 +4155,17 @@ a.project-card {
   box-shadow: var(--shadow-subtle);
 }
 
-.orch-stat-lead {
+.csb-stat-lead {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(1.5rem, 2.6vw, 2rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--orchard-ink);
+  color: var(--csb-ink);
   text-align: center;
 }
 
-.orch-stat-text {
+.csb-stat-text {
   font-size: 0.95rem;
   line-height: 1.45;
   color: var(--card-foreground);
@@ -4174,7 +4174,7 @@ a.project-card {
 
 /* Attribution sits under its claim, flush right, so the eye reads number →
    claim → source without the sources forming their own column. */
-.orch-stat-source {
+.csb-stat-source {
   margin: 0.5rem 0 0;
   font-size: 0.85rem;
   font-style: italic;
@@ -4183,16 +4183,16 @@ a.project-card {
   text-align: right;
 }
 
-.orch-stat-source::before {
+.csb-stat-source::before {
   content: '- ';
 }
 
 /* Guiding principles: dark cards, one accent colour each. */
-.orch-band--principles .orch-band-body {
+.csb-band--principles .csb-band-body {
   padding-bottom: 3.5rem;
 }
 
-.orch-principles {
+.csb-principles {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -4201,16 +4201,16 @@ a.project-card {
   gap: 1.5rem;
 }
 
-.orch-principle {
+.csb-principle {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
   padding: 1.6rem 1.75rem 1.75rem;
-  background: var(--orchard-ink);
+  background: var(--csb-ink);
   border-radius: var(--radius-lg);
 }
 
-.orch-principle-title {
+.csb-principle-title {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(1.25rem, 2.1vw, 1.65rem);
   font-weight: 700;
@@ -4220,11 +4220,11 @@ a.project-card {
   text-wrap: balance;
 }
 
-.orch-principle-title--cyan { color: #2ed6f2; }
-.orch-principle-title--green { color: #3fdc4a; }
-.orch-principle-title--pink { color: #f45fa5; }
+.csb-principle-title--cyan { color: #2ed6f2; }
+.csb-principle-title--green { color: #3fdc4a; }
+.csb-principle-title--pink { color: #f45fa5; }
 
-.orch-principle-desc {
+.csb-principle-desc {
   font-size: 0.92rem;
   line-height: 1.5;
   color: rgba(226, 232, 240, 0.82);
@@ -4233,19 +4233,23 @@ a.project-card {
 
 /* Closing CTA: its own quiet band so the button is not carrying the legacy
    .subsection padding stack that used to sit around it. */
-.orch-band--cta {
+.csb-band--cta {
   border-top: 1px solid var(--border);
   text-align: center;
 }
 
-.orch-band--cta .orch-band-body {
+.csb-band--cta .csb-band-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
   padding-top: 2.25rem;
   padding-bottom: 2.75rem;
 }
 
 /* What I'd Do Differently: bordered cards rather than the stat panel's shadow,
    so a reflective closing section reads quieter than the evidence up top. */
-.orch-reflect {
+.csb-reflect {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -4254,25 +4258,25 @@ a.project-card {
   gap: 1.25rem;
 }
 
-.orch-reflect-card {
+.csb-reflect-card {
   padding: 1.35rem 1.5rem 1.5rem;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 
-.orch-reflect-title {
+.csb-reflect-title {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  color: var(--orchard-ink);
+  color: var(--csb-ink);
   margin: 0 0 0.6rem;
   text-wrap: balance;
 }
 
-.orch-reflect-desc {
+.csb-reflect-desc {
   font-size: 0.92rem;
   line-height: 1.5;
   color: var(--card-foreground);
@@ -4281,22 +4285,22 @@ a.project-card {
 
 /* Annotated row: the artwork carries the width, the notes sit beside it in a
    narrow column so a long diagram and a short screenshot share one rhythm. */
-.orch-row {
+.csb-row {
   display: grid;
   grid-template-columns: minmax(0, 3.1fr) minmax(0, 1fr);
   gap: 1.75rem;
   align-items: start;
 }
 
-.orch-row + .orch-row {
+.csb-row + .csb-row {
   margin-top: 1.75rem;
 }
 
-.orch-row-media {
+.csb-row-media {
   margin: 0;
 }
 
-.orch-row-media img {
+.csb-row-media img {
   display: block;
   width: 100%;
   height: auto;
@@ -4306,24 +4310,24 @@ a.project-card {
 
 /* The flow diagram is a light drawing on white, so it needs a frame and inner
    padding to read as an object. The product screenshots do not. */
-.orch-row-media--framed {
+.csb-row-media--framed {
   padding: 1.25rem;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 
-.orch-row-media--framed img {
+.csb-row-media--framed img {
   border-radius: 0;
 }
 
-.orch-row-notes {
+.csb-row-notes {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
   align-content: start;
 }
 
-.orch-note {
+.csb-note {
   margin: 0;
   padding: 1.15rem 1.25rem;
   background: var(--muted);
@@ -4333,30 +4337,203 @@ a.project-card {
   color: var(--card-foreground);
 }
 
+/* Every row on this page shares one geometry, so every screenshot renders at
+   the same width. Wider notes column than Orchard because several rows stack
+   three or four notes where Orchard's carry one. */
+.case-study-intro--csb-hero-aspireship ~ .csb-band .csb-row {
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+}
+
+/* Per-page accent, so four pages on one chrome still read as four projects.
+   Each is a lifted tint of that product's own brand colour, bright enough to
+   hold on the #0b1220 hero band. */
+.case-study-intro--csb-hero-telby .csb-hero-accent { color: #7b93ff; }   /* cobalt #2A4BE0 */
+.case-study-intro--csb-hero-unbound .csb-hero-accent { color: #ede3c2; } /* dawn */
+
+.csb-principle-title--telbyamber { color: #e8b34a; }  /* critic accent */
+.csb-principle-title--telbycobalt { color: #7b93ff; }
+.csb-principle-title--telbygreen { color: #3ec99a; }  /* success */
+.csb-principle-title--ucarcane { color: #a38de6; }
+.csb-principle-title--uctide { color: #74b3e4; }
+.csb-principle-title--ucember { color: #e89a5e; }
+
+/* Constraint card: the right-hand column on a page with no impact metrics.
+   Same card as a stat, but the lead is a claim rather than a figure, so it
+   sits above its explanation instead of beside it. */
+.csb-stat--constraint {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  padding: 1.15rem 1.5rem 1.25rem;
+}
+
+.csb-stat-name {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--csb-ink);
+  margin: 0 0 0.4rem;
+}
+
+.csb-stat--constraint .csb-stat-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+/* Numbered notes, for pages whose screens are annotated with pinned markers.
+   The badge hangs in the note's padding so the text block stays flush. */
+.case-study-body .csb-row-notes--numbered {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.csb-row-notes--numbered .csb-note {
+  position: relative;
+  padding-left: 2.9rem;
+  margin-bottom: 0;
+}
+
+.csb-note-num {
+  position: absolute;
+  left: 1.15rem;
+  top: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--csb-ink);
+  color: #f5f8fa;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Every row on these two pages is annotated and several carry five or more
+   notes, so the notes column needs the most measure of any page in the set. */
+.case-study-intro--csb-hero-telby ~ .csb-band .csb-row,
+.case-study-intro--csb-hero-unbound ~ .csb-band .csb-row {
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+}
+
+/* A four-item contributions list. */
+.csb-reflect--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Aspireship's figures are ranges ("45% -> 89%"), not single numbers, so they
+   need a wider column than Orchard's. Scoped to this page via the hero class. */
+.case-study-intro--csb-hero-aspireship ~ .csb-problem .csb-stat {
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+}
+
+.case-study-intro--csb-hero-aspireship ~ .csb-problem .csb-stat-lead {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+}
+
+/* Aspireship accent: the brand purple is too dark to read on the hero band, so
+   the accent is a lifted tint of it. */
+.case-study-intro--csb-hero-aspireship .csb-hero-accent {
+  color: #a98bf5;
+}
+
+.csb-principle-title--violet { color: #a98bf5; }
+.csb-principle-title--amber { color: #fb923c; }
+
+/* A card whose whole body is the link. It has to carry the card's own column
+   layout, or the title and description collapse together. */
+.csb-principle-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.csb-principle:has(.csb-principle-link) {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.csb-principle:has(.csb-principle-link):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(12, 34, 53, 0.25);
+}
+
+.csb-principle-link:focus-visible {
+  outline: 2px solid #a98bf5;
+  outline-offset: 4px;
+  border-radius: 0.35rem;
+}
+
+/* Lead paragraph under a section header strip. */
+.csb-band-lead {
+  max-width: 68ch;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--card-foreground);
+}
+
+/* Sub-heading within a band, for a section that splits into two halves. */
+.csb-sub-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.csb-row + .csb-sub-title {
+  margin-top: 3rem;
+}
+
+/* Bolded lead-in on a caption note. */
+.csb-note-lead {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.3rem;
+}
+
 @media (max-width: 900px) {
-  .orch-problem-inner {
+  .csb-problem-inner {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
 
-  .orch-principles,
-  .orch-reflect {
+  .csb-principles,
+  .csb-reflect,
+  .csb-reflect--four {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .orch-row {
+  .csb-row {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
+
 }
 
 @media (max-width: 620px) {
-  .orch-stat {
+  /* The Aspireship override above is more specific, so it has to be repeated
+     here or its range figures keep a two-column card on a phone. */
+  .csb-stat,
+  .case-study-intro--csb-hero-aspireship ~ .csb-problem .csb-stat {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.5rem;
   }
 
-  .orch-stat-lead {
+  .csb-stat-lead {
     text-align: left;
   }
 }

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Orchard · Anatomy of a design problem</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="Orchard, end to end: the problem, the audience, four iterations, the team, and the scope of my role." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="orchard.css" />
+<link rel="stylesheet" href="deck.css" />
+</head>
+<body>
+
+<main class="deck is-preboot" id="deck" role="region" aria-roledescription="carousel" aria-label="Orchard, anatomy of a design problem">
+  <div class="deck-stage" id="stage">
+    <div class="deck-canvas" id="canvas">
+
+      <!-- ============ 1 · TITLE ============ -->
+      <section class="deck-slide" data-label="Title" aria-roledescription="slide" aria-label="Title">
+        <div class="slide title-slide">
+          <img class="title-bg" src="assets/card-bg.svg" alt="" aria-hidden="true" />
+          <div class="title-glow anim-fade" aria-hidden="true"></div>
+          <div class="slide-topbar anim-fade"></div>
+          <img class="title-wm anim-fade" src="assets/wordmark-white.png" alt="Orchard" />
+          <img class="title-orchie anim" src="assets/orchie-wave.png" alt="Orchie, the Orchard mascot, waving" />
+
+          <div class="title-stack deck-stagger">
+            <h1 class="hero">Orchard</h1>
+            <p class="hero-sub">Anatomy of a design problem</p>
+            <div class="hero-line"></div>
+            <p class="hero-name">Peter Baunach</p>
+            <p class="hero-role">Head of Product &amp; Design</p>
+            <div class="hero-dots">
+              <span style="background:var(--teal)"></span>
+              <span style="background:var(--green)"></span>
+              <span style="background:var(--pink)"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 2 · THE PROBLEM ============ -->
+      <section class="deck-slide" data-label="Problem" aria-roledescription="slide" aria-label="The problem">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The problem</p>
+          <h1 class="s-title anim" style="--d:0.05s">The mentorship gap.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="prob-grid">
+              <div class="anim" style="--d:0.16s">
+                <h2 class="prob-q">How do we prepare students for a labor market that won't stop moving?</h2>
+                <p class="prob-body">High schoolers are expected to pick a life path before they're even allowed to rent a car. Meanwhile, career counselors are so outnumbered that most students only get a five-minute check-in once a year. The result? Kids don't feel prepared, so they default to "safe" or "generic" majors like Business or Marketing because they simply don't have a guiding voice to show them anything else.</p>
+              </div>
+              <div class="prob-stats deck-stagger">
+                <div class="prob-stat">
+                  <p class="prob-num" style="color:var(--teal)">1:376</p>
+                  <div>
+                    <p class="prob-text">Counselor to student ratio in American public schools</p>
+                    <p class="prob-src">American School Counselor Association</p>
+                  </div>
+                </div>
+                <div class="prob-stat">
+                  <p class="prob-num" style="color:var(--green)">13x</p>
+                  <div>
+                    <p class="prob-text">More likely to score 1300+ on the SAT if your family is in the top 1% rather than the bottom 20%</p>
+                    <p class="prob-src">Opportunity Insights, Harvard</p>
+                  </div>
+                </div>
+                <div class="prob-stat">
+                  <p class="prob-num" style="color:var(--pink)">72%</p>
+                  <div>
+                    <p class="prob-text">Of graduates feel only moderately, slightly, or not at all prepared for life after high school</p>
+                    <p class="prob-src">YouScience Post-Graduation Readiness Report</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 3 · AUDIENCE ============ -->
+      <section class="deck-slide" data-label="Audience" aria-roledescription="slide" aria-label="Three audiences, one product">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">Audience &middot; user personas</p>
+          <h1 class="s-title anim" style="--d:0.05s">Three audiences. Only one of them is the hero.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="aud-grid deck-stagger">
+              <div class="aud-card">
+                <div class="cap" style="background:var(--teal)"></div>
+                <p class="aud-tag" style="color:#4fb6cf">The user</p>
+                <h3 class="aud-h">Students</h3>
+                <p class="aud-need">Wants a guiding voice, and has never had one available more than five minutes a year. Old enough to be asked the question, too young to have the context to answer it.</p>
+                <p class="aud-so"><b>So:</b> the student is the only one who can move their own score. Orchie nudges, and never decides for them.</p>
+              </div>
+              <div class="aud-card">
+                <div class="cap" style="background:var(--green)"></div>
+                <p class="aud-tag" style="color:#7be29a">The champion</p>
+                <h3 class="aud-h">Counselors</h3>
+                <p class="aud-need">Carries 450 cases and is measured on outcomes they cannot personally reach. Every tool ever sold to them added work.</p>
+                <p class="aud-so"><b>So:</b> Orchard has to produce something a counselor can use without assigning, grading, or monitoring anything.</p>
+              </div>
+              <div class="aud-card">
+                <div class="cap" style="background:var(--pink)"></div>
+                <p class="aud-tag" style="color:#c764a0">The buyer</p>
+                <h3 class="aud-h">District leaders</h3>
+                <p class="aud-need">Signs the contract, and answers to a school board for both student outcomes and the safety of minors' data.</p>
+                <p class="aud-so"><b>So:</b> they have to be able to justify the spend. That constraint eventually produced the core object of the product.</p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ GUIDING PRINCIPLES ============ -->
+      <section class="deck-slide" data-label="Principles" aria-roledescription="slide" aria-label="Guiding principles">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">What held across all four versions</p>
+          <h1 class="s-title anim" style="--d:0.05s">Guiding principles.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="bet-caption anim" style="--d:0.12s">The product changed four times. These didn't.</p>
+            <div class="bet-grid deck-stagger">
+              <div class="bet-card">
+                <div class="cap" style="background:var(--teal)"></div>
+                <p class="bet-num" style="color:var(--teal)">01</p>
+                <h3 class="bet-h">The Student<br />is the Hero</h3>
+                <p class="bet-p">We design for the student's unique journey, perspective, and voice.</p>
+              </div>
+              <div class="bet-card">
+                <div class="cap" style="background:var(--green)"></div>
+                <p class="bet-num" style="color:var(--green)">02</p>
+                <h3 class="bet-h">Nudge,<br />Don't Do</h3>
+                <p class="bet-p">Orchie is a coach, not a crutch. We nudge and empower students to find the answers, but they must do the heavy lifting.</p>
+              </div>
+              <div class="bet-card">
+                <div class="cap" style="background:var(--pink)"></div>
+                <p class="bet-num" style="color:var(--pink)">03</p>
+                <h3 class="bet-h">Purpose in<br />Every Action</h3>
+                <p class="bet-p">Every decision we make, and every action the app takes, must contribute directly to student outcomes.</p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 4 · INITIAL HYPOTHESIS ============ -->
+      <section class="deck-slide" data-label="Hypothesis 01" aria-roledescription="slide" aria-label="Initial hypothesis">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Hypothesis 01</p>
+          <h1 class="s-title anim" style="--d:0.05s">The content-first strategy.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="essay anim" style="--d:0.16s">Students just need a <b>better library of high-quality content</b> and some gamification to encourage exploring.</p>
+            <p class="essay anim" style="--d:0.26s">Counselors need a way to <b>track progress, view trends and assign homework.</b></p>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 5 · ITERATION 1 ============ -->
+      <section class="deck-slide" data-label="Iteration 01" aria-roledescription="slide" aria-label="Iteration one, what we built">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Iteration 01</p>
+          <h1 class="s-title anim" style="--d:0.05s">We built the library.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>For students.</b> We reached out to everyone we knew and filmed our own high-quality career interviews, built a gamified exploration experience, and added quizzes to prove students were watching.</li>
+                  <li><b>For counselors.</b> A way to track progress and assign "career homework" to their students.</li>
+                </ul>
+              </div>
+              <div class="ba-grid flat anim" style="--d:0.24s; grid-template-columns: 1fr 1fr; gap: 0 26px;">
+                <div class="ba-col">
+                  <img class="shot-frame zoomable" style="max-height:300px" src="assets/screens/it1-explore.png" alt="Version one career explorer: a searchable list of career videos with a gamified Cosmic Voyager progress bar." />
+                  <p class="ba-cap"><b>Explore</b></p>
+                </div>
+                <div class="ba-col">
+                  <img class="shot-frame zoomable" style="max-height:300px" src="assets/screens/it1-career.png" alt="Version one career page: job summary, interview video, vocabulary, career path and median salary." />
+                  <p class="ba-cap"><b>The career page</b></p>
+                </div>
+                <div class="ba-col" style="grid-column: 1 / -1; margin-top: 18px;">
+                  <img class="shot-frame zoomable" style="max-height:250px" src="assets/screens/it1-admin.png" alt="Version one counselor dashboard: student, teacher and admin counts, most-viewed careers, and careers viewed per student." />
+                  <p class="ba-cap"><b>The counselor dashboard</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 6 · FIRST TESTING FINDINGS ============ -->
+      <section class="deck-slide" data-label="Findings 01" aria-roledescription="slide" aria-label="First testing findings">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Findings 01 &middot; the engagement failure</p>
+          <h1 class="s-title anim" style="--d:0.05s">First testing findings.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="tr-grid">
+              <div class="deck-stagger">
+                <p class="eyebrow pink col-head">Didn't work</p>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--pink)"></span>
+                  <h3 class="tr-h">The search bar bias</h3>
+                  <p class="tr-p">Students didn't explore because they didn't know what to ask. They defaulted to the same three careers they'd seen on TV, leaving the rest of our database untouched.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--pink)"></span>
+                  <h3 class="tr-h">Quiz friction</h3>
+                  <p class="tr-p">We thought gamified quizzes would prove learning. Students saw them as "just more schoolwork" and disengaged immediately.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--pink)"></span>
+                  <h3 class="tr-h">Dashboard fatigue</h3>
+                  <p class="tr-p">Counselors were already drowning in administrative tools. The last thing they wanted was another system to log into. They needed a way to make their rare one-on-one time more effective.</p>
+                </div>
+              </div>
+              <div class="col-divider"></div>
+              <div class="deck-stagger">
+                <p class="eyebrow green col-head">Showed promise</p>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--green)"></span>
+                  <h3 class="tr-h">Attention as a metric</h3>
+                  <p class="tr-p">Even when students ignored the text and the quizzes, they would still engage with the career interviews.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--green)"></span>
+                  <h3 class="tr-h">Visual authenticity</h3>
+                  <p class="tr-p">They weren't looking for data, they were looking for a vibe. Seeing a real person in their real work environment humanised a career in a way a salary table never could.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--green)"></span>
+                  <h3 class="tr-h">The scroll instinct</h3>
+                  <p class="tr-p">Students fast-forwarded through long videos hunting for the interesting moments, signalling they wanted high-density information in short, punchy bursts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 7 · SECOND HYPOTHESIS ============ -->
+      <section class="deck-slide" data-label="Hypothesis 02" aria-roledescription="slide" aria-label="Second hypothesis">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Hypothesis 02</p>
+          <h1 class="s-title anim" style="--d:0.05s">Stop building a dashboard. Build a discovery platform.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="essay anim" style="--d:0.16s">With the research in hand, it was time for a reset. To provide real value we needed to move beyond a traditional management-style dashboard and evolve into a true discovery platform.</p>
+            <p class="essay anim" style="--d:0.26s">The shift was driven by one observation: <b>students felt stuck at the search bar. When they didn't know what to ask, they didn't ask anything.</b> By prioritising an exploratory experience over a search-heavy one, we could create a path for students to discover opportunities they didn't even know existed.</p>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 8 · ITERATION 2 ============ -->
+      <section class="deck-slide" data-label="Iteration 02" aria-roledescription="slide" aria-label="Iteration two">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Iteration 02</p>
+          <h1 class="s-title anim" style="--d:0.05s">Accidental discovery, by design.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Long-form cut into 30-second teasers.</b> Focused on the most interesting part of a job, the "day in the life" moments.</li>
+                  <li><b>A mobile-first scrollable feed, not a search box.</b> By mimicking the social patterns students already used, accidental discovery started happening. A student would scroll for a "Business" clip and stop on a "Product Designer" video because the thumbnail grabbed them.</li>
+                  <li><b>Counselors: from managing to conversation.</b> A dashboard was just another system to manage. So we helped students build a personalised career plan <em>before</em> their five-minute check-in, turning a forgettable touchpoint into a high-value conversation.</li>
+                </ul>
+              </div>
+              <div class="ba-grid flat anim" style="--d:0.24s; grid-template-columns: repeat(3, 1fr); gap: 0 18px;">
+                <div class="ba-col"><img class="shot-frame zoomable" style="max-height:430px" src="assets/screens/it2-mobile-video.png" alt="Mobile full-screen career video with chapters." /></div>
+                <div class="ba-col"><img class="shot-frame zoomable" style="max-height:430px" src="assets/screens/it2-mobile-short.png" alt="Mobile short-form career clip with an Explore Careers call to action." /></div>
+                <div class="ba-col"><img class="shot-frame zoomable" style="max-height:430px" src="assets/screens/it2-mobile-home.png" alt="Mobile home feed with category chips and a scrollable grid of short career clips." /></div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 9 · SECOND TEST FINDINGS ============ -->
+      <section class="deck-slide" data-label="Findings 02" aria-roledescription="slide" aria-label="Second test findings">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Findings 02 &middot; the false positive</p>
+          <h1 class="s-title anim" style="--d:0.05s">The feed worked. We tested it on the wrong people.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="pilot-grid two deck-stagger">
+              <div class="pilot-card">
+                <div class="cap" style="background:var(--teal)"></div>
+                <p class="pilot-num" style="color:var(--teal)">~20,000</p>
+                <h3 class="pilot-h">Educators we launched to, with analytics instrumented</h3>
+                <p class="pilot-p">Not our primary demographic, but watching them interact unassisted gave us the kind of raw data you can't get in a lab.</p>
+              </div>
+              <div class="pilot-card">
+                <div class="cap" style="background:var(--green)"></div>
+                <p class="pilot-num" style="color:var(--green)">2 weeks</p>
+                <h3 class="pilot-h">Of session recordings, reviewed every morning as a team</h3>
+                <p class="pilot-p">Letting us see exactly where users thrived and where they stumbled. The short-form feed was working and people were exploring.</p>
+              </div>
+            </div>
+            <p class="d5-caption anim" style="--d:0.42s">We felt like we had a handle on the discovery problem. We had validated a student experience on adults, and it would be another full iteration before that caught up with us.</p>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ GENERATIVE AI + THE REFRAME (merged) ============ -->
+      <section class="deck-slide" data-label="Generative AI" aria-roledescription="slide" aria-label="Generative AI hit mainstream and we re-validated the problem">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The shock</p>
+          <h1 class="s-title anim" style="--d:0.05s">Generative AI hit mainstream. We didn't add a chatbot.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="orchie-lead anim" style="--d:0.14s">The world flooded with AI apps, most of them dense academic text blocks using verbose "AI lingo" to say very little. A technology looking for a problem. For a moment it felt like the quiet, human-centric mentorship we were building would be drowned out by the noise. So instead of bolting on a chatbot because it was the trend, we asked a harder question: <b>in a world where everyone has an LLM in their pocket, is our problem statement still valid?</b></p>
+            <div class="aud-grid deck-stagger" style="margin-top:30px;">
+              <div class="aud-card">
+                <div class="cap" style="background:var(--teal)"></div>
+                <p class="aud-tag" style="color:#4fb6cf">The reality</p>
+                <h3 class="aud-h">The ratio hadn't moved</h3>
+                <p class="aud-need">Counselor-to-student was exactly where it was when we started. No amount of consumer AI changed what a school could staff.</p>
+              </div>
+              <div class="aud-card">
+                <div class="cap" style="background:var(--pink)"></div>
+                <p class="aud-tag" style="color:#c764a0">The complexity</p>
+                <h3 class="aud-h">The job market got harder to read</h3>
+                <p class="aud-need">AI was actively making career paths more confusing, not less. The question a sixteen-year-old had to answer got worse.</p>
+              </div>
+              <div class="aud-card">
+                <div class="cap" style="background:var(--green)"></div>
+                <p class="aud-tag" style="color:#7be29a">The opportunity</p>
+                <h3 class="aud-h">A guided AI, not a generic one</h3>
+                <p class="aud-need">Generic AI was verbose and cold. A guided AI, fed by our career data and a human-centric philosophy, could be the counselor-in-pocket we'd been trying to build all along.</p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 12 · ITERATION 3 (hypothesis) ============ -->
+      <section class="deck-slide" data-label="Hypothesis 03" aria-roledescription="slide" aria-label="Third hypothesis">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Hypothesis 03</p>
+          <h1 class="s-title anim" style="--d:0.05s">From a passive library to a proactive mentor.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="essay anim" style="--d:0.16s">Move beyond a simple discovery platform to a truly guided experience: a mentor that walks with students from their first spark of curiosity all the way to a concrete, trackable future.</p>
+            <p class="essay anim" style="--d:0.26s">By adding contextual mentorship, we could use AI to bridge the gap between exploring careers and understanding exactly how to achieve a goal. <b>That turns every piece of content into a deliberate stepping stone,</b> and a library of information into an active roadmap toward a real-world career.</p>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 13 · ITERATION 3 (build) ============ -->
+      <section class="deck-slide" data-label="Iteration 03" aria-roledescription="slide" aria-label="Iteration three, the pivot to AI discovery">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Iteration 03</p>
+          <h1 class="s-title anim" style="--d:0.05s">Pivot to AI discovery. Still leaning hard on the videos.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="orchie-lead anim" style="--d:0.14s">We designed Orchie as a digital counselor that moves past the limits of a search bar. Rather than regurgitating data, it uses conversational context to help students articulate their interests and move from a generic label like "Business" into a specific, meaningful trajectory. Not an information retrieval tool: a partner that asks the right questions.</p>
+            <div class="ba-grid flat anim" style="--d:0.24s; grid-template-columns: repeat(3, 1fr); gap: 0 24px; margin-top:26px;">
+              <div class="ba-col">
+                <img class="shot-frame zoomable" style="max-height:340px" src="assets/screens/it3-desk.png" alt="Iteration three desk: welcome back, growth progress out of 500, explorations count, compare careers and action plans." />
+                <p class="ba-cap"><b>The desk</b></p>
+              </div>
+              <div class="ba-col">
+                <img class="shot-frame zoomable" style="max-height:340px" src="assets/screens/it3-paths.png" alt="Iteration three action plan: five education paths compared with cost, entry roles, key skills, pros and cons." />
+                <p class="ba-cap"><b>Five paths, compared</b></p>
+              </div>
+              <div class="ba-col">
+                <img class="shot-frame zoomable" style="max-height:340px" src="assets/screens/it3-plan.png" alt="Iteration three action plan timeline with step status, notes, and export, email counselor and share with parent actions." />
+                <p class="ba-cap"><b>The action plan</b></p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 14 · COULDN'T GAIN TRACTION ============ -->
+      <section class="deck-slide" data-label="No traction" aria-roledescription="slide" aria-label="Couldn't gain traction">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Findings 03 &middot; the commercial failure</p>
+          <h1 class="s-title anim" style="--d:0.05s">Schools thought it was "neat." Nobody committed.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="essay anim" style="--d:0.16s">The product worked. Students engaged with it, counselors liked it, and it still would not sell. For the first time the blocker wasn't a design problem at all.</p>
+            <div class="turn-callout anim" style="--d:0.3s">
+              <span class="accent-bar"></span>
+              <p class="turn-lbl">What they actually told us</p>
+              <p class="turn-line">"We need a measurable way to show student growth in order to get funding for a new tool."</p>
+              <p class="turn-note">A district can't buy what it can't justify to a school board. The thing standing between us and every contract wasn't a feature. It was the absence of a number.</p>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 15 · THE CRI ============ -->
+      <section class="deck-slide" data-label="The CRI" aria-roledescription="slide" aria-label="Developed the CRI">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">The answer</p>
+          <h1 class="s-title anim" style="--d:0.05s">We built the number. District leaders perked up.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>A credit score for career readiness.</b> Instead of measuring static test scores or grade compliance, the CRI tracks a student's real-world growth across eight core dimensions.</li>
+                  <li><b>Start with a rubric, not a chart.</b> Levelled criteria first, so an abstract idea like "professional agency" became an observable action before anything got visualised.</li>
+                  <li><b>Measure growth, not compliance.</b> The thing school already measures well is the thing we deliberately did not rebuild.</li>
+                </ul>
+              </div>
+              <img class="shot-frame zoomable anim" style="--d:0.24s" src="assets/screens/cri-draft.png" alt="The CRI working artboard: levelled criteria on the left, the eight distilled pillar definitions in the middle, and the eight-sided radar visual on the right." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ THE SIMULATOR ============ -->
+      <section class="deck-slide" data-label="Simulator" aria-roledescription="slide" aria-label="Validating the model">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">Validating the model</p>
+          <h1 class="s-title anim" style="--d:0.05s">I built a simulator before I trusted the score.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>The model got complex faster than the design did.</b> Once every chat, plan, journal entry and game could move a pillar, nobody could reason about fairness by reading a spec.</li>
+                  <li><b>Synthetic weeks, real tuning.</b> Sliders set the constants, a week of student activity, and the assessment baselines. The output shows exactly how much each activity lifted each pillar.</li>
+                  <li><b>A dashboard on an unfair model is worse than no dashboard.</b> If a student can grind one pillar and call themselves ready, we've taught them the wrong lesson and sold a district a number that means nothing.</li>
+                </ul>
+              </div>
+              <img class="shot-frame zoomable anim" style="--d:0.24s" src="assets/screens/cri-simulator.png" alt="The internal CRI simulator: model constants and a synthetic week of student activity on the left, the resulting 217 out of 400 score, radar chart and per-dimension breakdown on the right." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 16 · ITERATION 4 ============ -->
+      <section class="deck-slide" data-label="Iteration 04" aria-roledescription="slide" aria-label="Iteration four">
+        <div class="slide content">
+          <p class="eyebrow pink anim" style="margin-bottom:14px;">Iteration 04</p>
+          <h1 class="s-title anim" style="--d:0.05s">We rebuilt the entire experience around measuring growth.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Eight pillars, scored 0 to 400.</b> Every chat, plan, journal entry and game moves one of them, so progress is something a student can actually see.</li>
+                  <li><b>A spider graph, not bars.</b> The shape tells the story before any number does, for the student, the counselor and the parent at once.</li>
+                  <li><b>"Growth Report," not "CRI."</b> The acronym feels like a test result. A growth report feels like something you can move.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/growth" target="_blank" rel="noopener noreferrer">See a live Growth Report</a>
+              </div>
+              <img class="shot-frame zoomable anim" style="--d:0.24s" src="assets/screens/growth-report.png" alt="The Growth Report: a spider graph of eight career-readiness pillars with a 203 out of 400 score and per-pillar strength and growing cards." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ ORCHIE, THE ENGINE ============ -->
+      <section class="deck-slide" data-label="Orchie &middot; engine" aria-roledescription="slide" aria-label="How a question moves through Orchie">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The engine</p>
+          <h1 class="s-title anim" style="--d:0.05s">Every message takes the same path.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Screen for intent and safety first.</b> Before any skill runs. Everything else in the system is downstream of that one gate.</li>
+                  <li><b>Four skills, one memory.</b> Conversation, explore, compare and plan all read the desk and the chat history before answering, so a student never repeats themselves.</li>
+                  <li><b>A guardrail lane, not an error state.</b> Off-topic questions, distress signals and requests for a verdict each get their own handled path, including the conversations Orchie shouldn't be having at all.</li>
+                </ul>
+              </div>
+              <img class="shot-frame zoomable anim" style="--d:0.24s" src="assets/screens/orchie-flow.png" alt="Flow diagram: cited career data sources feed a data layer, a student question passes an intent and safety screen, then routes to one of four skills or into the guardrail lane." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ EXPLORE ============ -->
+      <section class="deck-slide" data-label="Explore" aria-roledescription="slide" aria-label="Explore">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The surface</p>
+          <h1 class="s-title anim" style="--d:0.05s">Make the abstract concrete.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="gr-grid balanced">
+              <div class="gr-copy anim" style="--d:0.16s">
+                <ul class="decisions">
+                  <li><b>Life Sim spends the salary, it doesn't just show it.</b> A student lives a virtual month on that career's pay against their real rent and bills. A number is abstract; four weeks of decisions is concrete.</li>
+                  <li><b>Every path at equal weight.</b> Four-year, bootcamp and self-taught sit in identical cards. The layout itself says there is no default path.</li>
+                  <li><b>Cite the source or say you don't know.</b> Every stat traces to BLS, O*NET or our own data. One hallucinated salary and a sixteen-year-old never trusts the thing again.</li>
+                </ul>
+                <a class="view-live" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/explore" target="_blank" rel="noopener noreferrer">Open Explore live</a>
+              </div>
+              <img class="shot-frame zoomable anim" style="--d:0.24s" src="assets/screens/explore.png" alt="An Explore career page with a Life Sim card, local pay data, equal-weight education paths and a Day in the Life section." />
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ PLAN AND LEARN ============ -->
+      <section class="deck-slide" data-label="Plan &amp; Learn" aria-roledescription="slide" aria-label="Plan and Learn">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">The surface</p>
+          <h1 class="s-title anim" style="--d:0.05s">A plan you can't freeze in front of, and reps that fit a locker break.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="ba-grid flat anim" style="--d:0.2s">
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/plan.png" alt="The Plan conversation: Orchie asking one question at a time, three equal-weight routes, and a plan across three horizons." />
+                <p class="ba-cap"><b>Plan: one question at a time</b><span>Building a career plan in one sitting paralyses a kid. As a conversation they never see the whole mountain at once, and it lands at three horizons: 90 days, one year, graduation.</span></p>
+              </div>
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/learn.png" alt="The Learn screen: short Skill Quests, each tagged with the Growth Report pillar it moves." />
+                <p class="ba-cap"><b>Learn: quests under ten minutes</b><span>Anything longer reads as assigned homework. Every quest is tagged with the pillar it lifts, so it is never a random activity and the student knows why they're playing.</span></p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ GOVERNANCE ============ -->
+      <section class="deck-slide" data-label="Governance" aria-roledescription="slide" aria-label="Governance and guardrails">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">Governance</p>
+          <h1 class="s-title anim" style="--d:0.05s">Built to be trusted with student data.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <p class="gov-lead anim" style="--d:0.12s">For a product used by minors and bought by districts, trust isn't a feature. It's the foundation.</p>
+            <div class="gov-map anim" style="--d:0.18s">
+              <p class="eyebrow teal">Governance</p>
+              <div aria-hidden="true"></div>
+              <p class="eyebrow green">Guardrails</p>
+
+              <div class="gov-policy"><span class="accent-bar"></span>We follow FERPA, and soon COPPA: student data stays protected, and Orchie never offers medical or therapeutic counseling.</div>
+              <div class="gov-arrow" aria-hidden="true">&rarr;</div>
+              <div class="gov-guards">
+                <ul>
+                  <li>Real-time PII scrubbing, so student records never reach the LLM.</li>
+                  <li>Distressed-language detection that flags and escalates to a human counselor.</li>
+                </ul>
+              </div>
+
+              <div class="gov-policy"><span class="accent-bar"></span>Our AI policy requires Orchie to cite verifiable sources and stay auditable.</div>
+              <div class="gov-arrow" aria-hidden="true">&rarr;</div>
+              <div class="gov-guards">
+                <ul>
+                  <li>Grounded in our own data plus federally compliant sources like the BLS and O*NET.</li>
+                  <li>Every stat is cited. If Orchie doesn't know, it says so rather than hallucinate.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 17 · THEN AND NOW ============ -->
+      <section class="deck-slide" data-label="Then &amp; now" aria-roledescription="slide" aria-label="The same decision, before and after the CRI">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">The same decision, before and after</p>
+          <h1 class="s-title anim" style="--d:0.05s">The measure didn't sit beside the product. It went into it.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="ba-grid anim" style="--d:0.2s">
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/it3-paths.png" alt="Iteration three: five education paths laid out side by side with pros, cons, cost and entry roles, and no recommendation." />
+                <p class="ba-cap"><b>Iteration 03</b><span>Everything a student needs to decide, laid out fairly and completely. And no way to tell which one is right for them.</span></p>
+              </div>
+              <div class="ba-arrow" aria-hidden="true">&rarr;</div>
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/it4-school-compare.png" alt="Iteration four: schools compared on net cost, acceptance, grad rate and salary, each with a CRI fit score and Orchie's plain-language read." />
+                <p class="ba-cap"><b>Iteration 04</b><span>The same comparison, now scored against that student's own CRI, with Orchie naming the call and the stretch. The measure became the thing that makes advice personal.</span></p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 18 · IMPACT ============ -->
+      <section class="deck-slide" data-label="Impact" aria-roledescription="slide" aria-label="Impact">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">Impact</p>
+          <h1 class="s-title anim" style="--d:0.05s">The version that measured growth is the one that got into schools.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="pilot-grid deck-stagger">
+              <div class="pilot-card">
+                <div class="cap" style="background:var(--teal)"></div>
+                <p class="pilot-num" style="color:var(--teal)">6</p>
+                <h3 class="pilot-h">Schools now piloting Orchard</h3>
+                <p class="pilot-p">Two public, one charter, three private. The counselor economics are wildly different across those three, so holding up in all of them says this isn't only a stand-in for a counselor a school can't afford.</p>
+              </div>
+              <div class="pilot-card">
+                <div class="cap" style="background:var(--green)"></div>
+                <p class="pilot-num" style="color:var(--green)">4</p>
+                <h3 class="pilot-h">Awarded through Curriki AI grant applications</h3>
+                <p class="pilot-p">They applied for the grant specifically to bring Orchard in, and Curriki approved it. Outside review, outside funding, and demand nobody here had to sell.</p>
+              </div>
+              <div class="pilot-card">
+                <div class="cap" style="background:var(--pink)"></div>
+                <p class="pilot-num" style="color:var(--pink)">1,000+</p>
+                <h3 class="pilot-h">Students impacted</h3>
+                <p class="pilot-p">The first cohort large enough to tell us whether the eight pillars measure anything real.</p>
+              </div>
+            </div>
+            <p class="d5-caption anim" style="--d:0.42s">Four versions of this product exist. Only the fourth one is in a classroom.</p>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 19 · TEAM AND ROLE ============ -->
+      <section class="deck-slide" data-label="Team &amp; role" aria-roledescription="slide" aria-label="Who I worked with and the scope of my role">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">A team of four</p>
+          <h1 class="s-title anim" style="--d:0.05s">Who I worked with, and what I owned.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="tr-grid" style="margin-top:26px;">
+              <div class="deck-stagger">
+                <p class="eyebrow teal col-head">Who I worked with</p>
+                <div class="team-list">
+                  <div class="team-row">
+                    <span class="accent-bar" style="background:var(--teal)"></span>
+                    <p class="team-fn"><b>1 Engineer</b><span>Technical implementation</span></p>
+                    <p class="team-what">Built it, wrote the CRI score calculation, and owned model selection.</p>
+                  </div>
+                  <div class="team-row">
+                    <span class="accent-bar" style="background:var(--green)"></span>
+                    <p class="team-fn"><b>1 Sales / Success</b><span>Schools and districts</span></p>
+                    <p class="team-what">Ran outreach for feedback and interest. The "neat, but we can't fund it" finding came through here.</p>
+                  </div>
+                  <div class="team-row">
+                    <span class="accent-bar" style="background:var(--pink)"></span>
+                    <p class="team-fn"><b>1 Founder</b><span>Partnerships</span></p>
+                    <p class="team-what">Partnerships and ed-tech engagement, including the Curriki relationship.</p>
+                  </div>
+                </div>
+                <div class="va-block" style="margin-top:34px;">
+                  <p class="va-tag">How four people stayed aligned</p>
+                  <p class="va-test">Everyone watched PostHog session recordings and metrics, joined weekly product reviews, and stress tested. Nobody was arguing from opinion, because we had all watched the same students get stuck.</p>
+                </div>
+              </div>
+              <div class="col-divider"></div>
+              <div class="deck-stagger">
+                <p class="eyebrow green col-head">Scope of my role</p>
+                <div class="tr-item">
+                  <span class="accent-bar"></span>
+                  <h3 class="tr-h">Product strategy</h3>
+                  <p class="tr-p">Framed the problem, ran each hypothesis, and made the case to move off the ones that failed.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar"></span>
+                  <h3 class="tr-h">Product design and prototype</h3>
+                  <p class="tr-p">Every surface across all four iterations, plus the working prototype the team and pilot schools tested against.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar"></span>
+                  <h3 class="tr-h">Branding and team alignment</h3>
+                  <p class="tr-p">The identity, and keeping a four-person team pointed at the same problem through three pivots.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar" style="background:var(--pink)"></span>
+                  <h3 class="tr-h">What I didn't own</h3>
+                  <p class="tr-p">I designed the CRI model and the rubric behind it. The engineer implemented the scoring and chose the model that ran it.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ WHAT I'M WATCHING (closer) ============ -->
+      <section class="deck-slide" data-label="What I'm watching" aria-roledescription="slide" aria-label="What I am watching, and what would change my mind">
+        <div class="slide content">
+          <p class="eyebrow green anim" style="margin-bottom:14px;">Where it goes next</p>
+          <h1 class="s-title anim" style="--d:0.05s">What I'm watching, and what would change my mind.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="tr-grid">
+              <div class="deck-stagger">
+                <p class="eyebrow teal col-head">Still unresolved</p>
+                <div class="tr-item">
+                  <span class="accent-bar"></span>
+                  <h3 class="tr-h">Cold start</h3>
+                  <p class="tr-p">The Growth Report only means something once a student has done enough to move a pillar. The weakest session is the first one, and the first one decides whether there is a second.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar"></span>
+                  <h3 class="tr-h">Breadth against depth</h3>
+                  <p class="tr-p">Explore, Plan, Learn and Growth all compete for a student who might give us twenty minutes a week. The pilot is the first time I get to see where that time actually goes.</p>
+                </div>
+                <div class="tr-item">
+                  <span class="accent-bar"></span>
+                  <h3 class="tr-h">One profile, everywhere</h3>
+                  <p class="tr-p">A shared profile is what makes Orchie feel like it knows the student. It also means a wrong inference doesn't stay in one place, and I don't yet know how often that happens outside a demo.</p>
+                </div>
+              </div>
+              <div class="col-divider"></div>
+              <div class="deck-stagger">
+                <p class="eyebrow pink col-head">What the pilot tests</p>
+                <div class="va-block">
+                  <p class="va-tag">Riskiest assumption 01</p>
+                  <p class="va-claim">Students will use Orchie as a mentor, not as a search engine.</p>
+                  <p class="va-test">The search-bar bias from iteration one never fully went away. Measure how many sessions get past a single question, and whether @ mentions and / commands get used unprompted. If they never do, the input is the problem, not the content behind it.</p>
+                </div>
+                <div class="va-block">
+                  <p class="va-tag">Riskiest assumption 02</p>
+                  <p class="va-claim">A Growth Report that moves changes what a student does next.</p>
+                  <p class="va-test">Compare plan milestone completion between students who open the Growth Report and students who never do. If the score gets looked at but never acted on, it's a scoreboard, and the pillars are the thing to fix.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 20 · APPENDIX: THE DESK ============ -->
+      <section class="deck-slide" data-label="Appendix · desk" aria-roledescription="slide" aria-label="Appendix, the desk before and after">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">Appendix</p>
+          <h1 class="s-title anim" style="--d:0.05s">The desk, before and after the CRI.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="ba-grid anim" style="--d:0.2s">
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/it3-desk.png" alt="Iteration three desk: a welcome banner, a progress bar out of 500, and three generic starting cards." />
+                <p class="ba-cap"><b>Iteration 03</b><span>A progress bar and three prompts. It told a student where to click, not what it knew about them.</span></p>
+              </div>
+              <div class="ba-arrow" aria-hidden="true">&rarr;</div>
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/it4-desk.png" alt="Iteration four board: saved careers, plans in progress, strongest pillars, and a next thing to build, all drawn from the student's own activity." />
+                <p class="ba-cap"><b>Iteration 04</b><span>The board reads back what the student has actually done: strongest pillars, saved careers, plans started, and the one next action worth taking.</span></p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+      <!-- ============ 21 · APPENDIX: THE PLAN ============ -->
+      <section class="deck-slide" data-label="Appendix · plan" aria-roledescription="slide" aria-label="Appendix, the plan before and after">
+        <div class="slide content">
+          <p class="eyebrow teal anim" style="margin-bottom:14px;">Appendix</p>
+          <h1 class="s-title anim" style="--d:0.05s">The action plan, before and after the CRI.</h1>
+          <hr class="s-rule anim-fade" style="--d:0.1s" />
+          <div class="content-body">
+            <div class="ba-grid anim" style="--d:0.2s">
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/it3-plan.png" alt="Iteration three action plan: a six-step timeline with status dropdowns and export, email and share actions." />
+                <p class="ba-cap"><b>Iteration 03</b><span>A complete, correct plan. Handed over in one piece, with the whole mountain visible at once.</span></p>
+              </div>
+              <div class="ba-arrow" aria-hidden="true">&rarr;</div>
+              <div class="ba-col">
+                <img class="shot-frame zoomable" src="assets/screens/plan.png" alt="Iteration four plan: a roadmap with outcome, motivation and challenge dimensions, and an Orchie coach panel offering the student's own next questions." />
+                <p class="ba-cap"><b>Iteration 04</b><span>The same plan, built one question at a time, with a coach beside it holding the questions the student was too unsure to ask.</span></p>
+              </div>
+            </div>
+          </div>
+          <img class="corner-mark" src="assets/logo.png" alt="" />
+        </div>
+      </section>
+
+    </div><!-- /.deck-canvas -->
+  </div><!-- /.deck-stage -->
+
+  <!-- Lightbox: click any screenshot to view it full-size -->
+  <div class="deck-lightbox" id="deck-lightbox" role="dialog" aria-modal="true" aria-label="Expanded screenshot">
+    <button class="deck-lightbox-close" type="button" aria-label="Close (Esc)">&times;</button>
+    <img src="" alt="" />
+  </div>
+
+  <nav class="deck-nav" id="nav" aria-label="Slide navigation">
+    <button class="deck-arrow deck-prev" type="button" aria-label="Previous slide" title="Previous (←)">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg>
+    </button>
+    <div class="deck-dots" role="group" aria-label="Slides"></div>
+    <button class="deck-arrow deck-next" type="button" aria-label="Next slide" title="Next (→)">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg>
+    </button>
+  </nav>
+
+  <div class="deck-hint" id="deck-hint" aria-hidden="true">Use &larr; &rarr; to navigate</div>
+  <div id="deck-live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;"></div>
+</main>
+
+<script src="deck.js?v=1"></script>
+</body>
+</html>
