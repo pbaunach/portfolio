@@ -14,25 +14,27 @@
     },
     {
       "name": "orchard-deck",
-      "runtimeExecutable": "python",
+      "runtimeExecutable": "npx.cmd",
       "runtimeArgs": [
-        "-m",
-        "http.server",
+        "-y",
+        "http-server",
+        "C:\\Cursor Apps\\Portfolio\\orchard-walk-through",
+        "-p",
         "4011",
-        "--directory",
-        "C:\\Cursor Apps\\Portfolio\\orchard-walk-through"
+        "-c-1"
       ],
       "port": 4011
     },
     {
       "name": "orchard-design-problem",
-      "runtimeExecutable": "python",
+      "runtimeExecutable": "npx.cmd",
       "runtimeArgs": [
-        "-m",
-        "http.server",
+        "-y",
+        "http-server",
+        "C:\\Cursor Apps\\Portfolio\\orchard-design-problem",
+        "-p",
         "4012",
-        "--directory",
-        "C:\\Cursor Apps\\Portfolio\\orchard-design-problem"
+        "-c-1"
       ],
       "port": 4012
     }

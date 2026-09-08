@@ -12,12 +12,23 @@
 :root {
   --pad-x: 112px;
   --pad-y: 84px;
-  --card: #1a3850;          /* elevated navy used for cards/rows */
-  --card-soft: #16314a;     /* slightly recessed variant */
+
+  /* Poppins body + Bitter display — the two faces embedded in the
+     "Orchard for Schools" deck. Redefined here (deck.css loads after
+     orchard.css) so the design-system file stays the product's source. */
+  --font-sans: 'Poppins', 'Open Sans', system-ui, -apple-system, sans-serif;
+
+  /* Cards read as RECESSED wells against the navy, not raised panels —
+     that is the surface logic in the schools deck. */
+  --card: #08131f;          /* recessed well used for cards/rows */
+  --card-soft: #061019;     /* deeper variant */
   --rule: #2a4a63;          /* hairline divider on navy */
+  --hairline: rgba(255,255,255,0.22);  /* rule under a card title */
   --teal: var(--orchard-teal);
   --green: var(--orchard-green);
   --pink: var(--orchard-pink);
+  --yellow: var(--orchard-yellow);
+  --orange: var(--orchard-orange);
   --purple: #9b6dd4;
   --letterbox: #060d16;     /* outer stage behind the slide */
   --fg-muted: #B5BFC8;      /* lighter muted text, more legible on the navy */
@@ -80,12 +91,34 @@ html, body {
   transition: opacity 0.18s ease, visibility 0s;
 }
 
+/* ---- per-slide accent -------------------------------------
+   Every slide carries data-accent; the top bar, the section
+   headline and any accent-keyed rule read from --accent. This is
+   the organising device of the "Orchard for Schools" deck: one
+   colour owns the slide. */
+.deck-slide                     { --accent: var(--teal); }
+.deck-slide[data-accent="teal"] { --accent: var(--teal); }
+.deck-slide[data-accent="green"]{ --accent: var(--green); }
+.deck-slide[data-accent="pink"] { --accent: var(--pink); }
+.deck-slide[data-accent="yellow"]{ --accent: var(--yellow); }
+.deck-slide[data-accent="orange"]{ --accent: var(--orange); }
+
 .slide {
   position: relative;
   width: 100%;
   height: 100%;
   padding: var(--pad-y) var(--pad-x);
   box-sizing: border-box;
+}
+
+/* full-bleed accent rule across the top of every content slide */
+.slide:not(.title-slide)::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 9px;
+  background: var(--accent);
+  z-index: 3;
 }
 /* header-style content slides: pin title top, center the body block */
 .slide.content { display: flex; flex-direction: column; }
@@ -95,53 +128,61 @@ html, body {
 /* ============================================================
    2. Shared header + primitives
    ============================================================ */
+/* Section headline: Bitter SemiBold in the slide's accent colour —
+   the single loudest element on the slide, as in the schools deck.
+   Held at 58px (not the reference's ~76px) because these headlines are
+   full sentences rather than two-word titles. */
 .s-title {
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: 50px;
-  line-height: 1.08;
-  letter-spacing: -0.005em;
-  color: var(--fg-primary);
+  font-size: 58px;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--accent);
   margin: 0;
   max-width: 1500px;
   text-wrap: balance;
 }
-.s-rule { height: 1px; background: var(--rule); border: none; margin: 30px 0 0; }
+/* the schools deck runs no divider under its headings — keep the
+   rhythm this element created, drop the line itself */
+.s-rule { height: 0; background: none; border: none; margin: 26px 0 0; }
 
-/* deck-local eyebrow (overrides the orchard.css base eyebrow) */
+/* deck-local eyebrow (overrides the orchard.css base eyebrow).
+   Now that the headline carries the colour, the eyebrow steps back. */
 .eyebrow {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--fg-muted);
+  color: rgba(255,255,255,0.5);
   margin: 0;
 }
-.eyebrow.teal { color: #4fb6cf; }
-.eyebrow.pink { color: #c764a0; }
-.eyebrow.green { color: #7be29a; }
+/* column heads inside a slide still colour-code their own column */
+.eyebrow.col-head.teal { color: #4fb6cf; }
+.eyebrow.col-head.pink { color: #c764a0; }
+.eyebrow.col-head.green { color: #7be29a; }
 
+/* full "Orchard" wordmark, bottom right of every slide */
 .corner-mark {
   position: absolute;
-  right: var(--pad-x);
-  bottom: 42px;
-  height: 30px;
+  right: 56px;
+  bottom: 34px;
+  height: 42px;
   width: auto;
-  opacity: 0.5;
+  opacity: 0.92;
+  z-index: 3;
 }
 
 .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; border-radius: 4px 0 0 4px; }
 
 /* ======================= SLIDE 1 — TITLE ======================= */
+/* Cover: flat navy, centred lockup — no gradient field, no top rule,
+   matching the schools-deck cover. */
 .title-slide { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.slide-topbar { position: absolute; top: 0; left: 0; right: 0; height: 9px; background: var(--teal); z-index: 2; }
+.slide-topbar { display: none; }
 .title-wm { position: absolute; top: 56px; left: 64px; height: 52px; opacity: 0.95; }
-.title-bg {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center bottom;
-  z-index: 0; pointer-events: none;
-}
+.title-bg { display: none; }
 /* keep the cover content above the full-bleed background */
 .title-glow { z-index: 1; }
 .title-wm, .title-orchie { z-index: 2; }
@@ -157,14 +198,14 @@ html, body {
   color: var(--fg-primary);
   margin: 0;
 }
+/* the schools cover sets its strapline in Bitter, upright, white */
 .hero-sub {
-  font-family: var(--font-sans);
-  font-style: italic;
+  font-family: var(--font-serif);
   font-weight: 600;
-  font-size: 50px;
-  color: var(--teal);
-  margin: 28px 0 0;
-  letter-spacing: -0.01em;
+  font-size: 46px;
+  color: var(--fg-primary);
+  margin: 30px 0 0;
+  letter-spacing: -0.005em;
 }
 .hero-line { width: 360px; height: 1px; background: var(--rule); margin: 52px 0 44px; }
 .hero-name { font-size: 30px; font-weight: 600; color: var(--fg-primary); margin: 0; white-space: nowrap; }
@@ -173,12 +214,26 @@ html, body {
 .hero-dots span { width: 22px; height: 22px; border-radius: 50%; }
 .placeholder { color: var(--teal); }
 
-/* subtle on-brand ambience behind the cover title */
-.title-glow {
-  position: absolute; left: 50%; top: 46%;
-  width: 1180px; height: 1180px; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(19,199,229,0.12) 0%, rgba(19,199,229,0.05) 38%, rgba(12,34,53,0) 68%);
+/* the schools cover is flat navy — the ambient field is retired */
+.title-glow { display: none; }
+
+/* corner colour-ribbon, lifted from the schools deck's closing slide.
+   The gradient runs at 135deg so its stops sit perpendicular to the
+   45-degree bands; 100% is the bottom-left corner, so the stops sit high
+   in the range to keep the ribbon hugging the corner. */
+.title-slide::after {
+  content: "";
+  position: absolute; left: 0; bottom: 0;
+  width: 340px; height: 340px;
+  background: linear-gradient(135deg,
+    transparent 0 68%,
+    var(--orchard-teal)   68% 73.5%,
+    var(--orchard-green)  73.5% 79%,
+    var(--orchard-pink)   79% 84.5%,
+    var(--orchard-orange) 84.5% 90%,
+    transparent 90% 100%);
   pointer-events: none;
+  z-index: 1;
 }
 
 /* ======================= SLIDE 2 — STATEMENT ======================= */
@@ -623,3 +678,73 @@ html, body {
   .deck-slide[data-deck-active] .deck-stagger > *:nth-child(9)  { animation-delay: calc(var(--stag-base) + 8  * var(--stag-step)); }
   .deck-slide[data-deck-active] .deck-stagger > *:nth-child(n+10) { animation-delay: calc(var(--stag-base) + 9 * var(--stag-step)); }
 }
+
+/* ============================================================
+   5. "Orchard for Schools" format pass
+   ------------------------------------------------------------
+   Layered on top of the layouts above so the per-slide geometry is
+   untouched — only the surface/type language moves to match the
+   schools deck: recessed card wells, a hairline under each card
+   title, softer corners, and Poppins body copy throughout.
+   ============================================================ */
+
+/* softer corners on every card surface */
+.bet-card, .aud-card, .pilot-card, .turn-callout, .prob-stat { border-radius: 14px; }
+.pill-row, .cmp-row, .team-row, .gov-policy, .gov-guards, .flow-box, .surf, .out { border-radius: 10px; }
+
+/* card titles sit above a hairline, as in "Why Schools Choose Orchard" */
+.aud-h, .bet-h, .pilot-h {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* recessed wells need a touch more separation from the navy than a
+   raised panel did */
+.bet-card, .aud-card, .pilot-card, .prob-stat, .turn-callout,
+.pill-row, .cmp-row, .team-row, .gov-policy {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+/* ...except the rows that already draw their own coloured outline */
+.pill-row.kept, .pill-row.killed, .flow-box.pink, .flow-box.green { box-shadow: none; }
+
+/* Poppins runs lighter than Open Sans at the same size; nudge the
+   long-form blocks so line length and colour stay where they were */
+.essay, .prob-body, .gov-lead, .orchie-lead { font-weight: 400; }
+.bet-h, .aud-h, .pilot-h { font-weight: 700; letter-spacing: -0.005em; }
+
+/* the schools deck hangs its body copy off the same left margin as the
+   headline — the centred essay column no longer fits that grid */
+.essay { margin-left: 0; margin-right: 0; max-width: 1180px; }
+
+/* ---- the schools deck's signature split: copy on navy at the left,
+   the product screenshot sitting on a near-black panel that runs the
+   full height of the slide. The panel edge is placed on the grid gap
+   of .gr-grid, so it lands exactly between the two columns.
+   (1696px of content, 64px gutter — see .gr-grid for the fr ratios.) */
+.slide.content:has(.gr-grid) {
+  background: linear-gradient(90deg, transparent 0 38.2%, var(--card-soft) 38.2% 100%);
+}
+.slide.content:has(.gr-grid.balanced) {
+  background: linear-gradient(90deg, transparent 0 48.9%, var(--card-soft) 48.9% 100%);
+}
+/* the screenshot no longer needs to invent its own surface */
+.slide.content:has(.gr-grid) .shot-frame,
+.slide.content:has(.gr-grid) .shot {
+  border-color: rgba(255,255,255,0.10);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+}
+
+/* in-slide labels follow the slide's accent rather than holding a colour
+   of their own — one colour owns the slide */
+.va-tag { color: var(--accent); }
+.turn-lbl { color: var(--accent); }
+.turn-callout .accent-bar { background: var(--accent); }
+
+/* Poppins sets wider than Open Sans; the role column needs the room */
+.team-row { grid-template-columns: 0.68fr 1.32fr; }
+
+/* lead copy sits on the same left rail as the headline, as it does on
+   every content page of the schools deck. Captions that sit UNDER a
+   figure or grid stay centred — they belong to the figure, not the rail. */
+.orchie-lead { text-align: left; margin-left: 0; margin-right: 0; max-width: 1320px; }
+.bet-caption { text-align: left; }
