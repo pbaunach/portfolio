@@ -35,10 +35,10 @@ layout: case-study
         </div>
       </li>
       <li class="csb-stat">
-        <span class="csb-stat-lead">13x</span>
+        <span class="csb-stat-lead">65%</span>
         <div class="csb-stat-body">
-          <p class="csb-stat-text">More likely to score 1300+ on the SAT if your family is in the top 1% rather than the bottom 20%</p>
-          <p class="csb-stat-source">Opportunity Insights, Harvard</p>
+          <p class="csb-stat-text">Of children entering school today will end up working in jobs that don’t even exist yet</p>
+          <p class="csb-stat-source">World Economic Forum</p>
         </div>
       </li>
       <li class="csb-stat">
