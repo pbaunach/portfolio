@@ -37,6 +37,20 @@
         "-c-1"
       ],
       "port": 4012
+    },
+    {
+      "name": "psp-deck",
+      "runtimeExecutable": "npx.cmd",
+      "runtimeArgs": [
+        "-y",
+        "http-server",
+        "C:\\Cursor Apps\\Portfolio",
+        "-p",
+        "4013",
+        "-c-1"
+      ],
+      "port": 4013,
+      "url": "http://localhost:4013"
     }
   ]
 }

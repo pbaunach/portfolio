@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>My Problem-Solving Process: An Orchard Walk-through</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0C2134" />
+
+<style>
+  /* ---------- Muller ----------
+     Self-hosted so the deck reads the same on a machine without the font
+     installed. Each weight ships as its own family on the desktop ("Muller
+     Bold", not Muller at 700), so local() has to name them individually or
+     Windows will synthesise a fake bold instead. */
+
+  @font-face {
+    font-family: 'Muller';
+    src: local('Muller Regular'), local('Muller-Regular'),
+         url('assets/fonts/muller-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Muller';
+    src: local('Muller Regular Italic'), local('Muller-RegularItalic'),
+         url('assets/fonts/muller-regular-italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Muller';
+    src: local('Muller Medium'), local('Muller-Medium'),
+         url('assets/fonts/muller-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Muller has no semibold. 600 and 700 both resolve to Bold, which is the
+     weight the source deck sets its headings in. */
+  @font-face {
+    font-family: 'Muller';
+    src: local('Muller Bold'), local('Muller-Bold'),
+         url('assets/fonts/muller-bold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Muller';
+    src: local('Muller Bold'), local('Muller-Bold'),
+         url('assets/fonts/muller-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ============================================================
+     Orchard "My Problem-Solving Process" deck.
+
+     Geometry is lifted from the source PDF (1440x800) and scaled by
+     2/3 onto a 960x540 stage, so every column, card and screenshot
+     lands where it does in the original. Colours were sampled from
+     the same file.
+     ============================================================ */
+
+  :root {
+    --slide-w: 960px;
+    --slide-h: 540px;
+
+    --canvas:   #0C2134;   /* page ground */
+    --panel:    #08111C;   /* recessed right-hand panel + card fill */
+
+    --teal:   #13C6E4;
+    --green:  #3BD342;
+    --pink:   #F659B3;
+    --orange: #F2971F;
+    --yellow: #E8F948;
+    --slate:  #213B4B;     /* neutral band on the two-column slides */
+    --mist:   #B5BFC8;     /* pale band on the impact slide */
+
+    --fg:      #E7ECEF;    /* body copy, near white */
+    --fg-soft: #B5BFC8;    /* secondary copy inside callouts */
+    --fg-mute: #708EA4;    /* persona roles, sub-labels */
+    --fg-tag:  #506E83;    /* the section note bottom-left */
+
+    --accent: var(--teal);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+  html { background: #050D16; }
+
+  body {
+    font-family: 'Muller', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #050D16;
+    color: var(--fg);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Deck shell ---------- */
+
+  .deck {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    position: relative;
+    transform-origin: center center;
+    flex: none;
+  }
+
+  .slide-wrap { position: absolute; inset: 0; }
+
+  /* One slide at a time while presenting. The incoming slide fades in ON TOP of
+     the outgoing one, which stays fully opaque underneath until the fade
+     finishes, otherwise both sit at partial opacity mid-transition and the dark
+     page background flashes through. */
+  body:not(.overview) .slide-wrap {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body:not(.overview) .slide-wrap.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+    transition: opacity 180ms ease-out;
+  }
+  body:not(.overview) .slide-wrap.is-leaving {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body:not(.overview) .slide-wrap.is-active { transition: none; }
+    .progress { transition: none; }
+  }
+
+  /* ---------- Slide ---------- */
+
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    background-color: var(--canvas);
+    margin: 0;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* The band across the top, keyed to the section. */
+  .slide::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6.7px;
+    background: var(--accent);
+    z-index: 6;
+  }
+  .slide.no-band::before { content: none; }
+
+  .t-teal   { --accent: var(--teal); }
+  .t-green  { --accent: var(--green); }
+  .t-pink   { --accent: var(--pink); }
+  .t-orange { --accent: var(--orange); }
+  .t-yellow { --accent: var(--yellow); }
+  .t-slate  { --accent: var(--slate); }
+  .t-mist   { --accent: var(--mist); }
+
+  .tag {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    z-index: 6;
+    font-size: 10.7px;
+    font-weight: 600;
+    color: var(--fg-tag);
+  }
+
+  /* Content frames. The PDF works off a handful of column widths, so each one
+     gets a name rather than being re-measured slide by slide. */
+  .frame {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 4;
+  }
+  .frame.stmt  { left: 146px; right: 147px; }   /* statement + callout slides */
+  .frame.grid3 { left: 93px;  right: 93px;  }   /* three-up card rows */
+  .frame.wide  { left: 47px;  right: 47px;  }   /* full-bleed card grids */
+  .frame.split { left: 40px;  width: 296px; }   /* text half of an image slide */
+  .frame.top   { justify-content: flex-start; padding-top: 55px; bottom: auto; }
+
+  /* On the pill slides the copy column is narrower than the card row below it. */
+  .narrow { width: 627px; margin-left: 80px; }
+
+  /* ---------- Type ---------- */
+
+  h1, h2, h3, h4 { font-family: 'Muller', sans-serif; margin: 0; }
+
+  .s-title {
+    font-size: 26.7px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .s-title.plain { color: #fff; }
+  .s-title.mid { text-align: center; }
+
+  .lede {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--fg);
+    margin: 10px 0 0;
+  }
+  .lede.sm { font-size: 13.3px; margin-top: 10px; }
+  .lede + .lede { margin-top: 13px; }
+
+  .hl { color: var(--accent); font-weight: 700; }
+  .hl-white { color: #fff; font-weight: 700; }
+
+  /* The solid accent block used for the deck's two questions. It is a full
+     column-width band in the source, not a shrink-to-fit chip. */
+  .pill {
+    background: var(--accent);
+    color: #06131F;
+    font-family: 'Muller', sans-serif;
+    font-size: 26.7px;
+    font-weight: 600;
+    line-height: 1.12;
+    padding: 16px 28px;
+    border-radius: 11px;
+  }
+
+  /* ---------- Cards ---------- */
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 13px; align-items: stretch; }
+  .cols   { display: grid; grid-template-columns: 390px 390px; gap: 87px; align-items: start; }
+  .stack  { display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    background: var(--panel);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  /* Cards that carry a colour spine keep the spine square and round only the
+     outer edge, the way the source draws them. */
+  .card.lead {
+    border-left: 3.4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+  }
+  .card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+    margin: 0 0 6px;
+  }
+  .card p {
+    font-size: 13.3px;
+    line-height: 1;
+    color: var(--fg);
+    margin: 0;
+  }
+  .card p + p { margin-top: 9px; }
+
+  .col-head {
+    font-family: 'Muller', sans-serif;
+    font-size: 26.7px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--accent);
+    margin: 0 0 12px;
+  }
+  .col-head.sm { font-size: 16px; margin-bottom: 8px; }
+
+  /* Personas: name and role centred, pain point ranged left. */
+  .persona h3 { font-size: 26.7px; text-align: center; margin-bottom: 6px; }
+  .persona .role {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--fg-mute);
+    text-align: center;
+    margin: 0 0 12px;
+  }
+  .persona p { font-size: 13.3px; }
+
+  /* Stats: figure centred over the label, citation ranged right. */
+  .stat .num {
+    font-family: 'Muller', sans-serif;
+    font-size: 26.7px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .stat .lab { font-size: 13.3px; line-height: 1; color: var(--fg); margin: 0; }
+  .stat .src {
+    font-size: 10.7px;
+    line-height: 1;
+    color: var(--fg-tag);
+    font-style: italic;
+    text-align: right;
+    margin: 8px 0 0;
+  }
+  .stat.mid .lab { font-size: 16px; text-align: center; font-weight: 700; }
+  .stat.mid .note { font-size: 13.3px; line-height: 1; color: var(--fg); margin: 14px 0 0; }
+
+  .callout {
+    background: var(--panel);
+    border-left: 3.4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+  }
+  .callout h4 { font-size: 16px; font-weight: 600; line-height: 1; color: #fff; margin: 0 0 10px; }
+  .callout h4.accent { color: var(--accent); }
+  .callout p { font-size: 13.3px; line-height: 1; color: var(--fg-soft); margin: 0; }
+  .callout .quote { font-size: 16px; line-height: 1; color: #fff; font-weight: 700; margin-bottom: 10px; }
+
+  /* Bulleted guardrail cards. */
+  .bullets { list-style: none; margin: 0; padding: 0; }
+  .bullets li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 13.3px;
+    line-height: 1;
+    color: var(--fg);
+  }
+  .bullets li + li { margin-top: 9px; }
+  .bullets li::before {
+    content: "\00B7";
+    position: absolute;
+    left: 2px;
+    top: -2px;
+    font-size: 16px;
+    color: var(--fg-soft);
+  }
+
+  /* Collaborator rows: who on the left, what they did on the right. */
+  .who-row { display: grid; grid-template-columns: 165px 1fr; gap: 14px; }
+  .who-row .who { font-family: 'Muller', sans-serif; font-size: 16px; font-weight: 600; line-height: 1; color: #fff; }
+  .who-row .who .sub {
+    display: block;
+    font-family: 'Muller', sans-serif;
+    font-size: 10.7px;
+    font-weight: 400;
+    color: var(--fg-mute);
+    margin-top: 6px;
+  }
+  .who-row .what { font-size: 13.3px; line-height: 1; color: var(--fg); }
+
+  /* ---------- Screenshots ---------- */
+
+  /* The image slides run a recessed panel across the right 60% of the stage.
+     Screenshots sit on it at their exact source coordinates and bleed off the
+     top, bottom and right edges. */
+  .panel {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    left: 380px;
+    background: var(--panel);
+    overflow: hidden;
+    z-index: 2;
+  }
+  .panel img {
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    cursor: zoom-in;
+  }
+  /* Soft wash where the panel meets the copy, so the screenshots do not simply
+     stop against the text column. */
+  .panel .wash {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 133px;
+    background: linear-gradient(to right, #08111C 0%, rgba(8, 17, 28, 0) 100%);
+    z-index: 3;
+  }
+
+  /* Screenshots that float on the canvas rather than in a panel. */
+  .shot {
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    cursor: zoom-in;
+    z-index: 2;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ---------- Title & closing ---------- */
+
+  .center-stack {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 4;
+  }
+  .center-stack .mark { width: 49px; margin-bottom: 26px; }
+  .center-stack.cover { padding-bottom: 40px; }
+  .center-stack h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.08;
+  }
+  .center-stack .sub {
+    font-size: 16px;
+    line-height: 1.05;
+    color: var(--fg);
+    margin: 22px auto 0;
+    max-width: 480px;
+  }
+  .center-stack .by {
+    font-size: 13.3px;
+    font-weight: 700;
+    color: var(--fg-mute);
+    margin: 26px 0 0;
+  }
+
+  .center-stack .orchie { width: 78px; margin-bottom: 8px; }
+  .center-stack h2.thanks { font-size: 32px; font-weight: 700; line-height: 1; color: #fff; }
+  .center-stack .end-sub { font-size: 13.3px; line-height: 1; color: var(--fg); margin: 16px 0 18px; }
+
+  a.btn {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 999px;
+    background: var(--slate);
+    color: #fff;
+    font-size: 13.3px;
+    line-height: 1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: background 140ms ease;
+  }
+  a.btn:hover { background: #2C4E63; }
+  a.btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) { a.btn { transition: none; } }
+
+  /* The four-bar brand mark running off the bottom-left corner. */
+  .corner-mark {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: 160px;
+    z-index: 3;
+    overflow: visible;
+  }
+
+  /* ---------- Overview (grid) mode ---------- */
+
+  body.overview { overflow: auto; }
+  body.overview .deck { position: static; display: block; padding: 28px 28px 110px; }
+  body.overview .stage {
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    gap: 20px;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  body.overview .slide-wrap {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    transition: outline-color 140ms ease, transform 140ms ease;
+  }
+  body.overview .slide-wrap:hover { transform: translateY(-3px); }
+  body.overview .slide-wrap.is-active { outline-color: var(--teal); }
+  body.overview .slide-wrap .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    box-shadow: none;
+  }
+  body.overview .slide-wrap::after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #E4E9ED;
+    background: rgba(5, 13, 22, 0.8);
+    border-radius: 4px;
+    padding: 1px 6px;
+    z-index: 8;
+  }
+
+  /* ---------- Chrome ---------- */
+
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--teal);
+    transition: width 220ms ease;
+    z-index: 40;
+  }
+
+  .bar {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px;
+    background: rgba(8, 17, 28, 0.86);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 999px;
+    z-index: 50;
+    transition: opacity 250ms ease;
+  }
+  body.idle .bar { opacity: 0.14; }
+  .bar:hover, .bar:focus-within { opacity: 1 !important; }
+
+  .bar button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: #B5BFC8;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 9px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+  }
+  .bar button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  .bar button:disabled { opacity: 0.3; cursor: default; }
+  .bar .count {
+    color: var(--fg-tag);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 10px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .bar .sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 5px 3px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .edge {
+    position: fixed;
+    top: 0; bottom: 0;
+    width: 14%;
+    z-index: 20;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .edge.prev { left: 0; }
+  .edge.next { right: 0; }
+  .edge:disabled { cursor: default; }
+  .edge:focus, .edge:focus-visible { outline: none; }
+  body.overview .edge { display: none; }
+
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 11px;
+    color: #3D4C5C;
+    z-index: 45;
+    transition: opacity 250ms ease;
+  }
+  body.idle .hint { opacity: 0; }
+  body.overview .hint { display: none; }
+
+  @media (max-width: 760px) {
+    .hint { display: none; }
+    .bar button { padding: 9px 10px; }
+  }
+
+  /* ---------- Lightbox ---------- */
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 44px;
+    background: rgba(3, 9, 16, 0.93);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    cursor: zoom-out;
+  }
+  /* Beats the flex display above, which a bare [hidden] would not. */
+  .lightbox[hidden] { display: none; }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+    cursor: default;
+  }
+
+  .lb-close {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(8, 17, 28, 0.9);
+    color: #B5BFC8;
+    font: inherit;
+    font-size: 20px;
+    line-height: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+  }
+  .lb-close:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+
+  /* ---------- Print / PDF ---------- */
+
+  @page { size: 960px 540px; margin: 0; }
+
+  @media print {
+    body, body.overview { background: #fff; overflow: visible; }
+    .bar, .hint, .progress, .edge { display: none !important; }
+    .deck { position: static; display: block; padding: 0; }
+    .stage {
+      display: block !important;
+      width: var(--slide-w) !important;
+      height: auto !important;
+      max-width: none;
+      margin: 0;
+      transform: none !important;
+    }
+    .slide-wrap {
+      position: relative !important;
+      inset: auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      aspect-ratio: auto !important;
+      overflow: visible !important;
+      outline: none !important;
+      transform: none !important;
+      break-after: page;
+      page-break-after: always;
+    }
+    .slide-wrap::after { display: none !important; }
+    .slide-wrap .slide {
+      position: relative !important;
+      transform: none !important;
+      box-shadow: none !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<button class="edge prev" id="edgePrev" tabindex="-1" aria-label="Previous slide"></button>
+<button class="edge next" id="edgeNext" tabindex="-1" aria-label="Next slide"></button>
+
+<div class="deck" id="deck">
+  <div class="stage" id="stage">
+
+<!-- SLIDE 1 - Title -->
+<div class="slide no-band">
+  <div class="center-stack cover">
+    <img class="mark" src="../orchard-walk-through/assets/logo.png" alt="" />
+    <h1>My Problem-Solving Process:<br />An Orchard Walk-through</h1>
+    <p class="sub">Scaling career guidance through systems thinking, trust-first AI, and student-centered UX.</p>
+    <p class="by">Peter Baunach &bull; Founding Product Designer</p>
+  </div>
+</div>
+
+<!-- SLIDE 2 - Problem -->
+<div class="slide t-teal">
+  <div class="frame grid3">
+    <div class="narrow">
+      <h2 class="pill">How do you prepare students for the future<br />when the system is overloaded?</h2>
+      <p class="lede">
+        High schoolers are pressured to choose a life path before they can even rent a car. With high
+        counselor-to-student ratios, <span class="hl">most kids leave school unprepared</span> and without
+        guidance, defaulting to "safe" majors like Business or Marketing.
+      </p>
+    </div>
+    <div class="grid-3" style="margin-top:27px;">
+      <div class="card stat">
+        <div class="num">1:376</div>
+        <p class="lab">Counselor to student ratio in American public schools.</p>
+        <p class="src">American School Counselor Association</p>
+      </div>
+      <div class="card stat">
+        <div class="num">65%</div>
+        <p class="lab">of children entering school today will end up working in jobs that don't even exist yet.</p>
+        <p class="src">World Economic Forum</p>
+      </div>
+      <div class="card stat">
+        <div class="num">72%</div>
+        <p class="lab">of graduates feel only moderately, slightly, or not at all prepared for life after high school.</p>
+        <p class="src">YouScience Post-Graduation Readiness Report</p>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Problem</span>
+</div>
+
+<!-- SLIDE 3 - Audience -->
+<div class="slide t-green">
+  <div class="frame wide">
+    <h2 class="col-head">User Personas</h2>
+    <div class="grid-3">
+      <div class="card persona">
+        <h3>Student</h3>
+        <p class="role">(Primary User)</p>
+        <p><strong style="color:#fff;">Pain Point:</strong> Anxious about the future, overwhelmed by options, and lacking resources for exploration and guidance.</p>
+      </div>
+      <div class="card persona">
+        <h3>Counselor</h3>
+        <p class="role">(Champion)</p>
+        <p><strong style="color:#fff;">Pain Point:</strong> Cares deeply about student outcomes but is burning out under unsustainable administrative loads and high student ratios.</p>
+      </div>
+      <div class="card persona">
+        <h3>District Leader</h3>
+        <p class="role">(Buyer)</p>
+        <p><strong style="color:#fff;">Pain Point:</strong> Focused on district metrics, accountability, budget allocation, equity, and state reporting standards.</p>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Audience</span>
+</div>
+
+<!-- SLIDE 4 - Hypothesis 1 -->
+<div class="slide t-yellow">
+  <div class="frame stmt">
+    <h2 class="s-title">Initial Hypothesis - The Content-First Strategy</h2>
+    <p class="lede">
+      Students just need a <span class="hl">library of high-quality content</span> and some gamification to
+      encourage exploring. Counselors need a way to track progress, view trends and
+      <span class="hl">assign homework.</span>
+    </p>
+  </div>
+  <span class="tag">Solution - Hypothesis 1</span>
+</div>
+
+<!-- SLIDE 5 - Testing round one -->
+<div class="slide t-orange">
+  <div class="panel">
+    <img src="../assets/img/orchard-screens/student-explore-careers.png" alt="Student career library with favourites and search" style="left:0; top:6.6px; width:580px;" />
+    <img src="../assets/img/orchard-screens/admin-dashboard.png" alt="Counselor analytics dashboard" style="left:-84.9px; top:301.3px; width:435.8px;" />
+    <img src="../assets/img/orchard-screens/career-quiz.png" alt="Post-video comprehension quiz" style="left:348.5px; top:326px; width:353.5px;" />
+    <span class="wash"></span>
+  </div>
+  <div class="frame split">
+    <h2 class="s-title">Getting Ready for Testing</h2>
+    <p class="lede sm">
+      <span class="hl-white">For students.</span><br />
+      We reached out to everyone we knew and filmed our own high-quality career interviews, built a gamified
+      exploration experience, and added quizzes to prove students were watching.
+    </p>
+    <p class="lede sm">
+      <span class="hl-white">For counselors.</span><br />
+      A way to track progress and assign "career homework" to their students.
+    </p>
+  </div>
+  <span class="tag">Solution - Testing</span>
+</div>
+
+<!-- SLIDE 6 - Findings -->
+<div class="slide t-slate">
+  <div class="frame wide">
+    <div class="cols">
+      <div style="--accent: var(--pink);">
+        <h3 class="col-head">Didn't Work</h3>
+        <div class="stack">
+          <div class="card lead">
+            <h3>Search Bar Bias</h3>
+            <p>Students didn't explore because they didn't know what to ask. They defaulted to the same three careers they'd seen on TV, leaving the rest of our database untouched.</p>
+          </div>
+          <div class="card lead">
+            <h3>Quiz Friction</h3>
+            <p>We thought gamified quizzes would prove learning. Students saw them as "just more schoolwork" and disengaged immediately.</p>
+          </div>
+          <div class="card lead">
+            <h3>Dashboard Fatigue</h3>
+            <p>Counselors were already drowning in administrative tools. The last thing they wanted was another system to log into. They needed a way to make their rare one-on-one time more effective.</p>
+          </div>
+        </div>
+      </div>
+      <div style="--accent: var(--green); margin-top:10px;">
+        <h3 class="col-head">Showed Promise</h3>
+        <div class="stack">
+          <div class="card lead">
+            <h3>Attention as a Metric</h3>
+            <p>Even when students ignored the text and the quizzes, they would still engage with the career interviews.</p>
+          </div>
+          <div class="card lead">
+            <h3>Visual Authenticity</h3>
+            <p>They weren't looking for data, they were looking for a vibe. Seeing a real person in their real work environment humanised a career in a way a salary table never could.</p>
+          </div>
+          <div class="card lead">
+            <h3>The Scroll Instinct</h3>
+            <p>Students fast-forwarded through long videos hunting for the interesting moments, signalling they wanted high-density information in short, punchy bursts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Solution - Findings</span>
+</div>
+
+<!-- SLIDE 7 - Research shift -->
+<div class="slide t-pink">
+  <div class="frame stmt">
+    <h2 class="s-title">A Shift in Focus</h2>
+    <p class="lede">
+      Research prompted a key pivot: moving from a passive, search-heavy dashboard to an
+      <span class="hl">interactive discovery engine.</span> We leaned heavy into video exploration.
+    </p>
+  </div>
+  <span class="tag">Solution - Research Shift</span>
+</div>
+
+<!-- SLIDE 8 - Redesign 1 -->
+<div class="slide t-teal">
+  <div class="panel">
+    <img src="../assets/img/orchard-screens/careers-mobile-homepage.png" alt="Mobile career feed" style="left:57.3px; top:42.7px; width:130px;" />
+    <img src="../assets/img/orchard-screens/careers-mobile-video.png" alt="Career interview broken into chapters" style="left:222px; top:140px; width:130px;" />
+    <img src="../assets/img/orchard-screens/careers-mobile-short.png" alt="Short-form career clip" style="left:386.7px; top:237.3px; width:130px;" />
+  </div>
+  <div class="frame split">
+    <h2 class="s-title">Video Focus</h2>
+    <p class="lede sm">
+      <span class="hl-white">Long-form cut into 30-second teasers.</span><br />
+      Focused on the most interesting part of a job, the "day in the life" moments.
+    </p>
+    <p class="lede sm">
+      <span class="hl-white">A mobile-first scrollable feed, not a search box.</span><br />
+      By mimicking the social patterns students already used, accidental discovery started happening. A student
+      would scroll for a "Business" clip and stop on a "Product Designer" video because the thumbnail grabbed them.
+    </p>
+    <h3 class="col-head sm" style="margin:22px 0 0;">Counselors</h3>
+    <p class="lede sm" style="margin-top:6px;">
+      <span class="hl-white">From managing to conversation.</span><br />
+      A dashboard was just another system to manage. So we helped students build a personalized career plan
+      before their five-minute check-in, turning a forgettable touchpoint into a high-value conversation.
+    </p>
+  </div>
+  <span class="tag">Solution - Redesign 1</span>
+</div>
+
+<!-- SLIDE 9 - Testing round two -->
+<div class="slide t-green">
+  <div class="frame stmt">
+    <h2 class="s-title">Testing: Round Two</h2>
+    <p class="lede">
+      With a solid proof-of-concept in hand, it was time to push the product further. We integrated analytics and
+      sent it to a list of <span class="hl">~20,000 educators</span>. Even though they weren't our primary
+      demographic, watching them interact unassisted provided the kind of "raw" data you just can't get in a lab.
+      For the next two weeks, our morning ritual was analyzing session recordings, letting us see exactly where
+      users thrived and where they stumbled.
+    </p>
+    <div class="callout" style="margin-top:28px;">
+      <h4>What worked</h4>
+      <p>The short-form video feed was working, people were exploring, and we felt like we had a handle on the discovery problem.</p>
+    </div>
+  </div>
+  <span class="tag">Solution - Testing</span>
+</div>
+
+<!-- SLIDE 10 - Problem 2 -->
+<div class="slide t-yellow">
+  <div class="frame stmt">
+    <h2 class="s-title">Generative AI went mainstream</h2>
+    <p class="lede">
+      Seemingly out of nowhere, Generative AI went mainstream and the world was flooded with AI apps. Most of them
+      felt like dense, academic text blocks that used a lot of verbose "AI lingo" to say very little. It was a
+      <span class="hl">technology looking for a problem</span>, and for a moment, it felt like the quiet,
+      human-centric "mentorship" vibe we were building was at risk of being drowned out by the noise.
+    </p>
+  </div>
+  <span class="tag">Problem 2</span>
+</div>
+
+<!-- SLIDE 11 - Should we add a chatbot -->
+<div class="slide t-orange">
+  <div class="frame grid3">
+    <div class="narrow">
+      <h2 class="pill">Should we also add a chatbot?</h2>
+      <p class="lede">
+        Instead of just "adding a chatbot" because it was the trend, we took a step back to review our original
+        mission. We asked ourselves a hard question: In a world where everyone has an LLM in their pocket,
+        <span class="hl">is our problem statement still valid?</span> The answer was a resounding yes.
+      </p>
+    </div>
+    <div class="grid-3" style="margin-top:26px;">
+      <div class="card">
+        <h3 style="color:var(--orange); font-size:26.7px; text-align:center; margin-bottom:16px;">The Reality</h3>
+        <p>The counselor-to-student ratio hadn't changed.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--orange); font-size:26.7px; text-align:center; margin-bottom:16px;">The Complexity</h3>
+        <p>The job market was actually becoming more confusing because of AI.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--orange); font-size:26.7px; text-align:center; margin-bottom:16px;">The Opportunity</h3>
+        <p>We realized that while generic AI was verbose and cold, a guided AI, grounded in our career interviews and human-centric philosophy, could be the "Counselor-in-Pocket" we had been trying to build all along.</p>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Problem</span>
+</div>
+
+<!-- SLIDE 12 - Aligning tech to mission -->
+<div class="slide t-pink">
+  <div class="frame stmt">
+    <h2 class="s-title">Aligning the Tech to the Mission</h2>
+    <p class="lede">
+      LLM technology made our vision of an always-on career counselor possible. But we made an intentional choice:
+      <span class="hl">the AI never auto-assigns a "perfect match" career</span> based on a quiz. Instead, it acts
+      as a supportive partner, guiding exploration while keeping the student firmly in the driver's seat.
+    </p>
+  </div>
+  <span class="tag">Solution - AI</span>
+</div>
+
+<!-- SLIDE 13 - Orchie 1.0 -->
+<div class="slide t-teal">
+  <img class="shot" src="../assets/img/orchard-screens/orchard-career-exploration.png" alt="AI-powered career comparison"
+       style="left:76px; top:239.3px; width:314.4px; transform:rotate(-15deg);" />
+  <img class="shot" src="../assets/img/orchard-screens/orchard-dashboard-minimize.png" alt="Student action plan and next steps"
+       style="left:561.3px; top:240.2px; width:322.7px; transform:rotate(15deg);" />
+  <img class="shot" src="../assets/img/orchard-screens/orchard-orchie.png" alt="Orchie conversational entry point"
+       style="left:291.3px; top:201.9px; width:368.7px; z-index:3;" />
+  <div class="frame top stmt">
+    <h2 class="s-title">Putting our AI Plan into Action</h2>
+    <p class="lede">
+      Building Orchie 1.0 meant bringing everything together: our original library of career content, an
+      AI-powered comparison engine, and guided workflows to help students actively plan their next steps.
+    </p>
+  </div>
+  <span class="tag">Solution - Orchie 1.0</span>
+</div>
+
+<!-- SLIDE 14 - Commercial feedback -->
+<div class="slide t-green">
+  <div class="frame stmt">
+    <h2 class="s-title">Schools thought it was "neat." Nobody committed.</h2>
+    <p class="lede">
+      The product worked. Students engaged with it, counselors liked it, but
+      <span class="hl-white">district leaders still wouldn't add it to the budget.</span>
+    </p>
+    <div class="callout" style="margin-top:28px;">
+      <h4 class="accent">What they were actually saying</h4>
+      <p class="quote">"We need a measurable way to show student growth in order to get funding for a new tool."</p>
+      <p>A district can't buy what it can't justify to a school board. The thing standing between us and every contract wasn't a feature. It was measurable growth.</p>
+    </div>
+  </div>
+  <span class="tag">Solution - Feedback</span>
+</div>
+
+<!-- SLIDE 15 - The CRI -->
+<div class="slide t-yellow">
+  <div class="panel">
+    <img src="../assets/img/orchard-screens-v2/CRI-Draft.png" alt="CRI rubric: criteria, definitions and the eight-pillar visual" style="left:0; top:6.7px; width:580px;" />
+    <img src="../assets/img/orchard-screens-v2/CRI-Simulation.png" alt="Internal CRI model simulator" style="left:44.7px; top:210.5px; width:493.3px;" />
+    <span class="wash"></span>
+  </div>
+  <div class="frame split">
+    <h2 class="s-title">So we designed the<br />Career Readiness Index</h2>
+    <p class="lede sm">
+      <span class="hl-white">A credit score for career readiness.</span><br />
+      The CRI acts like a personal credit score for career readiness. Instead of measuring static test scores or
+      grade compliance, it tracks a student's real-world growth across 8 core dimensions.
+    </p>
+    <p class="lede sm">
+      <span class="hl-white">Start with a rubric, not a chart.</span><br />
+      We started with a basic rubric to ground abstract ideas into observable actions. From there we distilled
+      them into 8 distinct pillars along with a visual that allows students, counselors and parents an instant
+      snapshot of their growth.
+    </p>
+    <p class="lede sm">
+      <span class="hl-white">Internal model tuning.</span><br />
+      The CRI model started to get complex fast. Once every action in the system started impacting the score we
+      needed a way to simulate actions to see the impact of our tuning.
+    </p>
+    <p style="font-family:'Muller',sans-serif; font-size:16px; font-weight:600; color:var(--yellow); margin:22px 0 0;">
+      District Leaders started to perk up
+    </p>
+  </div>
+  <span class="tag">Solution - CRI</span>
+</div>
+
+<!-- SLIDE 16 - Restructured around growth -->
+<div class="slide t-orange">
+  <img class="shot" src="../assets/img/orchard-screens-v2/cri-screens/CRI-03.png" alt="Exploration surfaced against the student's CRI"
+       style="left:531.3px; top:238px; width:333.5px;" />
+  <img class="shot" src="../assets/img/orchard-screens-v2/Growth-Report.png" alt="Student Growth Report"
+       style="left:95.3px; top:163.3px; width:494.1px; z-index:3;" />
+  <div class="frame top" style="left:93px; right:93px;">
+    <h2 class="s-title mid">With that buy in, we restructured the experience<br />around measuring growth</h2>
+  </div>
+  <span class="tag">Solution - CRI</span>
+</div>
+
+<!-- SLIDE 17 - Policy -->
+<div class="slide t-pink">
+  <div class="frame stmt">
+    <h2 class="s-title">Built to be trusted with student data</h2>
+    <p class="lede">
+      For a product used by minors and bought by districts,
+      <span class="hl-white">trust isn't a feature</span>. It's the foundation.
+    </p>
+    <div class="grid-2" style="margin-top:26px; gap:6px;">
+      <div style="--accent: var(--teal);">
+        <h3 class="col-head sm">Governance</h3>
+        <div class="stack" style="gap:9px;">
+          <div class="card lead" style="min-height:88px; display:flex; align-items:center; padding-left:24px;">
+            <p>We follow <strong style="color:#fff;">FERPA</strong>, and soon <strong style="color:#fff;">COPPA</strong>: student data stays protected, and Orchie never offers medical or therapeutic counseling.</p>
+          </div>
+          <div class="card lead" style="min-height:90px; display:flex; align-items:center; padding-left:24px;">
+            <p>Our AI policy requires Orchie to cite verifiable sources and stay auditable.</p>
+          </div>
+        </div>
+      </div>
+      <div style="--accent: var(--green);">
+        <h3 class="col-head sm">Guardrail</h3>
+        <div class="stack" style="gap:9px;">
+          <div class="card lead" style="min-height:88px; display:flex; align-items:center;">
+            <ul class="bullets">
+              <li>Real-time PII scrubbing, so student records never reach the LLM.</li>
+              <li>Distressed-language detection that flags and escalates to a human counselor.</li>
+            </ul>
+          </div>
+          <div class="card lead" style="min-height:90px; display:flex; align-items:center;">
+            <ul class="bullets">
+              <li>Grounded in our own data plus federally compliant sources like the BLS and O*NET.</li>
+              <li>Every stat is cited. If Orchie doesn't know, it says so rather than hallucinate.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Solution - Policy</span>
+</div>
+
+<!-- SLIDE 18 - Guardrails flow -->
+<div class="slide t-teal">
+  <img class="shot" src="assets/orchie-flow.png" alt="Orchie conversation flow with governance and guardrail checkpoints drawn in"
+       style="left:158.7px; top:105.2px; width:642px; background:#fff;" />
+  <div class="frame top" style="left:93px; right:93px;">
+    <h2 class="s-title mid">Guardrails and Governance designed into Orchie</h2>
+  </div>
+  <span class="tag">Solution - Guardrails</span>
+</div>
+
+<!-- SLIDE 19 - Orchard 2.0 -->
+<div class="slide t-green">
+  <img class="shot" src="../assets/img/orchard-screens-v2/Orchie-Desk.png" alt="Orchie desk, the student home surface"
+       style="left:13.3px; top:174px; width:367.4px;" />
+  <img class="shot" src="../assets/img/orchard-screens-v2/Plan-Action-Plan.png" alt="Action plan built with Orchie"
+       style="left:629.3px; top:173.9px; width:317.3px;" />
+  <img class="shot" src="../assets/img/orchard-screens-v2/Explore-Content.png" alt="Career content library"
+       style="left:253.8px; top:132.7px; width:473.7px; z-index:3;" />
+  <div class="frame top" style="left:93px; right:93px;">
+    <h2 class="s-title mid">Orchard 2.0</h2>
+  </div>
+  <span class="tag">Solution - New Look</span>
+</div>
+
+<!-- SLIDE 20 - Impact -->
+<div class="slide t-mist">
+  <div class="frame grid3">
+    <h2 class="s-title plain narrow">The version that measured growth is the one that got into schools.</h2>
+    <div class="grid-3" style="margin-top:55px;">
+      <div class="card lead stat mid" style="--accent: var(--teal);">
+        <div class="num">6</div>
+        <p class="lab">Schools now piloting Orchard</p>
+        <p class="note">Two public, one charter, three private. The counselor economics are wildly different across those three, so holding up in all of them says this isn't only a stand-in for a counselor a school can't afford.</p>
+      </div>
+      <div class="card lead stat mid" style="--accent: var(--green);">
+        <div class="num">4</div>
+        <p class="lab">Awarded through Curriki AI grant applications</p>
+        <p class="note">They applied for the grant specifically to bring Orchard in, and Curriki approved it. Outside review, outside funding, adds to the validation.</p>
+      </div>
+      <div class="card lead stat mid" style="--accent: var(--pink);">
+        <div class="num">1,000+</div>
+        <p class="lab">Students impacted</p>
+        <p class="note">The first cohort large enough to test the CRI at scale and drive adoption.</p>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Impact</span>
+</div>
+
+<!-- SLIDE 21 - Scope of role -->
+<div class="slide t-slate">
+  <div class="frame wide">
+    <div class="cols">
+      <div style="--accent: var(--teal);">
+        <h3 class="col-head">Who I worked with</h3>
+        <div class="stack">
+          <div class="card lead who-row">
+            <div class="who">1 Engineer<span class="sub">Technical Implementation</span></div>
+            <div class="what">Built it, wrote the CRI model calculation, and owned LLM selection.</div>
+          </div>
+          <div class="card lead who-row">
+            <div class="who">1 Content Manager<span class="sub">Schools, Districts, Interviews</span></div>
+            <div class="what">Ran outreach for feedback and interest. Recorded the interviews</div>
+          </div>
+          <div class="card lead who-row">
+            <div class="who">1 Founder<span class="sub">Partnerships</span></div>
+            <div class="what">Partnerships and ed-tech engagement, including the Curriki relationship.</div>
+          </div>
+          <div class="card lead" style="--accent: var(--pink);">
+            <h3 style="color:var(--pink); font-size:16px; margin-bottom:6px;">How everyone stayed aligned</h3>
+            <p>We all watched PostHog session recordings and metrics, joined weekly product reviews, and stress tested.</p>
+          </div>
+        </div>
+      </div>
+      <div style="--accent: var(--green); margin-top:17px;">
+        <h3 class="col-head">What I owned</h3>
+        <div class="stack">
+          <div class="card lead">
+            <h3>Product Strategy</h3>
+            <p>Framed the problem, ran each hypothesis, and made the case to move off the ones that failed.</p>
+          </div>
+          <div class="card lead">
+            <h3>Product Design &amp; Prototype</h3>
+            <p>Designed every surface across all four iterations, plus the working prototype the team tested and engineering built off of.</p>
+          </div>
+          <div class="card lead">
+            <h3>Branding and Team Alignment</h3>
+            <p>The identity, and keeping a four-person team pointed at the same problem through three pivots.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="tag">Scope of Role</span>
+</div>
+
+<!-- SLIDE 22 - Thanks -->
+<div class="slide no-band">
+  <div class="center-stack">
+    <img class="orchie" src="../orchard-walk-through/assets/orchie-wave.png" alt="" />
+    <h2 class="thanks">Thanks!</h2>
+    <p class="end-sub">If you're curious you can explore the prototype</p>
+    <a class="btn" href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" target="_blank" rel="noopener">Prototype</a>
+  </div>
+  <svg class="corner-mark" viewBox="0 0 200 160" aria-hidden="true">
+    <g stroke-width="17" fill="none">
+      <line x1="57.7" y1="58.3"  x2="-192" y2="308" stroke="#13C6E4" />
+      <line x1="97"   y1="42.7"  x2="-153" y2="292" stroke="#3BD342" />
+      <line x1="99.3" y1="64.3"  x2="-151" y2="314" stroke="#F659B3" />
+      <line x1="49.3" y1="138.7" x2="-201" y2="388" stroke="#F2971F" />
+    </g>
+  </svg>
+</div>
+
+  </div>
+</div>
+
+<nav class="bar" id="bar" aria-label="Deck controls">
+  <button id="btnPrev" title="Previous (left arrow)" aria-label="Previous slide">&lsaquo;</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="btnNext" title="Next (right arrow)" aria-label="Next slide">&rsaquo;</button>
+  <span class="sep"></span>
+  <button id="btnGrid" title="All slides (O)">Slides</button>
+  <button id="btnFull" title="Fullscreen (F)">Full</button>
+  <button id="btnPrint" title="Print / save as PDF (P)">PDF</button>
+</nav>
+
+<div class="hint">&larr; &rarr; to navigate &middot; O for all slides &middot; F fullscreen</div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close image">&times;</button>
+  <img id="lbImg" src="" alt="" />
+</div>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var wraps = [];
+  var index = 0;
+
+  // Wrap each slide so present mode and grid mode can share one DOM.
+  slides.forEach(function (slide, i) {
+    var wrap = document.createElement('div');
+    wrap.className = 'slide-wrap';
+    wrap.setAttribute('data-num', i + 1);
+    slide.parentNode.insertBefore(wrap, slide);
+    wrap.appendChild(slide);
+    wrap.addEventListener('click', function () {
+      if (document.body.classList.contains('overview')) {
+        go(i);
+        setOverview(false);
+      }
+    });
+    wraps.push(wrap);
+  });
+
+  var total = wraps.length;
+  var count = document.getElementById('count');
+  var progress = document.getElementById('progress');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+  var edgePrev = document.getElementById('edgePrev');
+  var edgeNext = document.getElementById('edgeNext');
+
+  function fit() {
+    if (document.body.classList.contains('overview')) {
+      // Thumbnails: scale each slide down to its wrapper width.
+      wraps.forEach(function (wrap) {
+        var s = wrap.clientWidth / 960;
+        wrap.querySelector('.slide').style.transform = 'scale(' + s + ')';
+      });
+      return;
+    }
+    wraps.forEach(function (wrap) {
+      wrap.querySelector('.slide').style.transform = '';
+    });
+    var pad = window.innerWidth < 760 ? 16 : 48;
+    var s = Math.min(
+      (window.innerWidth - pad * 2) / 960,
+      (window.innerHeight - pad * 2) / 540
+    );
+    stage.style.transform = 'scale(' + Math.max(s, 0.1) + ')';
+  }
+
+  var leaveTimer;
+  var shown = -1;
+
+  function render() {
+    // Keep the slide we're leaving painted underneath the incoming one so the
+    // page background never shows through the crossfade.
+    clearTimeout(leaveTimer);
+    wraps.forEach(function (wrap) { wrap.classList.remove('is-leaving'); });
+
+    var outgoing = shown !== index && wraps[shown] ? wraps[shown] : null;
+    if (outgoing) { outgoing.classList.add('is-leaving'); }
+
+    wraps.forEach(function (wrap, i) {
+      wrap.classList.toggle('is-active', i === index);
+    });
+    shown = index;
+
+    if (outgoing) {
+      leaveTimer = setTimeout(function () {
+        outgoing.classList.remove('is-leaving');
+      }, 200);
+    }
+
+    count.textContent = (index + 1) + ' / ' + total;
+    progress.style.width = (total > 1 ? (index / (total - 1)) * 100 : 100) + '%';
+    var atStart = index === 0;
+    var atEnd = index === total - 1;
+    btnPrev.disabled = edgePrev.disabled = atStart;
+    btnNext.disabled = edgeNext.disabled = atEnd;
+  }
+
+  function go(i, push) {
+    var next = Math.max(0, Math.min(total - 1, i));
+    if (next === index && push !== true) { render(); return; }
+    index = next;
+    render();
+    var hash = '#' + (index + 1);
+    if (location.hash !== hash) {
+      history.replaceState(null, '', hash);
+    }
+    if (document.body.classList.contains('overview')) {
+      wraps[index].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function setOverview(on) {
+    document.body.classList.toggle('overview', on);
+    document.getElementById('btnGrid').textContent = on ? 'Present' : 'Slides';
+    fit();
+    if (on) {
+      wraps[index].scrollIntoView({ block: 'center' });
+    }
+  }
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  }
+
+  // Lightbox. Every screenshot opens full size; the brand marks are decorative
+  // and carry an empty alt, which is what keeps them out of this.
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbClose = document.getElementById('lbClose');
+  var lbReturn = null;
+
+  function openLightbox(img) {
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lb.hidden = false;
+    lbReturn = img;
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    if (lb.hidden) { return; }
+    lb.hidden = true;
+    lbImg.removeAttribute('src');
+    if (lbReturn) { lbReturn.focus(); lbReturn = null; }
+  }
+
+  stage.querySelectorAll('.slide img[alt]:not([alt=""])').forEach(function (img) {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.addEventListener('click', function (e) {
+      // In grid mode a click means "go to this slide", so leave it alone.
+      if (document.body.classList.contains('overview')) { return; }
+      e.stopPropagation();
+      openLightbox(img);
+    });
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(img); }
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target !== lbImg) { closeLightbox(); }
+  });
+  lbClose.onclick = closeLightbox;
+
+  // Controls. Blurring keeps a clicked edge zone from holding focus.
+  btnPrev.onclick = function () { go(index - 1); };
+  btnNext.onclick = function () { go(index + 1); };
+
+  // The edge zones cover the outer 14% of the viewport, which on several
+  // slides sits over a screenshot. A click that lands on one should open the
+  // image rather than page the deck, so look through the zone before paging.
+  function edgeClick(step) {
+    return function (e) {
+      this.blur();
+      var under = document.elementsFromPoint(e.clientX, e.clientY);
+      for (var i = 0; i < under.length; i++) {
+        if (under[i].tagName === 'IMG' && under[i].getAttribute('alt')) {
+          openLightbox(under[i]);
+          return;
+        }
+      }
+      go(index + step);
+    };
+  }
+  edgePrev.onclick = edgeClick(-1);
+  edgeNext.onclick = edgeClick(1);
+  document.getElementById('btnGrid').onclick = function () {
+    setOverview(!document.body.classList.contains('overview'));
+  };
+  document.getElementById('btnFull').onclick = toggleFullscreen;
+  document.getElementById('btnPrint').onclick = function () {
+    var wasOverview = document.body.classList.contains('overview');
+    if (wasOverview) { setOverview(false); }
+    window.print();
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (!lb.hidden) {
+      if (k === 'Escape') { closeLightbox(); e.preventDefault(); }
+      return;
+    }
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'n') {
+      go(index + 1); e.preventDefault();
+    } else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') {
+      go(index - 1); e.preventDefault();
+    } else if (k === 'Home') {
+      go(0); e.preventDefault();
+    } else if (k === 'End') {
+      go(total - 1); e.preventDefault();
+    } else if (k === 'o' || k === 'O') {
+      setOverview(!document.body.classList.contains('overview')); e.preventDefault();
+    } else if (k === 'Escape') {
+      if (document.body.classList.contains('overview')) { setOverview(false); e.preventDefault(); }
+    } else if (k === 'f' || k === 'F') {
+      toggleFullscreen(); e.preventDefault();
+    } else if (k === 'p' || k === 'P') {
+      window.print(); e.preventDefault();
+    } else if (/^[1-9]$/.test(k)) {
+      go(parseInt(k, 10) - 1); e.preventDefault();
+    }
+  });
+
+  // Touch swipe
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX;
+    ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (document.body.classList.contains('overview') || !lb.hidden) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      go(dx < 0 ? index + 1 : index - 1);
+    }
+  }, { passive: true });
+
+  // Auto-hide chrome when idle
+  var idleTimer;
+  function wake() {
+    document.body.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      document.body.classList.add('idle');
+    }, 2600);
+  }
+  ['mousemove', 'keydown', 'touchstart', 'click'].forEach(function (evt) {
+    document.addEventListener(evt, wake, { passive: true });
+  });
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function () {
+    var n = parseInt(location.hash.replace('#', ''), 10);
+    if (n) { go(n - 1, true); }
+  });
+
+  // Boot
+  var start = parseInt(location.hash.replace('#', ''), 10);
+  index = start ? Math.max(0, Math.min(total - 1, start - 1)) : 0;
+  render();
+  fit();
+  wake();
+})();
+</script>
+
+</body>
+</html>
