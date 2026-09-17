@@ -707,6 +707,52 @@
   }
   .vision .oneliner .ps { color: var(--cyan); margin-right: 8px; }
 
+  /* ---------- 11 · Appendix, data ---------- */
+
+  .numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  .numbers .card { padding: 12px 15px; }
+  .numbers .card.key { border-color: rgba(6, 182, 212, 0.35); background: rgba(6, 182, 212, 0.05); }
+  .numbers .label { margin-bottom: 9px; color: var(--fg-soft); }
+  .numbers .card.key .label { color: var(--cyan); }
+  .numbers dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 5px 10px;
+    align-items: baseline;
+  }
+  .numbers dt {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--fg);
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+  .numbers dt.em { color: var(--emerald); }
+  .numbers dd { margin: 0; font-size: 11px; line-height: 1.35; color: var(--fg-soft); }
+
+  /* ---------- 12 · Appendix, sources ---------- */
+
+  .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; align-content: start; }
+  .sources .src { font-size: 10.5px; line-height: 1.4; color: var(--fg-soft); }
+  .sources .src b { color: var(--fg); font-weight: 600; }
+  .sources .src.read b { color: var(--cyan); }
+  .sources .src a,
+  .sources .src .nolink {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--mono);
+    font-size: 9px;
+    line-height: 1.3;
+    color: var(--fg-mute);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sources .src a:hover { color: var(--cyan); }
+
   /* ---------- Overview (grid) mode ---------- */
 
   body.overview { overflow: auto; }
@@ -922,7 +968,7 @@
 <span class="ok">200</span>  &lt;svg/&gt; returned<span class="cursor"></span></pre>
     </div>
   </div>
-  <footer class="s-foot"><span class="by">Founding Team</span><span class="pg">01 / 10</span></footer>
+  <footer class="s-foot"><span class="by">Founding Team</span><span class="pg">01 / 12</span></footer>
 </div>
 
 <!-- SLIDE 2 - Problem -->
@@ -969,7 +1015,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">02 / 10</span>
+    <span class="pg">02 / 12</span>
   </footer>
 </div>
 
@@ -1027,7 +1073,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">03 / 10</span>
+    <span class="pg">03 / 12</span>
   </footer>
 </div>
 
@@ -1086,7 +1132,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">04 / 10</span>
+    <span class="pg">04 / 12</span>
   </footer>
 </div>
 
@@ -1128,7 +1174,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">05 / 10</span>
+    <span class="pg">05 / 12</span>
   </footer>
 </div>
 
@@ -1171,7 +1217,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">06 / 10</span>
+    <span class="pg">06 / 12</span>
   </footer>
 </div>
 
@@ -1212,7 +1258,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">07 / 10</span>
+    <span class="pg">07 / 12</span>
   </footer>
 </div>
 
@@ -1264,7 +1310,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">08 / 10</span>
+    <span class="pg">08 / 12</span>
   </footer>
 </div>
 
@@ -1309,7 +1355,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">09 / 10</span>
+    <span class="pg">09 / 12</span>
   </footer>
 </div>
 
@@ -1323,7 +1369,87 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">10 / 10</span>
+    <span class="pg">10 / 12</span>
+  </footer>
+</div>
+
+<!-- SLIDE 11 - Appendix, numbers -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">11</span>Appendix · Data</p>
+    <h2 class="s-title">The numbers, including the inconvenient one</h2>
+  </header>
+  <div class="s-body">
+    <div class="numbers">
+      <div class="card key">
+        <p class="label">The rails are live but empty</p>
+        <dl>
+          <dt>$28K</dt><dd>daily on-chain x402 volume, March 2026</dd>
+          <dt>~50%</dt><dd>of those transactions self-dealt or wash-traded</dd>
+          <dt>46% → 4%</dt><dd>share of x402 volume under $1, 2025 to 2026</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">Distribution already exists</p>
+        <dl>
+          <dt>97M+</dt><dd>monthly MCP SDK downloads</dd>
+          <dt>10,000+</dt><dd>active public MCP servers</dd>
+          <dt>40</dt><dd>x402 Foundation members, incl. Visa, Mastercard, Google, AWS</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">The buying moment is large</p>
+        <dl>
+          <dt>100M+</dt><dd>lines of enterprise code per day in Cursor (their figure)</dd>
+          <dt>84%</dt><dd>of developers use or plan to use AI coding tools</dd>
+          <dt>29%</dt><dd>still trust AI-generated output, down from 40%</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">What icons earn today</p>
+        <dl>
+          <dt>$4.1M</dt><dd>Noun Project annual revenue, 35 staff</dd>
+          <dt>70%</dt><dd>royalty Iconfinder pays its contributors</dd>
+          <dt class="em">90%</dt><dd>what VectorAgent would pay</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Not claiming</span>No TAM. Juniper's $1.5T-by-2030 covers all agentic commerce, mostly retail, and the icon market's own comps are single-digit millions. The bet is that the unit of consumption changes, not that we take a slice of something that already exists.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">11 / 12</span>
+  </footer>
+</div>
+
+<!-- SLIDE 12 - Appendix, sources -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">12</span>Appendix · Sources</p>
+    <h2 class="s-title">Where these numbers came from</h2>
+  </header>
+  <div class="s-body">
+    <div class="sources">
+      <p class="src read"><b>CoinDesk</b>, Mar 2026 · read in full. The $28K/day, the ~$0.20 average, the gamified share.<a href="https://www.coindesk.com/markets/2026/03/11/coinbase-backed-ai-payments-protocol-wants-to-fix-micropayment-but-demand-is-just-not-there-yet">coindesk.com/markets/2026/03/11/…micropayment-but-demand-is-just-not-there-yet</a></p>
+      <p class="src"><b>Chainalysis</b> · x402 agentic-payment adoption on Base.<a href="https://www.chainalysis.com/blog/x402-agentic-payments-adoption/">chainalysis.com/blog/x402-agentic-payments-adoption</a></p>
+      <p class="src"><b>JetBrains Research</b>, Aug 2026 · AI coding agent adoption survey.<a href="https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/">blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026</a></p>
+      <p class="src"><b>Mastercard</b>, Jun 2026 · Agent Pay for Machines launch.<a href="https://www.mastercard.com/global/en/news-and-trends/press/2026/june/mastercard-launches-agent-pay-for-machines.html">mastercard.com/…/mastercard-launches-agent-pay-for-machines</a></p>
+      <p class="src"><b>Presenc AI</b> · x402 Foundation, Linux Foundation hosting, member list.<a href="https://presenc.ai/research/x402-protocol-adoption-tracker-2026">presenc.ai/research/x402-protocol-adoption-tracker-2026</a></p>
+      <p class="src"><b>Digital Applied</b> · MCP adoption statistics and the 97M download figure.<a href="https://www.digitalapplied.com/blog/mcp-adoption-statistics-2026-model-context-protocol">digitalapplied.com/blog/mcp-adoption-statistics-2026…</a></p>
+      <p class="src"><b>Digital Applied</b> · AI coding adoption, 50 data points across 7 surveys.<a href="https://www.digitalapplied.com/blog/ai-coding-adoption-statistics-2026-50-data-points">digitalapplied.com/blog/ai-coding-adoption-statistics-2026…</a></p>
+      <p class="src"><b>Panto</b> · Cursor usage, revenue and enterprise figures.<a href="https://www.getpanto.ai/blog/cursor-ai-statistics">getpanto.ai/blog/cursor-ai-statistics</a></p>
+      <p class="src"><b>Growjo</b> · Iconfinder and Noun Project revenue estimates.<a href="https://growjo.com/company/Iconfinder">growjo.com/company/Iconfinder</a></p>
+      <p class="src"><b>Icongraph</b> · a designer's guide to the icon business, royalty rates.<a href="https://www.icongraph.com/a-designers-guide-to-the-icon-business/">icongraph.com/a-designers-guide-to-the-icon-business</a></p>
+      <p class="src"><b>Wikipedia</b> · agentic commerce, AP2 and x402 context.<a href="https://en.wikipedia.org/wiki/Agentic_commerce">en.wikipedia.org/wiki/Agentic_commerce</a></p>
+      <p class="src"><b>Juniper Research</b>, Apr 2026 · the $8B-to-$1.5T forecast, deliberately not used.<span class="nolink">reported secondhand; primary report not consulted</span></p>
+    </div>
+
+    <p class="scope"><span class="label">Reliability</span>CoinDesk, Chainalysis, Mastercard, JetBrains and Anthropic's own MCP figures are primary. The adoption-statistic aggregators are secondary and were used only where they agreed with each other. Verify anything you plan to say out loud in a room.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">12 / 12</span>
   </footer>
 </div>
 
