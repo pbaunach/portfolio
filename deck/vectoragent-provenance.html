@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>VectorAgent Pitch Deck</title>
+<title>VectorAgent Provenance Deck</title>
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#0B0F17" />
 
@@ -13,7 +13,13 @@
 
 <style>
   /* ============================================================
-     VectorAgent pitch deck.
+     VectorAgent provenance deck.
+
+     The alternate framing: the product is verifiable provenance for
+     AI-generated software, with assets as the delivery mechanism and the
+     settlement itself as the license record. Pricing stays agent-initiated
+     and per-use, because the premise is that no human is left in the
+     purchase decision.
 
      Same 960x540 stage and deck engine as the other decks in this
      folder. The look is a dark developer-tool aesthetic: one slate
@@ -706,6 +712,10 @@
   }
   .vision .oneliner .ps { color: var(--cyan); margin-right: 8px; }
 
+  /* Appendix divider: the same centred stack, but only a label and a title. */
+  .vision.divider h2 { font-size: 34px; letter-spacing: -0.03em; }
+  .vision.divider .eyebrow { margin-bottom: 14px; }
+
   /* ---------- 11 · Appendix, data ---------- */
 
   .numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
@@ -958,71 +968,101 @@
       </svg>
     </div>
     <h1 class="wordmark">Vector<span>Agent</span></h1>
-    <p class="hero-sub">Where AI agents buy the icons they would otherwise guess at</p>
+    <p class="hero-sub">Proof of where it came from, for software no human reviewed</p>
     <div class="term">
-      <div class="term-bar"><i></i><i></i><i></i><span class="ttl">~/vector-agent</span><span class="rt em">working</span></div>
-<pre class="term-body"><span class="ps">$</span> <span class="cmd">npm run test:flow shopping-cart</span>
-<span class="ps">402</span>  payment required · $0.002 USDC
-<span class="ok">✓</span>    signed and settled · Stellar testnet
-<span class="ok">200</span>  &lt;svg/&gt; returned<span class="cursor"></span></pre>
+      <div class="term-bar"><i></i><i></i><i></i><span class="ttl">~/checkout-app</span><span class="rt cy">audit</span></div>
+<pre class="term-body"><span class="ps">$</span> <span class="cmd">vectoragent audit ./src</span>
+<span class="ps">1,284</span>  assets found in the build output
+<span class="ok">1,284</span>  resolved to a public ledger entry
+<span class="ok">    0</span>  unattributed<span class="cursor"></span></pre>
     </div>
   </div>
-  <footer class="s-foot"><span class="by">Founding Team</span><span class="pg">01 / 12</span></footer>
+  <footer class="s-foot"><span class="by">Founding Team</span><span class="pg">01 / 14</span></footer>
 </div>
 
 <!-- SLIDE 2 - Problem -->
 <div class="slide">
   <header class="s-head">
     <p class="eyebrow"><span class="idx">02</span>Problem</p>
-    <h2 class="s-title">Agents draw their own icons, and it goes badly</h2>
+    <h2 class="s-title">Nobody can prove where any of it came from</h2>
   </header>
   <div class="s-body">
     <div class="grid-3">
       <div class="card">
         <div class="readout">
-          <div class="tile" aria-hidden="true">
-            <!-- The slide-3 cart with its coordinates drifted: the basket runs off
-                 the viewBox and the wheels land in the wrong place. -->
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2.5 4h2.6l2.3 11h19l-12-11.5H3.4" />
-              <circle cx="5.5" cy="21.5" r="1.3" />
-              <circle cx="20" cy="17.4" r="1.3" />
-            </svg>
-          </div>
-          <div class="ro"><span class="dim">d="M2.5 4h2.6l2.3 11h19…"</span><span class="err">✕ path escapes viewBox</span></div>
+          <div class="tile" aria-hidden="true" style="font-size:19px;">?</div>
+          <div class="ro"><span class="dim">asset: cart.svg</span><span class="err">✕ origin unrecorded</span></div>
         </div>
-        <h3>The drawing comes out wrong</h3>
-        <p>Ask a coding agent (Cursor, v0, Devin) for a cart icon and it writes the SVG from memory, picking coordinates in plain text. Paths break and shapes spill outside the viewBox.</p>
+        <h3>The agent cited nothing</h3>
+        <p>It assembles a UI from its own weights, from npm, and from whatever it found on the way. Nothing writes down which asset came from where.</p>
       </div>
       <div class="card">
         <div class="readout">
-          <div class="tile" aria-hidden="true">~300</div>
-          <div class="ro"><span class="dim">80 lines of verbose XML</span><span class="err">✕ ~300 tokens / icon</span></div>
+          <div class="tile" aria-hidden="true">22%</div>
+          <div class="ro"><span class="dim">of merged code is AI-authored</span><span class="err">✕ and climbing</span></div>
         </div>
-        <h3>It burns tokens to get there</h3>
-        <p>Eighty lines of XML per icon, roughly 300 output tokens. That slows the build down and crowds out the context window.</p>
+        <h3>The reviewer is being removed</h3>
+        <p>The person who used to eyeball every asset before it shipped is being taken out of the loop deliberately. That person was the control.</p>
       </div>
       <div class="card">
         <div class="readout">
-          <div class="tile" aria-hidden="true" style="font-size:15px;">©?</div>
-          <div class="ro"><span class="dim">src: public CDN scrape</span><span class="err">✕ license unverified</span></div>
+          <div class="tile" aria-hidden="true" style="font-size:15px;">©</div>
+          <div class="ro"><span class="dim">liability: the deployer</span><span class="err">✕ not the model vendor</span></div>
         </div>
-        <h3>The license is a guess too</h3>
-        <p>The fallback is scraping a CDN, which hands a commercial codebase artwork nobody can prove the rights to.</p>
+        <h3>The exposure lands on you</h3>
+        <p>The company shipping the app owns the copyright risk. Not the model that wrote it, not the IDE it was written in.</p>
       </div>
     </div>
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">02 / 12</span>
+    <span class="pg">02 / 14</span>
   </footer>
 </div>
 
-<!-- SLIDE 3 - Solution -->
+<!-- SLIDE 3 - Why now -->
 <div class="slide">
   <header class="s-head">
-    <p class="eyebrow"><span class="idx">03</span>Solution</p>
-    <h2 class="s-title">Let the agent buy the icon instead of drawing it</h2>
+    <p class="eyebrow"><span class="idx">03</span>Why Now</p>
+    <h2 class="s-title">Autonomy is the whole problem</h2>
+  </header>
+  <div class="s-body">
+    <div class="flow">
+      <div class="card">
+        <p class="label"><b>1</b>Today</p>
+        <p>A person picks the icon library once, at the start, and reads the pull request before it merges.</p>
+      </div>
+      <div class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11M9 4l4 4-4 4" /></svg></div>
+      <div class="card">
+        <p class="label"><b>2</b>Soon</p>
+        <p>The agent picks, mid-build, hundreds of times across a session, and nobody reads each choice.</p>
+      </div>
+      <div class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11M9 4l4 4-4 4" /></svg></div>
+      <div class="card done">
+        <p class="label"><b>3</b>Then</p>
+        <p>The only record that can exist is <span class="em">one the machine wrote itself</span>, at the instant it chose.</p>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <p class="have">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+        Provenance cannot be a review step.
+      </p>
+      <p class="gap">It has to be made <span class="cy">at the moment of the choice.</span></p>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">03 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 4 - Solution -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">04</span>Solution</p>
+    <h2 class="s-title">Make the payment the license</h2>
   </header>
   <div class="s-body">
     <div class="split">
@@ -1030,29 +1070,29 @@
         <div class="feat">
           <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
           <div>
-            <h3>An M2M marketplace, not an asset store</h3>
-            <p>Stores today sell a <span class="hi">$15–$50 pack of 500 icons</span> to a person, ahead of time. An agent wants <span class="hi">one icon, mid-build</span>, and will never open a zip.</p>
+            <h3>One event, two records</h3>
+            <p>The agent pays, and <span class="hi">that settlement is the license</span>. There is no separate entitlements database to query, trust, or keep alive.</p>
           </div>
         </div>
         <div class="feat">
           <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
           <div>
-            <h3>The paying happens inside the call</h3>
-            <p>No signup, no API key, no checkout. The tool meets the <span class="hi">402</span>, signs, and retries on its own. The agent only ever sees a tool result.</p>
+            <h3>Checkable without us</h3>
+            <p>It is a public ledger entry. A compliance tool resolves it directly, and <span class="hi">it still verifies if VectorAgent no longer exists</span>.</p>
           </div>
         </div>
         <div class="feat">
           <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
           <div>
-            <h3>The creator gets paid per use</h3>
-            <p>Every fetch is a real transfer on a public ledger, so <span class="hi">what an icon earned is a matter of record</span>, not a monthly estimate.</p>
+            <h3>Written by the thing that chose</h3>
+            <p>The record is created in the same call that made the decision. <span class="hi">Nothing is reconstructed afterwards</span> from logs or memory.</p>
           </div>
         </div>
       </div>
 
       <div class="term">
-        <div class="term-bar"><i></i><i></i><i></i><span class="ttl">tool result · fetch_vector_icon</span><span class="rt cy">$0.002</span></div>
-<pre class="code"><span class="ln"><span class="t-com">// what the agent receives</span></span><span class="ln"><span class="t-tag">&lt;svg</span> <span class="t-attr">viewBox</span>=<span class="t-str">"0 0 24 24"</span> <span class="t-attr">fill</span>=<span class="t-str">"none"</span></span><span class="ln">     <span class="t-attr">stroke</span>=<span class="t-str">"currentColor"</span> <span class="t-attr">stroke-width</span>=<span class="t-str">"1.5"</span><span class="t-tag">&gt;</span></span><span class="ln">  <span class="t-tag">&lt;circle</span> <span class="t-attr">cx</span>=<span class="t-str">"9"</span> <span class="t-attr">cy</span>=<span class="t-str">"20"</span> <span class="t-attr">r</span>=<span class="t-str">"1.25"</span> <span class="t-tag">/&gt;</span></span><span class="ln">  <span class="t-tag">&lt;circle</span> <span class="t-attr">cx</span>=<span class="t-str">"18"</span> <span class="t-attr">cy</span>=<span class="t-str">"20"</span> <span class="t-attr">r</span>=<span class="t-str">"1.25"</span> <span class="t-tag">/&gt;</span></span><span class="ln">  <span class="t-tag">&lt;path</span> <span class="t-attr">d</span>=<span class="t-str">"M2.5 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6…"</span> <span class="t-tag">/&gt;</span></span><span class="ln"><span class="t-tag">&lt;/svg&gt;</span></span></pre>
+        <div class="term-bar"><i></i><i></i><i></i><span class="ttl">what lands in the repo</span><span class="rt em">licensed</span></div>
+<pre class="code"><span class="ln"><span class="t-tag">&lt;svg</span> <span class="t-attr">viewBox</span>=<span class="t-str">"0 0 24 24"</span> <span class="t-attr">fill</span>=<span class="t-str">"none"</span></span><span class="ln">     <span class="t-attr">stroke</span>=<span class="t-str">"currentColor"</span></span><span class="ln hl">     <span class="t-attr">data-va-asset</span>=<span class="t-str">"cart_01"</span></span><span class="ln hl">     <span class="t-attr">data-va-tx</span>=<span class="t-str">"4f9c…a12b"</span><span class="t-tag">&gt;</span></span><span class="ln">  <span class="t-tag">&lt;path</span> <span class="t-attr">d</span>=<span class="t-str">"M2.5 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6…"</span> <span class="t-tag">/&gt;</span></span><span class="ln"><span class="t-tag">&lt;/svg&gt;</span></span><span class="ln"></span><span class="ln"><span class="t-com">// resolves against Stellar, not our API</span></span></pre>
         <div class="asset-foot">
           <div class="preview" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1062,9 +1102,8 @@
             </svg>
           </div>
           <div class="chips">
-            <span class="chip em">hand-drawn</span>
-            <span class="chip em">paid for</span>
-            <span class="chip em">on the ledger</span>
+            <span class="chip em">creator paid</span>
+            <span class="chip cy">anyone can check</span>
           </div>
         </div>
       </div>
@@ -1072,108 +1111,54 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">03 / 12</span>
+    <span class="pg">04 / 14</span>
   </footer>
 </div>
 
-<!-- SLIDE 4 - Matching -->
+<!-- SLIDE 5 - Architecture, the standards -->
 <div class="slide">
   <header class="s-head">
-    <p class="eyebrow"><span class="idx">04</span>Matching</p>
-    <h2 class="s-title">Picking the right one is the hard part</h2>
+    <p class="eyebrow"><span class="idx">05</span>Architecture</p>
+    <h2 class="s-title">Three standards we did not have to invent</h2>
   </header>
   <div class="s-body">
-    <div class="split tight">
-      <div>
-        <div class="feat">
-          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
-          <div>
-            <h3>Three, not a hundred</h3>
-            <p>Tags, visual embeddings, and <span class="hi">which icons agents actually kept</span> weigh the list down. The other ninety-seven never touch the context window.</p>
-          </div>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
-          <div>
-            <h3>Looking is free, taking is not</h3>
-            <p>Search returns <span class="hi">watermarked, low-resolution previews at no charge</span>. Payment happens only on the fetch.</p>
-          </div>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
-          <div>
-            <h3>What lands already fits</h3>
-            <p>The pick binds the session to that set, so later calls match it, and a miss falls back to <span class="hi">the nearest visual match</span>. The file carries <code>currentColor</code>, so it takes the styling around it too. <span class="hi">No cleanup pass.</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="term">
-        <div class="term-bar"><i></i><i></i><i></i><span class="ttl">tool result · search_vector_icons</span><span class="rt em">free</span></div>
-<pre class="code"><span class="ln"><span class="t-com">// search_vector_icons("shopping cart")</span></span><span class="ln"><span class="t-attr">"returned"</span>: <span class="t-str">3</span>, <span class="t-attr">"of"</span>: <span class="t-str">100</span>,</span><span class="ln"><span class="t-attr">"results"</span>: [</span><span class="ln">  { <span class="t-attr">id</span>: <span class="t-str">"cart_01"</span>, <span class="t-attr">set</span>: <span class="t-tag">"nordic-minimal"</span>, <span class="t-attr">score</span>: <span class="t-str">0.94</span> },</span><span class="ln">  { <span class="t-attr">id</span>: <span class="t-str">"cart_17"</span>, <span class="t-attr">set</span>: <span class="t-tag">"feather-core"</span>,   <span class="t-attr">score</span>: <span class="t-str">0.89</span> },</span><span class="ln">  { <span class="t-attr">id</span>: <span class="t-str">"cart_42"</span>, <span class="t-attr">set</span>: <span class="t-tag">"nordic-minimal"</span>, <span class="t-attr">score</span>: <span class="t-str">0.87</span> }</span><span class="ln">],</span><span class="ln hl"><span class="t-attr">"preview"</span>: <span class="t-str">"watermarked · low-res"</span>, <span class="t-attr">"price"</span>: <span class="t-str">"$0.000"</span></span></pre>
-        <div class="asset-foot">
-          <div class="preview" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
-              <circle cx="9" cy="20" r="1.25" />
-              <circle cx="18" cy="20" r="1.25" />
-              <path d="M2.5 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 8H6" />
-            </svg>
-          </div>
-          <div class="chips">
-            <span class="chip cy">then fetch by id</span>
-            <span class="chip em">$0.002</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="scope"><span class="label">Not yet</span>Ranking, previews, and set affinity are all roadmap. The PoC has five icons and a flat catalog.</p>
-  </div>
-  <footer class="s-foot">
-    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">04 / 12</span>
-  </footer>
-</div>
-
-<!-- SLIDE 5 - Why now -->
-<div class="slide">
-  <header class="s-head">
-    <p class="eyebrow"><span class="idx">05</span>Why Now</p>
-    <h2 class="s-title">Two standards landed at the same time</h2>
-  </header>
-  <div class="s-body">
-    <div class="grid-2" style="position:relative;">
+    <div class="grid-3">
       <div class="card std">
-        <p class="label">Standard 1 · Tools</p>
-        <h3>Anthropic's MCP</h3>
-        <p>Model Context Protocol is <span class="hi">how LLMs reach outside tools now</span>. Agents already know how to call a tool server. Nobody has to teach them.</p>
+        <p class="label">Tools · MCP</p>
+        <h3>How the agent finds us</h3>
+        <p>Model Context Protocol is how LLMs reach outside tools now. Agents already know how to call a tool server, and they look for them in directories. <span class="hi">Nobody has to teach them.</span></p>
         <p class="wire"><b>&gt;</b> tools/call fetch_vector_icon</p>
       </div>
-      <span class="plus" aria-hidden="true">+</span>
       <div class="card std">
-        <p class="label">Standard 2 · Payments</p>
-        <h3>Linux Foundation's x402</h3>
-        <p>HTTP 402, "Payment Required," finally has a spec behind it. An agent can <span class="hi">settle a sub-cent payment in the request header</span> and move on.</p>
+        <p class="label">Payments · x402</p>
+        <h3>How it pays without asking</h3>
+        <p>HTTP 402 finally has a spec behind it. An agent <span class="hi">settles a sub-cent payment in the request header</span> and moves on.</p>
         <div class="backed">
           <span class="label">Backed by</span>
           <div class="chips">
-            <span class="chip">Coinbase</span><span class="chip">Stripe</span><span class="chip">Circle</span><span class="chip">Stellar</span>
+            <span class="chip">Visa</span><span class="chip">Mastercard</span><span class="chip">Stripe</span><span class="chip">Google</span><span class="chip">AWS</span>
           </div>
         </div>
         <p class="wire"><b>&lt;</b> HTTP/1.1 402 Payment Required</p>
+      </div>
+      <div class="card std">
+        <p class="label">Record · Stellar</p>
+        <h3>Why the proof outlives us</h3>
+        <p>A signature we issue proves only that we issued it, and it dies with the company. A public entry is checkable by anyone. <span class="hi">Sub-cent fees are what make a record per asset cost less than the asset.</span></p>
+        <p class="wire"><b>&gt;</b> SEP-41 USDC · Soroban · ~3s</p>
       </div>
     </div>
     <div class="takeaway">
       <p class="have">
         <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
-        The payment rails exist.
+        All three already exist.
       </p>
-      <p class="gap">The asset registry that sits on top <span class="cy">still does not.</span></p>
+      <p class="gap">The registry that sits on top of them <span class="cy">does not.</span></p>
     </div>
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">05 / 12</span>
+    <span class="pg">05 / 14</span>
   </footer>
 </div>
 
@@ -1181,7 +1166,7 @@
 <div class="slide">
   <header class="s-head">
     <p class="eyebrow"><span class="idx">06</span>Proof</p>
-    <h2 class="s-title">We built it. The whole loop runs today.</h2>
+    <h2 class="s-title">We built it. The loop works end to end.</h2>
   </header>
   <div class="s-body">
     <!-- Generated so every row is the same width; keep it pure ASCII, because
@@ -1199,24 +1184,24 @@
 
     <div class="grid-3 proof-cards">
       <div class="card">
-        <h3>A real 402</h3>
-        <p>Not a mock. An unpaid request never reaches the icon.</p>
+        <h3>The whole loop is built</h3>
+        <p>Tool call, 402, signed transfer, settlement, asset returned. Running code, not a diagram.</p>
       </div>
       <div class="card">
-        <h3>A real transfer</h3>
-        <p>The agent wallet signs a USDC transfer; a hosted facilitator broadcasts it.</p>
+        <h3>Real value actually moved</h3>
+        <p>A signed Soroban USDC transfer into a real ledger, and the asset released only after it cleared.</p>
       </div>
       <div class="card">
-        <h3>Checked against the ledger</h3>
-        <p>Confirmed on Horizon, not in our own logs. Balances moved, then the SVG came back.</p>
+        <h3>Checked outside our own logs</h3>
+        <p>Confirmed independently on Horizon. That entry is what a license resolves against.</p>
       </div>
     </div>
 
-    <p class="scope"><span class="label">Not yet</span>Five hardcoded icons, no search, no creator payouts, testnet only. Proving the payment loop was the whole point.</p>
+    <p class="scope"><span class="label">Open</span><span class="hi">Adoption, not feasibility.</span> The technology is no longer in doubt; whether an agent picks this over generating its own is. The PoC does not test that, and the license attribute is still unbuilt.</p>
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">06 / 12</span>
+    <span class="pg">06 / 14</span>
   </footer>
 </div>
 
@@ -1224,21 +1209,24 @@
 <div class="slide">
   <header class="s-head">
     <p class="eyebrow"><span class="idx">07</span>Business Model</p>
-    <h2 class="s-title">Agents pay per asset. Most of it goes to whoever drew it.</h2>
+    <h2 class="s-title">No buyer, no seat. The agent spends its own wallet.</h2>
   </header>
   <div class="s-body">
-    <div class="grid-2">
+    <div class="grid-3">
       <div class="card tier">
-        <div class="top"><span class="label">Tier 1</span><span class="chip em">Free</span></div>
+        <div class="top"><span class="label">Tier 1</span><span class="chip em">$0.000</span></div>
         <h3>A free baseline</h3>
-        <p class="price">$0.000 <small>per asset</small></p>
-        <p>Solves the cold start. An agent that calls the tool always gets something back. How big the set is, and what goes in it, is still open.</p>
+        <p>Solves the cold start: an agent that calls the tool always gets something back. How big the set is, and what goes in it, is still open.</p>
       </div>
       <div class="card tier">
-        <div class="top"><span class="label">Tier 2</span><span class="chip cy">On demand</span></div>
-        <h3>Paid designer sets</h3>
-        <p class="price">$0.002 – $0.010 <small>per asset</small></p>
-        <p>Niche, brand-specific, or indemnified artwork, bought one icon at a time.</p>
+        <div class="top"><span class="label">Tier 2</span><span class="chip cy">$0.002</span></div>
+        <h3>When the free set won't do</h3>
+        <p>Niche, brand-specific, or indemnified work, bought one asset at a time, at the moment it is needed.</p>
+      </div>
+      <div class="card tier done">
+        <div class="top"><span class="label">The agent's math</span></div>
+        <h3>Cheaper than doing it itself</h3>
+        <p>Self-generating costs <span class="hi">~300 output tokens</span>, a broken-path risk, and a rework cycle. Fetching costs a fraction of a cent and arrives licensed.</p>
       </div>
     </div>
 
@@ -1248,16 +1236,16 @@
         <div class="seg platform">10%</div>
       </div>
       <div class="legend">
-        <span><span class="em">90%</span> goes straight to the creator's wallet</span>
+        <span><span class="em">90%</span> to the creator, settled per use. Iconfinder pays 70%.</span>
         <span><span class="cy">10%</span> stays with VectorAgent</span>
       </div>
     </div>
 
-    <p class="scope"><span class="label">Not yet</span>Neither tier is built. The PoC charges one flat $0.002 and pays a single wallet.</p>
+    <p class="scope"><span class="label">Not settled</span>The operator funds a capped wallet once and nobody approves a purchase after that. The price still has to sit under what self-generating costs the agent and above what the platform needs, and at $0.002 those do not both hold yet.</p>
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">07 / 12</span>
+    <span class="pg">07 / 14</span>
   </footer>
 </div>
 
@@ -1309,7 +1297,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">08 / 12</span>
+    <span class="pg">08 / 14</span>
   </footer>
 </div>
 
@@ -1317,44 +1305,44 @@
 <div class="slide">
   <header class="s-head">
     <p class="eyebrow"><span class="idx">09</span>Expansion</p>
-    <h2 class="s-title">Icons first, then everything else an agent assembles</h2>
+    <h2 class="s-title">Icons are the test, not the market</h2>
   </header>
   <div class="s-body">
     <table class="roadmap">
       <thead>
-        <tr><th scope="col">Phase</th><th scope="col">What agents buy</th><th scope="col">Unit price</th><th scope="col">Who buys it</th></tr>
+        <tr><th scope="col">Phase</th><th scope="col">Asset</th><th scope="col">Value each</th><th scope="col">Why this one</th></tr>
       </thead>
       <tbody>
         <tr class="now">
           <td class="ph">Phase 1<span class="chip em">Running</span></td>
           <td class="as">Icons<small>.svg</small></td>
-          <td class="pr">$0.001 – $0.005</td>
-          <td>Web builders (Cursor, v0)</td>
+          <td class="pr">$0.002</td>
+          <td>Every app uses them, so the rail gets exercised hard and cheaply</td>
         </tr>
         <tr>
           <td class="ph">Phase 2</td>
-          <td class="as">UI components<small>React / Tailwind</small></td>
+          <td class="as">Components &amp; design systems<small>React / Tailwind</small></td>
           <td class="pr">$0.010 – $0.050</td>
-          <td>Frontend coding agents</td>
+          <td>The first assets worth enough to argue about in a license</td>
         </tr>
         <tr>
           <td class="ph">Phase 3</td>
           <td class="as">3D meshes<small>.glTF / .fbx</small></td>
           <td class="pr">$0.020 – $0.100</td>
-          <td>Game and spatial engines</td>
+          <td>Game and spatial pipelines, where asset provenance is already a contract term</td>
         </tr>
         <tr>
           <td class="ph">Phase 4</td>
-          <td class="as">Sound effects<small>.wav</small></td>
+          <td class="as">Audio<small>.wav</small></td>
           <td class="pr">$0.005 – $0.020</td>
-          <td>Video generators</td>
+          <td>Generated video, where music rights are the sharpest exposure of all</td>
         </tr>
       </tbody>
     </table>
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">09 / 12</span>
+    <span class="pg">09 / 14</span>
   </footer>
 </div>
 
@@ -1362,20 +1350,82 @@
 <div class="slide hero">
   <div class="vision">
     <p class="eyebrow"><span class="idx">10</span>Vision</p>
-    <h2>Agents should buy their parts, not invent them</h2>
-    <p class="close">In five years <span class="hi">no agent will guess at coordinates or scrape a CDN</span>. It will call a tool, pay a fraction of a cent, and get back something a person actually made. <span class="cy">VectorAgent</span> is where that call goes.</p>
-    <p class="oneliner"><span class="ps">&gt;</span>fetch_vector_icon('shopping-cart') · 200 OK · $0.002 USDC<span class="cursor"></span></p>
+    <h2>Agents will build most of it. They need sources they can trust.</h2>
+    <p class="close">More gets made every month with nobody watching it happen. An agent needs what any good engineer needs: <span class="hi">parts that work, and a source it can name</span>. <span class="cy">VectorAgent</span> is where it gets both.</p>
+    <p class="oneliner"><span class="ps">&gt;</span>vectoragent audit ./src · 1,284 assets · 0 unattributed<span class="cursor"></span></p>
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">10 / 12</span>
+    <span class="pg">10 / 14</span>
   </footer>
 </div>
 
-<!-- SLIDE 11 - Appendix, numbers -->
+<!-- SLIDE 11 - Appendix divider -->
+<div class="slide hero">
+  <div class="vision divider">
+    <p class="eyebrow"><span class="idx">11</span>Appendix</p>
+    <h2>Appendix · Data</h2>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">11 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 12 - Data -->
 <div class="slide">
   <header class="s-head">
-    <p class="eyebrow"><span class="idx">11</span>Appendix · Data</p>
+    <p class="eyebrow"><span class="idx">12</span>Appendix · Data</p>
+    <h2 class="s-title">What supports this, and what does not</h2>
+  </header>
+  <div class="s-body">
+    <div class="numbers">
+      <div class="card key">
+        <p class="label">Autonomy is arriving</p>
+        <dl>
+          <dt>22%</dt><dd>of merged code is already AI-authored</dd>
+          <dt>84%</dt><dd>of developers use or plan to use AI coding tools</dd>
+          <dt>100M+</dt><dd>lines of enterprise code per day in Cursor (their figure)</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">Trust is going the other way</p>
+        <dl>
+          <dt>29%</dt><dd>still trust AI-generated output, down from 40%</dd>
+          <dt>97M+</dt><dd>monthly MCP SDK downloads, so the delivery path exists</dd>
+          <dt>40</dt><dd>x402 Foundation members, incl. Visa, Mastercard, Google, AWS</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">The rail is cheap enough</p>
+        <dl>
+          <dt>~3s</dt><dd>to final settlement on Stellar</dd>
+          <dt>sub-¢</dt><dd>network fee, so a record per asset costs less than the asset</dd>
+          <dt class="em">70%</dt><dd>what Iconfinder pays creators today, against our 90%</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">What we cannot yet show</p>
+        <dl>
+          <dt>?</dt><dd>whether any agent will call a paid asset tool at all</dd>
+          <dt>?</dt><dd>what an agent will pay before self-generating is cheaper</dd>
+          <dt>?</dt><dd>whether legal teams accept a ledger entry as evidence</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Not claiming</span>No TAM. The three unknowns above are the real risk, and none of them is answered by the PoC. Sources are the same set as the marketplace deck.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">12 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 13 - Appendix, numbers -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">13</span>Appendix · Data</p>
     <h2 class="s-title">The numbers, including the inconvenient one</h2>
   </header>
   <div class="s-body">
@@ -1418,14 +1468,14 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">11 / 12</span>
+    <span class="pg">13 / 14</span>
   </footer>
 </div>
 
-<!-- SLIDE 12 - Appendix, sources -->
+<!-- SLIDE 14 - Appendix, sources -->
 <div class="slide">
   <header class="s-head">
-    <p class="eyebrow"><span class="idx">12</span>Appendix · Sources</p>
+    <p class="eyebrow"><span class="idx">14</span>Appendix · Sources</p>
     <h2 class="s-title">Where these numbers came from</h2>
   </header>
   <div class="s-body">
@@ -1448,7 +1498,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">12 / 12</span>
+    <span class="pg">14 / 14</span>
   </footer>
 </div>
 
