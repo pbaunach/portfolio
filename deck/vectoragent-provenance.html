@@ -680,6 +680,29 @@
   .roadmap tr.now .ph { color: var(--fg); }
   .roadmap .chip { margin-left: 8px; vertical-align: 1px; }
 
+  /* The appendix pricing table carries five columns, so rows run tighter and
+     the numeric cells align right against each other. */
+  .roadmap.tight th,
+  .roadmap.tight td { padding: 7px 16px; }
+  .roadmap.tight td { font-size: 12.5px; }
+  .roadmap.tight th:nth-child(n+2),
+  .roadmap.tight td.pr,
+  .roadmap .nu { text-align: right; }
+  .roadmap .nu { font-family: var(--mono); font-size: 12px; color: var(--fg); white-space: nowrap; }
+  .roadmap .nu.em { color: var(--emerald); }
+  .roadmap.tight .as small { display: block; margin-left: 0; margin-top: 2px; }
+
+  /* flex-shrink:0 matters: the s-body column would otherwise squeeze this
+     strip and overflow:hidden would silently clip the margin lines. */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); flex-shrink: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); overflow: hidden; }
+  .stages > div { padding: 10px 16px; border-right: 1px solid var(--line); }
+  .stages > div:last-child { border-right: 0; }
+  .stages .vol { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-mute); }
+  .stages .net { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; }
+  .stages .net.pos { color: var(--emerald); }
+  .stages .net.neg { color: var(--fg-mute); }
+  .stages .sub { font-size: 11px; color: var(--fg-soft); margin-top: 2px; }
+
   /* ---------- 10 · Vision ---------- */
 
   .vision { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-bottom: 8px; }
@@ -740,6 +763,8 @@
   }
   .numbers dt.em { color: var(--emerald); }
   .numbers dd { margin: 0; font-size: 11px; line-height: 1.35; color: var(--fg-soft); }
+  /* Pricing figures run longer than the research ones, so the term column widens. */
+  .numbers.wide dl { grid-template-columns: 96px 1fr; }
 
   /* ---------- 12 · Appendix, sources ---------- */
 
@@ -977,7 +1002,7 @@
 <span class="ok">    0</span>  unattributed<span class="cursor"></span></pre>
     </div>
   </div>
-  <footer class="s-foot"><span class="by">Founding Team</span><span class="pg">01 / 14</span></footer>
+  <footer class="s-foot"><span class="by">Founding Team</span><span class="pg">01 / 16</span></footer>
 </div>
 
 <!-- SLIDE 2 - Problem -->
@@ -1016,7 +1041,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">02 / 14</span>
+    <span class="pg">02 / 16</span>
   </footer>
 </div>
 
@@ -1054,7 +1079,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">03 / 14</span>
+    <span class="pg">03 / 16</span>
   </footer>
 </div>
 
@@ -1111,7 +1136,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">04 / 14</span>
+    <span class="pg">04 / 16</span>
   </footer>
 </div>
 
@@ -1158,7 +1183,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">05 / 14</span>
+    <span class="pg">05 / 16</span>
   </footer>
 </div>
 
@@ -1201,7 +1226,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">06 / 14</span>
+    <span class="pg">06 / 16</span>
   </footer>
 </div>
 
@@ -1226,7 +1251,7 @@
       <div class="card tier done">
         <div class="top"><span class="label">The agent's math</span></div>
         <h3>Cheaper than doing it itself</h3>
-        <p>Self-generating costs <span class="hi">~300 output tokens</span>, a broken-path risk, and a rework cycle. Fetching costs a fraction of a cent and arrives licensed.</p>
+        <p>Self-generating costs <span class="hi">400–800 output tokens</span>, a broken-path risk, and a rework cycle. Fetching costs a fraction of a cent and arrives licensed.</p>
       </div>
     </div>
 
@@ -1245,7 +1270,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">07 / 14</span>
+    <span class="pg">07 / 16</span>
   </footer>
 </div>
 
@@ -1297,7 +1322,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">08 / 14</span>
+    <span class="pg">08 / 16</span>
   </footer>
 </div>
 
@@ -1342,7 +1367,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">09 / 14</span>
+    <span class="pg">09 / 16</span>
   </footer>
 </div>
 
@@ -1356,7 +1381,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">10 / 14</span>
+    <span class="pg">10 / 16</span>
   </footer>
 </div>
 
@@ -1368,7 +1393,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">11 / 14</span>
+    <span class="pg">11 / 16</span>
   </footer>
 </div>
 
@@ -1418,7 +1443,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">12 / 14</span>
+    <span class="pg">12 / 16</span>
   </footer>
 </div>
 
@@ -1468,14 +1493,145 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">13 / 14</span>
+    <span class="pg">13 / 16</span>
   </footer>
 </div>
 
-<!-- SLIDE 14 - Appendix, sources -->
+<!-- SLIDE 14 - Appendix, price derivation -->
 <div class="slide">
   <header class="s-head">
-    <p class="eyebrow"><span class="idx">14</span>Appendix · Sources</p>
+    <p class="eyebrow"><span class="idx">14</span>Appendix · Pricing</p>
+    <h2 class="s-title">Where the $0.002 comes from</h2>
+  </header>
+  <div class="s-body">
+    <div class="numbers wide">
+      <div class="card key">
+        <p class="label">What a vector costs today</p>
+        <dl>
+          <dt>$0.99–$2.00</dt><dd>a single icon on Noun Project or Iconfinder, without a subscription</dd>
+          <dt>~$0.01</dt><dd>per call on their API developer plans ($99/mo for 10,000)</dd>
+          <dt>$0.02–$0.05</dt><dd>to generate one instead with an AI image API</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">What settlement costs</p>
+        <dl>
+          <dt>~$0.00001</dt><dd>Stellar, under 0.5% of a $0.002 asset</dd>
+          <dt>~$0.00025</dt><dd>Solana, about 12%</dd>
+          <dt>$0.001–$0.005</dt><dd>Base, which is why EVM calls get bundled into credit passes</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">Generating it inline</p>
+        <dl>
+          <dt>400–800</dt><dd>output tokens of raw SVG path data</dd>
+          <dt>$0.006–$0.012</dt><dd>what those tokens cost the caller</dd>
+          <dt>risk</dt><dd>broken paths, wrong viewBox, coordinates that silently miss</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">Fetching it instead</p>
+        <dl>
+          <dt>~30</dt><dd>output tokens for the tool call</dd>
+          <dt>$0.0024</dt><dd>those tokens plus the asset, all in</dd>
+          <dt class="em">60–70%</dt><dd>less than generating it, with geometry that is known good</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <p class="have">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+        Bracketed from both sides.
+      </p>
+      <p class="gap">Above what settlement costs, <span class="cy">under what generating costs.</span></p>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">14 / 16</span>
+  </footer>
+</div>
+
+<!-- SLIDE 15 - Appendix, revenue mix -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">15</span>Appendix · Pricing</p>
+    <h2 class="s-title">The mix decides the revenue, not the price</h2>
+  </header>
+  <div class="s-body">
+    <table class="roadmap tight">
+      <thead>
+        <tr>
+          <th scope="col">Tier</th>
+          <th scope="col">Per fetch</th>
+          <th scope="col">Optimistic mix</th>
+          <th scope="col">Realistic mix</th>
+          <th scope="col">Revenue / 1M calls</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="as">Free baseline<small>open-source utility icons</small></td>
+          <td class="pr">$0.000</td>
+          <td class="nu">50%</td>
+          <td class="nu">70%</td>
+          <td class="nu">$0</td>
+        </tr>
+        <tr>
+          <td class="as">Standard<small>clean 2D vectors</small></td>
+          <td class="pr">$0.002</td>
+          <td class="nu">30%</td>
+          <td class="nu">20%</td>
+          <td class="nu">$400</td>
+        </tr>
+        <tr>
+          <td class="as">Premium<small>components, animated SVG</small></td>
+          <td class="pr">$0.010</td>
+          <td class="nu">15%</td>
+          <td class="nu">7%</td>
+          <td class="nu">$700</td>
+        </tr>
+        <tr class="now">
+          <td class="as">Brand &amp; enterprise<small>indemnified logos</small></td>
+          <td class="pr">$0.050</td>
+          <td class="nu">5%</td>
+          <td class="nu">3%</td>
+          <td class="nu em">$1,500</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stages">
+      <div>
+        <p class="vol">10K calls / mo</p>
+        <p class="net neg">−$7</p>
+        <p class="sub">break-even at PoC scale</p>
+      </div>
+      <div>
+        <p class="vol">500K calls / mo</p>
+        <p class="net pos">+$1,147</p>
+        <p class="sub">88% net margin</p>
+      </div>
+      <div>
+        <p class="vol">10M calls / mo</p>
+        <p class="net pos">+$24,830</p>
+        <p class="sub">96% net margin</p>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Read carefully</span><span class="hi">3% of calls make 65% of the revenue</span>, and those monthly figures assume assets we own. Under the 90/10 creator split, a $0.002 fetch nets $0.00011, which moves break-even from 16,500 paid fetches a month to roughly 300,000.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">15 / 16</span>
+  </footer>
+</div>
+
+<!-- SLIDE 16 - Appendix, sources -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">16</span>Appendix · Sources</p>
     <h2 class="s-title">Where these numbers came from</h2>
   </header>
   <div class="s-body">
@@ -1498,7 +1654,7 @@
   </div>
   <footer class="s-foot">
     <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.2" y="1.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
-    <span class="pg">14 / 14</span>
+    <span class="pg">16 / 16</span>
   </footer>
 </div>
 
