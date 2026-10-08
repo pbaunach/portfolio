@@ -4037,6 +4037,24 @@ a.project-card {
   color: rgba(148, 163, 184, 0.75);
 }
 
+/* Product walkthrough under the meta line. Sits on the hero grid like a
+   framed screen, with the same hairline as the band borders. */
+.case-study-intro--csb-hero .csb-hero-video {
+  max-width: 960px;
+  margin: 2.25rem auto 0;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #060b14;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+}
+
+.case-study-intro--csb-hero .csb-hero-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Every card grid below is a <ul>, so it inherits the case-study list indent
    and bottom margin. Reset them here, at a specificity that clears
    `.case-study-body ul`, or each grid sits 1.35rem right of its own title. */
@@ -4517,7 +4535,13 @@ a.project-card {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .csb-row {
+  /* The per-page two-column rows above are more specific than a bare
+     .csb-row, so they have to be listed here or they keep a squeezed notes
+     column on a phone instead of stacking under their screenshot. */
+  .csb-row,
+  .case-study-intro--csb-hero-aspireship ~ .csb-band .csb-row,
+  .case-study-intro--csb-hero-telby ~ .csb-band .csb-row,
+  .case-study-intro--csb-hero-unbound ~ .csb-band .csb-row {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
@@ -4535,5 +4559,15 @@ a.project-card {
 
   .csb-stat-lead {
     text-align: left;
+  }
+
+  /* Stacked rows render the artwork at phone width, so the desktop 32px pins
+     would cover the flow diagram. Scale them down; the matching badge in each
+     note keeps the number legible. */
+  .csb-row-media .cs-callout-marker {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.55), 0 0 0 3px rgba(26, 78, 140, 0.22);
   }
 }

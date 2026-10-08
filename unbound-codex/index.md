@@ -17,6 +17,11 @@ permalink: /unbound-codex/
         <span class="csb-hero-meta-sep" aria-hidden="true">&middot;</span>
         <span>Design Engineering</span>
       </p>
+      <figure class="csb-hero-video">
+        <video autoplay muted loop playsinline controls preload="auto" aria-label="Walkthrough of The Unbound Codex: Silias, the atlas, the DM screen, and session recaps">
+          <source src="https://unboundcodex.com/assets/home-page/walkthrough.webm" type="video/webm">
+        </video>
+      </figure>
     </div>
   </div>
 </section>
