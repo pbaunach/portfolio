@@ -4105,6 +4105,18 @@ a.project-card {
   outline-offset: 4px;
 }
 
+/* Telby's recording is 16:9, and its play disc is the cobalt one from the
+   product's own landing-page player. */
+.case-study-intro--csb-hero .csb-hero-video--telby video {
+  aspect-ratio: 16 / 9;
+}
+
+.csb-hero-video--telby .csb-hero-video-play {
+  color: #fff;
+  background: linear-gradient(180deg, #4a69f3 0%, #2a4be0 100%);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(14, 24, 84, 0.72);
+}
+
 /* The triangle's visual centre sits left of its box, so nudge it right. */
 .csb-hero-video-play svg {
   width: 2.25rem;

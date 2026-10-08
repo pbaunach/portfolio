@@ -16,6 +16,17 @@ layout: case-study
         <span class="csb-hero-meta-sep" aria-hidden="true">&middot;</span>
         <span>Design Engineering</span>
       </p>
+      <figure class="csb-hero-video csb-hero-video--telby">
+        <video controls playsinline preload="none" poster="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" aria-label="Telby walkthrough, about 90 seconds. Silent, with captions.">
+          <source src="https://telby.io/walkthrough/telby-walkthrough.mp4" type="video/mp4">
+          Your browser cannot play this video.
+        </video>
+        <div class="csb-hero-video-overlay">
+          <button type="button" class="csb-hero-video-play" aria-label="Play the walkthrough video">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+          </button>
+        </div>
+      </figure>
     </div>
   </div>
 </section>
