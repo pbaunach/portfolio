@@ -18,9 +18,15 @@ permalink: /unbound-codex/
         <span>Design Engineering</span>
       </p>
       <figure class="csb-hero-video">
-        <video autoplay muted loop playsinline controls preload="auto" aria-label="Walkthrough of The Unbound Codex: Silias, the atlas, the DM screen, and session recaps">
+        <video controls playsinline preload="metadata" poster="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" aria-label="The Unbound Codex walkthrough, about two minutes">
           <source src="https://unboundcodex.com/assets/home-page/walkthrough.webm" type="video/webm">
+          Your browser cannot play this video.
         </video>
+        <div class="csb-hero-video-overlay">
+          <button type="button" class="csb-hero-video-play" aria-label="Play the walkthrough video">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+          </button>
+        </div>
       </figure>
     </div>
   </div>

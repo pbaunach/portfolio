@@ -4040,6 +4040,7 @@ a.project-card {
 /* Product walkthrough under the meta line. Sits on the hero grid like a
    framed screen, with the same hairline as the band borders. */
 .case-study-intro--csb-hero .csb-hero-video {
+  position: relative;
   max-width: 960px;
   margin: 2.25rem auto 0;
   border: 1px solid rgba(148, 163, 184, 0.22);
@@ -4053,6 +4054,89 @@ a.project-card {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
+  background: #060b14;
+}
+
+/* Play button over the poster, the same green-to-gold pill as the product's own
+   landing-page player. Shown only once the script has wired it up, and only while
+   the video is not playing. The overlay ignores the pointer so the native
+   controls underneath keep working; only the button takes clicks. */
+.csb-hero-video-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 18, 32, 0.35);
+  pointer-events: none;
+}
+
+.csb-hero-video.has-play-button:not(.is-playing) .csb-hero-video-overlay {
+  display: flex;
+}
+
+.csb-hero-video-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #0f1115;
+  cursor: pointer;
+  pointer-events: auto;
+  background:
+    linear-gradient(20deg, rgba(82, 194, 142, 0) 3%, rgba(82, 186, 194, 1) 90%),
+    linear-gradient(161deg, rgb(225, 212, 108) 0%, rgb(82, 194, 142) 100%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 24px rgba(82, 194, 142, 0.45);
+  transition: transform 0.2s ease;
+}
+
+.csb-hero-video-play:hover,
+.csb-hero-video-play:focus-visible {
+  transform: scale(1.05);
+}
+
+.csb-hero-video-play:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+/* The triangle's visual centre sits left of its box, so nudge it right. */
+.csb-hero-video-play svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: 0.25rem;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 640px) {
+  .csb-hero-video-play {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .csb-hero-video-play svg {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csb-hero-video-play {
+    transition: none;
+  }
+
+  .csb-hero-video-play:hover,
+  .csb-hero-video-play:focus-visible {
+    transform: none;
+  }
 }
 
 /* Every card grid below is a <ul>, so it inherits the case-study list indent
