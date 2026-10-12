@@ -4059,9 +4059,10 @@ a.project-card {
 }
 
 /* Play button over the poster, the same green-to-gold pill as the product's own
-   landing-page player. Shown only once the script has wired it up, and only while
-   the video is not playing. The overlay ignores the pointer so the native
-   controls underneath keep working; only the button takes clicks. */
+   landing-page player. Shown only once the script has wired it up, and the script
+   removes it on the first play, so it never returns on pause. The overlay ignores
+   the pointer so the native controls underneath keep working; only the button
+   takes clicks. */
 .csb-hero-video-overlay {
   display: none;
   position: absolute;
@@ -4072,7 +4073,7 @@ a.project-card {
   pointer-events: none;
 }
 
-.csb-hero-video.has-play-button:not(.is-playing) .csb-hero-video-overlay {
+.csb-hero-video.has-play-button .csb-hero-video-overlay {
   display: flex;
 }
 
