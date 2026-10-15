@@ -26,3 +26,7 @@ Thumbs.db
 # Orchard prototype (Vite + React)
 orchard-prototype/node_modules/
 orchard-prototype/dist/
+
+# Sleeper's Tomb demo: the raw Windows exe is 109 MiB, over GitHub's 100 MiB
+# per-file push limit. The page serves SleepersTomb-Windows.zip (same exe, zipped).
+sleepers-tomb/builds/SleepersTomb.exe

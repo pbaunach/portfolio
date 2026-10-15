@@ -1,0 +1,388 @@
+---
+layout: null
+title: "Sleeper's Tomb: Demo Downloads"
+permalink: /sleepers-tomb/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sleeper&rsquo;s Tomb: Demo Downloads</title>
+  <meta name="description" content="Download the Sleeper's Tomb demo for Windows or Mac.">
+  <!-- Unlisted page, handed out by URL only: keep it out of search results and AI
+       datasets. GitHub Pages cannot send response headers, so these tags are the
+       page-level control. They are requests that well-behaved crawlers honor, not
+       enforcement. `noai` and `noimageai` are the opt-out signals AI dataset
+       crawlers look for; the named-bot tags repeat the rule for the two big engines. -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate, noai, noimageai">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+  <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate, noai, noimageai">
+  <link rel="icon" href="{{ '/assets/favicon.png' | relative_url }}" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --ink: #f5f8fa;
+      --muted: rgba(203, 213, 225, 0.82);
+      --faint: rgba(148, 163, 184, 0.75);
+      --line: rgba(148, 163, 184, 0.22);
+      --card: rgba(15, 23, 42, 0.72);
+      --accent: #2ed6f2;
+      --accent-ink: #04141b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      line-height: 1.55;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+      background-size: 46px 46px;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 3.5rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      max-width: 40rem;
+      margin: 1rem 0 0;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    /* Teaser video: a framed 16:9 screen with a play button over the poster. The
+       button only exists to say "this is a video", so the script removes it on the
+       first play and it never returns on pause. */
+    .teaser {
+      position: relative;
+      margin: 2.5rem 0 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #02060e;
+      box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+    }
+
+    .teaser video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      background: #02060e;
+    }
+
+    /* The overlay ignores the pointer, so the native controls underneath keep
+       working; only the button takes clicks. Hidden until the script has wired it
+       up, so without JS the native controls are the only way to start the video. */
+    .teaser-overlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 6, 14, 0.28);
+      pointer-events: none;
+    }
+
+    .teaser.has-play-button .teaser-overlay { display: flex; }
+
+    .teaser-play {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 5rem;
+      height: 5rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-ink);
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(46, 214, 242, 0.4);
+      transition: transform 0.2s ease, background 0.15s ease;
+    }
+
+    .teaser-play:hover,
+    .teaser-play:focus-visible { background: #6fe6f8; transform: scale(1.05); }
+    .teaser-play:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+    /* The triangle's visual centre sits left of its box, so nudge it right. */
+    .teaser-play svg {
+      width: 2.25rem;
+      height: 2.25rem;
+      margin-left: 0.25rem;
+      fill: currentColor;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+
+    @media (min-width: 640px) {
+      .teaser-play { width: 6rem; height: 6rem; }
+      .teaser-play svg { width: 2.75rem; height: 2.75rem; }
+    }
+
+    .downloads {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.6rem 1.5rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card-for {
+      margin: 0.2rem 0 0;
+      font-size: 0.92rem;
+      color: var(--faint);
+    }
+
+    /* The exact file name and size, so nobody has to guess what they are getting. */
+    .file {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.75rem;
+      margin: 1.25rem 0 0.9rem;
+      padding: 0.7rem 0.85rem;
+      background: rgba(2, 6, 14, 0.55);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+      font-size: 0.92rem;
+    }
+
+    .file-name { font-weight: 600; word-break: break-all; }
+    .file-size { color: var(--faint); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 10px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn:hover { background: #6fe6f8; transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    .btn svg { width: 1.15rem; height: 1.15rem; flex: none; }
+
+    .card h3 {
+      margin: 1.6rem 0 0.5rem;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .card ol {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .card li + li { margin-top: 0.55rem; }
+    .card li strong { color: var(--ink); font-weight: 600; }
+
+    code {
+      padding: 0.1em 0.35em;
+      background: rgba(2, 6, 14, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+      font-size: 0.88em;
+      color: var(--ink);
+    }
+
+    .specs {
+      margin: auto 0 0;
+      padding-top: 1.4rem;
+      font-size: 0.88rem;
+      color: var(--faint);
+    }
+
+    .note {
+      margin: 2rem 0 0;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .note strong { color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 720px) {
+      .wrap { padding: 2.5rem 1.25rem 3rem; }
+      .downloads { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn,
+      .teaser-play { transition: none; }
+      .btn:hover,
+      .teaser-play:hover,
+      .teaser-play:focus-visible { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Playable demo &middot; Build 0.1</p>
+    <h1>Sleeper&rsquo;s Tomb</h1>
+    <p class="lede">Download the demo for your computer. There is one file for Windows and one for Mac, so pick the card that matches what you are running.</p>
+
+    <figure class="teaser">
+      <video controls playsinline preload="metadata" poster="{{ '/sleepers-tomb/sleepers_tomb_teaser_poster.jpg' | relative_url }}" aria-label="Sleeper&rsquo;s Tomb teaser, about one minute">
+        <source src="{{ '/sleepers-tomb/sleepers_tomb_teaser.mp4' | relative_url }}" type="video/mp4">
+        Your browser cannot play this video.
+      </video>
+      <div class="teaser-overlay">
+        <button type="button" class="teaser-play" aria-label="Play the teaser video">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+        </button>
+      </div>
+    </figure>
+
+    <div class="downloads">
+      <article class="card" aria-labelledby="windows-title">
+        <h2 id="windows-title">Windows</h2>
+        <p class="card-for">For a Windows PC (laptop or desktop)</p>
+
+        <p class="file">
+          <span class="file-name">SleepersTomb-Windows.zip</span>
+          <span class="file-size">42 MB</span>
+        </p>
+        <a class="btn" href="{{ '/sleepers-tomb/builds/SleepersTomb-Windows.zip' | relative_url }}" rel="nofollow" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download for Windows
+        </a>
+
+        <h3>To play</h3>
+        <ol>
+          <li>Right-click the downloaded <strong>SleepersTomb-Windows.zip</strong>, choose <strong>Extract All</strong>, then click <strong>Extract</strong>.</li>
+          <li>Open <strong>SleepersTomb.exe</strong> in the folder that appears. There is nothing to install.</li>
+          <li>If Windows says <strong>&ldquo;Windows protected your PC&rdquo;</strong>, click <strong>More info</strong>, then <strong>Run anyway</strong>. This shows up because the demo is not code-signed.</li>
+        </ol>
+
+        <p class="specs">64-bit Windows.</p>
+      </article>
+
+      <article class="card" aria-labelledby="mac-title">
+        <h2 id="mac-title">Mac</h2>
+        <p class="card-for">For a MacBook, iMac or Mac mini</p>
+
+        <p class="file">
+          <span class="file-name">SleepersTomb-Mac.zip</span>
+          <span class="file-size">64 MB</span>
+        </p>
+        <!-- The file on disk is SleepersTomb.zip (the Godot export name). `download` saves it as
+             SleepersTomb-Mac.zip so it is not mistaken for the Windows zip in a Downloads folder. -->
+        <a class="btn" href="{{ '/sleepers-tomb/builds/SleepersTomb.zip' | relative_url }}" rel="nofollow" download="SleepersTomb-Mac.zip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download for Mac
+        </a>
+
+        <h3>To play</h3>
+        <ol>
+          <li>Open the downloaded <strong>SleepersTomb-Mac.zip</strong> (double-click it) to get <strong>Sleeper&rsquo;s Tomb</strong>, then move it to your Applications folder.</li>
+          <li>The first time, <strong>right-click</strong> (or Control-click) the app, choose <strong>Open</strong>, then click <strong>Open</strong> again. A normal double-click is blocked because the demo is not notarized by Apple.</li>
+          <li>If macOS says the app is <strong>&ldquo;damaged&rdquo;</strong>, open Terminal, type <code>xattr -cr</code> followed by a space, drag the app onto the Terminal window, and press Return. Then open it again.</li>
+        </ol>
+
+        <p class="specs">Apple silicon (macOS 11 or later) and Intel (macOS 10.13 or later).</p>
+      </article>
+    </div>
+
+    <p class="note"><strong>Not sure which to pick?</strong> Windows PC: <strong>SleepersTomb-Windows.zip</strong>. Mac: <strong>SleepersTomb-Mac.zip</strong>. Both are zip files, and each one only runs on its own system. This demo only has Windows and Mac builds.</p>
+  </main>
+
+  <script>
+    // Teaser play button: shown until the first play, then removed for good (it does
+    // not return on pause, so it can never flash up while someone scrubs the timeline).
+    (function () {
+      var figure = document.querySelector('.teaser');
+      if (!figure) return;
+      var video = figure.querySelector('video');
+      var overlay = figure.querySelector('.teaser-overlay');
+      var button = figure.querySelector('.teaser-play');
+      if (!video || !overlay || !button) return;
+
+      // Playback can start from the button, the native controls or the keyboard, so
+      // listen to the video itself.
+      video.addEventListener('play', function () { overlay.remove(); }, { once: true });
+
+      button.addEventListener('click', function () {
+        // play() rejects if the file fails to load; the native controls show that state.
+        var attempt = video.play();
+        if (attempt && attempt.catch) attempt.catch(function () {});
+      });
+
+      if (video.paused) figure.classList.add('has-play-button');
+      else overlay.remove();
+    })();
+  </script>
+</body>
+</html>
