@@ -1,0 +1,383 @@
+---
+layout: null
+title: "Sleeper's Tomb: Web Version"
+permalink: /sleepers-tomb/play/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sleeper&rsquo;s Tomb: Web Version</title>
+  <meta name="description" content="Play the Sleeper's Tomb demo in your browser.">
+  <!-- Unlisted page, handed out by URL only: keep it out of search results and AI
+       datasets. GitHub Pages cannot send response headers, so these tags are the
+       page-level control. They are requests that well-behaved crawlers honor, not
+       enforcement. -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate, noai, noimageai">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+  <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate, noai, noimageai">
+  <link rel="icon" href="{{ '/assets/favicon.png' | relative_url }}" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --ink: #f5f8fa;
+      --muted: rgba(203, 213, 225, 0.82);
+      --faint: rgba(148, 163, 184, 0.75);
+      --line: rgba(148, 163, 184, 0.22);
+      --card: rgba(15, 23, 42, 0.72);
+      --accent: #2ed6f2;
+      --accent-ink: #04141b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      line-height: 1.55;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+      background-size: 46px 46px;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .back:hover { color: var(--ink); }
+    .back:focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 4px; }
+
+    .head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 1rem;
+      margin: 1.25rem 0 1.25rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* The game stage. 16:9 at the widest the window allows without needing a
+       scroll, centered. The game itself resizes to fill whatever box it gets. */
+    .stage {
+      position: relative;
+      width: min(100%, calc((100vh - 16rem) * 16 / 9));
+      min-width: min(100%, 320px);
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #02060e;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Fullscreen goes on the frame around the stage, not on the stage itself, so the
+       stage keeps its 16:9 shape and the rest of the screen shows as black bars
+       instead of the game stretching to whatever shape the display is. The two
+       vendor selectors are separate rules on purpose: one unknown selector in a
+       comma list would drop the whole rule. */
+    .stage-frame:fullscreen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    .stage-frame:fullscreen .stage {
+      width: min(100vw, calc(100vh * 16 / 9));
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .stage-frame:-webkit-full-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    .stage-frame:-webkit-full-screen .stage {
+      width: min(100vw, calc(100vh * 16 / 9));
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .stage iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #000;
+    }
+
+    /* Launch overlay, shown until the game is started. Nothing is downloaded
+       before the click. */
+    .launch {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      background:
+        linear-gradient(rgba(2, 6, 14, 0.62), rgba(2, 6, 14, 0.78)),
+        url("{{ '/sleepers-tomb/sleepers_tomb_teaser_poster.jpg' | relative_url }}") center / cover no-repeat;
+    }
+
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 1rem 1.7rem;
+      border: 0;
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(46, 214, 242, 0.35);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .launch-btn:hover,
+    .launch-btn:focus-visible { background: #6fe6f8; transform: translateY(-1px); }
+    .launch-btn:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+    .launch-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex: none;
+      fill: currentColor;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+
+    .launch-note {
+      margin: 0;
+      max-width: 28rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      width: min(100%, calc((100vh - 16rem) * 16 / 9));
+      min-width: min(100%, 320px);
+      margin: 1rem auto 0;
+    }
+
+    .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--card);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .tool-btn:hover { border-color: var(--faint); }
+    .tool-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    .tool-btn[hidden] { display: none; }
+    .tool-btn:disabled { opacity: 0.5; cursor: default; }
+
+    .hint {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--faint);
+    }
+
+    /* Phones: the game's controls are not supported on a phone, so the game, its
+       launch button and its tools are replaced by a note. The `is-phone` class is
+       set by a script in the head, before first paint. It requires a touch-primary
+       device AND a small screen, so a narrow desktop window is not affected. */
+    .phone-note {
+      display: none;
+      margin-top: 1.25rem;
+      padding: 1.1rem 1.2rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .is-phone .phone-note { display: block; }
+
+    .is-phone .stage-frame,
+    .is-phone .tools { display: none; }
+
+    .phone-title {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .phone-text {
+      margin: 0.4rem 0 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .wrap { padding: 1.5rem 1.25rem 2.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .launch-btn { transition: none; }
+      .launch-btn:hover,
+      .launch-btn:focus-visible { transform: none; }
+    }
+  </style>
+  <script>
+    // Runs in the head so the phone layout is in place before first paint.
+    (function () {
+      var touchPrimary = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      var smallScreen = Math.min(window.screen.width, window.screen.height) < 600;
+      if (touchPrimary && smallScreen) document.documentElement.classList.add('is-phone');
+    })();
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="{{ '/sleepers-tomb/' | relative_url }}">&larr; Back to downloads</a>
+
+    <div class="head">
+      <h1>Sleeper&rsquo;s Tomb</h1>
+      <p class="eyebrow">Web version &middot; Build 0.1</p>
+    </div>
+
+    <div class="stage-frame" id="stage-frame">
+      <div class="stage" id="stage">
+        <div class="launch" id="launch">
+          <button type="button" class="launch-btn" id="launch-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+            Launch game
+          </button>
+          <p class="launch-note">The game downloads when you press Launch, about 45 MB the first time, and your browser keeps it afterward.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-note" role="note">
+      <p class="phone-title">Not available on mobile</p>
+      <p class="phone-text">Sleeper&rsquo;s Tomb is built for computers, and its controls aren&rsquo;t supported on phones. Open this page on a laptop or desktop to play.</p>
+    </div>
+
+    <div class="tools">
+      <button type="button" class="tool-btn" id="fullscreen-btn" disabled hidden>Fullscreen</button>
+      <p class="hint">Runs in a recent desktop browser. If it runs poorly, the Windows and Mac downloads are the better choice.</p>
+    </div>
+  </main>
+
+  <script>
+    // Starts the game on a deliberate click. The game is loaded into a frame at that
+    // moment, so nothing heavy downloads before then, and the click also counts as the
+    // user gesture the browser requires before it will play game audio.
+    (function () {
+      var GAME_URL = "{{ '/sleepers-tomb/builds/web/index.html' | relative_url }}";
+      var stage = document.getElementById('stage');
+      var stageFrame = document.getElementById('stage-frame');
+      var launch = document.getElementById('launch');
+      var launchBtn = document.getElementById('launch-btn');
+      var fullscreenBtn = document.getElementById('fullscreen-btn');
+      var frame = null;
+
+      function start() {
+        if (frame) return;
+        frame = document.createElement('iframe');
+        frame.title = "Sleeper's Tomb, web version";
+        frame.setAttribute('allow', 'fullscreen; autoplay; gamepad');
+        frame.setAttribute('allowfullscreen', '');
+        frame.addEventListener('load', function () { frame.focus(); });
+        frame.src = GAME_URL;
+        stage.appendChild(frame);
+        launch.remove();
+        fullscreenBtn.disabled = false;
+      }
+
+      launchBtn.addEventListener('click', start);
+
+      // Fullscreen is offered only where the browser supports it (not on iPhone). It
+      // goes on the frame so the 16:9 stage is letterboxed rather than stretched.
+      var request = stageFrame.requestFullscreen || stageFrame.webkitRequestFullscreen;
+      if (request) {
+        fullscreenBtn.hidden = false;
+        fullscreenBtn.addEventListener('click', function () {
+          var attempt = request.call(stageFrame);
+          if (attempt && attempt.catch) attempt.catch(function () {});
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -159,6 +159,46 @@ sitemap: false
       .teaser-play svg { width: 2.75rem; height: 2.75rem; }
     }
 
+    /* Web version: a full-width call out between the video and the download cards. */
+    .web {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem 2rem;
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .web h2 {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .web p {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+    }
+
+    .web .btn { flex: none; }
+
+    .section-label {
+      margin: 2.5rem 0 0;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .section-label + .downloads { margin-top: 1rem; }
+
     .downloads {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -277,6 +317,8 @@ sitemap: false
     @media (max-width: 720px) {
       .wrap { padding: 2.5rem 1.25rem 3rem; }
       .downloads { grid-template-columns: minmax(0, 1fr); }
+      .web { flex-direction: column; align-items: stretch; }
+      .web .btn { width: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -292,7 +334,7 @@ sitemap: false
   <main class="wrap">
     <p class="eyebrow">Playable demo &middot; Build 0.1</p>
     <h1>Sleeper&rsquo;s Tomb</h1>
-    <p class="lede">Download the demo for your computer. There is one file for Windows and one for Mac, so pick the card that matches what you are running.</p>
+    <p class="lede">Play the demo in your browser, or download it for your computer. There is one file for Windows and one for Mac, so pick the card that matches what you are running.</p>
 
     <figure class="teaser">
       <video controls playsinline preload="metadata" poster="{{ '/sleepers-tomb/sleepers_tomb_teaser_poster.jpg' | relative_url }}" aria-label="Sleeper&rsquo;s Tomb teaser, about one minute">
@@ -305,6 +347,19 @@ sitemap: false
         </button>
       </div>
     </figure>
+
+    <section class="web" aria-labelledby="web-title">
+      <div>
+        <h2 id="web-title">Launch web version</h2>
+        <p>Play it right here in your browser. There is nothing to download or install.</p>
+      </div>
+      <a class="btn" href="{{ '/sleepers-tomb/play/' | relative_url }}" rel="nofollow">
+        Launch web version
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </section>
+
+    <p class="section-label">Or download it for your computer</p>
 
     <div class="downloads">
       <article class="card" aria-labelledby="windows-title">
