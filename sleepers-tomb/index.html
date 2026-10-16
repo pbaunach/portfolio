@@ -4,6 +4,12 @@ title: "Sleeper's Tomb: Demo Downloads"
 permalink: /sleepers-tomb/
 sitemap: false
 ---
+{%- comment -%} Version, file names and sizes all come from _data/sleepers_tomb.yml. {%- endcomment -%}
+{%- assign v = site.data.sleepers_tomb.version -%}
+{%- assign win_file = 'SleepersTomb-' | append: v | append: '-windows.zip' -%}
+{%- assign mac_file = 'SleepersTomb-' | append: v | append: '-macos.zip' -%}
+{%- assign win_url = '/sleepers-tomb/builds/' | append: v | append: '/windows/' | append: win_file | relative_url -%}
+{%- assign mac_url = '/sleepers-tomb/builds/' | append: v | append: '/macos/' | append: mac_file | relative_url -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,7 +338,7 @@ sitemap: false
 </head>
 <body>
   <main class="wrap">
-    <p class="eyebrow">Playable demo &middot; Build 0.1</p>
+    <p class="eyebrow">Playable demo &middot; Build {{ v }}</p>
     <h1>Sleeper&rsquo;s Tomb</h1>
     <p class="lede">Play the demo in your browser, or download it for your computer. There is one file for Windows and one for Mac, so pick the card that matches what you are running.</p>
 
@@ -367,17 +373,17 @@ sitemap: false
         <p class="card-for">For a Windows PC (laptop or desktop)</p>
 
         <p class="file">
-          <span class="file-name">SleepersTomb-Windows.zip</span>
-          <span class="file-size">42 MB</span>
+          <span class="file-name">{{ win_file }}</span>
+          <span class="file-size">{{ site.data.sleepers_tomb.windows_size }}</span>
         </p>
-        <a class="btn" href="{{ '/sleepers-tomb/builds/SleepersTomb-Windows.zip' | relative_url }}" rel="nofollow" download>
+        <a class="btn" href="{{ win_url }}" rel="nofollow" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
           Download for Windows
         </a>
 
         <h3>To play</h3>
         <ol>
-          <li>Right-click the downloaded <strong>SleepersTomb-Windows.zip</strong>, choose <strong>Extract All</strong>, then click <strong>Extract</strong>.</li>
+          <li>Right-click the downloaded <strong>{{ win_file }}</strong>, choose <strong>Extract All</strong>, then click <strong>Extract</strong>.</li>
           <li>Open <strong>SleepersTomb.exe</strong> in the folder that appears. There is nothing to install.</li>
           <li>If Windows says <strong>&ldquo;Windows protected your PC&rdquo;</strong>, click <strong>More info</strong>, then <strong>Run anyway</strong>. This shows up because the demo is not code-signed.</li>
         </ol>
@@ -390,19 +396,17 @@ sitemap: false
         <p class="card-for">For a MacBook, iMac or Mac mini</p>
 
         <p class="file">
-          <span class="file-name">SleepersTomb-Mac.zip</span>
-          <span class="file-size">64 MB</span>
+          <span class="file-name">{{ mac_file }}</span>
+          <span class="file-size">{{ site.data.sleepers_tomb.mac_size }}</span>
         </p>
-        <!-- The file on disk is SleepersTomb.zip (the Godot export name). `download` saves it as
-             SleepersTomb-Mac.zip so it is not mistaken for the Windows zip in a Downloads folder. -->
-        <a class="btn" href="{{ '/sleepers-tomb/builds/SleepersTomb.zip' | relative_url }}" rel="nofollow" download="SleepersTomb-Mac.zip">
+        <a class="btn" href="{{ mac_url }}" rel="nofollow" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
           Download for Mac
         </a>
 
         <h3>To play</h3>
         <ol>
-          <li>Open the downloaded <strong>SleepersTomb-Mac.zip</strong> (double-click it) to get <strong>Sleeper&rsquo;s Tomb</strong>, then move it to your Applications folder.</li>
+          <li>Open the downloaded <strong>{{ mac_file }}</strong> (double-click it) to get <strong>Sleeper&rsquo;s Tomb</strong>, then move it to your Applications folder.</li>
           <li>The first time, <strong>right-click</strong> (or Control-click) the app, choose <strong>Open</strong>, then click <strong>Open</strong> again. A normal double-click is blocked because the demo is not notarized by Apple.</li>
           <li>If macOS says the app is <strong>&ldquo;damaged&rdquo;</strong>, open Terminal, type <code>xattr -cr</code> followed by a space, drag the app onto the Terminal window, and press Return. Then open it again.</li>
         </ol>
@@ -411,7 +415,7 @@ sitemap: false
       </article>
     </div>
 
-    <p class="note"><strong>Not sure which to pick?</strong> Windows PC: <strong>SleepersTomb-Windows.zip</strong>. Mac: <strong>SleepersTomb-Mac.zip</strong>. Both are zip files, and each one only runs on its own system. This demo only has Windows and Mac builds.</p>
+    <p class="note"><strong>Not sure which to pick?</strong> Windows PC: <strong>{{ win_file }}</strong>. Mac: <strong>{{ mac_file }}</strong>. Both are zip files, and each one only runs on its own system. This demo only has Windows and Mac builds.</p>
   </main>
 
   <script>

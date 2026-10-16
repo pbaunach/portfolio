@@ -4,6 +4,9 @@ title: "Sleeper's Tomb: Web Version"
 permalink: /sleepers-tomb/play/
 sitemap: false
 ---
+{%- comment -%} The build version comes from _data/sleepers_tomb.yml. {%- endcomment -%}
+{%- assign v = site.data.sleepers_tomb.version -%}
+{%- assign game_url = '/sleepers-tomb/builds/' | append: v | append: '/web/index.html' | relative_url -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -313,7 +316,7 @@ sitemap: false
 
     <div class="head">
       <h1>Sleeper&rsquo;s Tomb</h1>
-      <p class="eyebrow">Web version &middot; Build 0.1</p>
+      <p class="eyebrow">Web version &middot; Build {{ v }}</p>
     </div>
 
     <div class="stage-frame" id="stage-frame">
@@ -344,7 +347,7 @@ sitemap: false
     // moment, so nothing heavy downloads before then, and the click also counts as the
     // user gesture the browser requires before it will play game audio.
     (function () {
-      var GAME_URL = "{{ '/sleepers-tomb/builds/web/index.html' | relative_url }}";
+      var GAME_URL = "{{ game_url }}";
       var stage = document.getElementById('stage');
       var stageFrame = document.getElementById('stage-frame');
       var launch = document.getElementById('launch');

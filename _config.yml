@@ -34,7 +34,7 @@ exclude:
   - frederick-marketing-automation
   # Session handoff notes for the Orchard portfolio review. Never publish.
   - _handoff
-  # Raw Windows exe for the Sleeper's Tomb demo. The page serves the zipped copy
-  # (SleepersTomb-Windows.zip); skipping the exe keeps 114 MB out of every build.
-  - sleepers-tomb/builds/SleepersTomb.exe
+  # Raw Windows exes for the Sleeper's Tomb demo (any version). The page serves the
+  # zipped copy; skipping the exe keeps about 114 MB out of every build.
+  - sleepers-tomb/builds/*/windows/*.exe
 

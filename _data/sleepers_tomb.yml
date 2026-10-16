@@ -1,0 +1,18 @@
+# Sleeper's Tomb demo: the one place to bump when a new build lands.
+#
+# Both /sleepers-tomb/ and /sleepers-tomb/play/ read this. Every URL, file name and
+# label is derived from `version`, so a new build is: drop it in
+# sleepers-tomb/builds/<version>/ with this layout, then change the numbers below.
+#
+#   builds/<version>/macos/SleepersTomb-<version>-macos.zip      (Godot macOS export)
+#   builds/<version>/windows/SleepersTomb-<version>-windows.zip  (the exe, zipped; see below)
+#   builds/<version>/web/index.html (+ the rest of the Godot web export)
+#
+# The Windows exe is over GitHub's 100 MiB per-file push limit, so the page serves a zip
+# of it. Zip SleepersTomb.exe into the windows/ folder; the .exe itself is git-ignored
+# and excluded from the Jekyll build.
+version: "0.2.1"
+
+# Sizes shown next to each download, rounded to a whole MB (decimal, as the OS shows it).
+windows_size: "42 MB"
+mac_size: "64 MB"

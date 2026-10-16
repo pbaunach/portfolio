@@ -27,6 +27,7 @@ Thumbs.db
 orchard-prototype/node_modules/
 orchard-prototype/dist/
 
-# Sleeper's Tomb demo: the raw Windows exe is 109 MiB, over GitHub's 100 MiB
-# per-file push limit. The page serves SleepersTomb-Windows.zip (same exe, zipped).
-sleepers-tomb/builds/SleepersTomb.exe
+# Sleeper's Tomb demo: the raw Windows exe is about 109 MiB, over GitHub's 100 MiB
+# per-file push limit. The pages serve a zip of it instead (see _data/sleepers_tomb.yml),
+# so every version's exe stays out of git.
+sleepers-tomb/builds/**/*.exe
