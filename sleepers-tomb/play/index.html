@@ -309,6 +309,7 @@ sitemap: false
       if (touchPrimary && smallScreen) document.documentElement.classList.add('is-phone');
     })();
   </script>
+  {% include clarity.html %}
 </head>
 <body>
   <main class="wrap">
@@ -322,7 +323,7 @@ sitemap: false
     <div class="stage-frame" id="stage-frame">
       <div class="stage" id="stage">
         <div class="launch" id="launch">
-          <button type="button" class="launch-btn" id="launch-btn">
+          <button type="button" class="launch-btn" id="launch-btn" data-clarity-event="launch_game">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
             Launch game
           </button>
@@ -337,7 +338,7 @@ sitemap: false
     </div>
 
     <div class="tools">
-      <button type="button" class="tool-btn" id="fullscreen-btn" disabled hidden>Fullscreen</button>
+      <button type="button" class="tool-btn" id="fullscreen-btn" data-clarity-event="fullscreen" disabled hidden>Fullscreen</button>
       <p class="hint">Runs in a recent desktop browser. If it runs poorly, the Windows and Mac downloads are the better choice.</p>
     </div>
   </main>

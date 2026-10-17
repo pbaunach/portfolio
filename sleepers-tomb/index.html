@@ -335,6 +335,7 @@ sitemap: false
       .teaser-play:focus-visible { transform: none; }
     }
   </style>
+  {% include clarity.html %}
 </head>
 <body>
   <main class="wrap">
@@ -359,7 +360,7 @@ sitemap: false
         <h2 id="web-title">Launch web version</h2>
         <p>Play it right here in your browser. There is nothing to download or install.</p>
       </div>
-      <a class="btn" href="{{ '/sleepers-tomb/play/' | relative_url }}" rel="nofollow">
+      <a class="btn" href="{{ '/sleepers-tomb/play/' | relative_url }}" rel="nofollow" data-clarity-event="launch_web_version">
         Launch web version
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </a>
@@ -376,7 +377,7 @@ sitemap: false
           <span class="file-name">{{ win_file }}</span>
           <span class="file-size">{{ site.data.sleepers_tomb.windows_size }}</span>
         </p>
-        <a class="btn" href="{{ win_url }}" rel="nofollow" download>
+        <a class="btn" href="{{ win_url }}" rel="nofollow" data-clarity-event="download_windows" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
           Download for Windows
         </a>
@@ -399,7 +400,7 @@ sitemap: false
           <span class="file-name">{{ mac_file }}</span>
           <span class="file-size">{{ site.data.sleepers_tomb.mac_size }}</span>
         </p>
-        <a class="btn" href="{{ mac_url }}" rel="nofollow" download>
+        <a class="btn" href="{{ mac_url }}" rel="nofollow" data-clarity-event="download_mac" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
           Download for Mac
         </a>

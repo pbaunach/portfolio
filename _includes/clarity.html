@@ -1,0 +1,28 @@
+<!-- Microsoft Clarity, same project as the rest of the site (see _layouts/default.html).
+     Used by pages that set `layout: null` and so do not get the layout's copy. -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "vfddak4mdt");
+</script>
+<script>
+  // Named click events. Any element with a data-clarity-event attribute reports that
+  // attribute's value to Clarity as an event when clicked, so "which download did people pick" is a filterable
+  // count rather than something to dig out of heatmaps. The guard matches the one used
+  // on /aspireship-problem/. Clarity queues calls made before its tag has loaded.
+  (function () {
+    function track(name) {
+      if (typeof window.clarity === "function") window.clarity("event", name);
+    }
+    document.addEventListener("click", function (e) {
+      var el = e.target && e.target.closest ? e.target.closest("[data-clarity-event]") : null;
+      if (el) track(el.getAttribute("data-clarity-event"));
+    });
+    // Tag every session with the build on offer, so feedback can be split by version.
+    if (typeof window.clarity === "function") {
+      window.clarity("set", "sleepers_tomb_build", "{{ site.data.sleepers_tomb.version }}");
+    }
+  })();
+</script>
