@@ -56,10 +56,30 @@ sitemap: false
       background-size: 46px 46px;
     }
 
+    /* The game is the page, so it is not held to the site's content width. The stage
+       takes the largest 16:9 box that fits the window without scrolling:
+       --chrome is the height of everything that is not the game (header row, gaps,
+       tools row, padding), and --stage-max turns the remaining height into a width. */
+    :root {
+      --chrome: 9rem;
+      --stage-max: calc((100vh - var(--chrome)) * 16 / 9);
+    }
+
+    @supports (height: 100dvh) {
+      :root { --stage-max: calc((100dvh - var(--chrome)) * 16 / 9); }
+    }
+
     .wrap {
-      max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
+      padding: 0.9rem 1.5rem 1rem;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem 1.1rem;
+      margin-bottom: 0.75rem;
     }
 
     .back {
@@ -78,14 +98,15 @@ sitemap: false
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
-      gap: 0.25rem 1rem;
-      margin: 1.25rem 0 1.25rem;
+      gap: 0.15rem 0.9rem;
+      padding-left: 1.1rem;
+      border-left: 1px solid var(--line);
     }
 
     h1 {
       margin: 0;
       font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-size: 1.5rem;
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.03em;
@@ -101,12 +122,12 @@ sitemap: false
       color: var(--accent);
     }
 
-    /* The game stage. 16:9 at the widest the window allows without needing a
-       scroll, centered. The game itself resizes to fill whatever box it gets. */
+    /* The game stage: 16:9, as large as the window allows without a scroll (see
+       --stage-max), centered. The game itself resizes to fill whatever box it gets. */
     .stage {
       position: relative;
-      width: min(100%, calc((100vh - 16rem) * 16 / 9));
-      min-width: min(100%, 320px);
+      width: min(100%, var(--stage-max));
+      min-width: min(100%, 480px);
       margin: 0 auto;
       aspect-ratio: 16 / 9;
       overflow: hidden;
@@ -228,9 +249,9 @@ sitemap: false
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem 1.5rem;
-      width: min(100%, calc((100vh - 16rem) * 16 / 9));
-      min-width: min(100%, 320px);
-      margin: 1rem auto 0;
+      width: min(100%, var(--stage-max));
+      min-width: min(100%, 480px);
+      margin: 0.75rem auto 0;
     }
 
     .tool-btn {
@@ -292,7 +313,9 @@ sitemap: false
     }
 
     @media (max-width: 720px) {
-      .wrap { padding: 1.5rem 1.25rem 2.5rem; }
+      .wrap { padding: 1rem 1.25rem 2rem; }
+      /* The divider only makes sense when the title sits beside the back link. */
+      .head { padding-left: 0; border-left: 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -313,12 +336,14 @@ sitemap: false
 </head>
 <body>
   <main class="wrap">
-    <a class="back" href="{{ '/sleepers-tomb/' | relative_url }}">&larr; Back to downloads</a>
+    <header class="topbar">
+      <a class="back" href="{{ '/sleepers-tomb/' | relative_url }}">&larr; Back to downloads</a>
 
-    <div class="head">
-      <h1>Sleeper&rsquo;s Tomb</h1>
-      <p class="eyebrow">Web version &middot; Build {{ v }}</p>
-    </div>
+      <div class="head">
+        <h1>Sleeper&rsquo;s Tomb</h1>
+        <p class="eyebrow">Web version &middot; Build {{ v }}</p>
+      </div>
+    </header>
 
     <div class="stage-frame" id="stage-frame">
       <div class="stage" id="stage">
@@ -339,7 +364,7 @@ sitemap: false
 
     <div class="tools">
       <button type="button" class="tool-btn" id="fullscreen-btn" data-clarity-event="fullscreen" disabled hidden>Fullscreen</button>
-      <p class="hint">Runs in a recent desktop browser. If it runs poorly, the Windows and Mac downloads are the better choice.</p>
+      <p class="hint">Needs a recent desktop browser. If it runs poorly, use the Windows or Mac download.</p>
     </div>
   </main>
 
