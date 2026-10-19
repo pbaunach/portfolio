@@ -11,8 +11,8 @@
 # The Windows exe is over GitHub's 100 MiB per-file push limit, so the page serves a zip
 # of it. Zip SleepersTomb.exe into the windows/ folder; the .exe itself is git-ignored
 # and excluded from the Jekyll build.
-version: "0.3.1"
+version: "0.3.2"
 
 # Sizes shown next to each download, rounded to a whole MB (decimal, as the OS shows it).
-windows_size: "41 MB"
+windows_size: "42 MB"
 mac_size: "64 MB"
