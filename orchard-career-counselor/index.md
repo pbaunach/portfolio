@@ -190,32 +190,34 @@ layout: case-study
   </div>
 </section>
 
-<section class="csb-band" id="reflection" aria-label="What I would do differently">
+<section class="csb-band" id="my-role" aria-label="My role">
   <div class="csb-band-head">
     <div class="csb-band-inner">
-      <h2 class="csb-section-title">What I&rsquo;d Do Differently</h2>
+      <h2 class="csb-section-title">My Role</h2>
     </div>
   </div>
   <div class="csb-band-inner csb-band-body">
+    <p class="csb-band-lead">Head of Product &amp; Design on a 4-person team. I owned product strategy, design, the prototype and the brand.</p>
     <ul class="csb-reflect">
       <li class="csb-reflect-card">
-        <h3 class="csb-reflect-title">Started exploring how to teach students AI literacy and prompting earlier.</h3>
-        <p class="csb-reflect-desc">By defaulting to a single text input, students treated Orchie just like a normal search engine, missing out on the rich content we had curated behind it.</p>
+        <h3 class="csb-reflect-title">Setting direction through four iterations.</h3>
+        <p class="csb-reflect-desc">Framed the problem, ran each hypothesis, and made the case to move off the ones that failed, from a content library to an AI mentor built around the CRI.</p>
       </li>
       <li class="csb-reflect-card">
-        <h3 class="csb-reflect-title">Validate the eight pillars before designing the dashboard.</h3>
-        <p class="csb-reflect-desc">We designed the visualization before we knew how the system would track the actions the students take and how it would impact the CRI.</p>
+        <h3 class="csb-reflect-title">Designing the CRI and Orchie&rsquo;s logic.</h3>
+        <p class="csb-reflect-desc">Wrote the readiness rubric, distilled it into the eight pillars, and designed how a question moves through Orchie. Our engineer built the scoring model and chose the LLM behind it.</p>
       </li>
       <li class="csb-reflect-card">
-        <h3 class="csb-reflect-title">Pivot sooner based on customer value.</h3>
-        <p class="csb-reflect-desc">I would move off the video-first interface much sooner. While our original video library was well received by school districts, user research proved it was a &ldquo;nice-to-have&rdquo; rather than a core driver of engagement. The real inflection point came when we introduced the CRI.</p>
+        <h3 class="csb-reflect-title">Prototyping as the source of truth.</h3>
+        <p class="csb-reflect-desc">Designed every surface, plus the working prototype the team tested with students and counselors and engineering built from.</p>
       </li>
     </ul>
   </div>
 </section>
 
-<section id="prototype" class="csb-band csb-band--cta" aria-label="Prototype">
+<section id="prototype" class="csb-band csb-band--cta" aria-label="Prototype and design process">
   <div class="csb-band-inner csb-band-body">
     <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" target="_blank" rel="noopener noreferrer" class="button button-primary">View the Prototype</a>
+    <a href="{{ '/deck/problem-solving-process.html' | relative_url }}" class="button button-outline">Read the Design Process</a>
   </div>
 </section>

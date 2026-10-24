@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Portfolio
-description: Founding Product Designer with 20 years of experience building 0-to-1 web apps and AI interfaces. Expertise in AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
+description: Product & Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. Expertise in AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
 ---
 
 <section class="home-hero">
@@ -11,7 +11,7 @@ description: Founding Product Designer with 20 years of experience building 0-to
     </h1>
     <div class="home-hero-body">
       <p class="intro-copy">
-        I am a Founding Product Designer with 20 years of experience building 0-to-1 web apps and AI interfaces. I designed and scaled Frederick from $200k to $10M ARR across 2,500 businesses as the sole designer prior to an acquisition by MINDBODY. My expertise spans AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
+        I am a Product &amp; Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. I designed and scaled Frederick from $200k to $10M ARR across 2,500 businesses as the sole designer prior to an acquisition by MINDBODY. My expertise spans AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
       </p>
       <dl class="home-hero-meta">
         <div class="hero-meta-row">
@@ -40,7 +40,7 @@ description: Founding Product Designer with 20 years of experience building 0-to
       </a>
       <div class="project-body">
         <div class="project-meta-row">
-          <span class="project-role-label">Founding Product Designer</span>
+          <span class="project-role-label">Head of Product &amp; Design</span>
         </div>
         <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
         <p class="project-summary">
@@ -48,7 +48,7 @@ description: Founding Product Designer with 20 years of experience building 0-to
         </p>
         <p class="project-card-actions">
           <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
-          <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Prototype</a>
+          <a href="{{ '/deck/problem-solving-process.html' | relative_url }}" class="button button-outline">The Design Process</a>
         </p>
       </div>
     </div>
@@ -59,7 +59,7 @@ description: Founding Product Designer with 20 years of experience building 0-to
       </a>
       <div class="project-body">
         <div class="project-meta-row">
-          <span class="project-role-label">Founding Product Designer</span>
+          <span class="project-role-label">Head of Product &amp; Design</span>
         </div>
         <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link">Aspireship: The Career Change Marketplace</a></h3>
         <p class="project-summary">
@@ -83,9 +83,14 @@ description: Founding Product Designer with 20 years of experience building 0-to
   <div class="project-grid-inner project-grid-inner--side">
 
     <div class="side-card">
-      <a href="{{ '/telby-icon-builder/' | relative_url }}" class="side-card-cover side-card-cover--telby" aria-label="View the Telby deep dive">
+      <a href="https://telby.io/walkthrough/telby-walkthrough.mp4" class="side-card-cover side-card-cover--telby side-card-video" data-video-type="video/mp4" data-video-aspect="1.7778" data-video-label="Telby walkthrough, about 90 seconds. Silent, with captions." aria-label="Play the Telby walkthrough video">
         <span class="side-card-placeholder">Telby<span class="side-card-placeholder-dot">.</span></span>
-        <img src="{{ '/assets/img/telby/card.png' | relative_url }}" alt="Telby.io icon editor" class="side-card-img" onerror="this.remove()">
+        <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
+        <span class="side-card-video-overlay">
+          <span class="csb-hero-video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+          </span>
+        </span>
       </a>
       <div class="side-card-body">
         <div class="side-card-meta">
@@ -105,9 +110,14 @@ description: Founding Product Designer with 20 years of experience building 0-to
     </div>
 
     <div class="side-card">
-      <a href="{{ '/unbound-codex/' | relative_url }}" class="side-card-cover side-card-cover--unbound" aria-label="View the Unbound Codex deep dive">
+      <a href="https://unboundcodex.com/assets/home-page/walkthrough.webm" class="side-card-cover side-card-cover--unbound side-card-video" data-video-type="video/webm" data-video-aspect="1.6" data-video-label="The Unbound Codex walkthrough, about two minutes" aria-label="Play the Unbound Codex walkthrough video">
         <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
-        <img src="{{ '/assets/img/unbound-cover.png' | relative_url }}" alt="The Unbound Codex assistant panel" class="side-card-img" onerror="this.remove()">
+        <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
+        <span class="side-card-video-overlay">
+          <span class="csb-hero-video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+          </span>
+        </span>
       </a>
       <div class="side-card-body">
         <div class="side-card-meta">
@@ -128,6 +138,15 @@ description: Founding Product Designer with 20 years of experience building 0-to
 
   </div>
 </section>
+
+<div id="video-lightbox" class="lightbox lightbox--video" role="dialog" aria-modal="true" aria-label="Walkthrough video" aria-hidden="true">
+  <div class="lightbox-backdrop"></div>
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-close" aria-label="Close video">&times;</button>
+    <video class="lightbox-video" controls playsinline preload="none"></video>
+  </div>
+</div>
+<script src="{{ '/assets/js/video-lightbox.js' | relative_url }}" defer></script>
 
 <section class="project-grid project-grid--archive">
   <div class="archive-header">

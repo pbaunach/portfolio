@@ -1156,7 +1156,7 @@ a.project-card {
   box-shadow: 0 2px 8px rgba(26, 78, 140, 0.14);
 }
 
-/* Side Projects: compact two-up cards with screenshot-ready cover */
+/* Side Projects: compact two-up cards with a walkthrough-video cover */
 .project-grid.project-grid--side .project-grid-inner.project-grid-inner--side {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.6rem;
@@ -1207,6 +1207,59 @@ a.project-card {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Walkthrough cover: the video's poster under the case-study play disc. The whole
+   cover is the click target, so the disc grows on cover hover rather than its own,
+   and the focus ring sits on the disc because the card's overflow clips the link. */
+.side-card-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 18, 32, 0.35);
+  transition: background-color 0.18s ease;
+}
+
+.side-card-video:hover .side-card-video-overlay {
+  background: rgba(11, 18, 32, 0.2);
+}
+
+.side-card-video:focus-visible {
+  outline: none;
+}
+
+.side-card-video .csb-hero-video-play {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.side-card-video .csb-hero-video-play svg {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.2rem;
+}
+
+.side-card-video:hover .csb-hero-video-play,
+.side-card-video:focus-visible .csb-hero-video-play {
+  transform: scale(1.05);
+}
+
+.side-card-video:focus-visible .csb-hero-video-play {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-card-video-overlay {
+    transition: none;
+  }
+
+  .side-card-video:hover .csb-hero-video-play,
+  .side-card-video:focus-visible .csb-hero-video-play {
+    transform: none;
+  }
 }
 
 .side-card-placeholder {
@@ -2923,9 +2976,13 @@ a.project-card {
   box-sizing: border-box;
 }
 
+/* Visibility flips at once on open (the fade still comes from opacity), or it sits
+   at hidden for the first frame and the close button refuses focus. On close the
+   base rule's delayed flip keeps the fade-out visible. */
 .lightbox.is-open {
   opacity: 1;
   visibility: visible;
+  transition: opacity 0.2s ease, visibility 0s;
 }
 
 /* When zoomed, allow scroll to pan */
@@ -3003,6 +3060,19 @@ a.project-card {
   background: #fff;
   padding: 1.75rem;
   box-sizing: border-box;
+}
+
+/* Video variant (home-page side-project walkthroughs). The width is the largest
+   that fits the viewport at the recording's own aspect ratio, so the frame never
+   letterboxes and never jumps when the metadata loads. */
+.lightbox-video {
+  display: block;
+  width: min(1200px, calc(100vw - 4rem), calc((100vh - 6rem) * var(--video-aspect, 1.7778)));
+  height: auto;
+  aspect-ratio: var(--video-aspect, 1.7778);
+  border-radius: var(--radius-lg);
+  background: #000;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-close {
@@ -4077,6 +4147,8 @@ a.project-card {
   display: flex;
 }
 
+/* Every play disc wears the same translucent white ring; the fill and the
+   drop-shadow tint are the only things that change per project. */
 .csb-hero-video-play {
   display: flex;
   align-items: center;
@@ -4092,7 +4164,7 @@ a.project-card {
   background:
     linear-gradient(20deg, rgba(82, 194, 142, 0) 3%, rgba(82, 186, 194, 1) 90%),
     linear-gradient(161deg, rgb(225, 212, 108) 0%, rgb(82, 194, 142) 100%);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 24px rgba(82, 194, 142, 0.45);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(8, 44, 36, 0.72);
   transition: transform 0.2s ease;
 }
 
@@ -4107,12 +4179,13 @@ a.project-card {
 }
 
 /* Telby's recording is 16:9, and its play disc is the cobalt one from the
-   product's own landing-page player. */
+   product's own landing-page player. The home-page card uses the same disc. */
 .case-study-intro--csb-hero .csb-hero-video--telby video {
   aspect-ratio: 16 / 9;
 }
 
-.csb-hero-video--telby .csb-hero-video-play {
+.csb-hero-video--telby .csb-hero-video-play,
+.side-card-cover--telby .csb-hero-video-play {
   color: #fff;
   background: linear-gradient(180deg, #4a69f3 0%, #2a4be0 100%);
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(14, 24, 84, 0.72);
@@ -4362,8 +4435,8 @@ a.project-card {
   padding-bottom: 2.75rem;
 }
 
-/* What I'd Do Differently: bordered cards rather than the stat panel's shadow,
-   so a reflective closing section reads quieter than the evidence up top. */
+/* My Role: bordered cards rather than the stat panel's shadow, so a
+   reflective closing section reads quieter than the evidence up top. */
 .csb-reflect {
   list-style: none;
   margin: 0;

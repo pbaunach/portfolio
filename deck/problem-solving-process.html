@@ -555,7 +555,9 @@
   body.idle .bar { opacity: 0.14; }
   .bar:hover, .bar:focus-within { opacity: 1 !important; }
 
-  .bar button {
+  /* The way back to the portfolio sits in the bar as a link styled like its buttons. */
+  .bar button,
+  .bar a {
     appearance: none;
     border: 0;
     background: transparent;
@@ -567,9 +569,12 @@
     padding: 9px 13px;
     border-radius: 999px;
     cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
     transition: background 120ms ease, color 120ms ease;
   }
-  .bar button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  .bar button:hover:not(:disabled),
+  .bar a:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
   .bar button:disabled { opacity: 0.3; cursor: default; }
   .bar .count {
     color: var(--fg-tag);
@@ -616,7 +621,11 @@
 
   @media (max-width: 760px) {
     .hint { display: none; }
-    .bar button { padding: 9px 10px; }
+    .bar button, .bar a { padding: 9px 10px; }
+  }
+  /* A phone has no room for the label, so the way home shrinks to its arrow. */
+  @media (max-width: 480px) {
+    .bar .home-label { display: none; }
   }
 
   /* ---------- Lightbox ---------- */
@@ -719,7 +728,7 @@
     <img class="mark" src="../orchard-walk-through/assets/logo.png" alt="" />
     <h1>My Problem-Solving Process:<br />An Orchard Walk-through</h1>
     <p class="sub">Scaling career guidance through systems thinking, trust-first AI, and student-centered UX.</p>
-    <p class="by">Peter Baunach &bull; Founding Product Designer</p>
+    <p class="by">Peter Baunach &bull; Head of Product &amp; Design</p>
   </div>
 </div>
 
@@ -1213,6 +1222,8 @@
 </div>
 
 <nav class="bar" id="bar" aria-label="Deck controls">
+  <a class="home" href="../" title="Back to the portfolio" aria-label="Back to the portfolio">&larr;<span class="home-label"> Portfolio</span></a>
+  <span class="sep"></span>
   <button id="btnPrev" title="Previous (left arrow)" aria-label="Previous slide">&lsaquo;</button>
   <span class="count" id="count">1 / 1</span>
   <button id="btnNext" title="Next (right arrow)" aria-label="Next slide">&rsaquo;</button>
