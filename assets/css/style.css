@@ -4184,6 +4184,18 @@ a.project-card {
   aspect-ratio: 16 / 9;
 }
 
+/* Orchard's walkthrough is 16:9 too, and its disc runs the product's teal into
+   its growth green, with the navy canvas colour as the arrow. */
+.case-study-intro--csb-hero .csb-hero-video--orchard video {
+  aspect-ratio: 16 / 9;
+}
+
+.csb-hero-video--orchard .csb-hero-video-play {
+  color: #0c2235;
+  background: linear-gradient(160deg, #13c7e5 0%, #3cd343 100%);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(6, 52, 60, 0.72);
+}
+
 .csb-hero-video--telby .csb-hero-video-play,
 .side-card-cover--telby .csb-hero-video-play {
   color: #fff;

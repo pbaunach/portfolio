@@ -16,6 +16,17 @@ layout: case-study
         <span class="csb-hero-meta-sep" aria-hidden="true">&middot;</span>
         <span>Prototype</span>
       </p>
+      <figure class="csb-hero-video csb-hero-video--orchard">
+        <video controls playsinline preload="none" poster="{{ '/assets/img/orchard-screens-v2/orchard-walkthrough-poster.jpg' | relative_url }}" aria-label="Orchard product walkthrough, about 60 seconds. Silent, with captions.">
+          <source src="{{ '/assets/video/orchard-walkthrough.mp4' | relative_url }}" type="video/mp4">
+          Your browser cannot play this video.
+        </video>
+        <div class="csb-hero-video-overlay">
+          <button type="button" class="csb-hero-video-play" aria-label="Play the Orchard walkthrough">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+          </button>
+        </div>
+      </figure>
     </div>
   </div>
 </section>
