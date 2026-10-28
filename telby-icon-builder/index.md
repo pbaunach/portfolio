@@ -73,7 +73,7 @@ extra_js: [/assets/js/live-work.js]
     </header>
 
     <div class="sp-stage">
-      <span class="sp-stage-tag"><i></i>In action</span>
+      <span class="sp-stage-tag">In action</span>
       {% include demos/telby-loop.html %}
     </div>
 
@@ -112,7 +112,7 @@ extra_js: [/assets/js/live-work.js]
     </header>
 
     <div class="sp-stage">
-      <span class="sp-stage-tag"><i></i>Change once, update everywhere</span>
+      <span class="sp-stage-tag">Change once, update everywhere</span>
       {% include demos/telby-tokens.html %}
     </div>
 
@@ -142,3 +142,5 @@ extra_js: [/assets/js/live-work.js]
     </div>
   </div>
 </section>
+
+{% include next-project.html %}

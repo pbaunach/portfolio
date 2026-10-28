@@ -73,7 +73,7 @@ permalink: /unbound-codex/
     </header>
 
     <div class="sp-stage">
-      <span class="sp-stage-tag"><i></i>Proposals, not edits</span>
+      <span class="sp-stage-tag">Proposals, not edits</span>
       <div class="sp-shot">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-silias-plan.png' | relative_url }}" alt="Silias returning a multi-step plan with staged NPC and quest proposals to approve or reject">
@@ -117,7 +117,7 @@ permalink: /unbound-codex/
     </header>
 
     <div class="sp-stage">
-      <span class="sp-stage-tag"><i></i>The DM screen, live</span>
+      <span class="sp-stage-tag">The DM screen, live</span>
       <div class="sp-shot">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/unbound-codex/uc-dmscreen.png' | relative_url }}" alt="The live DM Screen with a spotlighted NPC, a session timer, and a running event log">
@@ -159,3 +159,5 @@ permalink: /unbound-codex/
     </div>
   </div>
 </section>
+
+{% include next-project.html %}

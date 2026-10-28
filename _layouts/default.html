@@ -36,6 +36,9 @@
         </a>
         <nav class="site-nav">
           <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/' | relative_url }}#projects">Projects</a>
+          <a href="{{ '/' | relative_url }}#lab">The Lab</a>
+          <a href="{{ '/' | relative_url }}#artifacts">Artifacts</a>
         </nav>
       </div>
     </header>
@@ -53,12 +56,31 @@
       (function() {
         var current = window.location.pathname.replace(/\/+$/, '');
         var home = '{{ "/" | relative_url }}'.replace(/\/+$/, '');
-        if (current === home) {
-          var homeLink = document.querySelector('.site-nav a[href="{{ "/" | relative_url }}"]');
-          if (homeLink) {
-            homeLink.classList.add('site-nav__link--active');
+        if (current !== home) return;
+        // On the home page the highlight follows the section in view: Home above
+        // the first section, then Projects, The Lab and Artifacts.
+        var links = document.querySelectorAll('.site-nav a');
+        var sections = [];
+        links.forEach(function(link) {
+          var hash = link.getAttribute('href').split('#')[1];
+          var el = hash && document.getElementById(hash);
+          if (el) sections.push({ el: el, link: link });
+        });
+        function update() {
+          var active = links[0];
+          sections.forEach(function(s) {
+            if (s.el.getBoundingClientRect().top <= 120) active = s.link;
+          });
+          // At the very bottom the last section may never reach the top
+          if (sections.length && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+            active = sections[sections.length - 1].link;
           }
+          links.forEach(function(link) {
+            link.classList.toggle('site-nav__link--active', link === active);
+          });
         }
+        update();
+        window.addEventListener('scroll', update, { passive: true });
       })();
     </script>
     <script src="{{ '/assets/js/home-hero-parallax.js' | relative_url }}" defer></script>

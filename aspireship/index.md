@@ -64,7 +64,7 @@ extra_css: [/assets/css/side-project.css]
     </header>
 
     <div class="sp-stage">
-      <span class="sp-stage-tag"><i></i>Try before you buy</span>
+      <span class="sp-stage-tag">Try before you buy</span>
       <div class="sp-shot">
         <figure class="cs-callout-figure">
           <img src="{{ '/assets/img/aspireship-screens/Course-01.png' | relative_url }}" alt="Aspireship course overview with the first section unlocked and the later lessons visible behind a lock">
@@ -174,3 +174,5 @@ extra_css: [/assets/css/side-project.css]
     </div>
   </div>
 </section>
+
+{% include next-project.html %}

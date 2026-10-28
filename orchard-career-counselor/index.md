@@ -99,7 +99,7 @@ extra_js: [/assets/js/live-work.js]
     </header>
 
     <div class="sp-stage sp-stage--wide">
-      <span class="sp-stage-tag"><i></i>Try it</span>
+      <span class="sp-stage-tag">Try it</span>
       {% include demos/orchie-router.html %}
     </div>
 
@@ -202,3 +202,5 @@ extra_js: [/assets/js/live-work.js]
     </div>
   </div>
 </section>
+
+{% include next-project.html %}
