@@ -2,27 +2,48 @@
 layout: default
 title: Portfolio
 description: Product & Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. Expertise in AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
+# Hero wipe: cri (Orchard's CRI draft to the shipped Growth Report) or salon (Frederick brand illustration)
+wipe: cri
 ---
+{%- assign ill = '/assets/img/illustrations/' | relative_url -%}
+{%- if page.wipe == 'salon' -%}
+  {%- assign wipe_under = 'salon-line.png' -%}{%- assign wipe_over = 'salon-color.png' -%}{%- assign wipe_ratio = '1301 / 750' -%}
+  {%- assign wipe_under_alt = 'Wireframe line drawing of a salon storefront' -%}
+  {%- assign wipe_over_alt = 'The same salon storefront, finished in full color with Frederick and two customers out front' -%}
+  {%- assign wipe_label = 'Compare the wireframe and the finished illustration' -%}
+  {%- assign wipe_source = 'Frederick brand system' -%}
+{%- else -%}
+  {%- assign wipe_under = 'wipe-cri-sketch.png' -%}{%- assign wipe_over = 'wipe-cri-shipped.png' -%}{%- assign wipe_ratio = '1461 / 960' -%}
+  {%- assign wipe_under_alt = 'The working artboard for the Career Readiness Index: a levelled rubric, the eight pillar definitions, and a radar chart sketch' -%}
+  {%- assign wipe_over_alt = 'The shipped Growth Report in Orchard: the radar chart, a score of 203 out of 400, and a card for each of the eight pillars' -%}
+  {%- assign wipe_label = 'Compare the Career Readiness Index draft and the shipped Growth Report' -%}
+  {%- assign wipe_source = "Orchard’s Career Readiness Index" -%}
+{%- endif -%}
 
 <section class="home-hero">
   <div class="home-hero-inner">
-    <h1 class="intro-headline">
-      From Prototype <span class="intro-emphasis">to Production</span>
-    </h1>
-    <div class="home-hero-body">
-      <p class="intro-copy">
-        I am a Product &amp; Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. I designed and scaled Frederick from $200k to $10M ARR across 2,500 businesses as the sole designer prior to an acquisition by MINDBODY. My expertise spans AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
-      </p>
-      <dl class="home-hero-meta">
-        <div class="hero-meta-row">
-          <dt>What I'm up to</dt>
-          <dd>Currently designing <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="hero-meta-link">Orchard</a>, an AI-powered college and career readiness platform.</dd>
+    <div class="home-hero-split">
+      <div class="home-hero-copy">
+        <h1 class="intro-headline intro-headline--stacked">
+          <span class="intro-line">From <span class="intro-proto">Prototype</span></span>
+          <span class="intro-line">to <span class="intro-prod">Production</span></span>
+        </h1>
+        <p class="intro-copy">
+          20 years of 0-to-1 web apps, and lately, AI interfaces that know when to hand the wheel back to a human.
+        </p>
+      </div>
+      <figure class="hero-wipe-wrap">
+        <div class="hero-wipe" data-wipe tabindex="0" role="slider" aria-label="{{ wipe_label }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--ratio: {{ wipe_ratio }}">
+          <img src="{{ ill }}{{ wipe_under }}" alt="{{ wipe_under_alt }}" draggable="false">
+          <img class="hero-wipe-top" src="{{ ill }}{{ wipe_over }}" alt="{{ wipe_over_alt }}" draggable="false">
+          <div class="hero-wipe-bar" aria-hidden="true">
+            <span class="hero-wipe-knob"><svg viewBox="0 0 24 24" focusable="false"><polyline points="9 6 3 12 9 18"></polyline><polyline points="15 6 21 12 15 18"></polyline></svg></span>
+          </div>
+          <span class="hero-wipe-tag hero-wipe-tag--l" aria-hidden="true">Idea</span>
+          <span class="hero-wipe-tag hero-wipe-tag--r" aria-hidden="true">Production</span>
         </div>
-        <div class="hero-meta-row">
-          <dt>My approach</dt>
-          <dd>Driven by design-led strategy, rapid AI-assisted prototyping, and hands-on technical tinkering.</dd>
-        </div>
-      </dl>
+        <figcaption class="hero-wipe-cap">{{ wipe_source }}</figcaption>
+      </figure>
     </div>
     <div class="gh-chart-mount" data-username="pbaunach"></div>
   </div>
@@ -147,6 +168,7 @@ description: Product & Design Leader with 20 years of experience building 0-to-1
   </div>
 </div>
 <script src="{{ '/assets/js/video-lightbox.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/home-wipe.js' | relative_url }}" defer></script>
 
 <section class="project-grid project-grid--archive">
   <div class="archive-header">
