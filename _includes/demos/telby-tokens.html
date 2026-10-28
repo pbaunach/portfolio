@@ -1,0 +1,56 @@
+{%- comment -%}
+  Telby token cascade: tokens on the left, semantic roles in the middle, a live
+  set on the right. A scripted loop re-points a role, recolors a swatch and thins
+  the stroke token, and the set restyles in a ripple each time. Every icon here is
+  drawn with two classes only: .tk-d (the default role) and .tk-a (the accent
+  role); .tk-f marks a filled shape. Needs live-work.css and live-work.js.
+{%- endcomment -%}
+{%- capture icons -%}
+<path class="tk-d" d="M6 16v-5.5a6 6 0 0 1 12 0V16"/><line class="tk-d" x1="4" y1="16" x2="20" y2="16"/><path class="tk-d" d="M10 19a2 2 0 0 0 4 0"/><circle class="tk-a tk-f" cx="18" cy="5" r="2.5"/>
+|<rect class="tk-d" x="3" y="5" width="18" height="14" rx="2"/><polyline class="tk-a" points="3 7 12 13 21 7"/>
+|<circle class="tk-d" cx="11" cy="11" r="6"/><line class="tk-a" x1="15.5" y1="15.5" x2="20" y2="20"/>
+|<path class="tk-d" d="M4 11 12 4l8 7v9H4z"/><path class="tk-a" d="M10 20v-6h4v6"/>
+|<rect class="tk-d" x="4" y="5" width="16" height="15" rx="2"/><line class="tk-d" x1="4" y1="10" x2="20" y2="10"/><line class="tk-a" x1="8.5" y1="3" x2="8.5" y2="7"/><line class="tk-a" x1="15.5" y1="3" x2="15.5" y2="7"/>
+|<path class="tk-d" d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/><circle class="tk-a tk-f" cx="8.5" cy="10.5" r="1.2"/><circle class="tk-a tk-f" cx="12" cy="10.5" r="1.2"/><circle class="tk-a tk-f" cx="15.5" cy="10.5" r="1.2"/>
+|<path class="tk-d" d="M3 9a2 2 0 0 1 2-2h2.5l1.5-2.5h6L16.5 7H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle class="tk-a" cx="12" cy="13.5" r="3.5"/>
+|<rect class="tk-d" x="5" y="11" width="14" height="10" rx="2"/><path class="tk-a" d="M8 11V8a4 4 0 0 1 8 0v3"/>
+|<circle class="tk-a" cx="12" cy="8" r="4"/><path class="tk-d" d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
+|<path class="tk-d" d="M7 18a4.5 4.5 0 0 1-.5-9 6 6 0 0 1 11.5 1.5A3.75 3.75 0 0 1 17.5 18z"/><polyline class="tk-a" points="9.5 14 12 11.5 14.5 14"/>
+|<circle class="tk-d" cx="12" cy="12" r="8.5"/><polyline class="tk-a" points="12 7.5 12 12 15 14"/>
+|<rect class="tk-d" x="3" y="4" width="18" height="16" rx="2"/><polyline class="tk-a" points="9 9.5 6.5 12 9 14.5"/><polyline class="tk-a" points="15 9.5 17.5 12 15 14.5"/><line class="tk-a" x1="13" y1="8.5" x2="11" y2="15.5"/>
+{%- endcapture -%}
+{%- assign icon_list = icons | split: '|' -%}
+<figure class="lw lw--telby">
+  <div class="lw-app ts tk" data-lw="tokens" tabindex="0" aria-label="Looping animation of Telby's token system: re-pointing the accent role, recoloring the spot token, and thinning the stroke token restyle a set of twelve icons at once. Hover or focus to pause.">
+    <div class="ts-top"><span class="ts-logo">Telby</span><span class="ts-crumb">Tokens / <b>roles</b></span><span class="ts-live"><i></i>scripted run</span></div>
+    <div class="tk-body" aria-hidden="true">
+      <div class="tk-col">
+        <div class="ts-panel-head">Tokens</div>
+        <div class="tk-list">
+          <span class="tk-group">Color</span>
+          <div class="tk-tok" data-tok="primary"><span class="tk-sw" style="background:#16202b"></span><span class="tk-name">primary<small>#16202b</small></span></div>
+          <div class="tk-tok" data-tok="spot"><span class="tk-sw" data-sw></span><span class="tk-name">spot<small data-val>#2a4be0</small></span></div>
+          <span class="tk-group">Stroke width</span>
+          <div class="tk-tok" data-tok="stroke"><span class="tk-line"><i></i></span><span class="tk-name">normal<small>px</small></span><span class="tk-num" data-num>2</span></div>
+        </div>
+      </div>
+      <div class="tk-col">
+        <div class="ts-panel-head tk-head">Semantic roles<span class="tk-modes"><b data-mode="mono">mono</b><b data-mode="duo">duo</b></span></div>
+        <div class="tk-list">
+          <div class="tk-role" data-role="default"><span class="tk-name">default<small>icon body</small></span><span class="tk-chip"><i style="background:#16202b"></i>primary</span></div>
+          <div class="tk-role" data-role="accent"><span class="tk-name">accent<small>detail layer</small></span><span class="tk-chip" data-accent><i></i><span>primary</span></span></div>
+        </div>
+      </div>
+      <div class="tk-col tk-col--set">
+        <div class="ts-panel-head">Live preview<span class="tk-count">12 icons</span></div>
+        <div class="tk-grid">
+          {%- for ic in icon_list %}
+          <svg viewBox="0 0 24 24" style="--i:{{ forloop.index0 }}">{{ ic | strip }}</svg>
+          {%- endfor %}
+        </div>
+        <p class="tk-cap" data-cap></p>
+      </div>
+    </div>
+  </div>
+  <figcaption class="lw-note">A scripted run with Telby&rsquo;s real token and role model. Hover to pause.</figcaption>
+</figure>

@@ -1,6 +1,8 @@
 ---
 title: "Orchard: The AI College and Career Readiness Platform"
 layout: case-study
+extra_css: [/assets/css/live-work.css, /assets/css/side-project.css]
+extra_js: [/assets/js/live-work.js]
 ---
 
 <section class="case-study-section case-study-intro case-study-intro--orchard-screens-hero case-study-intro--csb-hero">
@@ -63,13 +65,12 @@ layout: case-study
   </div>
 </section>
 
-<section class="csb-band csb-band--principles" aria-label="Guiding principles">
-  <div class="csb-band-head">
-    <div class="csb-band-inner">
-      <h2 class="csb-section-title">Guiding Principles</h2>
-    </div>
-  </div>
-  <div class="csb-band-inner csb-band-body">
+<section class="sp-section sp-section--light sp-orchard" id="principles" aria-labelledby="sp-principles-title">
+  <div class="sp-wrap">
+    <header class="sp-head">
+      <span class="sp-kicker">Guiding principles</span>
+      <h2 class="sp-title sp-title--sm" id="sp-principles-title">Three rules behind every decision</h2>
+    </header>
     <ul class="csb-principles">
       <li class="csb-principle">
         <h3 class="csb-principle-title csb-principle-title--cyan">The Student is the Hero</h3>
@@ -87,148 +88,117 @@ layout: case-study
   </div>
 </section>
 
-<section class="csb-band" id="orchie" aria-label="How a question moves through Orchie">
-  <div class="csb-band-head">
-    <div class="csb-band-inner">
-      <h2 class="csb-section-title">How a question moves through Orchie</h2>
-    </div>
-  </div>
-  <div class="csb-band-inner csb-band-body">
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media csb-row-media--framed">
-        <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Flow.png' | relative_url }}" alt="Flow diagram of how Orchie handles a student question. Education and career data sources (College Scorecard, IPEDS, proprietary data, O*NET, and BLS) feed a cited data layer. A student question, or an explicitly invoked slash command, passes through an intent and safety screen. An unclear question gets a clarifying question back. Everything else routes to one of four skills: Conversation, /explore, /compare, or /plan, each of which reads the desk and chat history first. /explore checks with sources and either produces a career list with citations or tells the student there's no data on that career. Anything the screen flags drops into a guardrail lane covering off-topic questions, distress signals, and requests for a verdict. Every path either loops back into the conversation or ends with the session saved.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">Every message runs the same path, an intent and safety screen first, then either a skill or a guardrail. All four skills read the desk and the chat history before they answer, so a student never has to repeat themselves. The guardrail lane catches everything else, including the conversations Orchie shouldn't be having at all.</p>
-        <p class="csb-note">Orchie will always try and respond with an answer and a next step action for the student to keep their momentum going. Having Orchie respond with an open ended question often leaves the student stunned and unsure of what to do next.</p>
+<section class="sp-section sp-section--gray sp-orchard" id="orchie" aria-labelledby="sp-orchie-title">
+  <div class="sp-wrap">
+    <header class="sp-head">
+      <div>
+        <span class="sp-kicker"><b>01</b>The AI mentor</span>
+        <h2 class="sp-title" id="sp-orchie-title">How a question moves through Orchie</h2>
       </div>
+      <p class="sp-lead">Every message runs the same path: an intent and safety screen first, then either a skill or a guardrail. Whichever way it goes, Orchie answers with something to do next, because an open-ended question leaves a student stuck.</p>
+    </header>
+
+    <div class="sp-stage sp-stage--wide">
+      <span class="sp-stage-tag"><i></i>Try it</span>
+      {% include demos/orchie-router.html %}
     </div>
 
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
+    <div class="sp-flow">
+      <h3 class="sp-sub">The logic that powers it</h3>
+      <p class="sp-sub-lead">The full flow, from the data sources down to the guardrails. Click to open it full size.</p>
+      <div class="sp-chart">
+        <figure class="cs-callout-figure">
+          <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Flow.png' | relative_url }}" alt="Flow diagram of how Orchie handles a student question. Education and career data sources (College Scorecard, IPEDS, proprietary data, O*NET, and BLS) feed a cited data layer. A student question, or an explicitly invoked slash command, passes through an intent and safety screen. An unclear question gets a clarifying question back. Everything else routes to one of four skills: Conversation, /explore, /compare, or /plan, each of which reads the desk and chat history first. /explore checks with sources and either produces a career list with citations or tells the student there's no data on that career. Anything the screen flags drops into a guardrail lane covering off-topic questions, distress signals, and requests for a verdict. Every path either loops back into the conversation or ends with the session saved.">
+        </figure>
+      </div>
+      <ol class="sp-points sp-points--row">
+        <li><span class="sp-num">1</span><div><h4>Screen first, every time</h4><p>The intent and safety screen runs before any skill, so a distress signal never reaches the career flow.</p></div></li>
+        <li><span class="sp-num">2</span><div><h4>Skills read the desk</h4><p>All four skills check the desk and chat history first, so a student never has to repeat themselves.</p></div></li>
+        <li><span class="sp-num">3</span><div><h4>Cited or not shown</h4><p>Career data comes from College Scorecard, IPEDS, O*NET and BLS, with the source under every number.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sp-audit">
+      <figure class="cs-callout-figure">
         <img src="{{ '/assets/img/orchard-screens-v2/Orchie-Desk.png' | relative_url }}" alt="Orchie chat on the left with a set of interdisciplinary career suggestions, and the desk open on the right showing the UX Engineer career card with pay, growth, security, skills, and a typical day.">
       </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">When information appears directly on the student’s desk, it solves two problems at once. First, students can dive deep into career data without losing their spot in the conversation. Second, it keeps the AI model locked onto the same context, so any follow-up question the student asks is instantly understood.</p>
+      <div class="sp-audit-copy">
+        <span class="sp-flag">The desk</span>
+        <h3 class="sp-sub">One surface, two jobs</h3>
+        <p>When information lands on the student&rsquo;s desk, they can dig into the career data without losing their spot in the conversation, and the model stays locked onto the same context, so any follow-up question is instantly understood.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="csb-band" id="cri" aria-label="Designing and testing the Career Readiness Index">
-  <div class="csb-band-head">
-    <div class="csb-band-inner">
-      <h2 class="csb-section-title">Designing and Testing the Career Readiness Index (CRI)</h2>
-    </div>
-  </div>
-  <div class="csb-band-inner csb-band-body">
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media csb-row-media--framed">
-        <img src="{{ '/assets/img/orchard-screens-v2/CRI-Draft.png' | relative_url }}" alt="Three-panel working artboard for the CRI. On the left, a levelled rubric covering Self Awareness, Trajectory Knowledge, Professional Agency, Network Literacy, and Adaptive Goal Setting, with a plain-language description of what Level 1, 3, and 5 look like. In the middle, the eight pillars those criteria distilled into, each with an icon and a one-line definition: Self Awareness, Exploration, Planning, Focus, Goal Setting, Execution, Skills, and Experience. On the right, the eight-sided radar chart that plots a student's score across those pillars.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">The CRI acts like a personal credit score for career readiness. Instead of measuring static test scores or grade compliance, it tracks a student's real-world growth across 8 core dimensions.</p>
-        <p class="csb-note">We started with a basic rubric to ground abstract ideas into observable actions. From there we distilled them into 8 distinct pillars along with a visual that allows students, counselors and parents an instant snapshot of their growth.</p>
+<section class="sp-section sp-section--light sp-orchard" id="cri" aria-labelledby="sp-cri-title">
+  <div class="sp-wrap">
+    <header class="sp-head">
+      <div>
+        <span class="sp-kicker"><b>02</b>The measure</span>
+        <h2 class="sp-title" id="sp-cri-title">The Career Readiness Index</h2>
       </div>
-    </div>
+      <p class="sp-lead">Think of it as a credit score for career readiness. Instead of test scores or grade compliance, it tracks a student&rsquo;s real-world growth across eight pillars, and we designed and tested it in three steps.</p>
+    </header>
 
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
-        <img src="{{ '/assets/img/orchard-screens-v2/CRI-Simulation.png' | relative_url }}" alt="The internal CRI model simulator. Sliders on the left set the model constants, a synthetic week of student activity, a timeline since the last assessment, and the assessment baselines for each pillar. The right side shows the resulting total CRI of 217 out of 400, a radar chart of the eight pillars, and a per-dimension breakdown showing how much each activity lifted each score.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">As the CRI model grew more complex, we needed a way to make sure the scoring system stayed fair and balanced. We built an internal simulator to test how different student actions would shift their score, giving us the data needed to fine-tune the algorithm.</p>
-      </div>
-    </div>
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
-        <img src="{{ '/assets/img/orchard-screens-v2/Growth-Report.png' | relative_url }}" alt="The student-facing Growth Report in Orchard. A radar chart of the eight pillars sits next to a score of 203 out of 400, a line naming the strongest and weakest pillars, and a button to build an action plan with Orchie. Below, a card for each pillar shows its score, its definition, and a strength or growing tag.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">In the end, students get a simple, straightforward report that takes the guesswork out of planning for the future. Instead of wondering what to do next, they get clear, actionable steps that keep them moving forward at their own pace.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="csb-band" id="philosophy" aria-label="Exploring careers and making a plan">
-  <div class="csb-band-head">
-    <div class="csb-band-inner">
-      <h2 class="csb-section-title">Exploring Careers &amp; Making a Plan</h2>
-    </div>
-  </div>
-  <div class="csb-band-inner csb-band-body">
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
-        <img src="{{ '/assets/img/orchard-screens-v2/Explore-Content.png' | relative_url }}" alt="Day-in-the-life video player in Orchard. A full-length interview with two change management consultants plays in the centre, with the career card and a full-video link on the right, and a grid of short-form clips from other professionals below it.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">We filmed over 100 original interviews. We built a video experience that has both full length videos and short-form clips. It was designed for students to passively explore 4 or 5 career paths in a single session, allowing them to discover new careers or give fresh context to familiar ones.</p>
-      </div>
-    </div>
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
-        <img src="{{ '/assets/img/orchard-screens-v2/Explore-Career-Details.png' | relative_url }}" alt="Career detail page for Change Management Consultant. An education pathways bar shows how 100 people in the job got there, broken into bachelor's, graduate, and associate routes, with nearby colleges listed beside it and the O*NET source cited underneath. A quiz card and related careers sit alongside.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">We provide students with in-depth statistics about any career they find. We require Orchie to cite the source of any data to prevent hallucinations and breaking trust.</p>
-      </div>
-    </div>
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
-        <img src="{{ '/assets/img/orchard-screens-v2/Plan-Orchie.png' | relative_url }}" alt="Orchie building a plan. The chat on the left walks the student through one question at a time, while the desk on the right opens a Choose your education pathway card with Orchie's take and a detailed 4-Year College option showing cost, time, and what it leads to.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">When a student finds a career that sparks their interest, Orchie guides them through creating a personalized action plan. By asking a few initial questions, Orchie tailors a unique roadmap for every user.</p>
-      </div>
-    </div>
-
-    <div class="csb-row">
-      <figure class="cs-callout-figure csb-row-media">
-        <img src="{{ '/assets/img/orchard-screens-v2/Plan-Action-Plan.png' | relative_url }}" alt="A finished Change Management Consultant action plan. The plan header shows its outcome, motivation, and challenge dimensions with a progress bar, a roadmap of steps below, and an Orchie panel on the right suggesting follow-up questions the student can ask about their next move.">
-      </figure>
-      <div class="csb-row-notes">
-        <p class="csb-note">Orchie offers ongoing guidance as students work through each milestone. Because real-world paths change, Orchie adapts the plan in real time whenever circumstances evolve.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="csb-band" id="my-role" aria-label="My role">
-  <div class="csb-band-head">
-    <div class="csb-band-inner">
-      <h2 class="csb-section-title">My Role</h2>
-    </div>
-  </div>
-  <div class="csb-band-inner csb-band-body">
-    <p class="csb-band-lead">Head of Product &amp; Design on a 4-person team. I owned product strategy, design, the prototype and the brand.</p>
-    <ul class="csb-reflect">
-      <li class="csb-reflect-card">
-        <h3 class="csb-reflect-title">Setting direction through four iterations.</h3>
-        <p class="csb-reflect-desc">Framed the problem, ran each hypothesis, and made the case to move off the ones that failed, from a content library to an AI mentor built around the CRI.</p>
+    <ol class="sp-cards sp-cards--steps">
+      <li>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/orchard-screens-v2/CRI-Draft.png' | relative_url }}" alt="Three-panel working artboard for the CRI. On the left, a levelled rubric covering Self Awareness, Trajectory Knowledge, Professional Agency, Network Literacy, and Adaptive Goal Setting, with a plain-language description of what Level 1, 3, and 5 look like. In the middle, the eight pillars those criteria distilled into, each with an icon and a one-line definition: Self Awareness, Exploration, Planning, Focus, Goal Setting, Execution, Skills, and Experience. On the right, the eight-sided radar chart that plots a student's score across those pillars."></figure>
+        <span class="sp-step">Step 1</span>
+        <h4>The rubric</h4>
+        <p>We started with a rubric to turn abstract ideas into observable actions, then distilled it into eight pillars and a radar chart anyone can read at a glance.</p>
       </li>
-      <li class="csb-reflect-card">
-        <h3 class="csb-reflect-title">Designing the CRI and Orchie&rsquo;s logic.</h3>
-        <p class="csb-reflect-desc">Wrote the readiness rubric, distilled it into the eight pillars, and designed how a question moves through Orchie. Our engineer built the scoring model and chose the LLM behind it.</p>
+      <li>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/orchard-screens-v2/CRI-Simulation.png' | relative_url }}" alt="The internal CRI model simulator. Sliders on the left set the model constants, a synthetic week of student activity, a timeline since the last assessment, and the assessment baselines for each pillar. The right side shows the resulting total CRI of 217 out of 400, a radar chart of the eight pillars, and a per-dimension breakdown showing how much each activity lifted each score."></figure>
+        <span class="sp-step">Step 2</span>
+        <h4>The simulator</h4>
+        <p>As the model grew, we built an internal simulator to test how different student actions shift the score, so we could keep it fair before students ever saw it.</p>
       </li>
-      <li class="csb-reflect-card">
-        <h3 class="csb-reflect-title">Prototyping as the source of truth.</h3>
-        <p class="csb-reflect-desc">Designed every surface, plus the working prototype the team tested with students and counselors and engineering built from.</p>
+      <li>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/orchard-screens-v2/Growth-Report.png' | relative_url }}" alt="The student-facing Growth Report in Orchard. A radar chart of the eight pillars sits next to a score of 203 out of 400, a line naming the strongest and weakest pillars, and a button to build an action plan with Orchie. Below, a card for each pillar shows its score, its definition, and a strength or growing tag."></figure>
+        <span class="sp-step">Step 3</span>
+        <h4>The Growth Report</h4>
+        <p>Students get a simple report with clear next steps, so instead of wondering what to do, they keep moving at their own pace.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sp-section sp-section--gray sp-orchard" id="explore" aria-labelledby="sp-explore-title">
+  <div class="sp-wrap">
+    <header class="sp-head">
+      <div>
+        <span class="sp-kicker"><b>03</b>The product</span>
+        <h2 class="sp-title" id="sp-explore-title">Exploring careers and making a plan</h2>
+      </div>
+      <p class="sp-lead">Students discover careers through the people who do them, then Orchie turns the one that sparks their interest into a plan, asking a few questions first so every roadmap fits the student instead of a template.</p>
+    </header>
+
+    <ul class="sp-cards sp-cards--two">
+      <li>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/orchard-screens-v2/Explore-Content.png' | relative_url }}" alt="Day-in-the-life video player in Orchard. A full-length interview with two change management consultants plays in the centre, with the career card and a full-video link on the right, and a grid of short-form clips from other professionals below it."></figure>
+        <h4>A day in the life</h4>
+        <p>We filmed over 100 original interviews, cut as full-length videos and short clips, so a student can passively explore four or five career paths in a single session.</p>
+      </li>
+      <li>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/orchard-screens-v2/Plan-Action-Plan.png' | relative_url }}" alt="A finished Change Management Consultant action plan. The plan header shows its outcome, motivation, and challenge dimensions with a progress bar, a roadmap of steps below, and an Orchie panel on the right suggesting follow-up questions the student can ask about their next move."></figure>
+        <h4>A plan that adapts</h4>
+        <p>Orchie guides students through each milestone, and because real-world paths change, the plan changes with them.</p>
       </li>
     </ul>
   </div>
 </section>
 
-<section id="prototype" class="csb-band csb-band--cta" aria-label="Prototype and design process">
-  <div class="csb-band-inner csb-band-body">
-    <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" target="_blank" rel="noopener noreferrer" class="button button-primary">View the Prototype</a>
-    <a href="{{ '/deck/problem-solving-process.html' | relative_url }}" class="button button-outline">Read the Design Process</a>
+<section class="sp-section sp-section--light sp-outro sp-orchard" id="my-role" aria-labelledby="sp-role-title">
+  <div class="sp-wrap sp-outro-inner">
+    <div>
+      <span class="sp-kicker">My role</span>
+      <h2 class="sp-title sp-title--sm" id="sp-role-title">Head of Product &amp; Design at a four-person company.</h2>
+      <p class="sp-lead">I owned product strategy, design, the prototype and the brand. Over four iterations I framed the problem, tested each hypothesis, and made the case to move on from the ones that failed, from a content library to an AI mentor built around the CRI. Our engineer built the scoring model and chose the LLM behind it.</p>
+    </div>
+    <div class="sp-outro-actions">
+      <a href="{{ '/deck/problem-solving-process.html' | relative_url }}" class="button button-primary">View the Design Process</a>
+      <a href="https://orchie-v2-prototype-git-main-peebs-explorations.vercel.app/desk" target="_blank" rel="noopener noreferrer" class="button button-outline">View the Prototype</a>
+    </div>
   </div>
 </section>

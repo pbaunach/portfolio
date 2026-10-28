@@ -819,8 +819,34 @@ a.project-card {
   text-decoration: none;
 }
 
-.project-card-title-link:hover {
+.project-card-title-link:hover,
+.project-card--split:hover .project-card-title-link {
   color: var(--primary);
+}
+
+/* Home highlight cards open their case study from anywhere on the card: the
+   title link stretches over it, and only a secondary button (the design
+   process deck) sits above it to go somewhere else. */
+.project-card--split .project-card-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-xl);
+}
+
+.project-card--split .project-card-title-link:focus-visible {
+  outline: none;
+}
+
+.project-card--split .project-card-title-link:focus-visible::after {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.project-card--split .project-card-actions .button-outline {
+  position: relative;
+  z-index: 2;
 }
 
 .project-card .project-cover a {
@@ -1443,8 +1469,47 @@ a.project-card {
   text-decoration: none;
 }
 
-.side-card-title a:hover {
+.side-card-title a:hover,
+.side-card:hover .side-card-title a {
   color: var(--primary);
+}
+
+/* The whole card opens the case study: the title link stretches over the card,
+   and only the demo button sits above it to go somewhere else. */
+.side-card {
+  position: relative;
+}
+
+.side-card-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-xl);
+}
+
+.side-card-title a:focus-visible {
+  outline: none;
+}
+
+.side-card-title a:focus-visible::after {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.side-card-actions .button-outline {
+  position: relative;
+  z-index: 2;
+}
+
+/* A one-line hook between the title and the summary */
+.side-card-tagline {
+  margin: -0.15rem 0 0.5rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--foreground);
 }
 
 .side-card-summary {

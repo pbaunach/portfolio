@@ -56,9 +56,9 @@ wipe: cri
 
   <div class="project-grid-inner">
     <div class="project-card project-card--split project-card--for-work">
-      <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
+      <div class="project-cover project-cover--orchard project-cover--split-hero" aria-hidden="true">
         <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard Growth Report on desktop and the weekly summary on mobile" class="project-cover-img">
-      </a>
+      </div>
       <div class="project-body">
         <div class="project-meta-row">
           <span class="project-role-label">Head of Product &amp; Design</span>
@@ -75,9 +75,9 @@ wipe: cri
     </div>
 
     <div class="project-card project-card--split project-card--for-work">
-      <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
+      <div class="project-cover project-cover--aspireship project-cover--split-hero" aria-hidden="true">
         <img src="{{ '/assets/img/aspireship-cover.png' | relative_url }}" alt="Aspireship" class="project-cover-img">
-      </a>
+      </div>
       <div class="project-body">
         <div class="project-meta-row">
           <span class="project-role-label">Head of Product &amp; Design</span>
@@ -104,15 +104,10 @@ wipe: cri
   <div class="project-grid-inner project-grid-inner--side">
 
     <div class="side-card">
-      <a href="https://telby.io/walkthrough/telby-walkthrough.mp4" class="side-card-cover side-card-cover--telby side-card-video" data-video-type="video/mp4" data-video-aspect="1.7778" data-video-label="Telby walkthrough, about 90 seconds. Silent, with captions." aria-label="Play the Telby walkthrough video">
+      <div class="side-card-cover side-card-cover--telby" aria-hidden="true">
         <span class="side-card-placeholder">Telby<span class="side-card-placeholder-dot">.</span></span>
         <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
-        <span class="side-card-video-overlay">
-          <span class="csb-hero-video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-          </span>
-        </span>
-      </a>
+      </div>
       <div class="side-card-body">
         <div class="side-card-meta">
           <span class="side-card-role">AI SVG Icon Builder</span>
@@ -120,8 +115,9 @@ wipe: cri
         <h3 class="side-card-title">
           <a href="{{ '/telby-icon-builder/' | relative_url }}">Telby</a>
         </h3>
+        <p class="side-card-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
         <p class="side-card-summary">
-          A builder&ndash;critic agent loop: an enriched prompt is human-reviewed, generated, then scored by a vision model against a temperature threshold. Shipped on pass, or looped back with notes to iterate.
+          You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.
         </p>
         <p class="project-card-actions side-card-actions">
           <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Screens</a>
@@ -131,15 +127,10 @@ wipe: cri
     </div>
 
     <div class="side-card">
-      <a href="https://unboundcodex.com/assets/home-page/walkthrough.webm" class="side-card-cover side-card-cover--unbound side-card-video" data-video-type="video/webm" data-video-aspect="1.6" data-video-label="The Unbound Codex walkthrough, about two minutes" aria-label="Play the Unbound Codex walkthrough video">
+      <div class="side-card-cover side-card-cover--unbound" aria-hidden="true">
         <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
-        <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
-        <span class="side-card-video-overlay">
-          <span class="csb-hero-video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-          </span>
-        </span>
-      </a>
+        <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="" class="side-card-img">
+      </div>
       <div class="side-card-body">
         <div class="side-card-meta">
           <span class="side-card-role">RAG-Based TTRPG Agent</span>
@@ -147,8 +138,9 @@ wipe: cri
         <h3 class="side-card-title">
           <a href="{{ '/unbound-codex/' | relative_url }}">Unbound Codex</a>
         </h3>
+        <p class="side-card-tagline">I wanted an AI that remembers my campaign, not one that writes it.</p>
         <p class="side-card-summary">
-          A game-mastering agent using vectorized rulesets and human-in-the-loop workflows to minimize hallucinations and co-author a cohesive narrative.
+          Run a campaign long enough and you forget half of what you made up. Most AI tools fill the gaps by inventing more. Unbound Codex is my side project that does the opposite.
         </p>
         <p class="project-card-actions side-card-actions">
           <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Screens</a>
@@ -160,14 +152,6 @@ wipe: cri
   </div>
 </section>
 
-<div id="video-lightbox" class="lightbox lightbox--video" role="dialog" aria-modal="true" aria-label="Walkthrough video" aria-hidden="true">
-  <div class="lightbox-backdrop"></div>
-  <div class="lightbox-inner">
-    <button type="button" class="lightbox-close" aria-label="Close video">&times;</button>
-    <video class="lightbox-video" controls playsinline preload="none"></video>
-  </div>
-</div>
-<script src="{{ '/assets/js/video-lightbox.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/home-wipe.js' | relative_url }}" defer></script>
 
 <section class="project-grid project-grid--archive">

@@ -1,0 +1,72 @@
+{%- comment -%}
+  Orchie router (Orchard): a simplified version of the flow chart above it, as a
+  node graph in Orchard's colors. Left to right: the student's message, the
+  intent and safety screen, the one lane it picks, the desk and chat history
+  (skills only), and the reply. Clarify and the guardrail lane skip the desk and
+  go straight to the reply. The messages and their routes are scripted; the
+  wires are drawn by live-work.js. Needs live-work.css and live-work.js on the
+  page (extra_css / extra_js).
+{%- endcomment -%}
+<figure class="lw lw--orchie">
+  <div class="lw-app og" data-lw="router">
+    <p class="og-hint">Pick a message a student might send, and see how Orchie routes it.</p>
+    <div class="og-asks" role="group" aria-label="Student messages"></div>
+    <div class="og-graph">
+      <svg class="og-wires" aria-hidden="true">
+        <defs>
+          <marker id="og-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8z" fill="#3a5670"/></marker>
+          <marker id="og-arrow-on" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8z" fill="#13c7e5"/></marker>
+          <marker id="og-arrow-warn" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8z" fill="#f2a14a"/></marker>
+          <marker id="og-arrow-out" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8z" fill="#3cd343"/></marker>
+        </defs>
+      </svg>
+
+      <div class="og-col og-col--q">
+        <div class="og-node" data-node="q">
+          <div class="og-card">
+            <div class="og-head"><span class="og-title">Student message</span></div>
+            <p class="og-quote" data-quote>Pick one above</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="og-col og-col--screen">
+        <div class="og-node og-node--screen" data-node="screen">
+          <div class="og-card">
+            <div class="og-head"><span class="og-title">Intent &amp; safety screen</span><span class="og-status" aria-hidden="true"></span></div>
+            <p class="og-sub">Runs on every message</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="og-col og-col--lanes">
+        <div class="og-node og-lane" data-lane="clarify"><div class="og-card"><span>Clarify</span><i></i></div></div>
+        <div class="og-node og-lane og-lane--skill" data-lane="conversation"><div class="og-card"><span>Conversation</span><i></i></div></div>
+        <div class="og-node og-lane og-lane--skill" data-lane="explore"><div class="og-card"><span>/explore</span><i></i></div></div>
+        <div class="og-node og-lane og-lane--skill" data-lane="compare"><div class="og-card"><span>/compare</span><i></i></div></div>
+        <div class="og-node og-lane og-lane--skill" data-lane="plan"><div class="og-card"><span>/plan</span><i></i></div></div>
+        <div class="og-node og-lane og-lane--guard" data-lane="guard"><div class="og-card"><span>Guardrail</span><i></i></div></div>
+      </div>
+
+      <div class="og-col og-col--ctx">
+        <div class="og-node" data-node="ctx">
+          <div class="og-card">
+            <div class="og-head"><span class="og-title">Desk + chat history</span></div>
+            <p class="og-sub">Skills read both first</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="og-col og-col--reply">
+        <div class="og-node og-node--reply" data-node="reply">
+          <div class="og-card">
+            <div class="og-head"><span class="og-title">Orchie</span><span class="og-tag" data-tag></span></div>
+            <div class="og-reply" data-reply aria-live="polite"><p class="og-wait">An answer and a next step land here.</p></div>
+            <div class="og-next" data-next><b class="og-pill og-pill--next"></b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="og-why" data-why><b>Why this route</b><span>Pick a message to see which rule it hits.</span></p>
+  </div>
+</figure>
