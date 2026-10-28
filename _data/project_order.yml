@@ -1,0 +1,27 @@
+# The deep dives in the order the home page lists them. Each page ends with a
+# "Next project" link to the one after it, and the last loops back to the first
+# (see _includes/next-project.html). `url` must match the page's own page.url.
+- name: Orchard
+  url: /orchard-career-counselor/
+  tagline: An AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
+  image: /assets/img/orchard-cover.png
+
+- name: Aspireship
+  url: /aspireship/
+  tagline: The career change marketplace, scaling one product across four audiences.
+  image: /assets/img/aspireship-screens/Employer-01-matches.png
+
+- name: VectorAgent
+  url: /case-studies/vector-agent/
+  tagline: Can an AI agent buy something on its own and prove it owns it?
+  # No still image; the include draws a small tile in VectorAgent's colors.
+
+- name: Telby
+  url: /telby-icon-builder/
+  tagline: Icon sets drift. I wanted one that couldn’t.
+  image: https://telby.io/walkthrough/telby-walkthrough-poster.jpg
+
+- name: Unbound Codex
+  url: /unbound-codex/
+  tagline: I wanted an AI that remembers my campaign, not one that writes it.
+  image: /assets/img/unbound-codex/portfolio-card.png

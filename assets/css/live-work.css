@@ -11,6 +11,10 @@
 }
 
 .lw-app {
+  /* Lines inside the demos move as they play. Without this, Chrome's scroll
+     anchoring can pick one as its anchor when the demo is half off screen and
+     scroll the whole page along with it, one line at a time. */
+  overflow-anchor: none;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -368,9 +372,6 @@
 .ts-crumb { color: var(--t-text-2); }
 .ts-crumb b { color: var(--t-ink); font-weight: 600; }
 .ts-live { margin-left: auto; display: flex; align-items: center; gap: 6px; font: 500 10.5px "JetBrains Mono", monospace; color: var(--t-faint); }
-.ts-live i { width: 6px; height: 6px; border-radius: 50%; background: var(--t-ok); animation: tsPulse 1.4s ease-in-out infinite; }
-.ts.is-paused .ts-live i { animation: none; background: var(--t-faint); }
-@keyframes tsPulse { 50% { opacity: .25; } }
 /* Fixed row height: without it the thread's content stretches the row and the
    centered artboard drifts down as messages arrive. */
 .ts-body { display: grid; grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: 340px; }
@@ -554,16 +555,6 @@
   color: var(--v-mute);
 }
 
-.va-live i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--v-emerald);
-  animation: vaPulse 1.4s ease-in-out infinite;
-}
-
-.va.is-paused .va-live i { animation: none; background: var(--v-mute); }
-@keyframes vaPulse { 50% { opacity: 0.25; } }
 
 .va-body {
   display: grid;

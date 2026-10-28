@@ -27,6 +27,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* The header is sticky, so nav jumps to #projects, #lab and #artifacts stop below it */
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -3767,6 +3769,25 @@ a.project-card {
   color: var(--primary) !important;
   border-radius: 0;
   border-bottom: 2px solid var(--primary);
+}
+
+/* Phones: the four links don't fit beside the name, so they get their own row */
+@media (max-width: 640px) {
+  html { scroll-padding-top: 6.75rem; }
+
+  .site-header .header-inner {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    padding-bottom: 0.4rem;
+  }
+
+  /* Pull the row out by the links' padding so the text lines up with the name */
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 -0.55rem;
+    width: calc(100% + 1.1rem);
+  }
 }
 
 /* ============================================================

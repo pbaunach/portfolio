@@ -1,8 +1,40 @@
-/* Home page: whole-card links on the Project Highlights cards, and The Lab.
-   Loaded only on the home page (extra_css in index.md).
+/* Home page: the shared section headings, whole-card links on the Project
+   Highlights cards, and The Lab. Loaded only on the home page (extra_css in
+   index.md).
 
    The Lab sits in a full-width gray band holding white cards in the site's
-   own style. VectorAgent leads as a wide card with a small live loop. */
+   own style: full-width rows that alternate image sides, with VectorAgent
+   first and its live purchase log as the cover. */
+
+/* ================================================================
+   Section headings: Project Highlights and The Lab share one style, a
+   large title with a one-line intro under it.
+   ================================================================ */
+.home-head {
+  margin-bottom: 2.5rem;
+}
+
+.home-title {
+  margin: 0 0 0.75rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--foreground);
+}
+
+.home-intro {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--card-foreground);
+}
+
+/* The highlights grid already spaces its header from the cards. */
+.project-grid .home-head {
+  margin-bottom: 0.5rem;
+}
 
 /* ================================================================
    Project Highlights: open the case study from anywhere on the card.
@@ -35,6 +67,10 @@
   z-index: 2;
 }
 
+.project-card--split .project-role-label {
+  margin: -0.35rem 0 0.9rem;
+}
+
 /* ================================================================
    The Lab
    ================================================================ */
@@ -53,27 +89,6 @@
 .lab-panel {
   max-width: 960px;
   margin: 0 auto;
-}
-
-.lab-head {
-  margin-bottom: 2.5rem;
-}
-
-.lab-title {
-  margin: 0 0 0.75rem;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.035em;
-  color: var(--foreground);
-}
-
-.lab-intro {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--card-foreground);
 }
 
 .lab-grid {
@@ -124,6 +139,7 @@
 }
 
 .lab-kind {
+  margin-top: -0.35rem;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 600;

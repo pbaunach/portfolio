@@ -51,10 +51,11 @@ extra_js: [/assets/js/live-work.js]
   </div>
 </section>
 
-<section class="project-grid project-grid--split">
-  <div class="project-grid-header">
-    <h2 class="section-title">Project Highlights</h2>
-  </div>
+<section class="project-grid project-grid--split" id="projects" aria-labelledby="hl-title">
+  <header class="home-head">
+    <h2 class="home-title" id="hl-title">Project Highlights</h2>
+    <p class="home-intro">The most recent products I&rsquo;ve led 0-to-1.</p>
+  </header>
 
   <div class="project-grid-inner">
     <div class="project-card project-card--split project-card--for-work">
@@ -62,12 +63,10 @@ extra_js: [/assets/js/live-work.js]
         <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard Growth Report on desktop and the weekly summary on mobile" class="project-cover-img">
       </a>
       <div class="project-body">
-        <div class="project-meta-row">
-          <span class="project-role-label">Head of Product &amp; Design</span>
-        </div>
         <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
+        <p class="project-role-label">Head of Product &amp; Design</p>
         <p class="project-summary">
-          Leading 0-to-1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.
+          An AI mentor that helps high schoolers find clarity and assurance in an uncertain future, plus a readiness score that shows them how they&rsquo;re growing.
         </p>
         <p class="project-card-actions">
           <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
@@ -81,10 +80,8 @@ extra_js: [/assets/js/live-work.js]
         <img src="{{ '/assets/img/aspireship-screens/Employer-01-matches.png' | relative_url }}" alt="An employer's Matches screen in Aspireship: two Staff Pick candidates with their photos, target role, location, Aspireship achievements and Interested or Not Interested buttons" class="project-cover-img">
       </a>
       <div class="project-body">
-        <div class="project-meta-row">
-          <span class="project-role-label">Head of Product &amp; Design</span>
-        </div>
         <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link">Aspireship: The Career Change Marketplace</a></h3>
+        <p class="project-role-label">Head of Product &amp; Design</p>
         <p class="project-summary">
           Scaling one product across four audiences: the independent learner, the enterprise team, the hiring employer, and the internal placement staff.
         </p>
@@ -98,9 +95,9 @@ extra_js: [/assets/js/live-work.js]
 
 <section class="lab" id="lab" aria-labelledby="lab-title">
   <div class="lab-panel">
-    <header class="lab-head">
-      <h2 class="lab-title" id="lab-title">The Lab</h2>
-      <p class="lab-intro">I&rsquo;m a builder at heart, so there&rsquo;s always something new on the bench. Here&rsquo;s what I&rsquo;ve been working on lately.</p>
+    <header class="home-head">
+      <h2 class="home-title" id="lab-title">The Lab</h2>
+      <p class="home-intro">I&rsquo;m a builder at heart, so there&rsquo;s always something new on the bench. Here&rsquo;s what I&rsquo;ve been working on lately.</p>
     </header>
 
     <div class="lab-grid">
@@ -109,13 +106,13 @@ extra_js: [/assets/js/live-work.js]
           {% include demos/va-loop.html log_only=true %}
         </div>
         <div class="lab-card-copy">
-          <span class="lab-kind">Agent-to-agent payments</span>
           <h3 class="lab-name"><a href="{{ '/case-studies/vector-agent/' | relative_url }}" class="lab-link">VectorAgent</a></h3>
+          <span class="lab-kind">Agent-to-agent payments</span>
           <p class="lab-tagline">Can an AI agent buy something on its own and prove it owns it?</p>
-          <p class="lab-desc">An icon store where agents pay their own way, a fraction of a cent at a time, and the payment doubles as proof of ownership. In four blind tests, all four agents used it and two paid.</p>
+          <p class="lab-desc">An icon store where AI agents pay their own way, a fraction of a cent at a time. Each payment doubles as proof of ownership. In four blind tests, all four agents used it, and two paid.</p>
           <p class="lab-actions">
             <span class="button button-primary" aria-hidden="true">View the Case Study</span>
-            <a href="https://vectoragent.telby.io/demo.html" class="button button-outline" target="_blank" rel="noopener noreferrer">Try it out</a>
+            <a href="https://vectoragent.telby.io/" class="button button-outline" target="_blank" rel="noopener noreferrer">Try it out</a>
           </p>
         </div>
       </article>
@@ -125,8 +122,8 @@ extra_js: [/assets/js/live-work.js]
           <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" loading="lazy">
         </div>
         <div class="lab-card-copy">
-          <span class="lab-kind">AI SVG icon builder</span>
           <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link">Telby</a></h3>
+          <span class="lab-kind">AI SVG icon builder</span>
           <p class="lab-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
           <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.</p>
           <p class="lab-actions">
@@ -141,8 +138,8 @@ extra_js: [/assets/js/live-work.js]
           <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="" loading="lazy">
         </div>
         <div class="lab-card-copy">
-          <span class="lab-kind">RAG-based TTRPG agent</span>
           <h3 class="lab-name"><a href="{{ '/unbound-codex/' | relative_url }}" class="lab-link">Unbound Codex</a></h3>
+          <span class="lab-kind">RAG-based TTRPG agent</span>
           <p class="lab-tagline">I wanted an AI that remembers my campaign, not one that writes it.</p>
           <p class="lab-desc">Run a campaign long enough and you forget half of what you made up. Most AI tools fill the gaps by inventing more. Unbound Codex is my side project that does the opposite.</p>
           <p class="lab-actions">
@@ -157,7 +154,7 @@ extra_js: [/assets/js/live-work.js]
 
 <script src="{{ '/assets/js/home-wipe.js' | relative_url }}" defer></script>
 
-<section class="project-grid project-grid--archive">
+<section class="project-grid project-grid--archive" id="artifacts">
   <div class="archive-header">
     <h2 class="section-title">Artifacts</h2>
   </div>
