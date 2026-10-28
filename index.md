@@ -4,6 +4,8 @@ title: Portfolio
 description: Product & Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. Expertise in AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
 # Hero wipe: cri (Orchard's CRI draft to the shipped Growth Report) or salon (Frederick brand illustration)
 wipe: cri
+extra_css: [/assets/css/live-work.css, /assets/css/home.css]
+extra_js: [/assets/js/live-work.js]
 ---
 {%- assign ill = '/assets/img/illustrations/' | relative_url -%}
 {%- if page.wipe == 'salon' -%}
@@ -56,9 +58,9 @@ wipe: cri
 
   <div class="project-grid-inner">
     <div class="project-card project-card--split project-card--for-work">
-      <div class="project-cover project-cover--orchard project-cover--split-hero" aria-hidden="true">
+      <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
         <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard Growth Report on desktop and the weekly summary on mobile" class="project-cover-img">
-      </div>
+      </a>
       <div class="project-body">
         <div class="project-meta-row">
           <span class="project-role-label">Head of Product &amp; Design</span>
@@ -75,9 +77,9 @@ wipe: cri
     </div>
 
     <div class="project-card project-card--split project-card--for-work">
-      <div class="project-cover project-cover--aspireship project-cover--split-hero" aria-hidden="true">
-        <img src="{{ '/assets/img/aspireship-cover.png' | relative_url }}" alt="Aspireship" class="project-cover-img">
-      </div>
+      <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
+        <img src="{{ '/assets/img/aspireship-screens/Employer-01-matches.png' | relative_url }}" alt="An employer's Matches screen in Aspireship: two Staff Pick candidates with their photos, target role, location, Aspireship achievements and Interested or Not Interested buttons" class="project-cover-img">
+      </a>
       <div class="project-body">
         <div class="project-meta-row">
           <span class="project-role-label">Head of Product &amp; Design</span>
@@ -94,61 +96,62 @@ wipe: cri
   </div>
 </section>
 
-<section class="project-grid project-grid--side">
-  <div class="project-grid-header">
-    <h2 class="section-title">Side Projects</h2>
-    <p class="section-subtitle">
-      I'm a builder at heart, so I'm always messing around with something new on the side. Here's a look at what I've been working on lately.
-    </p>
-  </div>
-  <div class="project-grid-inner project-grid-inner--side">
+<section class="lab" id="lab" aria-labelledby="lab-title">
+  <div class="lab-panel">
+    <header class="lab-head">
+      <h2 class="lab-title" id="lab-title">The Lab</h2>
+      <p class="lab-intro">I&rsquo;m a builder at heart, so there&rsquo;s always something new on the bench. Here&rsquo;s what I&rsquo;ve been working on lately.</p>
+    </header>
 
-    <div class="side-card">
-      <div class="side-card-cover side-card-cover--telby" aria-hidden="true">
-        <span class="side-card-placeholder">Telby<span class="side-card-placeholder-dot">.</span></span>
-        <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
-      </div>
-      <div class="side-card-body">
-        <div class="side-card-meta">
-          <span class="side-card-role">AI SVG Icon Builder</span>
+    <div class="lab-grid">
+      <article class="lab-card lab-card--wide">
+        <div class="lab-poster lab-poster--live" aria-hidden="true">
+          {% include demos/va-loop.html log_only=true %}
         </div>
-        <h3 class="side-card-title">
-          <a href="{{ '/telby-icon-builder/' | relative_url }}">Telby</a>
-        </h3>
-        <p class="side-card-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
-        <p class="side-card-summary">
-          You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.
-        </p>
-        <p class="project-card-actions side-card-actions">
-          <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Screens</a>
-          <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="side-card">
-      <div class="side-card-cover side-card-cover--unbound" aria-hidden="true">
-        <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
-        <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="" class="side-card-img">
-      </div>
-      <div class="side-card-body">
-        <div class="side-card-meta">
-          <span class="side-card-role">RAG-Based TTRPG Agent</span>
+        <div class="lab-card-copy">
+          <span class="lab-kind">Agent-to-agent payments</span>
+          <h3 class="lab-name"><a href="{{ '/case-studies/vector-agent/' | relative_url }}" class="lab-link">VectorAgent</a></h3>
+          <p class="lab-tagline">Can an AI agent buy something on its own and prove it owns it?</p>
+          <p class="lab-desc">An icon store where agents pay their own way, a fraction of a cent at a time, and the payment doubles as proof of ownership. In four blind tests, all four agents used it and two paid.</p>
+          <p class="lab-actions">
+            <span class="button button-primary" aria-hidden="true">View the Case Study</span>
+            <a href="https://vectoragent.telby.io/demo.html" class="button button-outline" target="_blank" rel="noopener noreferrer">Try it out</a>
+          </p>
         </div>
-        <h3 class="side-card-title">
-          <a href="{{ '/unbound-codex/' | relative_url }}">Unbound Codex</a>
-        </h3>
-        <p class="side-card-tagline">I wanted an AI that remembers my campaign, not one that writes it.</p>
-        <p class="side-card-summary">
-          Run a campaign long enough and you forget half of what you made up. Most AI tools fill the gaps by inventing more. Unbound Codex is my side project that does the opposite.
-        </p>
-        <p class="project-card-actions side-card-actions">
-          <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Screens</a>
-          <a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
-        </p>
-      </div>
-    </div>
+      </article>
 
+      <article class="lab-card lab-card--wide lab-card--flip">
+        <div class="lab-poster" aria-hidden="true">
+          <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" loading="lazy">
+        </div>
+        <div class="lab-card-copy">
+          <span class="lab-kind">AI SVG icon builder</span>
+          <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link">Telby</a></h3>
+          <p class="lab-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
+          <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.</p>
+          <p class="lab-actions">
+            <span class="button button-primary" aria-hidden="true">View the Screens</span>
+            <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">Try the demo</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="lab-card lab-card--wide">
+        <div class="lab-poster" aria-hidden="true">
+          <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="" loading="lazy">
+        </div>
+        <div class="lab-card-copy">
+          <span class="lab-kind">RAG-based TTRPG agent</span>
+          <h3 class="lab-name"><a href="{{ '/unbound-codex/' | relative_url }}" class="lab-link">Unbound Codex</a></h3>
+          <p class="lab-tagline">I wanted an AI that remembers my campaign, not one that writes it.</p>
+          <p class="lab-desc">Run a campaign long enough and you forget half of what you made up. Most AI tools fill the gaps by inventing more. Unbound Codex is my side project that does the opposite.</p>
+          <p class="lab-actions">
+            <span class="button button-primary" aria-hidden="true">View the Screens</span>
+            <a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" class="button button-outline" target="_blank" rel="noopener noreferrer">Try the demo</a>
+          </p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 

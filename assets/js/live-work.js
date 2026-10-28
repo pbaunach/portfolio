@@ -408,4 +408,183 @@
     ];
     play(tk, SCRIPT, 12000, 11200);
   })();
+
+  /* ================================================================
+     4. Agent purchase (VectorAgent)
+     One basket, start to finish: search (free), ask for six icons, a 402
+     that prices the basket and returns free watermarked previews, one signed
+     transfer, the wait for a ledger close, the icons released with the
+     transaction that bought them, and the receipt recorded. The steps and
+     the $0.014 basket match the live site; the ledger wait is shortened.
+     ================================================================ */
+  var va = document.querySelector('[data-lw="va"]');
+  if (va) (function () {
+    var log = $(va, '.va-log');
+    var tiles = $$(va, '.va-tile');
+    var total = $(va, '[data-total]');
+    var agent = $(va, '[data-agent]');
+    var vault = $(va, '[data-vault]');
+    var close = $(va, '.va-close');
+    var closeText = $(va, '[data-close]');
+
+    function line(who, html, cls) {
+      log.insertAdjacentHTML('beforeend', '<div class="va-line' + (cls ? ' ' + cls : '') + '" data-who="' + who + '"><span class="va-who">' + who + '</span><span>' + html + '</span></div>');
+    }
+    function tileState(fn) { tiles.forEach(function (t) { fn(t, t.getAttribute('data-tier')); }); }
+    // The log-only version (a card cover) has no basket or ledger panel, so
+    // every write to those is optional.
+    function set(el, html, cls) { if (el) { el.innerHTML = html; el.className = cls || ''; } }
+    function closeState(cls, text) { if (close) { close.className = 'va-close' + (cls ? ' ' + cls : ''); closeText.textContent = text; } }
+
+    var SCRIPT = [
+      [0, function () {
+        log.classList.remove('is-fading'); log.innerHTML = '';
+        tileState(function (t) { t.className = 'va-tile'; });
+        set(total, '$0.000');
+        set(agent, '&middot;');
+        set(vault, '&middot;');
+        closeState('', 'ledger idle');
+        line('agent', '<b>search_vector_icons</b>("dashboard status")');
+      }],
+      [800, function () { line('store', '12 matches &middot; search is free'); }],
+      [1600, function () {
+        line('agent', '<b>fetch_vector_icons</b>([cloud-sync, vault-lock, deploy, bell, search, calendar])');
+        tileState(function (t) { t.classList.add('is-queued'); });
+      }],
+      [2700, function () {
+        line('store', '<b>402 Payment Required</b> &middot; $0.014 &middot; 3 of 6 free, previews free', 'is-402');
+        tileState(function (t, tier) { t.classList.remove('is-queued'); t.classList.add(tier === 'free' ? 'is-free' : 'is-preview'); });
+        set(total, '$0.014');
+      }],
+      [3900, function () { line('agent', 'signs one USDC transfer &middot; <b>0.014</b> &rarr; VAULT'); }],
+      [4600, function () {
+        line('ledger', 'waiting for the ledger to close (about 5s on testnet)');
+        closeState('is-waiting', 'waiting for ledger close…');
+      }],
+      [7400, function () {
+        closeState('is-closed', 'ledger closed');
+        line('ledger', '<b>&#10003; settled</b> &middot; AGENT &rarr; VAULT', 'is-ok');
+        set(agent, '−0.014 USDC', 'is-minus');
+        set(vault, '+0.014 USDC', 'is-plus');
+      }],
+      [8000, function () {
+        line('store', '6 SVGs released &middot; each carries <b>data-va-tx</b>');
+        tileState(function (t) { t.classList.remove('is-preview', 'is-free'); t.classList.add('is-in'); });
+      }],
+      [9000, function () { line('ledger', '<b>&#10003; receipt recorded</b> &middot; hash of the icon list', 'is-ok'); }],
+      [12000, function () { log.classList.add('is-fading'); }]
+    ];
+    // One pass is about 12.5 seconds; the still frame is the finished purchase.
+    play(va, SCRIPT, 12600, 12000);
+  })();
+
+  /* ================================================================
+     5. Purchase flow diagram (VectorAgent)
+     Steps through the six stages on its own. Each lights its nodes, edge and
+     badge, and sends a glowing packet along the edge's real geometry, the way
+     the live demo traces a purchase. The ledger wait keeps the packet
+     circling. Hovering or focusing a step shows it and holds there; leaving
+     resumes the cycle. Off screen it waits; under reduced motion it shows
+     step 1 with no packet.
+     ================================================================ */
+  var vf = document.querySelector('[data-lw="vaflow"]');
+  if (vf) (function () {
+    var edges = {}, nodes = {}, badges = {};
+    $$(vf, '[data-e]').forEach(function (e) { edges[e.getAttribute('data-e')] = e; });
+    $$(vf, '[data-n]').forEach(function (n) { nodes[n.getAttribute('data-n')] = n; });
+    $$(vf, '[data-b]').forEach(function (b) { badges[b.getAttribute('data-b')] = b; });
+    var buttons = $$(vf, '[data-s]');
+    var halo = $(vf, '.vf-halo'), core = $(vf, '.vf-core');
+
+    // edge, nodes, direction, and whether money is moving. "bounce" goes out
+    // and back (a lookup); "loop" keeps circling (a wait).
+    var STEPS = [
+      { edge: 'agent-va', nodes: ['agent', 'va'] },
+      { edge: 'va-db', nodes: ['va', 'db'], bounce: true },
+      { edge: 'agent-chain', nodes: ['agent', 'chain'], pay: true },
+      { edge: 'va-chain', nodes: ['va', 'chain'], pay: true, reverse: true, loop: true },
+      { edge: 'agent-va', nodes: ['agent', 'va'], reverse: true },
+      { edge: 'va-chain', nodes: ['va', 'chain'] }
+    ];
+    var HOLD = 3000;
+    var current = -1, raf = null, flyTimer = null;
+
+    function fly(path, reverse, pay, ms, done) {
+      cancelAnimationFrame(raf);
+      var len = path.getTotalLength();
+      halo.setAttribute('fill', pay ? '#10B981' : '#06B6D4');
+      core.setAttribute('fill', pay ? '#D1FAE5' : '#CFFAFE');
+      vf.classList.add('is-flying');
+      var begin = performance.now();
+      (function frame(now) {
+        var k = Math.min(1, (now - begin) / ms);
+        var p = path.getPointAtLength((reverse ? 1 - k : k) * len);
+        halo.setAttribute('cx', p.x); halo.setAttribute('cy', p.y);
+        core.setAttribute('cx', p.x); core.setAttribute('cy', p.y);
+        if (k < 1) raf = requestAnimationFrame(frame);
+        else if (done) done();
+        else vf.classList.remove('is-flying');
+      })(begin);
+    }
+
+    function show(i) {
+      if (i === current) return;
+      current = i;
+      clearTimeout(flyTimer);
+      var s = STEPS[i];
+      Object.keys(nodes).forEach(function (k) {
+        var on = s.nodes.indexOf(k) > -1;
+        nodes[k].classList.toggle('on', on);
+        nodes[k].classList.toggle('pay', on && !!s.pay);
+      });
+      Object.keys(edges).forEach(function (k) {
+        edges[k].classList.toggle('hot', k === s.edge);
+        edges[k].classList.toggle('pay', k === s.edge && !!s.pay);
+      });
+      Object.keys(badges).forEach(function (k) {
+        badges[k].classList.toggle('on', +k === i + 1);
+        badges[k].classList.toggle('pay', +k === i + 1 && !!s.pay);
+      });
+      buttons.forEach(function (b, n) { b.classList.toggle('is-on', n === i); });
+
+      if (reduceMotion) return;
+      var path = edges[s.edge];
+      var ms = path.getTotalLength() > 150 ? 1100 : 650;
+      if (s.loop) {
+        (function again() {
+          fly(path, s.reverse, s.pay, ms, function () { flyTimer = setTimeout(again, 120); });
+        })();
+      } else if (s.bounce) {
+        fly(path, false, s.pay, ms, function () { fly(path, true, s.pay, ms); });
+      } else {
+        fly(path, s.reverse, s.pay, ms);
+      }
+    }
+
+    show(0);
+    if (reduceMotion) return;
+
+    // Advance on a timer, but only while on screen and not held by the visitor.
+    var held = false, onScreen = !('IntersectionObserver' in window), elapsed = 0;
+    setInterval(function () {
+      if (held || !onScreen) return;
+      elapsed += 250;
+      if (elapsed < HOLD) return;
+      elapsed = 0;
+      show((current + 1) % STEPS.length);
+    }, 250);
+
+    buttons.forEach(function (b, n) {
+      function pick() { held = true; elapsed = 0; show(n); }
+      b.addEventListener('mouseenter', pick);
+      b.addEventListener('focus', pick);
+      b.addEventListener('click', pick);
+    });
+    var list = $(vf, '.vf-steps');
+    list.addEventListener('mouseleave', function () { held = false; });
+    list.addEventListener('focusout', function (e) { if (!list.contains(e.relatedTarget)) held = false; });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { onScreen = en[0].isIntersecting; }, { threshold: 0.3 }).observe(vf);
+    }
+  })();
 })();

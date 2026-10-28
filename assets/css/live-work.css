@@ -489,3 +489,399 @@
   .tk-col + .tk-col { border-left: 0; border-top: 1px solid var(--t-hair); }
   .tk-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* ================================================================
+   VectorAgent (.va): a scripted agent purchase, in the tokens from
+   vectoragent.telby.io (near-black navy, Inter + JetBrains Mono, cyan,
+   emerald and amber). The log on the left, the basket and the ledger on
+   the right. Fixed heights, so the frame never changes size as lines arrive.
+   ================================================================ */
+.va {
+  --v-bg: #0b0f17;
+  --v-surface: #10151f;
+  --v-recess: #070a10;
+  --v-line: rgba(255, 255, 255, 0.08);
+  --v-line2: rgba(255, 255, 255, 0.14);
+  --v-fg: #f3f4f6;
+  --v-soft: #a1a9b6;
+  --v-mute: #7d8696;
+  --v-cyan: #06b6d4;
+  --v-emerald: #10b981;
+  --v-amber: #f59e0b;
+  background: var(--v-bg);
+  color: var(--v-fg);
+  font-family: Inter, system-ui, sans-serif;
+  text-align: left;
+  border: 0;
+}
+
+.va-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--v-line);
+  font-size: 12.5px;
+}
+
+.va-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.va-logo svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--v-cyan);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.va-logo svg circle { fill: var(--v-cyan); stroke: none; }
+.va-crumb { color: var(--v-soft); }
+
+.va-live {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 10.5px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-mute);
+}
+
+.va-live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--v-emerald);
+  animation: vaPulse 1.4s ease-in-out infinite;
+}
+
+.va.is-paused .va-live i { animation: none; background: var(--v-mute); }
+@keyframes vaPulse { 50% { opacity: 0.25; } }
+
+.va-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-rows: 360px;
+}
+
+/* The log is pinned to the bottom, so new lines push older ones up and out. */
+.va-log {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 18px;
+  background: var(--v-recess);
+  border-right: 1px solid var(--v-line);
+  font: 400 12px/1.5 "JetBrains Mono", ui-monospace, monospace;
+}
+
+.va-log > * { flex: none; animation: vaIn 0.22s ease-out; }
+@keyframes vaIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.va-log.is-fading > * { opacity: 0; transition: opacity 0.35s; }
+
+.va-line { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 8px; color: var(--v-soft); }
+.va-line b { font-weight: 500; color: var(--v-fg); }
+.va-who { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--v-mute); padding-top: 1px; }
+.va-line[data-who="agent"] .va-who { color: var(--v-cyan); }
+.va-line[data-who="ledger"] .va-who { color: var(--v-emerald); }
+.va-line.is-402 b { color: var(--v-amber); }
+.va-line.is-ok b { color: var(--v-emerald); }
+
+.va-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 14px 16px 16px;
+  gap: 12px;
+}
+
+.va-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--v-soft);
+}
+
+.va-head b { font: 600 14px "JetBrains Mono", ui-monospace, monospace; color: var(--v-fg); }
+
+.va-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.va-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px 8px;
+  border: 1px solid var(--v-line);
+  border-radius: 10px;
+  background: var(--v-surface);
+  opacity: 0;
+  transition: opacity 0.3s, border-color 0.3s;
+  overflow: hidden;
+}
+
+.va-tile svg {
+  width: 30px;
+  height: 30px;
+  transition: filter 0.4s, opacity 0.4s;
+}
+
+.va-tile svg * {
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.va-tile .va-d { stroke: var(--v-fg); }
+.va-tile .va-a { stroke: var(--v-cyan); }
+
+.va-name { font: 400 9.5px "JetBrains Mono", ui-monospace, monospace; color: var(--v-mute); }
+
+.va-tag {
+  font: 600 9.5px "JetBrains Mono", ui-monospace, monospace;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--v-line2);
+  color: var(--v-soft);
+}
+
+.va-tile[data-tier="free"] .va-tag { color: var(--v-emerald); border-color: rgba(16, 185, 129, 0.4); }
+.va-tile[data-tier="standard"] .va-tag { color: var(--v-cyan); border-color: rgba(6, 182, 212, 0.4); }
+.va-tile[data-tier="premium"] .va-tag { color: var(--v-amber); border-color: rgba(245, 158, 11, 0.45); }
+
+/* Requested: in the basket, not yet priced */
+.va-tile.is-queued { opacity: 0.45; }
+.va-tile.is-queued svg { opacity: 0.35; }
+
+/* Priced: paid icons show only the watermarked preview */
+.va-tile.is-preview { opacity: 1; }
+.va-tile.is-preview svg { filter: blur(1.4px); opacity: 0.55; }
+.va-tile.is-preview::after {
+  content: "PREVIEW";
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font: 700 9px "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.12em;
+  color: rgba(245, 158, 11, 0.85);
+}
+
+.va-tile.is-free { opacity: 0.7; }
+
+/* Delivered: every icon crisp, each one stamped with the payment */
+.va-tile.is-in { opacity: 1; border-color: rgba(16, 185, 129, 0.45); }
+.va-tile.is-in svg { filter: none; opacity: 1; }
+.va-tile.is-in::after {
+  content: "tx \2713";
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  font: 600 8.5px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-emerald);
+}
+
+.va-tile[data-tier="premium"].is-in svg { animation: vaWiggle 1.6s ease-in-out infinite; }
+@keyframes vaWiggle { 50% { transform: translateY(-2px); } }
+
+.va-ledger {
+  margin-top: auto;
+  padding: 10px 12px;
+  border: 1px solid var(--v-line);
+  border-radius: 10px;
+  background: var(--v-recess);
+  font: 400 11.5px "JetBrains Mono", ui-monospace, monospace;
+}
+
+.va-ledger-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  color: var(--v-mute);
+}
+
+.va-ledger-row b { font-weight: 500; color: var(--v-soft); transition: color 0.3s; }
+.va-ledger-row b.is-minus { color: var(--v-amber); }
+.va-ledger-row b.is-plus { color: var(--v-emerald); }
+
+.va-close {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 7px;
+  border-top: 1px solid var(--v-line);
+  color: var(--v-soft);
+}
+
+.va-ring {
+  --p: 0;
+  width: 14px;
+  height: 14px;
+  flex: none;
+  border-radius: 50%;
+  background: conic-gradient(var(--v-emerald) calc(var(--p) * 1%), var(--v-line2) 0);
+}
+
+.va-close.is-waiting .va-ring { animation: vaFill 2.8s linear forwards; }
+.va-close.is-closed .va-ring { --p: 100; }
+@property --p { syntax: "<number>"; inherits: false; initial-value: 0; }
+@keyframes vaFill { to { --p: 100; } }
+
+@media (max-width: 760px) {
+  .va-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: 230px auto; }
+  .va-log { border-right: 0; border-bottom: 1px solid var(--v-line); padding: 12px 14px; font-size: 11px; }
+  .va-line { grid-template-columns: 44px minmax(0, 1fr); }
+  .va-crumb { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .va-tile[data-tier="premium"].is-in svg { animation: none; }
+}
+
+/* ================================================================
+   VectorAgent flow (.vf): the purchase diagram, stepping through its six
+   stages. Node, edge and packet states copy the live demo on
+   vectoragent.telby.io: active nodes and edges go cyan (emerald while money
+   moves) and a glowing packet travels the edge's real path.
+   ================================================================ */
+.vf {
+  --v-bg: #0b0f17;
+  --v-surface: #10151f;
+  --v-line: rgba(255, 255, 255, 0.08);
+  --v-line2: rgba(255, 255, 255, 0.14);
+  --v-fg: #f3f4f6;
+  --v-soft: #a1a9b6;
+  --v-mute: #7d8696;
+  --v-cyan: #06b6d4;
+  --v-emerald: #10b981;
+  background: var(--v-bg);
+  color: var(--v-fg);
+  font-family: Inter, system-ui, sans-serif;
+  padding: 1.75rem;
+  border: 0;
+  /* Diagram on the left, the steps beside it */
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.vf-svg {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.vf-node .shell { fill: #121923; stroke: var(--v-line2); stroke-width: 1; transition: fill 0.3s, stroke 0.3s; }
+.vf-node .body { fill: rgba(255, 255, 255, 0.022); }
+.vf-node .rule { stroke: var(--v-line); stroke-width: 1; fill: none; transition: stroke 0.3s; }
+.vf-node .nm { fill: var(--v-fg); font: 600 12px Inter, system-ui, sans-serif; }
+.vf-node .sub { fill: var(--v-mute); font: 400 9px "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.1em; }
+.vf-node .gly { fill: none; stroke: #5c6878; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
+.vf-node .pill rect { fill: rgba(255, 255, 255, 0.05); stroke: var(--v-line); stroke-width: 1; }
+.vf-node .pill text { fill: var(--v-soft); font: 400 9px "JetBrains Mono", ui-monospace, monospace; text-anchor: middle; }
+.vf-node .led { fill: #2a3440; transition: fill 0.3s; }
+
+.vf-node.on .shell { stroke: var(--v-cyan); fill: #0f1e26; }
+.vf-node.on .rule { stroke: rgba(6, 182, 212, 0.28); }
+.vf-node.on .gly { stroke: var(--v-cyan); }
+.vf-node.on .led { fill: var(--v-cyan); }
+.vf-node.on.pay .shell { stroke: var(--v-emerald); fill: #0e1d19; }
+.vf-node.on.pay .rule { stroke: rgba(16, 185, 129, 0.28); }
+.vf-node.on.pay .gly { stroke: var(--v-emerald); }
+.vf-node.on.pay .led { fill: var(--v-emerald); }
+
+.vf-edge { stroke: #232e3b; stroke-width: 1.5; fill: none; marker-end: url(#vf-arw); transition: stroke 0.3s; }
+.vf-edge.both { marker-start: url(#vf-arw); }
+.vf-edge.value { stroke: #1e2835; stroke-dasharray: 5 5; }
+.vf-edge.hot { stroke: var(--v-cyan); marker-end: url(#vf-arwc); }
+.vf-edge.both.hot { marker-start: url(#vf-arwc); }
+.vf-edge.hot.pay { stroke: var(--v-emerald); marker-end: url(#vf-arwe); }
+.vf-edge.both.hot.pay { marker-start: url(#vf-arwe); }
+
+.vf-badge circle { fill: var(--v-bg); stroke: var(--v-cyan); stroke-width: 1.2; transition: fill 0.3s; }
+.vf-badge text { fill: var(--v-cyan); font: 500 10px "JetBrains Mono", ui-monospace, monospace; text-anchor: middle; transition: fill 0.3s; }
+.vf-badge.on circle { fill: var(--v-cyan); }
+.vf-badge.on text { fill: var(--v-bg); }
+.vf-badge.on.pay circle { fill: var(--v-emerald); stroke: var(--v-emerald); }
+
+.vf-packet { opacity: 0; transition: opacity 0.2s; }
+.vf.is-flying .vf-packet { opacity: 1; }
+
+/* The six steps, as buttons: hovering or focusing one shows it */
+.vf-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.4rem;
+}
+
+.vf-steps li { margin: 0; }
+
+.vf-steps button {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 0.15rem 0.6rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--v-line);
+  border-radius: 10px;
+  background: var(--v-surface);
+  color: var(--v-soft);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.vf-steps button:focus-visible { outline: 2px solid var(--v-cyan); outline-offset: 2px; }
+
+.vf-n {
+  grid-row: 1 / 3;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1.2px var(--v-cyan);
+  color: var(--v-cyan);
+  font: 500 0.7rem "JetBrains Mono", ui-monospace, monospace;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.vf-steps b { color: var(--v-fg); font-size: 0.84rem; font-weight: 600; line-height: 1.3; }
+.vf-steps button > span:last-child { font-size: 0.76rem; line-height: 1.45; }
+
+.vf-steps button.is-on { border-color: rgba(6, 182, 212, 0.55); background: #0f1e26; }
+.vf-steps button.is-on .vf-n { background: var(--v-cyan); color: var(--v-bg); }
+.vf-steps button[data-pay].is-on { border-color: rgba(16, 185, 129, 0.55); background: #0e1d19; }
+.vf-steps button[data-pay].is-on .vf-n { background: var(--v-emerald); box-shadow: inset 0 0 0 1.2px var(--v-emerald); }
+
+@media (max-width: 900px) {
+  .vf { grid-template-columns: minmax(0, 1fr); padding: 1.25rem 0.9rem 1rem; }
+}

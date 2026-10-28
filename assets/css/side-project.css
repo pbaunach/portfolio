@@ -424,6 +424,223 @@
   margin-top: 0;
 }
 
+/* Aspireship: a deep version of its brand violet, readable as text on white */
+.sp-section.sp-aspire { --sp-accent: #6d28d9; }
+
+/* A still image in the hero's media slot, for a project with no walkthrough */
+.case-study-intro--csb-hero .csb-hero-video--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* A small label over a row of cards, for a chapter told from two sides */
+.sp-side {
+  margin: 0 0 1.1rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sp-accent);
+}
+
+.sp-cards + .sp-side {
+  margin-top: 3.25rem;
+}
+
+.sp-cards--after-stage {
+  margin-top: 3.5rem;
+}
+
+/* Image-and-copy rows: the first one sits right under the header, and a
+   flipped one puts the copy on the left so a pair alternates. */
+.sp-audit--first {
+  margin-top: 0;
+}
+
+.sp-audit--flip {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+}
+
+.sp-audit--flip > .cs-callout-figure {
+  order: 2;
+}
+
+/* VectorAgent: a deep version of its cyan, readable as text on white */
+.sp-section.sp-va { --sp-accent: #0e7490; }
+.case-study-intro--csb-hero-va .csb-hero-accent { color: #22d3ee; }
+
+/* A live demo in the hero's media slot instead of a video */
+.case-study-intro--csb-hero .csb-hero-video--demo {
+  background: #0b0f17;
+}
+
+.csb-hero-video--demo .lw-app {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Three measured numbers in a row */
+.case-study-body .sp-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sp-stats li {
+  margin: 0;
+  padding: 1.25rem 1.35rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: var(--shadow-subtle);
+}
+
+.sp-stats b {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--sp-accent);
+}
+
+.sp-stats span {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+}
+
+.sp-stats + .sp-flow {
+  margin-top: 4rem;
+}
+
+/* Calls to action under a diagram */
+.sp-flow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+/* One card per test run, with its outcome */
+.case-study-body .sp-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sp-results li {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-top: 4px solid #94a3b8;
+}
+
+.sp-results li.is-yes { border-top-color: #10b981; }
+
+.sp-result-task {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.sp-result-meta {
+  font-size: 0.74rem;
+  color: var(--muted-foreground);
+}
+
+.sp-results b {
+  margin-top: 0.5rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.25rem;
+  color: #64748b;
+}
+
+.sp-results li.is-yes b { color: #047857; }
+
+.sp-results p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+}
+
+/* A pull quote from the work itself */
+.sp-quote {
+  margin: 3rem 0 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--sp-accent);
+}
+
+.sp-quote blockquote {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
+
+.sp-quote figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.sp-takeaway {
+  margin: 2rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--card-foreground);
+}
+
+.sp-takeaway b { color: var(--foreground); }
+
+/* An honest limits strip, dashed like the decks' "Not yet" */
+.sp-notyet {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.4rem;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.sp-notyet-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.case-study-body .sp-notyet ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.case-study-body .sp-notyet li { margin-bottom: 0.25rem; }
+
 /* ---------- Closing strip: role and the demo links ---------- */
 .sp-outro {
   padding-top: 4rem;
@@ -463,6 +680,11 @@
   .sp-audit { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin-top: 3rem; }
   .sp-cards { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; margin-top: 3rem; }
   .sp-cards--two, .sp-cards--steps { margin-top: 0; }
+  .sp-cards--after-stage { margin-top: 2.5rem; }
+  .sp-audit--flip { grid-template-columns: minmax(0, 1fr); }
+  .sp-audit--flip > .cs-callout-figure { order: 0; }
+  .case-study-body .sp-stats { grid-template-columns: minmax(0, 1fr); }
+  .case-study-body .sp-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sp-flow { margin-top: 3.5rem; }
   .sp-flow .sp-chart { max-width: none; padding: 0.75rem; }
   .sp-points--row { grid-template-columns: minmax(0, 1fr); }
@@ -471,6 +693,7 @@
 @media (max-width: 640px) {
   .sp-stage { padding: 3.5rem 0.75rem 1.25rem; border-radius: 1rem; }
   .sp-stage-tag { top: 0.9rem; left: 0.9rem; }
+  .case-study-body .sp-results { grid-template-columns: minmax(0, 1fr); }
   .sp-outro { padding-top: 3rem; padding-bottom: 3rem; }
 }
 
