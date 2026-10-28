@@ -1,0 +1,702 @@
+/* Side-project case studies (Telby, Unbound Codex), everything after "The
+   idea": numbered chapters, each with a header, a dotted "stage" that holds the
+   chapter's live demo or key screen like an artboard, and one supporting row,
+   then a closing strip. Chapters alternate white and the idea section's gray.
+   Each page sets its own accent with a modifier class (Telby's cobalt is the
+   default); the numbered points use the site primary so they match the
+   callout markers on the diagrams. */
+
+.sp-section {
+  --sp-accent: #2a4be0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 5.5rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Unbound Codex: a deep arcane violet, darkened from the brand's #a38de6 so it
+   holds up as text on white. */
+.sp-section.sp-unbound { --sp-accent: #5b3fc4; }
+
+.sp-section--light {
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+}
+
+.sp-section--gray {
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+.sp-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- Chapter header ---------- */
+.sp-head {
+  margin-bottom: 2.75rem;
+}
+
+/* The lead runs the full width of the stage below it, so the header and the
+   demo share one right edge. */
+.sp-head .sp-lead {
+  margin-top: 1.1rem;
+  max-width: none;
+  font-size: 1.12rem;
+}
+
+.sp-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sp-accent);
+}
+
+.sp-kicker b {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  background: var(--sp-accent);
+  color: #ffffff;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.sp-title {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--foreground);
+}
+
+.sp-title--sm {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.sp-lead {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--card-foreground);
+}
+
+
+/* ---------- Stage: the live demo on a dotted artboard ---------- */
+.sp-stage {
+  position: relative;
+  padding: 4rem 2.5rem 2rem;
+  border-radius: 1.4rem;
+  border: 1px solid var(--border);
+  background-color: #eef2f6;
+  background-image: radial-gradient(rgba(22, 32, 43, 0.14) 1px, transparent 1.3px);
+  background-size: 18px 18px;
+}
+
+.sp-stage .lw {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.sp-stage .lw-app {
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(22, 32, 43, 0.08), 0 32px 64px -24px rgba(22, 32, 43, 0.4);
+}
+
+.sp-stage .lw-note {
+  margin-top: 1.1rem;
+  text-align: center;
+}
+
+.sp-stage-tag {
+  position: absolute;
+  top: 1.15rem;
+  left: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.sp-stage-tag i {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #15803d;
+  animation: spPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes spPulse { 50% { opacity: 0.3; } }
+
+.sp-section--gray .sp-stage {
+  background-color: #f5f8fa;
+}
+
+
+
+
+
+/* ---------- Supporting rows ---------- */
+.sp-sub {
+  margin: 0 0 0.6rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.sp-sub-lead {
+  margin: 0 0 1.75rem;
+  max-width: 44ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+/* The diagram is tall and narrow, so it sits beside its notes at a readable
+   width, and the notes stay in view while it scrolls past. */
+.sp-logic {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
+  gap: 4rem;
+  align-items: start;
+}
+
+.sp-logic-copy {
+  position: sticky;
+  top: 6.5rem;
+}
+
+.sp-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sp-points li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.sp-num {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 4px rgba(26, 78, 140, 0.14);
+}
+
+.sp-points h4 {
+  margin: 0.2rem 0 0.3rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.sp-points p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--card-foreground);
+}
+
+.sp-chart {
+  padding: 1.25rem;
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: var(--shadow-subtle);
+}
+
+.sp-chart .cs-callout-figure,
+.sp-audit .cs-callout-figure {
+  margin: 0;
+}
+
+.sp-chart .cs-callout-figure:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.sp-chart .cs-callout-marker {
+  width: 26px;
+  height: 26px;
+  font-size: 0.8rem;
+}
+
+.sp-audit {
+  margin-top: 4.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+
+.sp-flag {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #fbf4e4;
+  color: #b45309;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sp-audit-copy p {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--card-foreground);
+}
+
+
+/* A screenshot on the stage, for a chapter without a live demo yet. It keeps
+   the lightbox, so it can still be opened full size. */
+.sp-shot {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.sp-shot .cs-callout-figure {
+  margin: 0;
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(22, 32, 43, 0.08), 0 32px 64px -24px rgba(22, 32, 43, 0.4);
+}
+
+.sp-shot figcaption,
+.sp-shot-cap {
+  margin-top: 1.1rem;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+/* A square diagram needs more width than a tall one to stay readable. */
+.sp-logic--square {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+}
+
+/* Three small screens, one idea each */
+.sp-cards {
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+/* One frame shape for every thumbnail, so the captions start on one line even
+   when the screenshots differ. The full image opens in the lightbox. */
+.sp-cards .cs-callout-figure {
+  margin: 0 0 1rem;
+  border-radius: 0.8rem;
+  aspect-ratio: 16 / 10;
+  background: #ffffff;
+}
+
+.sp-cards .cs-callout-figure img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.sp-cards h4 {
+  margin: 0 0 0.35rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.sp-cards p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--card-foreground);
+}
+
+/* The case-study layout indents every list in the body and spaces its items;
+   these grids need neither. Scoped to match that rule's specificity. */
+.case-study-body .sp-cards,
+.case-study-body .sp-points {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.case-study-body .sp-cards > li,
+.case-study-body .sp-points > li {
+  margin-bottom: 0;
+}
+
+/* Orchard: a deep teal-green from its palette, dark enough for text on white */
+.sp-section.sp-orchard { --sp-accent: #0b7f6e; }
+
+/* A demo that needs the full measure (the Orchie router has five columns) */
+.sp-stage--wide .lw {
+  max-width: none;
+}
+
+/* A wide diagram: full width, with its points in a row underneath */
+.sp-flow {
+  margin-top: 5rem;
+}
+
+.sp-flow .sp-sub-lead {
+  max-width: none;
+}
+
+.sp-flow .sp-chart {
+  padding: 1.5rem;
+}
+
+.sp-flow .sp-chart .cs-callout-figure {
+  border: 0;
+}
+
+.sp-points--row {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 2rem;
+}
+
+/* Numbered steps on a card row */
+.sp-step {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sp-accent);
+}
+
+.sp-cards--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem;
+  margin-top: 0;
+}
+
+.sp-cards--steps {
+  margin-top: 0;
+}
+
+/* Aspireship: a deep version of its brand violet, readable as text on white */
+.sp-section.sp-aspire { --sp-accent: #6d28d9; }
+
+/* A still image in the hero's media slot, for a project with no walkthrough */
+.case-study-intro--csb-hero .csb-hero-video--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* A small label over a row of cards, for a chapter told from two sides */
+.sp-side {
+  margin: 0 0 1.1rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sp-accent);
+}
+
+.sp-cards + .sp-side {
+  margin-top: 3.25rem;
+}
+
+.sp-cards--after-stage {
+  margin-top: 3.5rem;
+}
+
+/* Image-and-copy rows: the first one sits right under the header, and a
+   flipped one puts the copy on the left so a pair alternates. */
+.sp-audit--first {
+  margin-top: 0;
+}
+
+.sp-audit--flip {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+}
+
+.sp-audit--flip > .cs-callout-figure {
+  order: 2;
+}
+
+/* VectorAgent: a deep version of its cyan, readable as text on white */
+.sp-section.sp-va { --sp-accent: #0e7490; }
+.case-study-intro--csb-hero-va .csb-hero-accent { color: #22d3ee; }
+
+/* A live demo in the hero's media slot instead of a video */
+.case-study-intro--csb-hero .csb-hero-video--demo {
+  background: #0b0f17;
+}
+
+.csb-hero-video--demo .lw-app {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Three measured numbers in a row */
+.case-study-body .sp-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sp-stats li {
+  margin: 0;
+  padding: 1.25rem 1.35rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: var(--shadow-subtle);
+}
+
+.sp-stats b {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--sp-accent);
+}
+
+.sp-stats span {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+}
+
+.sp-stats + .sp-flow {
+  margin-top: 4rem;
+}
+
+/* Calls to action under a diagram */
+.sp-flow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+/* One card per test run, with its outcome */
+.case-study-body .sp-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sp-results li {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-top: 4px solid #94a3b8;
+}
+
+.sp-results li.is-yes { border-top-color: #10b981; }
+
+.sp-result-task {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.sp-result-meta {
+  font-size: 0.74rem;
+  color: var(--muted-foreground);
+}
+
+.sp-results b {
+  margin-top: 0.5rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.25rem;
+  color: #64748b;
+}
+
+.sp-results li.is-yes b { color: #047857; }
+
+.sp-results p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+}
+
+/* A pull quote from the work itself */
+.sp-quote {
+  margin: 3rem 0 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--sp-accent);
+}
+
+.sp-quote blockquote {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
+
+.sp-quote figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.sp-takeaway {
+  margin: 2rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--card-foreground);
+}
+
+.sp-takeaway b { color: var(--foreground); }
+
+/* An honest limits strip, dashed like the decks' "Not yet" */
+.sp-notyet {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.4rem;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.sp-notyet-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.case-study-body .sp-notyet ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.case-study-body .sp-notyet li { margin-bottom: 0.25rem; }
+
+/* ---------- Closing strip: role and the demo links ---------- */
+.sp-outro {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Stacked like a chapter header: the paragraph runs the full measure and the
+   buttons sit underneath, so a long role line never leaves a gap beside it. */
+.sp-outro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+}
+
+.sp-outro .sp-kicker { margin-bottom: 0.75rem; }
+
+.sp-outro .sp-lead {
+  max-width: none;
+  font-size: 1.12rem;
+}
+
+.sp-outro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .sp-section { padding: 4rem 1.25rem; }
+  .sp-head { margin-bottom: 2rem; }
+  .sp-logic { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
+  .sp-logic-copy { position: static; }
+  .sp-chart { max-width: 430px; width: 100%; margin: 0 auto; }
+  .sp-logic--square .sp-chart { max-width: 560px; }
+  .sp-audit { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin-top: 3rem; }
+  .sp-cards { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; margin-top: 3rem; }
+  .sp-cards--two, .sp-cards--steps { margin-top: 0; }
+  .sp-cards--after-stage { margin-top: 2.5rem; }
+  .sp-audit--flip { grid-template-columns: minmax(0, 1fr); }
+  .sp-audit--flip > .cs-callout-figure { order: 0; }
+  .case-study-body .sp-stats { grid-template-columns: minmax(0, 1fr); }
+  .case-study-body .sp-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp-flow { margin-top: 3.5rem; }
+  .sp-flow .sp-chart { max-width: none; padding: 0.75rem; }
+  .sp-points--row { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .sp-stage { padding: 3.5rem 0.75rem 1.25rem; border-radius: 1rem; }
+  .sp-stage-tag { top: 0.9rem; left: 0.9rem; }
+  .case-study-body .sp-results { grid-template-columns: minmax(0, 1fr); }
+  .sp-outro { padding-top: 3rem; padding-bottom: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-stage-tag i { animation: none; }
+}

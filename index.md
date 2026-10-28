@@ -2,27 +2,50 @@
 layout: default
 title: Portfolio
 description: Product & Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. Expertise in AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
+# Hero wipe: cri (Orchard's CRI draft to the shipped Growth Report) or salon (Frederick brand illustration)
+wipe: cri
+extra_css: [/assets/css/live-work.css, /assets/css/home.css]
+extra_js: [/assets/js/live-work.js]
 ---
+{%- assign ill = '/assets/img/illustrations/' | relative_url -%}
+{%- if page.wipe == 'salon' -%}
+  {%- assign wipe_under = 'salon-line.png' -%}{%- assign wipe_over = 'salon-color.png' -%}{%- assign wipe_ratio = '1301 / 750' -%}
+  {%- assign wipe_under_alt = 'Wireframe line drawing of a salon storefront' -%}
+  {%- assign wipe_over_alt = 'The same salon storefront, finished in full color with Frederick and two customers out front' -%}
+  {%- assign wipe_label = 'Compare the wireframe and the finished illustration' -%}
+  {%- assign wipe_source = 'Frederick brand system' -%}
+{%- else -%}
+  {%- assign wipe_under = 'wipe-cri-sketch.png' -%}{%- assign wipe_over = 'wipe-cri-shipped.png' -%}{%- assign wipe_ratio = '1461 / 960' -%}
+  {%- assign wipe_under_alt = 'The working artboard for the Career Readiness Index: a levelled rubric, the eight pillar definitions, and a radar chart sketch' -%}
+  {%- assign wipe_over_alt = 'The shipped Growth Report in Orchard: the radar chart, a score of 203 out of 400, and a card for each of the eight pillars' -%}
+  {%- assign wipe_label = 'Compare the Career Readiness Index draft and the shipped Growth Report' -%}
+  {%- assign wipe_source = "Orchard’s Career Readiness Index" -%}
+{%- endif -%}
 
 <section class="home-hero">
   <div class="home-hero-inner">
-    <h1 class="intro-headline">
-      From Prototype <span class="intro-emphasis">to Production</span>
-    </h1>
-    <div class="home-hero-body">
-      <p class="intro-copy">
-        I am a Product &amp; Design Leader with 20 years of experience building 0-to-1 web apps and AI interfaces. I designed and scaled Frederick from $200k to $10M ARR across 2,500 businesses as the sole designer prior to an acquisition by MINDBODY. My expertise spans AI interface design, design systems, vectorized RAG agents, and human-in-the-loop workflows.
-      </p>
-      <dl class="home-hero-meta">
-        <div class="hero-meta-row">
-          <dt>What I'm up to</dt>
-          <dd>Currently designing <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="hero-meta-link">Orchard</a>, an AI-powered college and career readiness platform.</dd>
+    <div class="home-hero-split">
+      <div class="home-hero-copy">
+        <h1 class="intro-headline intro-headline--stacked">
+          <span class="intro-line">From <span class="intro-proto">Prototype</span></span>
+          <span class="intro-line">to <span class="intro-prod">Production</span></span>
+        </h1>
+        <p class="intro-copy">
+          20 years of 0-to-1 web apps, and lately, AI interfaces that know when to hand the wheel back to a human.
+        </p>
+      </div>
+      <figure class="hero-wipe-wrap">
+        <div class="hero-wipe" data-wipe tabindex="0" role="slider" aria-label="{{ wipe_label }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--ratio: {{ wipe_ratio }}">
+          <img src="{{ ill }}{{ wipe_under }}" alt="{{ wipe_under_alt }}" draggable="false">
+          <img class="hero-wipe-top" src="{{ ill }}{{ wipe_over }}" alt="{{ wipe_over_alt }}" draggable="false">
+          <div class="hero-wipe-bar" aria-hidden="true">
+            <span class="hero-wipe-knob"><svg viewBox="0 0 24 24" focusable="false"><polyline points="9 6 3 12 9 18"></polyline><polyline points="15 6 21 12 15 18"></polyline></svg></span>
+          </div>
+          <span class="hero-wipe-tag hero-wipe-tag--l" aria-hidden="true">Idea</span>
+          <span class="hero-wipe-tag hero-wipe-tag--r" aria-hidden="true">Production</span>
         </div>
-        <div class="hero-meta-row">
-          <dt>My approach</dt>
-          <dd>Driven by design-led strategy, rapid AI-assisted prototyping, and hands-on technical tinkering.</dd>
-        </div>
-      </dl>
+        <figcaption class="hero-wipe-cap">{{ wipe_source }}</figcaption>
+      </figure>
     </div>
     <div class="gh-chart-mount" data-username="pbaunach"></div>
   </div>
@@ -55,7 +78,7 @@ description: Product & Design Leader with 20 years of experience building 0-to-1
 
     <div class="project-card project-card--split project-card--for-work">
       <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
-        <img src="{{ '/assets/img/aspireship-cover.png' | relative_url }}" alt="Aspireship" class="project-cover-img">
+        <img src="{{ '/assets/img/aspireship-screens/Employer-01-matches.png' | relative_url }}" alt="An employer's Matches screen in Aspireship: two Staff Pick candidates with their photos, target role, location, Aspireship achievements and Interested or Not Interested buttons" class="project-cover-img">
       </a>
       <div class="project-body">
         <div class="project-meta-row">
@@ -73,80 +96,66 @@ description: Product & Design Leader with 20 years of experience building 0-to-1
   </div>
 </section>
 
-<section class="project-grid project-grid--side">
-  <div class="project-grid-header">
-    <h2 class="section-title">Side Projects</h2>
-    <p class="section-subtitle">
-      I'm a builder at heart, so I'm always messing around with something new on the side. Here's a look at what I've been working on lately.
-    </p>
-  </div>
-  <div class="project-grid-inner project-grid-inner--side">
+<section class="lab" id="lab" aria-labelledby="lab-title">
+  <div class="lab-panel">
+    <header class="lab-head">
+      <h2 class="lab-title" id="lab-title">The Lab</h2>
+      <p class="lab-intro">I&rsquo;m a builder at heart, so there&rsquo;s always something new on the bench. Here&rsquo;s what I&rsquo;ve been working on lately.</p>
+    </header>
 
-    <div class="side-card">
-      <a href="https://telby.io/walkthrough/telby-walkthrough.mp4" class="side-card-cover side-card-cover--telby side-card-video" data-video-type="video/mp4" data-video-aspect="1.7778" data-video-label="Telby walkthrough, about 90 seconds. Silent, with captions." aria-label="Play the Telby walkthrough video">
-        <span class="side-card-placeholder">Telby<span class="side-card-placeholder-dot">.</span></span>
-        <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
-        <span class="side-card-video-overlay">
-          <span class="csb-hero-video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-          </span>
-        </span>
-      </a>
-      <div class="side-card-body">
-        <div class="side-card-meta">
-          <span class="side-card-role">AI SVG Icon Builder</span>
+    <div class="lab-grid">
+      <article class="lab-card lab-card--wide">
+        <div class="lab-poster lab-poster--live" aria-hidden="true">
+          {% include demos/va-loop.html log_only=true %}
         </div>
-        <h3 class="side-card-title">
-          <a href="{{ '/telby-icon-builder/' | relative_url }}">Telby</a>
-        </h3>
-        <p class="side-card-summary">
-          A builder&ndash;critic agent loop: an enriched prompt is human-reviewed, generated, then scored by a vision model against a temperature threshold. Shipped on pass, or looped back with notes to iterate.
-        </p>
-        <p class="project-card-actions side-card-actions">
-          <a href="{{ '/telby-icon-builder/' | relative_url }}" class="button button-primary">View the Screens</a>
-          <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="side-card">
-      <a href="https://unboundcodex.com/assets/home-page/walkthrough.webm" class="side-card-cover side-card-cover--unbound side-card-video" data-video-type="video/webm" data-video-aspect="1.6" data-video-label="The Unbound Codex walkthrough, about two minutes" aria-label="Play the Unbound Codex walkthrough video">
-        <span class="side-card-placeholder">Unbound Codex<span class="side-card-placeholder-dot">.</span></span>
-        <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="" class="side-card-img" onerror="this.remove()">
-        <span class="side-card-video-overlay">
-          <span class="csb-hero-video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-          </span>
-        </span>
-      </a>
-      <div class="side-card-body">
-        <div class="side-card-meta">
-          <span class="side-card-role">RAG-Based TTRPG Agent</span>
+        <div class="lab-card-copy">
+          <span class="lab-kind">Agent-to-agent payments</span>
+          <h3 class="lab-name"><a href="{{ '/case-studies/vector-agent/' | relative_url }}" class="lab-link">VectorAgent</a></h3>
+          <p class="lab-tagline">Can an AI agent buy something on its own and prove it owns it?</p>
+          <p class="lab-desc">An icon store where agents pay their own way, a fraction of a cent at a time, and the payment doubles as proof of ownership. In four blind tests, all four agents used it and two paid.</p>
+          <p class="lab-actions">
+            <span class="button button-primary" aria-hidden="true">View the Case Study</span>
+            <a href="https://vectoragent.telby.io/demo.html" class="button button-outline" target="_blank" rel="noopener noreferrer">Try it out</a>
+          </p>
         </div>
-        <h3 class="side-card-title">
-          <a href="{{ '/unbound-codex/' | relative_url }}">Unbound Codex</a>
-        </h3>
-        <p class="side-card-summary">
-          A game-mastering agent using vectorized rulesets and human-in-the-loop workflows to minimize hallucinations and co-author a cohesive narrative.
-        </p>
-        <p class="project-card-actions side-card-actions">
-          <a href="{{ '/unbound-codex/' | relative_url }}" class="button button-primary">View the Screens</a>
-          <a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" class="button button-outline" target="_blank" rel="noopener noreferrer">View the Demo</a>
-        </p>
-      </div>
-    </div>
+      </article>
 
+      <article class="lab-card lab-card--wide lab-card--flip">
+        <div class="lab-poster" aria-hidden="true">
+          <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" loading="lazy">
+        </div>
+        <div class="lab-card-copy">
+          <span class="lab-kind">AI SVG icon builder</span>
+          <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link">Telby</a></h3>
+          <p class="lab-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
+          <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.</p>
+          <p class="lab-actions">
+            <span class="button button-primary" aria-hidden="true">View the Screens</span>
+            <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">Try the demo</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="lab-card lab-card--wide">
+        <div class="lab-poster" aria-hidden="true">
+          <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="" loading="lazy">
+        </div>
+        <div class="lab-card-copy">
+          <span class="lab-kind">RAG-based TTRPG agent</span>
+          <h3 class="lab-name"><a href="{{ '/unbound-codex/' | relative_url }}" class="lab-link">Unbound Codex</a></h3>
+          <p class="lab-tagline">I wanted an AI that remembers my campaign, not one that writes it.</p>
+          <p class="lab-desc">Run a campaign long enough and you forget half of what you made up. Most AI tools fill the gaps by inventing more. Unbound Codex is my side project that does the opposite.</p>
+          <p class="lab-actions">
+            <span class="button button-primary" aria-hidden="true">View the Screens</span>
+            <a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" class="button button-outline" target="_blank" rel="noopener noreferrer">Try the demo</a>
+          </p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
-<div id="video-lightbox" class="lightbox lightbox--video" role="dialog" aria-modal="true" aria-label="Walkthrough video" aria-hidden="true">
-  <div class="lightbox-backdrop"></div>
-  <div class="lightbox-inner">
-    <button type="button" class="lightbox-close" aria-label="Close video">&times;</button>
-    <video class="lightbox-video" controls playsinline preload="none"></video>
-  </div>
-</div>
-<script src="{{ '/assets/js/video-lightbox.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/home-wipe.js' | relative_url }}" defer></script>
 
 <section class="project-grid project-grid--archive">
   <div class="archive-header">

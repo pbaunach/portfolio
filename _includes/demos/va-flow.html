@@ -1,0 +1,88 @@
+{%- comment -%}
+  The VectorAgent purchase flow, redrawn wider from the diagram on
+  vectoragent.telby.io (same nodes, edges, badges and colors): the buying agent,
+  the seller's MCP server, its icon database and the Stellar ledger. It steps
+  through the six stages of a purchase on its own; each stage lights its nodes
+  and edge and sends a glowing packet along the edge's real path, as the live
+  demo does. Hovering or focusing a step shows that step. Needs live-work.css
+  and live-work.js.
+{%- endcomment -%}
+<div class="lw-app vf" data-lw="vaflow">
+  <svg class="vf-svg" viewBox="0 0 640 272" role="img" aria-label="The buying agent, the seller's MCP server, its icon database and the Stellar ledger, with the six steps of a purchase numbered">
+    <defs>
+      <filter id="vf-glow" x="-120%" y="-120%" width="340%" height="340%">
+        <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <marker id="vf-arw" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M1.5 1.4L8 4.5L1.5 7.6z" fill="#2b3744"/></marker>
+      <marker id="vf-arwc" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M1.5 1.4L8 4.5L1.5 7.6z" fill="#06B6D4"/></marker>
+      <marker id="vf-arwe" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M1.5 1.4L8 4.5L1.5 7.6z" fill="#10B981"/></marker>
+    </defs>
+
+    <path class="vf-edge both" data-e="agent-va" d="M194 55H235"/>
+    <path class="vf-edge both" data-e="va-db" d="M405 55H446"/>
+    <path class="vf-edge both" data-e="va-chain" d="M320 84V196"/>
+    <path class="vf-edge value" data-e="agent-chain" d="M109 84V213Q109 225 121 225H235"/>
+
+    <g class="vf-node" data-n="agent">
+      <rect class="shell" x="24" y="26" width="170" height="58" rx="10"/>
+      <path class="body" d="M24 51h170v23a10 10 0 0 1 -10 10h-150a10 10 0 0 1 -10 -10z"/>
+      <path class="rule" d="M24 51h170"/>
+      <g class="gly" transform="translate(36 38.5)"><path d="M-4 -3h8v6h-8z"/><path d="M-5.5 -1h1.5M-5.5 1.5h1.5M4 -1h1.5M4 1.5h1.5M-1.5 -5v2M1.5 -5v2"/></g>
+      <text class="nm" x="50" y="42.5">AI agent</text>
+      <circle class="led" cx="182" cy="38.5" r="3.5"/>
+      <text class="sub" x="37" y="71">BUYER</text>
+      <g class="pill"><rect x="132" y="60.5" width="38" height="15" rx="7.5"/><text x="151" y="71">x402</text></g>
+    </g>
+    <g class="vf-node" data-n="va">
+      <rect class="shell" x="235" y="26" width="170" height="58" rx="10"/>
+      <path class="body" d="M235 51h170v23a10 10 0 0 1 -10 10h-150a10 10 0 0 1 -10 -10z"/>
+      <path class="rule" d="M235 51h170"/>
+      <g class="gly" transform="translate(247 38.5)"><path d="M-1.5 -4.5L-5.5 0l4 4.5M1.5 -4.5L5.5 0l-4 4.5"/></g>
+      <text class="nm" x="261" y="42.5">Telby</text>
+      <circle class="led" cx="393" cy="38.5" r="3.5"/>
+      <text class="sub" x="248" y="71">SELLER</text>
+      <g class="pill"><rect x="361" y="60.5" width="32" height="15" rx="7.5"/><text x="377" y="71">MCP</text></g>
+    </g>
+    <g class="vf-node" data-n="db">
+      <rect class="shell" x="446" y="26" width="170" height="58" rx="10"/>
+      <path class="body" d="M446 51h170v23a10 10 0 0 1 -10 10h-150a10 10 0 0 1 -10 -10z"/>
+      <path class="rule" d="M446 51h170"/>
+      <g class="gly" transform="translate(458 38.5)"><path d="M-5 -5h4v4h-4zM1 -5h4v4h-4zM-5 1h4v4h-4zM1 1h4v4h-4z"/></g>
+      <text class="nm" x="472" y="42.5">Icon DB</text>
+      <circle class="led" cx="604" cy="38.5" r="3.5"/>
+      <text class="sub" x="459" y="71">ICONS</text>
+      <g class="pill"><rect x="542" y="60.5" width="50" height="15" rx="7.5"/><text x="567" y="71">3 TIERS</text></g>
+    </g>
+    <g class="vf-node" data-n="chain">
+      <rect class="shell" x="235" y="196" width="170" height="58" rx="10"/>
+      <path class="body" d="M235 221h170v23a10 10 0 0 1 -10 10h-150a10 10 0 0 1 -10 -10z"/>
+      <path class="rule" d="M235 221h170"/>
+      <g class="gly" transform="translate(247 208.5)"><path d="M0 -5.2l4.6 2.6v5.2L0 5.2l-4.6-2.6v-5.2z"/><path d="M-4.6 -2.6L0 0l4.6-2.6M0 0v5.2"/></g>
+      <text class="nm" x="261" y="212.5">Stellar</text>
+      <circle class="led" cx="393" cy="208.5" r="3.5"/>
+      <text class="sub" x="248" y="241">LEDGER</text>
+      <g class="pill"><rect x="339" y="230.5" width="54" height="15" rx="7.5"/><text x="366" y="241">TESTNET</text></g>
+    </g>
+
+    <g class="vf-badge" data-b="1"><circle cx="214.5" cy="37" r="9.5"/><text x="214.5" y="40.4">1</text></g>
+    <g class="vf-badge" data-b="5"><circle cx="214.5" cy="73" r="9.5"/><text x="214.5" y="76.4">5</text></g>
+    <g class="vf-badge" data-b="2"><circle cx="425.5" cy="37" r="9.5"/><text x="425.5" y="40.4">2</text></g>
+    <g class="vf-badge" data-b="3"><circle cx="109" cy="150" r="9.5"/><text x="109" y="153.4">3</text></g>
+    <g class="vf-badge" data-b="4"><circle cx="304" cy="140" r="9.5"/><text x="304" y="143.4">4</text></g>
+    <g class="vf-badge" data-b="6"><circle cx="336" cy="140" r="9.5"/><text x="336" y="143.4">6</text></g>
+
+    <g class="vf-packet" aria-hidden="true">
+      <circle class="vf-halo" r="11" fill="#06B6D4" filter="url(#vf-glow)"/>
+      <circle class="vf-core" r="4" fill="#CFFAFE"/>
+    </g>
+  </svg>
+
+  <ol class="vf-steps">
+    <li><button type="button" data-s="0"><span class="vf-n">1</span><b>The agent asks once</b><span>Everything it needs goes in one basket, and a basket settles once.</span></button></li>
+    <li><button type="button" data-s="1"><span class="vf-n">2</span><b>Telby prices it</b><span>Only paid icons count, the 402 carries free previews, and an unknown icon is a 404, so a typo is never billable.</span></button></li>
+    <li><button type="button" data-s="2" data-pay><span class="vf-n">3</span><b>The agent signs one transfer</b><span>Its key never leaves it, and nothing is charged until now.</span></button></li>
+    <li><button type="button" data-s="3" data-pay><span class="vf-n">4</span><b>Settlement waits for the ledger</b><span>The testnet ledger closes about every five seconds, and the money moves when it does.</span></button></li>
+    <li><button type="button" data-s="4"><span class="vf-n">5</span><b>The files are released</b><span>Each SVG carries the transaction that bought it, checkable without asking me.</span></button></li>
+    <li><button type="button" data-s="5"><span class="vf-n">6</span><b>The purchase is recorded</b><span>Soroban payments can&rsquo;t carry a memo, so a classic transaction stores a hash of the icon list.</span></button></li>
+  </ol>
+</div>

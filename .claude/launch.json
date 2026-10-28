@@ -13,6 +13,21 @@
       "port": 4000
     },
     {
+      "name": "portfolio-4001",
+      "runtimeExecutable": "C:\\Ruby34-x64\\bin\\bundle.bat",
+      "runtimeArgs": [
+        "exec",
+        "jekyll",
+        "serve",
+        "--port",
+        "4001",
+        "--destination",
+        "C:\\Users\\pbaun\\AppData\\Local\\Temp\\claude\\C--Cursor-Apps-Portfolio\\f0754df5-7818-4d51-bf8f-45b7bb00586f\\scratchpad\\site"
+      ],
+      "port": 4001,
+      "autoPort": false
+    },
+    {
       "name": "orchard-deck",
       "runtimeExecutable": "npx.cmd",
       "runtimeArgs": [

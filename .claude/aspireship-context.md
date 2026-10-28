@@ -2,6 +2,15 @@
 
 Last updated: 2026-07-30. Hand this to an LLM before touching `/aspireship/`.
 
+> **2026-10-28 update (supersedes §5's layout):** the page was restyled into the shared chapter
+> layout used by Orchard, Telby and Unbound (`assets/css/side-project.css`, `sp-` classes) and trimmed
+> from 15 screenshots to 9: hero (`Testimonial.png`), problem + stat strip, 01 Learn (course overview
+> on a stage, lesson view and video library as cards), 02 Match ("Two sides, opposite fears": two
+> candidate cards, two employer cards), 03 Operate (dashboard insight, match suggestions), and a
+> closing My Role strip linking the brand guidelines. The stat strip now reads 40,000+ learners
+> (total), 3% → 15%, 45% → 89%; the old "300+ candidates placed" stat was removed because placement
+> outcomes are never claimed (§3). The facts and framing rules in §2–§4 still apply.
+
 ---
 
 ## 1. What this project is

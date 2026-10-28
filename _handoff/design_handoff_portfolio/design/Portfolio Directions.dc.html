@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Archivo:wdth,wght@62..125,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet"><style>body{margin:0;background:#e9e7e2;font-family:system-ui,sans-serif}a{color:inherit;text-decoration:none}a:hover{opacity:.75}@keyframes pbMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes pbPulse{0%,100%{opacity:1}50%{opacity:.3}}@keyframes pbWipe{0%{clip-path:inset(0 0 0 15%)}100%{clip-path:inset(0 0 0 85%)}}@keyframes pbWipeH{0%{left:15%}100%{left:85%}}@keyframes pbRun{0%{transform:translateX(-320px)}100%{transform:translateX(1500px)}}@keyframes pbBob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(3deg)}}@keyframes pbWave{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes pbHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.6)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t4">
+<div class="dv-thd"><a class="dv-tid" href="#t4">4</a><span class="dv-tname">The combined pass: your favorite parts plus more of your own illustrations</span></div>
+<div class="dv-opts">
+<div class="dv-opt" id="4a">
+<div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>Hero + Frederick crew from <a class="dv-oid" href="#3a">3a</a>, sections from <a class="dv-oid" href="#2a">2a</a>, footer from <a class="dv-oid" href="#2b">2b</a>. No ticker. Your illustrations mark every section.</div>
+<div class="dv-card" style="width:1280px;background:#fbf6ea;color:#141414;font-family:'Bricolage Grotesque',sans-serif;border:2px solid #141414">
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-bottom:2px solid #141414;background:#fff">
+    <div style="display:flex;align-items:center;gap:12px"><span style="width:44px;height:44px;border-radius:12px;background:oklch(0.72 0.17 35);border:2px solid #141414;box-shadow:3px 3px 0 #141414;display:grid;place-items:center;font-weight:800;font-size:18px;transform:rotate(-6deg)">PB</span><span style="font-weight:800;font-size:19px;letter-spacing:-.02em">Peter Baunach</span><span style="font-size:14px;font-weight:600;color:#6a655a">Product &amp; Design Leader</span></div>
+    <nav style="display:flex;gap:8px;font-weight:700;font-size:15px"><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Work</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Lab</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Artifacts</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:oklch(0.82 0.15 85);box-shadow:3px 3px 0 #141414">Say hi →</a></nav>
+  </header>
+  <div style="position:relative;padding:72px 40px 96px;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:40px;align-items:center;background-color:#fbf6ea;background-image:radial-gradient(rgba(20,20,20,.14) 1.4px,transparent 1.4px);background-size:28px 28px">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border:2px solid #141414;border-radius:999px;background:#fff;font-weight:700;font-size:15px">Currently building <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="text-decoration:underline;text-underline-offset:3px">Orchard</a></div>
+      <h1 style="margin:0;font-size:84px;font-weight:800;line-height:.95;letter-spacing:-.05em;display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+        <span style="display:flex;align-items:center;gap:18px">From <span style="line-height:1.05;border:3px dashed oklch(0.6 0.13 150);color:oklch(0.5 0.13 150);border-radius:20px;padding:0 20px 6px;background:rgba(255,255,255,.7)">prototype</span></span>
+        <span style="display:flex;align-items:center;gap:18px">to <span style="line-height:1.05;background:oklch(0.72 0.14 245);color:#fff;border:3px solid #141414;border-radius:999px;padding:0 28px 6px;transform:rotate(1.5deg);box-shadow:6px 6px 0 #141414">production.</span></span>
+      </h1>
+      <p style="margin:0;max-width:520px;font-size:20px;line-height:1.45;font-weight:500;text-wrap:pretty">20 years of 0-to-1 web apps — and lately, AI interfaces that know when to hand the wheel back to a human.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      {{ wipeFrame }}
+      <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:#4a463e"><span>← drag it. that’s the whole job.</span><span style="font-family:'Geist Mono',monospace;font-size:12px">from the Frederick brand system</span></div>
+    </div>
+  </div>
+
+  <div style="margin:24px 40px 0;background:oklch(0.86 0.07 230);border:2px solid #141414;border-radius:32px;box-shadow:10px 10px 0 #141414;overflow:hidden;position:relative">
+    <div style="padding:56px 56px 0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;padding:6px 12px;background:#fff;border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(-2deg)">THE FREDERICK YEARS · ACQUIRED BY MINDBODY</span>
+        <h2 style="margin:0;font-size:76px;font-weight:800;letter-spacing:-.045em;line-height:.95">One designer.<br>A ton of friends.</h2>
+        <p style="margin:0;max-width:500px;font-size:19px;line-height:1.45;font-weight:500;text-wrap:pretty">I was the sole designer on Frederick, a marketing assistant for local businesses. I designed the product and led the brand, all the way down to the guy in the green tie.</p>
+      </div>
+      <div style="display:flex;gap:20px;justify-content:flex-end;padding-top:12px">
+        <div onMouseEnter="{{ hovStatIn }}" onMouseLeave="{{ hovOut }}" style="position:relative;width:230px;padding:22px;background:oklch(0.72 0.17 35);border:2px solid #141414;border-radius:18px;box-shadow:6px 6px 0 #141414;transform:rotate(-4deg);display:flex;flex-direction:column;gap:6px;cursor:default">
+          <img src="assets/fred-jump.png" alt="" style="position:absolute;right:6px;top:-104px;width:76px;transform:translateY({{ jumpY }}px) rotate({{ jumpR }}deg);transition:transform .35s cubic-bezier(.3,1.8,.5,1);pointer-events:none">
+          <span style="font-size:52px;font-weight:800;line-height:1;letter-spacing:-.04em">$10M</span><span style="font-size:14px;font-weight:600;line-height:1.3">ARR, up from $200k. Hover me; he’s excited.</span>
+        </div>
+        <div style="width:200px;padding:22px;background:#fff;border:2px solid #141414;border-radius:18px;box-shadow:6px 6px 0 #141414;transform:rotate(3deg);display:flex;flex-direction:column;gap:6px;margin-top:40px">
+          <span style="font-size:48px;font-weight:800;line-height:1;letter-spacing:-.04em">2,500</span><span style="font-size:14px;font-weight:600;line-height:1.3">businesses, before the acquisition</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:56px 24px 0;animation:none"><img src="assets/fred-friends.png" alt="Frederick and his friends" style="display:block;width:100%;height:auto"></div>
+  </div>
+
+  <div style="padding:96px 40px 40px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="display:flex;align-items:center;gap:20px"><h2 style="margin:0;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">The big stuff</h2><img src="assets/asp-planet.png" alt="" style="width:120px;transform:rotate(-8deg)"></div>
+    <span style="font-size:17px;font-weight:600;max-width:300px;text-align:right">Head of Product &amp; Design on both.</span>
+  </div>
+  <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="margin:0 40px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);background:#fff;border:2px solid #141414;border-radius:28px;box-shadow:10px 10px 0 oklch(0.55 0.14 150);overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translate(-4px,-4px);opacity:1">
+    <div style="background:oklch(0.85 0.12 150);padding:40px 0 0 40px;border-right:2px solid #141414"><img src="https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png" alt="Orchard" style="display:block;width:100%;height:420px;object-fit:cover;object-position:left top;border:2px solid #141414;border-right:0;border-bottom:0;border-radius:14px 0 0 0"></div>
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;padding:6px 12px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(-3deg)">NOW · 0→1</span><span style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.95">Orchard</span><span style="font-size:19px;line-height:1.45;font-weight:500">An AI mentor that helps high schoolers find clarity and assurance in an uncertain future.</span></div>
+      <div style="display:flex;gap:10px;font-weight:700;font-size:15px"><span style="padding:12px 18px;background:#141414;color:#fff;border-radius:999px">See the screens →</span><span style="padding:12px 18px;border:2px solid #141414;border-radius:999px">The process</span></div>
+    </div>
+  </a>
+  <a href="https://pbaunach.github.io/portfolio/aspireship/" onMouseEnter="{{ hovAspIn }}" onMouseLeave="{{ hovOut }}" style="margin:48px 40px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);background:#fff;border:2px solid #141414;border-radius:28px;box-shadow:10px 10px 0 oklch(0.42 0.2 290);overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translate(-4px,-4px);opacity:1">
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;position:relative;overflow:hidden">
+      <div style="display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;padding:6px 12px;background:oklch(0.72 0.17 35);border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(2deg)">1 PRODUCT · 4 AUDIENCES</span><span style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.95">Aspireship</span><span style="font-size:19px;line-height:1.45;font-weight:500">A career-change marketplace serving learners, enterprise teams, hiring employers, and placement staff, without building four products.</span></div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between"><span style="padding:12px 18px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:15px">See the screens →</span><img src="assets/asp-rocket.png" alt="" style="width:72px;transform:translateY({{ rocketY }}px);opacity:{{ rocketO }};transition:transform .9s cubic-bezier(.5,0,.75,0),opacity .9s"></div>
+    </div>
+    <div style="background:oklch(0.42 0.2 290);padding:40px 40px 0 0;border-left:2px solid #141414;position:relative"><img src="https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png" alt="Aspireship" style="display:block;width:100%;height:420px;object-fit:cover;object-position:right top;border:2px solid #141414;border-left:0;border-bottom:0;border-radius:0 14px 0 0"><div style="position:absolute;right:24px;top:14px;width:110px">{{ ufo }}</div></div>
+  </a>
+
+  <div style="margin:96px 40px 0;padding:56px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:32px;box-shadow:10px 10px 0 #141414">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin:-20px 0 40px"><div style="display:flex;flex-direction:column;gap:14px"><h2 style="margin:0;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">The lab</h2><span style="font-size:18px;font-weight:600;max-width:380px">Builder at heart. Here’s what’s on the bench after hours, coffee included.</span></div><img src="assets/asp-person.png" alt="Person at a laptop with headphones and coffee" style="width:240px;display:block;margin-top:-80px"></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:start">
+      <div style="background:#fff;border:2px solid #141414;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:18px">
+        <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:16/9;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:36px;font-weight:800;letter-spacing:-.03em">Telby</span><a href="https://telby.io/demo/editor/icon_3874d48b" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Try the demo →</a></div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px;background:#fbf6ea;border:2px dashed #141414;border-radius:14px">
+          <div style="display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:12px;color:#6a655a"><span>builder–critic loop · live</span><span>{{ loopStatus }}</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;font-weight:700">
+            <sc-for list="{{ loop }}" as="l" hint-placeholder-count="5"><span style="padding:8px 12px;border:2px solid #141414;border-radius:10px;background:{{ l.bg }};transform:translateY({{ l.lift }}px);box-shadow:{{ l.shadow }};transition:all .25s cubic-bezier(.3,1.6,.5,1)">{{ l.label }}</span></sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff;border:2px solid #141414;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:18px;transform:rotate(1.5deg);margin-top:40px">
+        <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:32px;font-weight:800;letter-spacing:-.03em">Unbound Codex</span><a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Demo →</a></div>
+        <span style="font-size:16px;line-height:1.45;font-weight:500">A game-master agent on vectorized rulesets. Humans stay in the loop, so the story stays coherent and the dragons stay canon.</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:96px 40px 40px">
+    <h2 style="margin:0 0 40px;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">Artifacts</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-top:28px">
+      <sc-for list="{{ artifacts3 }}" as="a" hint-placeholder-count="4">
+        <a href="{{ a.href }}" onMouseEnter="{{ a.enter }}" onMouseLeave="{{ a.leave }}" style="position:relative;background:{{ a.bg }};border:2px solid #141414;border-radius:0 18px 18px 18px;padding:24px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-shadow:5px 5px 0 #141414;transition:transform .2s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translateY(-10px) rotate(-1.5deg);opacity:1">
+          <span style="position:absolute;left:-2px;top:-30px;padding:4px 16px 6px;background:{{ a.bg }};border:2px solid #141414;border-bottom:0;border-radius:12px 12px 0 0;font-size:13px;font-weight:800">{{ a.tag }}</span>
+          <sc-if value="{{ a.art }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;right:14px;top:14px;width:84px;height:114px"><img src="assets/fred-wire.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ a.wireO }};transition:opacity .35s"><img src="assets/fred-standing.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ a.fredO }};transition:opacity .35s"></div></sc-if>
+          <span style="font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1">{{ a.n }}</span>
+          <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;font-weight:800;line-height:1.05;letter-spacing:-.02em">{{ a.short }}</span><span style="font-size:14px;font-weight:500;line-height:1.4">{{ a.desc }}</span></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <footer style="margin-top:96px;background:#141414;color:#fbf6ea;padding:96px 40px 40px;display:flex;flex-direction:column;gap:64px;position:relative;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <a href="#" style="font-size:200px;font-weight:800;letter-spacing:-.07em;line-height:.8" style-hover="color:oklch(0.72 0.17 35);opacity:1">Let’s<br>make stuff.</a>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:#bdb7a8;border-top:2px solid #3a3833;padding-top:20px;position:relative;z-index:1;background:#141414"><span>© 2026 Peter Baunach</span><span style="display:flex;gap:28px"><a href="#">LinkedIn</a><a href="#">GitHub</a></span></div>
+  </footer>
+</div>
+</div>
+</div>
+<p class="dv-next">Try next: "add Frederick's friends to the Personas folder" · "build the Orchard case study in <a class="dv-oid" href="#4a">4a</a>" · "make <a class="dv-oid" href="#4a">4a</a> mobile"</p>
+</section>
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname"><a class="dv-oid" href="#2a">2a</a> + your Frederick &amp; Aspireship illustrations, with more to play with</span></div>
+<div class="dv-opts">
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Sketch → ship. Drag the wipe in the hero. Hover the $10M sticker, the Aspireship card, and the Brand folder. Frederick runs the ticker.</div>
+<div class="dv-card" style="width:1280px;background:#fbf6ea;color:#141414;font-family:'Bricolage Grotesque',sans-serif;border:2px solid #141414">
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-bottom:2px solid #141414;background:#fff">
+    <div style="display:flex;align-items:center;gap:12px"><span style="width:44px;height:44px;border-radius:12px;background:oklch(0.72 0.17 35);border:2px solid #141414;box-shadow:3px 3px 0 #141414;display:grid;place-items:center;font-weight:800;font-size:18px;transform:rotate(-6deg)">PB</span><span style="font-weight:800;font-size:19px;letter-spacing:-.02em">Peter Baunach</span><span style="font-size:14px;font-weight:600;color:#6a655a">Product &amp; Design Leader</span></div>
+    <nav style="display:flex;gap:8px;font-weight:700;font-size:15px"><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Work</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Lab</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Artifacts</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:oklch(0.82 0.15 85);box-shadow:3px 3px 0 #141414">Say hi →</a></nav>
+  </header>
+  <div style="position:relative;padding:72px 40px 150px;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:40px;align-items:center;background-color:#fbf6ea;background-image:radial-gradient(rgba(20,20,20,.14) 1.4px,transparent 1.4px);background-size:28px 28px">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border:2px solid #141414;border-radius:999px;background:#fff;font-weight:700;font-size:15px">Currently building <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="text-decoration:underline;text-underline-offset:3px">Orchard</a></div>
+      <h1 style="margin:0;font-size:84px;font-weight:800;line-height:.95;letter-spacing:-.05em;display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+        <span style="display:flex;align-items:center;gap:18px">From <span style="line-height:1.05;border:3px dashed oklch(0.6 0.13 150);color:oklch(0.5 0.13 150);border-radius:20px;padding:0 20px 6px;background:rgba(255,255,255,.7)">prototype</span></span>
+        <span style="display:flex;align-items:center;gap:18px">to <span style="line-height:1.05;background:oklch(0.72 0.14 245);color:#fff;border:3px solid #141414;border-radius:999px;padding:0 28px 6px;transform:rotate(1.5deg);box-shadow:6px 6px 0 #141414">production.</span></span>
+      </h1>
+      <p style="margin:0;max-width:520px;font-size:20px;line-height:1.45;font-weight:500;text-wrap:pretty">20 years of 0-to-1 web apps — and lately, AI interfaces that know when to hand the wheel back to a human.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      {{ wipeFrame }}
+      <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:#4a463e"><span>← drag it. that’s the whole job.</span><span style="font-family:'Geist Mono',monospace;font-size:12px">from the Frederick brand system</span></div>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:150px;overflow:hidden;pointer-events:none">{{ runner }}</div>
+  </div>
+  <div style="border-top:2px solid #141414;border-bottom:2px solid #141414;background:#141414;color:#fbf6ea;overflow:hidden;padding:18px 0">{{ marquee }}</div>
+
+  <div style="margin:96px 40px 0;background:oklch(0.86 0.07 230);border:2px solid #141414;border-radius:32px;box-shadow:10px 10px 0 #141414;overflow:hidden;position:relative">
+    <div style="padding:56px 56px 0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;padding:6px 12px;background:#fff;border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(-2deg)">THE FREDERICK YEARS · ACQUIRED BY MINDBODY</span>
+        <h2 style="margin:0;font-size:76px;font-weight:800;letter-spacing:-.045em;line-height:.95">One designer.<br>A ton of friends.</h2>
+        <p style="margin:0;max-width:500px;font-size:19px;line-height:1.45;font-weight:500;text-wrap:pretty">I was the sole designer on Frederick, a marketing assistant for local businesses. I designed the product and led the brand, all the way down to the guy in the green tie.</p>
+      </div>
+      <div style="display:flex;gap:20px;justify-content:flex-end;padding-top:12px">
+        <div onMouseEnter="{{ hovStatIn }}" onMouseLeave="{{ hovOut }}" style="position:relative;width:230px;padding:22px;background:oklch(0.72 0.17 35);border:2px solid #141414;border-radius:18px;box-shadow:6px 6px 0 #141414;transform:rotate(-4deg);display:flex;flex-direction:column;gap:6px;cursor:default">
+          <img src="assets/fred-jump.png" alt="" style="position:absolute;right:6px;top:-104px;width:76px;transform:translateY({{ jumpY }}px) rotate({{ jumpR }}deg);transition:transform .35s cubic-bezier(.3,1.8,.5,1);pointer-events:none">
+          <span style="font-size:52px;font-weight:800;line-height:1;letter-spacing:-.04em">$10M</span><span style="font-size:14px;font-weight:600;line-height:1.3">ARR, up from $200k. Hover me; he’s excited.</span>
+        </div>
+        <div style="width:200px;padding:22px;background:#fff;border:2px solid #141414;border-radius:18px;box-shadow:6px 6px 0 #141414;transform:rotate(3deg);display:flex;flex-direction:column;gap:6px;margin-top:40px">
+          <span style="font-size:48px;font-weight:800;line-height:1;letter-spacing:-.04em">2,500</span><span style="font-size:14px;font-weight:600;line-height:1.3">businesses, before the acquisition</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:56px 24px 0;animation:none"><img src="assets/fred-friends.png" alt="Frederick and his friends" style="display:block;width:100%;height:auto"></div>
+  </div>
+
+  <div style="padding:96px 40px 40px;display:flex;justify-content:space-between;align-items:flex-end">
+    <h2 style="margin:0;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">The big stuff</h2>
+    <span style="font-size:17px;font-weight:600;max-width:300px;text-align:right">Head of Product &amp; Design on both.</span>
+  </div>
+  <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="margin:0 40px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);background:#fff;border:2px solid #141414;border-radius:28px;box-shadow:10px 10px 0 oklch(0.55 0.14 150);overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translate(-4px,-4px);opacity:1">
+    <div style="background:oklch(0.85 0.12 150);padding:40px 0 0 40px;border-right:2px solid #141414"><img src="https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png" alt="Orchard" style="display:block;width:100%;height:420px;object-fit:cover;object-position:left top;border:2px solid #141414;border-right:0;border-bottom:0;border-radius:14px 0 0 0"></div>
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;padding:6px 12px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(-3deg)">NOW · 0→1</span><span style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.95">Orchard</span><span style="font-size:19px;line-height:1.45;font-weight:500">An AI mentor that helps high schoolers find clarity and assurance in an uncertain future.</span></div>
+      <div style="display:flex;gap:10px;font-weight:700;font-size:15px"><span style="padding:12px 18px;background:#141414;color:#fff;border-radius:999px">See the screens →</span><span style="padding:12px 18px;border:2px solid #141414;border-radius:999px">The process</span></div>
+    </div>
+  </a>
+  <a href="https://pbaunach.github.io/portfolio/aspireship/" onMouseEnter="{{ hovAspIn }}" onMouseLeave="{{ hovOut }}" style="margin:48px 40px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);background:#fff;border:2px solid #141414;border-radius:28px;box-shadow:10px 10px 0 oklch(0.42 0.2 290);overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translate(-4px,-4px);opacity:1">
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;position:relative;overflow:hidden">
+      <div style="display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;padding:6px 12px;background:oklch(0.72 0.17 35);border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(2deg)">1 PRODUCT · 4 AUDIENCES</span><span style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.95">Aspireship</span><span style="font-size:19px;line-height:1.45;font-weight:500">A career-change marketplace serving learners, enterprise teams, hiring employers, and placement staff, without building four products.</span></div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between"><span style="padding:12px 18px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:15px">See the screens →</span><img src="assets/asp-rocket.png" alt="" style="width:72px;transform:translateY({{ rocketY }}px);opacity:{{ rocketO }};transition:transform .9s cubic-bezier(.5,0,.75,0),opacity .9s"></div>
+    </div>
+    <div style="background:oklch(0.42 0.2 290);padding:40px 40px 0 0;border-left:2px solid #141414;position:relative"><img src="https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png" alt="Aspireship" style="display:block;width:100%;height:420px;object-fit:cover;object-position:right top;border:2px solid #141414;border-left:0;border-bottom:0;border-radius:0 14px 0 0"><div style="position:absolute;right:24px;top:14px;width:110px">{{ ufo }}</div></div>
+  </a>
+
+  <div style="margin:96px 40px 0;padding:56px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:32px;box-shadow:10px 10px 0 #141414">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px"><h2 style="margin:0;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">The lab</h2><span style="font-size:17px;font-weight:600;max-width:360px;text-align:right">Builder at heart. Here’s what’s on the bench after hours.</span></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:start">
+      <div style="background:#fff;border:2px solid #141414;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:18px">
+        <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:16/9;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:36px;font-weight:800;letter-spacing:-.03em">Telby</span><a href="https://telby.io/demo/editor/icon_3874d48b" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Try the demo →</a></div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px;background:#fbf6ea;border:2px dashed #141414;border-radius:14px">
+          <div style="display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:12px;color:#6a655a"><span>builder–critic loop · live</span><span>{{ loopStatus }}</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;font-weight:700">
+            <sc-for list="{{ loop }}" as="l" hint-placeholder-count="5"><span style="padding:8px 12px;border:2px solid #141414;border-radius:10px;background:{{ l.bg }};transform:translateY({{ l.lift }}px);box-shadow:{{ l.shadow }};transition:all .25s cubic-bezier(.3,1.6,.5,1)">{{ l.label }}</span></sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff;border:2px solid #141414;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:18px;transform:rotate(1.5deg);margin-top:40px">
+        <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:32px;font-weight:800;letter-spacing:-.03em">Unbound Codex</span><a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Demo →</a></div>
+        <span style="font-size:16px;line-height:1.45;font-weight:500">A game-master agent on vectorized rulesets. Humans stay in the loop, so the story stays coherent and the dragons stay canon.</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:96px 40px 40px">
+    <h2 style="margin:0 0 40px;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">Artifacts</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-top:28px">
+      <sc-for list="{{ artifacts3 }}" as="a" hint-placeholder-count="4">
+        <a href="{{ a.href }}" onMouseEnter="{{ a.enter }}" onMouseLeave="{{ a.leave }}" style="position:relative;background:{{ a.bg }};border:2px solid #141414;border-radius:0 18px 18px 18px;padding:24px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-shadow:5px 5px 0 #141414;transition:transform .2s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translateY(-10px) rotate(-1.5deg);opacity:1">
+          <span style="position:absolute;left:-2px;top:-30px;padding:4px 16px 6px;background:{{ a.bg }};border:2px solid #141414;border-bottom:0;border-radius:12px 12px 0 0;font-size:13px;font-weight:800">{{ a.tag }}</span>
+          <sc-if value="{{ a.art }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;right:14px;top:14px;width:84px;height:114px"><img src="assets/fred-wire.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ a.wireO }};transition:opacity .35s"><img src="assets/fred-standing.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ a.fredO }};transition:opacity .35s"></div></sc-if>
+          <span style="font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1">{{ a.n }}</span>
+          <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;font-weight:800;line-height:1.05;letter-spacing:-.02em">{{ a.short }}</span><span style="font-size:14px;font-weight:500;line-height:1.4">{{ a.desc }}</span></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <footer style="margin:56px 40px 40px;padding:56px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:32px;box-shadow:10px 10px 0 #141414;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:40px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:28px"><span style="font-size:104px;font-weight:800;letter-spacing:-.05em;line-height:.9">Got a weird<br>idea?</span><div style="display:flex;align-items:center;gap:24px"><a href="#" style="padding:22px 36px;background:#141414;color:#fbf6ea;border-radius:999px;font-size:22px;font-weight:800;transition:transform .2s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-4deg) scale(1.06);opacity:1">Let’s talk →</a><span style="font-size:16px;font-weight:600">Good. Those are my favorite.</span></div></div>
+    <img src="assets/asp-person.png" alt="" style="width:100%;display:block">
+  </footer>
+  <div style="padding:0 40px 32px;display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:#6a655a"><span>© 2026 Peter Baunach</span><span style="display:flex;gap:24px"><a href="#">LinkedIn</a><a href="#">GitHub</a></span></div>
+</div>
+</div>
+</div>
+<p class="dv-next">Try next: "let visitors drag Frederick’s friends around" · "use the line-to-color wipe on the Orchard screens too" · "make <a class="dv-oid" href="#3a">3a</a> mobile"</p>
+</section>
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Pushing <a class="dv-oid" href="#1c">1c</a> further — two riffs</span></div>
+<div class="dv-opts">
+
+<!-- 2a STICKER DESK -->
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Sticker desk — same DNA as <a class="dv-oid" href="#1c">1c</a>, more toy. Drag the stickers around; the Telby loop runs live.</div>
+<div class="dv-card" style="width:1280px;background:#fbf6ea;color:#141414;font-family:'Bricolage Grotesque',sans-serif;border:2px solid #141414">
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-bottom:2px solid #141414;background:#fff">
+    <div style="display:flex;align-items:center;gap:12px"><span style="width:44px;height:44px;border-radius:12px;background:oklch(0.72 0.17 35);border:2px solid #141414;box-shadow:3px 3px 0 #141414;display:grid;place-items:center;font-weight:800;font-size:18px;transform:rotate(-6deg)">PB</span><span style="font-weight:800;font-size:19px;letter-spacing:-.02em">Peter Baunach</span><span style="font-size:14px;font-weight:600;color:#6a655a">Product &amp; Design Leader</span></div>
+    <nav style="display:flex;gap:8px;font-weight:700;font-size:15px"><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Work</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Lab</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px">Artifacts</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:oklch(0.82 0.15 85);box-shadow:3px 3px 0 #141414">Say hi →</a></nav>
+  </header>
+  <div style="position:relative;height:760px;overflow:hidden;background-color:#fbf6ea;background-image:radial-gradient(rgba(20,20,20,.16) 1.4px,transparent 1.4px);background-size:28px 28px">
+    <div style="position:absolute;left:40px;top:72px;display:flex;flex-direction:column;gap:28px;max-width:780px">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border:2px solid #141414;border-radius:999px;background:#fff;font-weight:700;font-size:15px">Currently building <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="text-decoration:underline;text-underline-offset:3px">Orchard</a></div>
+      <h1 style="margin:0;font-size:124px;font-weight:800;line-height:.95;letter-spacing:-.05em;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+        <span>I take products</span>
+        <span style="display:flex;align-items:center;gap:20px">from <span style="line-height:1.05;background:oklch(0.82 0.15 85);border:3px solid #141414;border-radius:24px;padding:0 22px 6px;transform:rotate(-2deg);box-shadow:6px 6px 0 #141414">napkin</span></span>
+        <span style="display:flex;align-items:center;gap:20px">to <span style="line-height:1.05;background:oklch(0.72 0.14 245);color:#fff;border:3px solid #141414;border-radius:999px;padding:0 30px 6px;transform:rotate(1.5deg);box-shadow:6px 6px 0 #141414">shipped.</span></span>
+      </h1>
+      <p style="margin:0;max-width:560px;font-size:21px;line-height:1.45;font-weight:500;text-wrap:pretty">20 years of 0-to-1 web apps — and lately, AI interfaces that know when to hand the wheel back to a human.</p>
+    </div>
+    <sc-for list="{{ stickers }}" as="s" hint-placeholder-count="0">
+      <div onPointerDown="{{ s.down }}" style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px;width:{{ s.w }}px;transform:rotate({{ s.rot }}deg) scale({{ s.scale }});z-index:{{ s.z }};background:{{ s.bg }};color:{{ s.fg }};border:2px solid #141414;border-radius:{{ s.radius }};box-shadow:{{ s.shadow }};padding:18px 20px;display:flex;flex-direction:column;gap:4px;cursor:grab;user-select:none;touch-action:none;transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s">
+        <span style="font-size:{{ s.bigSize }}px;font-weight:800;line-height:1;letter-spacing:-.03em">{{ s.big }}</span>
+        <span style="font-size:14px;font-weight:600;line-height:1.3">{{ s.small }}</span>
+      </div>
+    </sc-for>
+    <div style="position:absolute;right:56px;bottom:28px;font-family:'Geist Mono',monospace;font-size:12px;color:#6a655a;display:flex;align-items:center;gap:8px">↖ go on, drag them</div>
+  </div>
+  <div style="border-top:2px solid #141414;border-bottom:2px solid #141414;background:#141414;color:#fbf6ea;overflow:hidden;padding:18px 0">{{ marquee }}</div>
+  <div style="padding:96px 40px 40px;display:flex;justify-content:space-between;align-items:flex-end">
+    <h2 style="margin:0;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">The big stuff</h2>
+    <span style="font-size:17px;font-weight:600;max-width:300px;text-align:right">Head of Product &amp; Design on both.</span>
+  </div>
+  <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="margin:0 40px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);background:#fff;border:2px solid #141414;border-radius:28px;box-shadow:10px 10px 0 oklch(0.55 0.14 150);overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translate(-4px,-4px);opacity:1">
+    <div style="background:oklch(0.85 0.12 150);padding:40px 0 0 40px;border-right:2px solid #141414"><img src="https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png" alt="Orchard" style="display:block;width:100%;height:420px;object-fit:cover;object-position:left top;border:2px solid #141414;border-right:0;border-bottom:0;border-radius:14px 0 0 0"></div>
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;padding:6px 12px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(-3deg)">NOW · 0→1</span><span style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.95">Orchard</span><span style="font-size:19px;line-height:1.45;font-weight:500">An AI mentor that helps high schoolers find clarity and assurance in an uncertain future.</span></div>
+      <div style="display:flex;gap:10px;font-weight:700;font-size:15px"><span style="padding:12px 18px;background:#141414;color:#fff;border-radius:999px">See the screens →</span><span style="padding:12px 18px;border:2px solid #141414;border-radius:999px">The process</span></div>
+    </div>
+  </a>
+  <a href="https://pbaunach.github.io/portfolio/aspireship/" style="margin:48px 40px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);background:#fff;border:2px solid #141414;border-radius:28px;box-shadow:10px 10px 0 oklch(0.5 0.14 245);overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translate(-4px,-4px);opacity:1">
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;padding:6px 12px;background:oklch(0.72 0.17 35);border:2px solid #141414;border-radius:8px;font-size:13px;font-weight:800;transform:rotate(2deg)">1 PRODUCT · 4 AUDIENCES</span><span style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.95">Aspireship</span><span style="font-size:19px;line-height:1.45;font-weight:500">A career-change marketplace serving learners, enterprise teams, hiring employers, and placement staff — without four products.</span></div>
+      <span style="align-self:flex-start;padding:12px 18px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:15px">See the screens →</span>
+    </div>
+    <div style="background:oklch(0.72 0.14 245);padding:40px 40px 0 0;border-left:2px solid #141414"><img src="https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png" alt="Aspireship" style="display:block;width:100%;height:420px;object-fit:cover;object-position:right top;border:2px solid #141414;border-left:0;border-bottom:0;border-radius:0 14px 0 0"></div>
+  </a>
+  <div style="margin:96px 40px 0;padding:56px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:32px;box-shadow:10px 10px 0 #141414">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px"><h2 style="margin:0;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">The lab</h2><span style="font-size:17px;font-weight:600;max-width:360px;text-align:right">Builder at heart. Here’s what’s on the bench after hours.</span></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:start">
+      <div style="background:#fff;border:2px solid #141414;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:18px">
+        <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:16/9;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:36px;font-weight:800;letter-spacing:-.03em">Telby</span><a href="https://telby.io/demo/editor/icon_3874d48b" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Try the demo →</a></div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px;background:#fbf6ea;border:2px dashed #141414;border-radius:14px">
+          <div style="display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:12px;color:#6a655a"><span>builder–critic loop · live</span><span>{{ loopStatus }}</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;font-weight:700">
+            <sc-for list="{{ loop }}" as="l" hint-placeholder-count="5"><span style="padding:8px 12px;border:2px solid #141414;border-radius:10px;background:{{ l.bg }};transform:translateY({{ l.lift }}px);box-shadow:{{ l.shadow }};transition:all .25s cubic-bezier(.3,1.6,.5,1)">{{ l.label }}</span></sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff;border:2px solid #141414;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:18px;transform:rotate(1.5deg);margin-top:40px">
+        <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:32px;font-weight:800;letter-spacing:-.03em">Unbound Codex</span><a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Demo →</a></div>
+        <span style="font-size:16px;line-height:1.45;font-weight:500">A game-master agent on vectorized rulesets. Humans stay in the loop, so the story stays coherent and the dragons stay canon.</span>
+      </div>
+    </div>
+  </div>
+  <div style="padding:96px 40px 40px">
+    <h2 style="margin:0 0 40px;font-size:80px;font-weight:800;letter-spacing:-.045em;line-height:1">Artifacts</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-top:28px">
+      <sc-for list="{{ artifacts }}" as="a" hint-placeholder-count="4">
+        <a href="{{ a.href }}" style="position:relative;background:{{ a.bg }};border:2px solid #141414;border-radius:0 18px 18px 18px;padding:24px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-shadow:5px 5px 0 #141414;transition:transform .2s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:translateY(-10px) rotate(-1.5deg);opacity:1">
+          <span style="position:absolute;left:-2px;top:-30px;padding:4px 16px 6px;background:{{ a.bg }};border:2px solid #141414;border-bottom:0;border-radius:12px 12px 0 0;font-size:13px;font-weight:800">{{ a.tag }}</span>
+          <span style="font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1">{{ a.n }}</span>
+          <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;font-weight:800;line-height:1.05;letter-spacing:-.02em">{{ a.short }}</span><span style="font-size:14px;font-weight:500;line-height:1.4">{{ a.desc }}</span></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+  <footer style="margin:56px 40px 40px;padding:64px 56px;background:#141414;color:#fbf6ea;border-radius:32px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:16px"><span style="font-size:104px;font-weight:800;letter-spacing:-.05em;line-height:.9">Got a weird<br>idea?</span><span style="font-size:18px;color:#bdb7a8">Good. Those are my favorite. © 2026 Peter Baunach</span></div>
+    <a href="#" style="padding:24px 40px;background:oklch(0.72 0.17 35);color:#141414;border:2px solid #fbf6ea;border-radius:999px;font-size:24px;font-weight:800;box-shadow:6px 6px 0 #fbf6ea;transition:transform .2s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-4deg) scale(1.06);opacity:1">Let’s talk →</a>
+  </footer>
+</div>
+</div>
+
+<!-- 2b POSTER BLOCKS -->
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Poster blocks — <a class="dv-oid" href="#1c">1c</a> scaled up to full-bleed colour. Every section is its own poster; projects are pinned-up prints.</div>
+<div class="dv-card" style="width:1280px;background:#141414;color:#141414;font-family:'Bricolage Grotesque',sans-serif;border:2px solid #141414">
+  <div style="background:oklch(0.72 0.17 35);padding:28px 40px 72px;position:relative;overflow:hidden">
+    <header style="display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px;margin-bottom:56px"><span style="font-weight:800;font-size:20px;letter-spacing:-.02em">Peter Baunach ✦</span><nav style="display:flex;gap:28px"><a href="#">Work</a><a href="#">Lab</a><a href="#">Artifacts</a><a href="#" style="text-decoration:underline;text-underline-offset:4px">Say hi</a></nav></header>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:end">
+      <h1 style="margin:0;font-size:236px;font-weight:800;line-height:.8;letter-spacing:-.065em">Hi. I’m<br>Peter.</h1>
+      <div style="aspect-ratio:1;border:3px solid #141414;border-radius:50%;box-shadow:8px 8px 0 #141414;transform:rotate(6deg);display:grid;place-items:center;background:repeating-linear-gradient(45deg,#fbf6ea 0 10px,#efe6d3 10px 20px);font-family:'Geist Mono',monospace;font-size:12px;color:#6a655a;text-align:center">your portrait<br>(goofy is fine)</div>
+    </div>
+    <div style="margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;border-top:3px solid #141414;padding-top:28px">
+      <p style="margin:0;font-size:30px;line-height:1.2;font-weight:700;letter-spacing:-.02em;text-wrap:pretty">Product &amp; design leader. I take AI products from prototype to production.</p>
+      <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;font-weight:800;font-size:15px"><span style="padding:10px 16px;background:#fbf6ea;border:2px solid #141414;border-radius:999px">$200k → $10M ARR</span><span style="padding:10px 16px;background:#fbf6ea;border:2px solid #141414;border-radius:999px">2,500 businesses</span><span style="padding:10px 16px;background:#fbf6ea;border:2px solid #141414;border-radius:999px">20 years</span><span style="padding:10px 16px;background:#141414;color:#fbf6ea;border:2px solid #141414;border-radius:999px;display:inline-flex;align-items:center;gap:8px">Building Orchard</span></div>
+    </div>
+  </div>
+  <div style="background:oklch(0.82 0.15 85);border-top:3px solid #141414;border-bottom:3px solid #141414;overflow:hidden;padding:16px 0">{{ marquee2 }}</div>
+  <div style="background:oklch(0.85 0.12 150);padding:96px 40px 120px;position:relative;overflow:hidden">
+    <div style="font-size:250px;font-weight:800;letter-spacing:-.07em;line-height:.8;position:absolute;left:30px;top:56px;color:oklch(0.78 0.13 150)">ORCHARD</div>
+    <div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center;padding-top:120px">
+      <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="background:#fff;border:3px solid #141414;padding:18px 18px 64px;box-shadow:12px 12px 0 #141414;transform:rotate(-2.5deg);position:relative;transition:transform .3s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(0deg) scale(1.02);opacity:1"><span style="position:absolute;top:-18px;left:50%;width:120px;height:34px;margin-left:-60px;background:rgba(251,246,234,.8);border:2px solid #141414;transform:rotate(3deg)"></span><img src="https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png" alt="Orchard" style="display:block;width:100%;height:440px;object-fit:cover;object-position:top;border:2px solid #141414"><span style="position:absolute;left:24px;bottom:18px;font-size:22px;font-weight:800">Orchard — AI career readiness</span></a>
+      <div style="display:flex;flex-direction:column;gap:20px"><span style="font-family:'Geist Mono',monospace;font-size:13px;font-weight:500">01 / Head of Product &amp; Design</span><span style="font-size:34px;line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:pretty">An AI mentor helping high schoolers find clarity in an uncertain future.</span><a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="align-self:flex-start;padding:14px 22px;background:#141414;color:#fff;border-radius:999px;font-weight:800;font-size:16px">See the screens →</a></div>
+    </div>
+  </div>
+  <div style="background:oklch(0.72 0.14 245);padding:96px 40px 120px;position:relative;overflow:hidden;border-top:3px solid #141414">
+    <div style="font-size:250px;font-weight:800;letter-spacing:-.07em;line-height:.8;position:absolute;right:30px;top:56px;color:oklch(0.66 0.14 245)">ASPIRE</div>
+    <div style="position:relative;display:grid;grid-template-columns:400px minmax(0,1fr);gap:56px;align-items:center;padding-top:120px">
+      <div style="display:flex;flex-direction:column;gap:20px;color:#fff"><span style="font-family:'Geist Mono',monospace;font-size:13px;font-weight:500">02 / Head of Product &amp; Design</span><span style="font-size:34px;line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:pretty">Aspireship: one career-change marketplace, four very different audiences.</span><a href="https://pbaunach.github.io/portfolio/aspireship/" style="align-self:flex-start;padding:14px 22px;background:#fff;color:#141414;border:2px solid #141414;border-radius:999px;font-weight:800;font-size:16px">See the screens →</a></div>
+      <a href="https://pbaunach.github.io/portfolio/aspireship/" style="background:#fff;border:3px solid #141414;padding:18px 18px 64px;box-shadow:12px 12px 0 #141414;transform:rotate(2deg);position:relative;transition:transform .3s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(0deg) scale(1.02);opacity:1"><span style="position:absolute;top:-18px;left:50%;width:120px;height:34px;margin-left:-60px;background:rgba(251,246,234,.8);border:2px solid #141414;transform:rotate(-4deg)"></span><img src="https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png" alt="Aspireship" style="display:block;width:100%;height:440px;object-fit:cover;object-position:top;border:2px solid #141414"><span style="position:absolute;left:24px;bottom:18px;font-size:22px;font-weight:800">Aspireship — career-change marketplace</span></a>
+    </div>
+  </div>
+  <div style="background:oklch(0.82 0.15 85);padding:96px 40px;border-top:3px solid #141414">
+    <h2 style="margin:0 0 56px;font-size:160px;font-weight:800;letter-spacing:-.065em;line-height:.85">After<br>hours.</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px">
+      <a href="https://pbaunach.github.io/portfolio/telby-icon-builder/" style="background:#fff;border:3px solid #141414;padding:16px 16px 20px;box-shadow:10px 10px 0 #141414;transform:rotate(-1.5deg);display:flex;flex-direction:column;gap:14px;transition:transform .3s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(1deg) translateY(-6px);opacity:1"><img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #141414;display:block"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:34px;font-weight:800;letter-spacing:-.03em">Telby</span><span style="font-family:'Geist Mono',monospace;font-size:12px">AI SVG icon builder</span></div><span style="font-size:16px;line-height:1.4;font-weight:500">Builds icons, then a vision model grades them. Fails get sent back with notes.</span></a>
+      <a href="https://pbaunach.github.io/portfolio/unbound-codex/" style="background:#fff;border:3px solid #141414;padding:16px 16px 20px;box-shadow:10px 10px 0 #141414;transform:rotate(2deg);margin-top:48px;display:flex;flex-direction:column;gap:14px;transition:transform .3s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-1deg) translateY(-6px);opacity:1"><img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #141414;display:block"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:34px;font-weight:800;letter-spacing:-.03em">Unbound Codex</span><span style="font-family:'Geist Mono',monospace;font-size:12px">RAG-based TTRPG agent</span></div><span style="font-size:16px;line-height:1.4;font-weight:500">A game master that reads the rulebook first, and lets you co-write the story.</span></a>
+    </div>
+  </div>
+  <div style="background:#fbf6ea;padding:96px 40px;border-top:3px solid #141414">
+    <h2 style="margin:0 0 40px;font-size:96px;font-weight:800;letter-spacing:-.055em;line-height:.9">Artifacts</h2>
+    <sc-for list="{{ artifacts }}" as="a" hint-placeholder-count="4">
+      <a href="{{ a.href }}" style="display:grid;grid-template-columns:110px minmax(0,1fr) 180px 60px;gap:24px;align-items:center;padding:28px 24px;border-top:3px solid #141414;transition:background .15s" style-hover="background:{{ a.bg }};opacity:1">
+        <span style="font-size:56px;font-weight:800;letter-spacing:-.05em;line-height:1">{{ a.n }}</span>
+        <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.05">{{ a.title }}</span><span style="font-size:16px;font-weight:500;line-height:1.4;max-width:620px">{{ a.desc }}</span></span>
+        <span style="justify-self:start;padding:6px 14px;border:2px solid #141414;border-radius:999px;font-size:13px;font-weight:800">{{ a.tag }}</span>
+        <span style="font-size:36px;font-weight:800">↗</span>
+      </a>
+    </sc-for>
+  </div>
+  <footer style="background:#141414;color:#fbf6ea;padding:96px 40px 40px;display:flex;flex-direction:column;gap:64px">
+    <a href="#" style="font-size:200px;font-weight:800;letter-spacing:-.07em;line-height:.8" style-hover="color:oklch(0.72 0.17 35);opacity:1">Let’s<br>make stuff.</a>
+    <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:#bdb7a8;border-top:2px solid #3a3833;padding-top:20px"><span>© 2026 Peter Baunach</span><span style="display:flex;gap:28px"><a href="#">LinkedIn</a><a href="#">GitHub</a></span></div>
+  </footer>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "<a class="dv-oid" href="#2a">2a</a> hero with <a class="dv-oid" href="#2b">2b</a>’s project posters" · "make <a class="dv-oid" href="#2a">2a</a> mobile" · "build an Orchard case-study page in this style"</p>
+</section>
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Three directions for pbaunach.github.io/portfolio — same content, real images, very different personalities</span></div>
+<div class="dv-opts">
+
+<!-- 1a EDITORIAL -->
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Editorial studio — high-end serif, warm paper, case studies read like a magazine feature</div>
+<div class="dv-card" style="width:1280px;background:#f4f1ea;color:#1c1a17;font-family:'Geist',sans-serif">
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:28px 56px;border-bottom:1px solid rgba(28,26,23,.14);font-size:14px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Instrument Serif',serif;font-size:26px">Peter Baunach</span><span style="color:#6b655c">Product &amp; Design Leader</span></div>
+    <nav style="display:flex;gap:36px"><a href="#">Work</a><a href="#">Lab</a><a href="#">Artifacts</a><a href="#">Contact</a></nav>
+  </header>
+  <div style="padding:96px 56px 72px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:end">
+    <h1 style="margin:0;grid-column:1/-1;font-family:'Instrument Serif',serif;font-weight:400;font-size:168px;line-height:.88;letter-spacing:-.035em">From prototype<br>to <em style="color:oklch(0.55 0.14 40)">production.</em></h1>
+    <div style="grid-column:2;display:flex;flex-direction:column;gap:20px;font-size:16px;line-height:1.55;color:#3d3933;padding-bottom:14px">
+      <p style="margin:0;text-wrap:pretty">Twenty years building 0-to-1 web apps and AI interfaces — from design systems to vectorized RAG agents and human-in-the-loop workflows.</p>
+      <div style="display:flex;align-items:center;gap:10px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#1c1a17"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.55 0.14 40)"></span>Now designing Orchard</div>
+    </div>
+  </div>
+  <div style="margin:0 56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #1c1a17;border-bottom:1px solid rgba(28,26,23,.14)">
+    <div style="padding:28px 0;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">$200k → $10M</span><span style="font-size:14px;color:#6b655c">ARR at Frederick, as the sole designer</span></div>
+    <div style="padding:28px 0 28px 40px;border-left:1px solid rgba(28,26,23,.14);display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">2,500</span><span style="font-size:14px;color:#6b655c">Businesses served, through acquisition by MINDBODY</span></div>
+    <div style="padding:28px 0 28px 40px;border-left:1px solid rgba(28,26,23,.14);display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">20 years</span><span style="font-size:14px;color:#6b655c">Designing and shipping 0-to-1 products</span></div>
+  </div>
+  <div style="padding:120px 56px 40px;display:flex;justify-content:space-between;align-items:baseline">
+    <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:44px">Selected work</h2>
+    <span style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6b655c">Head of Product &amp; Design · 2 case studies</span>
+  </div>
+  <article style="margin:0 56px;padding:40px 0 80px;border-top:1px solid rgba(28,26,23,.14);display:grid;grid-template-columns:120px minmax(0,1fr);gap:32px">
+    <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#6b655c;padding-top:14px">01</span>
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:end">
+        <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:76px;line-height:.95;letter-spacing:-.02em">Orchard<br><em style="color:#6b655c">AI career readiness</em></h3>
+        <div style="display:flex;flex-direction:column;gap:18px"><p style="margin:0;font-size:17px;line-height:1.55;color:#3d3933;text-wrap:pretty">Leading 0-to-1 design for an AI mentor that helps high schoolers find clarity and assurance in an uncertain future.</p><div style="display:flex;gap:24px;font-size:14px;font-weight:500"><a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="border-bottom:1px solid currentColor;padding-bottom:2px">View the screens →</a><a href="https://pbaunach.github.io/portfolio/deck/problem-solving-process.html" style="color:#6b655c">The design process</a></div></div>
+      </div>
+      <div style="background:#e6dfd2;border-radius:4px;padding:56px 56px 0;overflow:hidden"><img src="https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png" alt="Orchard Growth Report" style="display:block;width:100%;height:520px;object-fit:cover;object-position:top;border-radius:6px 6px 0 0;box-shadow:0 30px 60px rgba(60,40,20,.18)"></div>
+    </div>
+  </article>
+  <article style="margin:0 56px;padding:40px 0 80px;border-top:1px solid rgba(28,26,23,.14);display:grid;grid-template-columns:120px minmax(0,1fr);gap:32px">
+    <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#6b655c;padding-top:14px">02</span>
+    <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;align-items:start">
+      <div style="background:#1f2a2e;border-radius:4px;padding:48px;overflow:hidden"><img src="https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png" alt="Aspireship" style="display:block;width:100%;height:400px;object-fit:cover;object-position:top;border-radius:6px"></div>
+      <div style="display:flex;flex-direction:column;gap:22px;padding-top:8px">
+        <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:64px;line-height:.95;letter-spacing:-.02em">Aspireship<br><em style="color:#6b655c">Career change marketplace</em></h3>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#3d3933;text-wrap:pretty">Scaling one product across four audiences: the independent learner, the enterprise team, the hiring employer, and internal placement staff.</p>
+        <a href="https://pbaunach.github.io/portfolio/aspireship/" style="font-size:14px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px;align-self:flex-start">View the screens →</a>
+      </div>
+    </div>
+  </article>
+  <div style="background:#1c1a17;color:#f4f1ea;padding:96px 56px">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;margin-bottom:56px;align-items:end">
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:88px;line-height:.92">The <em style="color:oklch(0.75 0.11 50)">side</em> projects</h2>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#bdb6aa;max-width:440px;justify-self:end">A builder at heart — always messing around with something new. Lately: agents that critique their own work.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:18px"><img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px;display:block"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Instrument Serif',serif;font-size:36px">Telby</span><span style="font-family:'Geist Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#bdb6aa">AI SVG icon builder</span></div><p style="margin:0;font-size:15px;line-height:1.55;color:#bdb6aa">A builder–critic agent loop: prompts are human-reviewed, generated, then scored by a vision model. Shipped on pass, looped back with notes on fail.</p></div>
+      <div style="display:flex;flex-direction:column;gap:18px"><img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px;display:block"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Instrument Serif',serif;font-size:36px">Unbound Codex</span><span style="font-family:'Geist Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#bdb6aa">RAG-based TTRPG agent</span></div><p style="margin:0;font-size:15px;line-height:1.55;color:#bdb6aa">A game-mastering agent on vectorized rulesets, with human-in-the-loop workflows to minimize hallucinations and co-author a cohesive narrative.</p></div>
+    </div>
+  </div>
+  <div style="padding:96px 56px 40px">
+    <h2 style="margin:0 0 32px;font-family:'Instrument Serif',serif;font-weight:400;font-size:44px">Artifacts</h2>
+    <sc-for list="{{ artifacts }}" as="a" hint-placeholder-count="4">
+      <a href="{{ a.href }}" style="display:grid;grid-template-columns:80px minmax(0,1fr) 200px 40px;gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid rgba(28,26,23,.14)" style-hover="background:rgba(28,26,23,.03)">
+        <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#6b655c">{{ a.n }}</span>
+        <span style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1.1">{{ a.title }}</span><span style="font-size:15px;color:#6b655c;line-height:1.5;max-width:620px">{{ a.desc }}</span></span>
+        <span style="font-family:'Geist Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#6b655c">{{ a.tag }}</span>
+        <span style="font-size:22px">→</span>
+      </a>
+    </sc-for>
+  </div>
+  <footer style="padding:80px 56px 40px;border-top:1px solid #1c1a17;margin:40px 56px 0;padding-left:0;padding-right:0;display:flex;flex-direction:column;gap:56px">
+    <a href="#" style="font-family:'Instrument Serif',serif;font-size:120px;line-height:.9;letter-spacing:-.03em">Let’s build <em style="color:oklch(0.55 0.14 40)">something.</em> →</a>
+    <div style="display:flex;justify-content:space-between;font-size:13px;color:#6b655c"><span>© 2026 Peter Baunach</span><span style="display:flex;gap:28px"><a href="#">LinkedIn</a><a href="#">GitHub</a></span></div>
+  </footer>
+</div>
+</div>
+
+<!-- 1b CINEMATIC INDEX -->
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Cinematic index — gallery-dark, the work is the hero. Hover the project list to swap the image.</div>
+<div class="dv-card" style="width:1280px;background:#0c0c0b;color:#ecebe6;font-family:'Archivo',sans-serif;border-color:#000">
+  <header style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:24px 40px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984">
+    <span style="color:#ecebe6">Peter Baunach</span><span>Product &amp; Design</span><span>AI · 0→1 · Systems</span><span style="display:flex;justify-content:flex-end;gap:24px"><a href="#">Index</a><a href="#">Lab</a><a href="#">Contact</a></span>
+  </header>
+  <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0;border-top:1px solid #262624;border-bottom:1px solid #262624;height:680px">
+    <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid #262624">
+      <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984">Index — {{ count }} projects</div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+          <a href="{{ p.href }}" onMouseEnter="{{ p.onEnter }}" style="display:flex;align-items:baseline;gap:18px;padding:6px 0;color:{{ p.color }};transition:color .25s">
+            <span style="font-family:'Geist Mono',monospace;font-size:11px;width:24px">{{ p.n }}</span>
+            <span style="font-size:76px;font-weight:800;font-stretch:68%;line-height:.95;letter-spacing:-.01em;text-transform:uppercase">{{ p.title }}</span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13px;line-height:1.5;color:#b7b6b0">
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6c6b66">Role</span>{{ active.role }}</div>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6c6b66">Type</span>{{ active.kind }}</div>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;background:#151514">
+      <sc-if value="{{ active }}" hint-placeholder-val="{{ false }}"><img src="{{ active.img }}" alt="{{ active.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top"></sc-if>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:120px 40px 32px;background:linear-gradient(to top,rgba(12,12,11,.92),rgba(12,12,11,0));display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+        <p style="margin:0;max-width:460px;font-size:17px;line-height:1.5;color:#ecebe6;text-wrap:pretty">{{ active.desc }}</p>
+        <a href="{{ active.href }}" style="flex:none;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:1px solid #ecebe6;border-radius:999px">Open case ↗</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:120px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:40px">
+    <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984;padding-top:14px">About</span>
+    <p style="margin:0;font-size:52px;line-height:1.08;font-weight:300;letter-spacing:-.015em;text-wrap:pretty">Twenty years taking products <span style="font-weight:800;font-stretch:70%;text-transform:uppercase">from prototype to production</span>. Sole designer as Frederick grew from $200k to $10M ARR — then acquired by MINDBODY. <span style="color:#8a8984">Now: AI interfaces, RAG agents, and humans in the loop.</span></p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #262624">
+    <div style="padding:40px;border-right:1px solid #262624;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984"><span>Lab / 01</span><span>Builder–critic loop</span></div>
+      <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(.2)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:44px;font-weight:800;font-stretch:68%;text-transform:uppercase">Telby</span><a href="https://telby.io/demo/editor/icon_3874d48b" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">Demo ↗</a></div>
+    </div>
+    <div style="padding:40px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984"><span>Lab / 02</span><span>Vectorized rulesets</span></div>
+      <img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(.2)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:44px;font-weight:800;font-stretch:68%;text-transform:uppercase">Unbound Codex</span><a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">Demo ↗</a></div>
+    </div>
+  </div>
+  <div style="padding:80px 40px 40px;border-top:1px solid #262624">
+    <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984;margin-bottom:28px">Artifacts — systems, brand, research, prototypes</div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#262624;border:1px solid #262624">
+      <sc-for list="{{ artifacts }}" as="a" hint-placeholder-count="4">
+        <a href="{{ a.href }}" style="background:#0c0c0b;padding:24px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;gap:24px" style-hover="background:#181817">
+          <div style="display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:11px;color:#8a8984"><span>{{ a.n }}</span><span style="text-transform:uppercase;letter-spacing:.08em">{{ a.tag }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:26px;font-weight:700;font-stretch:75%;line-height:1.05;text-transform:uppercase">{{ a.short }}</span><span style="font-size:13px;line-height:1.5;color:#8a8984">{{ a.desc }}</span></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+  <footer style="padding:120px 40px 32px;display:flex;flex-direction:column;gap:48px">
+    <a href="#" style="font-size:196px;font-weight:900;font-stretch:62%;line-height:.82;text-transform:uppercase;letter-spacing:-.01em">Say hello ↗</a>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8984;border-top:1px solid #262624;padding-top:20px"><span>© 2026</span><a href="#">LinkedIn</a><a href="#">GitHub</a><span style="text-align:right">Built by hand + AI</span></div>
+  </footer>
+</div>
+</div>
+
+<!-- 1c WORKBENCH -->
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Workbench — loud, tactile, a little goofy. Stickers, hard shadows, live ticker; hover cards to tilt them.</div>
+<div class="dv-card" style="width:1280px;background:#fbf6ea;color:#141414;font-family:'Bricolage Grotesque',sans-serif;border:2px solid #141414">
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:24px 40px">
+    <div style="display:flex;align-items:center;gap:12px"><span style="width:44px;height:44px;border-radius:50%;background:oklch(0.72 0.17 35);border:2px solid #141414;display:grid;place-items:center;font-weight:800;font-size:18px">PB</span><span style="font-weight:700;font-size:18px">Peter Baunach</span></div>
+    <nav style="display:flex;gap:8px;font-weight:600;font-size:15px"><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:#fff">Work</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:#fff">Lab</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:#fff">Artifacts</a><a href="#" style="padding:10px 18px;border:2px solid #141414;border-radius:999px;background:#141414;color:#fbf6ea">Say hi</a></nav>
+  </header>
+  <div style="position:relative;padding:64px 40px 96px">
+    <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:2px solid #141414;border-radius:999px;background:#fff;font-weight:600;font-size:15px;margin-bottom:32px">Currently building <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="text-decoration:underline;text-underline-offset:3px">Orchard</a></div>
+    <h1 style="margin:0;max-width:900px;font-size:132px;font-weight:800;line-height:1.12;display:flex;flex-direction:column;align-items:flex-start;gap:22px;letter-spacing:-.045em"><span>From <span style="display:inline-block;line-height:1.05;background:oklch(0.82 0.15 85);border:3px solid #141414;border-radius:24px;padding:0 24px;transform:rotate(-2deg);box-shadow:6px 6px 0 #141414">prototype</span></span><span>to <span style="display:inline-block;line-height:1.05;background:oklch(0.72 0.14 245);border:3px solid #141414;border-radius:999px;padding:0 32px;transform:rotate(1.5deg);box-shadow:6px 6px 0 #141414;color:#fff">production</span>.</span></h1>
+    <p style="margin:40px 0 0;max-width:620px;font-size:22px;line-height:1.45;font-weight:500;text-wrap:pretty">I’m a product &amp; design leader who’s spent 20 years building 0-to-1 web apps — and lately, AI that knows when to ask a human.</p>
+    <div style="position:absolute;right:48px;top:72px;width:220px;padding:20px;background:oklch(0.72 0.17 35);border:2px solid #141414;border-radius:16px;box-shadow:6px 6px 0 #141414;transform:rotate(6deg);display:flex;flex-direction:column;gap:4px"><span style="font-size:44px;font-weight:800;line-height:1;letter-spacing:-.03em">$10M</span><span style="font-size:14px;font-weight:600;line-height:1.3">ARR at Frederick (from $200k) as the sole designer</span></div>
+    <div style="position:absolute;right:72px;top:300px;width:190px;padding:18px;background:oklch(0.85 0.12 150);border:2px solid #141414;border-radius:16px;box-shadow:6px 6px 0 #141414;transform:rotate(-5deg);display:flex;flex-direction:column;gap:4px"><span style="font-size:40px;font-weight:800;line-height:1;letter-spacing:-.03em">2,500</span><span style="font-size:14px;font-weight:600;line-height:1.3">businesses, then acquired by MINDBODY</span></div>
+  </div>
+  <div style="border-top:2px solid #141414;border-bottom:2px solid #141414;background:#141414;color:#fbf6ea;overflow:hidden;padding:18px 0;transform:rotate(-1deg);margin:0 -10px">{{ marquee }}</div>
+  <div style="padding:96px 40px 40px;display:flex;justify-content:space-between;align-items:flex-end">
+    <h2 style="margin:0;font-size:72px;font-weight:800;letter-spacing:-.04em;line-height:1">The big stuff</h2>
+    <span style="font-size:17px;font-weight:600;max-width:300px;text-align:right">Head of Product &amp; Design on both. Hover a card ↓</span>
+  </div>
+  <div style="padding:0 40px 40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px">
+    <a href="https://pbaunach.github.io/portfolio/orchard-career-counselor/" style="display:flex;flex-direction:column;background:#fff;border:2px solid #141414;border-radius:24px;box-shadow:8px 8px 0 #141414;overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-1.5deg) translateY(-6px);opacity:1">
+      <div style="background:oklch(0.85 0.12 150);padding:32px 32px 0;border-bottom:2px solid #141414"><img src="https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png" alt="Orchard" style="display:block;width:100%;height:320px;object-fit:cover;object-position:top;border:2px solid #141414;border-bottom:0;border-radius:12px 12px 0 0"></div>
+      <div style="padding:28px 32px 32px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:8px"><span style="padding:4px 12px;border:2px solid #141414;border-radius:999px;font-size:13px;font-weight:700">AI</span><span style="padding:4px 12px;border:2px solid #141414;border-radius:999px;font-size:13px;font-weight:700">EdTech</span><span style="padding:4px 12px;border:2px solid #141414;border-radius:999px;font-size:13px;font-weight:700">0→1</span></div><span style="font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1">Orchard</span><span style="font-size:17px;line-height:1.45;font-weight:500">An AI mentor that helps high schoolers find clarity and assurance in an uncertain future.</span></div>
+    </a>
+    <a href="https://pbaunach.github.io/portfolio/aspireship/" style="display:flex;flex-direction:column;background:#fff;border:2px solid #141414;border-radius:24px;box-shadow:8px 8px 0 #141414;overflow:hidden;margin-top:56px;transition:transform .25s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(1.5deg) translateY(-6px);opacity:1">
+      <div style="background:oklch(0.72 0.14 245);padding:32px 32px 0;border-bottom:2px solid #141414"><img src="https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png" alt="Aspireship" style="display:block;width:100%;height:320px;object-fit:cover;object-position:top;border:2px solid #141414;border-bottom:0;border-radius:12px 12px 0 0"></div>
+      <div style="padding:28px 32px 32px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:8px"><span style="padding:4px 12px;border:2px solid #141414;border-radius:999px;font-size:13px;font-weight:700">Marketplace</span><span style="padding:4px 12px;border:2px solid #141414;border-radius:999px;font-size:13px;font-weight:700">4 audiences</span></div><span style="font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1">Aspireship</span><span style="font-size:17px;line-height:1.45;font-weight:500">One product, four audiences: learners, enterprise teams, hiring employers, and placement staff.</span></div>
+    </a>
+  </div>
+  <div style="margin:80px 40px 0;padding:56px;background:oklch(0.82 0.15 85);border:2px solid #141414;border-radius:32px;box-shadow:8px 8px 0 #141414">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px"><h2 style="margin:0;font-size:72px;font-weight:800;letter-spacing:-.04em;line-height:1">The lab</h2><span style="font-size:17px;font-weight:600;max-width:360px;text-align:right">Builder at heart. These are the things I tinker with after hours.</span></div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px">
+      <div style="background:#fff;border:2px solid #141414;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:16px"><img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="Telby" style="width:100%;aspect-ratio:16/9;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:32px;font-weight:800;letter-spacing:-.03em">Telby</span><a href="https://telby.io/demo/editor/icon_3874d48b" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Try the demo →</a></div>
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;font-weight:700"><span style="padding:6px 10px;border:2px solid #141414;border-radius:8px">Prompt</span>→<span style="padding:6px 10px;border:2px solid #141414;border-radius:8px">Human review</span>→<span style="padding:6px 10px;border:2px solid #141414;border-radius:8px">Generate</span>→<span style="padding:6px 10px;border:2px solid #141414;border-radius:8px;background:oklch(0.72 0.17 35)">Vision critic</span>→<span style="padding:6px 10px;border:2px solid #141414;border-radius:8px;background:oklch(0.85 0.12 150)">Ship</span><span style="color:#6a655a">or loop ↺</span></div></div>
+      <div style="background:#fff;border:2px solid #141414;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:16px"><img src="https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg" alt="Unbound Codex" style="width:100%;aspect-ratio:16/9;object-fit:cover;border:2px solid #141414;border-radius:12px;display:block"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:32px;font-weight:800;letter-spacing:-.03em">Unbound Codex</span><a href="https://unboundcodex.com/campaign/85191cdd-79da-4299-b4b9-3af4b44e4ac8/overview" style="padding:8px 16px;background:#141414;color:#fff;border-radius:999px;font-weight:700;font-size:14px">Try the demo →</a></div><span style="font-size:15px;line-height:1.45;font-weight:500">A game-master agent on vectorized rulesets — humans stay in the loop so the story stays coherent (and the dragons stay canon).</span></div>
+    </div>
+  </div>
+  <div style="padding:96px 40px 40px">
+    <h2 style="margin:0 0 32px;font-size:72px;font-weight:800;letter-spacing:-.04em;line-height:1">Artifacts</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px">
+      <sc-for list="{{ artifacts }}" as="a" hint-placeholder-count="4">
+        <a href="{{ a.href }}" style="background:{{ a.bg }};border:2px solid #141414;border-radius:20px;padding:22px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:5px 5px 0 #141414;transition:transform .2s" style-hover="transform:translateY(-6px) rotate(-1deg);opacity:1">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:40px;font-weight:800;letter-spacing:-.03em">{{ a.n }}</span><span style="padding:4px 10px;border:2px solid #141414;border-radius:999px;font-size:12px;font-weight:700;background:#fff">{{ a.tag }}</span></div>
+          <span style="font-size:24px;font-weight:800;line-height:1.05;letter-spacing:-.02em">{{ a.short }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+  <footer style="margin:56px 40px 40px;padding:64px 56px;background:#141414;color:#fbf6ea;border-radius:32px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="display:flex;flex-direction:column;gap:16px"><span style="font-size:96px;font-weight:800;letter-spacing:-.045em;line-height:.9">Got a weird<br>idea?</span><span style="font-size:18px;color:#bdb7a8">I like those. © 2026 Peter Baunach</span></div>
+    <a href="#" style="padding:22px 36px;background:oklch(0.72 0.17 35);color:#141414;border:2px solid #fbf6ea;border-radius:999px;font-size:22px;font-weight:800">Let’s talk →</a>
+  </footer>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "push <a class="dv-oid" href="#1b">1b</a> further with scroll-driven motion" · "<a class="dv-oid" href="#1a">1a</a> type with <a class="dv-oid" href="#1c">1c</a>’s stickers" · "build out a case-study page in <a class="dv-oid" href="#1a">1a</a>"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    active: 0, step: 0, drag: null,
+    stickers: [
+      { id: 'arr', x: 880, y: 70, rot: 7, z: 3, w: 230, bg: 'oklch(0.72 0.17 35)', fg: '#141414', radius: '18px', big: '$10M', bigSize: 52, small: 'ARR at Frederick (from $200k), as sole designer' },
+      { id: 'biz', x: 1010, y: 300, rot: -6, z: 2, w: 210, bg: 'oklch(0.85 0.12 150)', fg: '#141414', radius: '18px', big: '2,500', bigSize: 48, small: 'businesses, then acquired by MINDBODY' },
+      { id: 'yrs', x: 850, y: 420, rot: 4, z: 4, w: 170, bg: '#141414', fg: '#fbf6ea', radius: '50%', big: '20 yrs', bigSize: 40, small: 'of 0-to-1' },
+      { id: 'hitl', x: 900, y: 600, rot: -3, z: 1, w: 290, bg: '#fff', fg: '#141414', radius: '999px', big: 'Human-in-the-loop', bigSize: 26, small: 'AI that asks before it guesses' },
+      { id: 'ds', x: 640, y: 610, rot: 8, z: 1, w: 200, bg: 'oklch(0.72 0.14 245)', fg: '#fff', radius: '14px', big: 'Systems', bigSize: 32, small: 'design, brand, RAG' }
+    ]
+  };
+  componentDidMount() {
+    this._t = setInterval(() => this.setState(s => ({ step: (s.step + 1) % 6 })), 1100);
+    this._mv = (e) => { if (this.state.wipeDrag) { this._setWipe(e.clientX); return; } const d = this.state.drag; if (!d) return; this.setState(s => ({ stickers: s.stickers.map(k => k.id === d.id ? { ...k, x: d.ox + e.clientX - d.sx, y: d.oy + e.clientY - d.sy } : k) })); };
+    this._up = () => { if (this.state.drag) this.setState({ drag: null }); if (this.state.wipeDrag) this.setState({ wipeDrag: false }); };
+    window.addEventListener('pointermove', this._mv); window.addEventListener('pointerup', this._up);
+  }
+  _wipeRef = React.createRef();
+  _setWipe(cx) { const el = this._wipeEl; if (!el) return; const r = el.getBoundingClientRect(); const v = Math.max(0, Math.min(100, ((cx - r.left) / r.width) * 100)); this.setState({ wipe: v, wipeTouched: true }); }
+  componentWillUnmount() { clearInterval(this._t); window.removeEventListener('pointermove', this._mv); window.removeEventListener('pointerup', this._up); }
+  renderVals() {
+    const top = Math.max(...this.state.stickers.map(k => k.z));
+    const dragId = this.state.drag && this.state.drag.id;
+    const stickers = this.state.stickers.map(k => ({ ...k, scale: k.id === dragId ? 1.06 : 1, shadow: k.id === dragId ? '12px 12px 0 #141414' : '6px 6px 0 #141414',
+      down: (e) => { e.preventDefault(); this.setState(s => ({ drag: { id: k.id, sx: e.clientX, sy: e.clientY, ox: k.x, oy: k.y }, stickers: s.stickers.map(q => q.id === k.id ? { ...q, z: top + 1 } : q) })); } }));
+    const st = this.state.step;
+    const loopLabels = ['Prompt', 'Human review', 'Generate', 'Vision critic', 'Ship'];
+    const loopBgs = ['oklch(0.82 0.15 85)', 'oklch(0.82 0.15 85)', 'oklch(0.82 0.15 85)', 'oklch(0.72 0.17 35)', 'oklch(0.85 0.12 150)'];
+    const loop = loopLabels.map((label, i) => ({ label, bg: i === st ? loopBgs[i] : '#fff', lift: i === st ? -4 : 0, shadow: i === st ? '3px 3px 0 #141414' : 'none' }));
+    const loopStatus = st === 3 ? 'scoring… 0.91' : st === 4 ? 'pass ✓ shipped' : st === 5 ? 'next icon ↺' : 'working…';
+    const P = [
+      { n: '01', title: 'Orchard', href: 'https://pbaunach.github.io/portfolio/orchard-career-counselor/', img: 'https://pbaunach.github.io/portfolio/assets/img/orchard-cover.png', role: 'Head of Product & Design', kind: 'AI career readiness · 0→1', desc: 'An AI mentor that helps high schoolers find clarity and assurance in an uncertain future.' },
+      { n: '02', title: 'Aspireship', href: 'https://pbaunach.github.io/portfolio/aspireship/', img: 'https://pbaunach.github.io/portfolio/assets/img/aspireship-cover.png', role: 'Head of Product & Design', kind: 'Career-change marketplace', desc: 'One product scaled across four audiences: learners, enterprise teams, hiring employers, and placement staff.' },
+      { n: '03', title: 'Telby', href: 'https://pbaunach.github.io/portfolio/telby-icon-builder/', img: 'https://telby.io/walkthrough/telby-walkthrough-poster.jpg', role: 'Builder (side project)', kind: 'AI SVG icon builder', desc: 'A builder–critic agent loop — generated, scored by a vision model, shipped on pass or looped back with notes.' },
+      { n: '04', title: 'Unbound Codex', href: 'https://pbaunach.github.io/portfolio/unbound-codex/', img: 'https://unboundcodex.com/assets/home-page/walkthrough-poster.jpg', role: 'Builder (side project)', kind: 'RAG-based TTRPG agent', desc: 'A game-mastering agent on vectorized rulesets, with humans in the loop to co-author a cohesive narrative.' }
+    ];
+    const a = this.state.active;
+    const projects = P.map((p, i) => ({ ...p, color: i === a ? '#ecebe6' : '#3d3d3a', onEnter: () => this.setState({ active: i }) }));
+    const bgs = ['oklch(0.85 0.12 150)', 'oklch(0.72 0.14 245)', 'oklch(0.72 0.17 35)', 'oklch(0.82 0.15 85)'];
+    const artifacts = [
+      { n: '01', short: 'Project BFF design system', title: 'Building a Shared Language (Project BFF)', tag: 'Design Systems', href: 'https://pbaunach.github.io/portfolio/design-system/', desc: 'A platform-agnostic, CSS-based design system that unified a fragmented product suite.' },
+      { n: '02', short: 'Frederick & Aspireship brand', title: 'Brand Identity: Frederick & Aspireship', tag: 'Brand', href: 'https://pbaunach.github.io/portfolio/brand-guidelines/', desc: 'From mission and voice down to color, type, and illustration systems.' },
+      { n: '03', short: 'Harmonizing personas', title: 'Harmonizing Personas: Frederick & MINDBODY', tag: 'Research', href: 'https://pbaunach.github.io/portfolio/user-personas/', desc: 'Empathy-driven archetypes, integrated into MINDBODY post-acquisition.' },
+      { n: '04', short: 'Dreamforce ’15 keynote demo', title: 'Demo: Dreamforce ’15', tag: 'Prototyping', href: 'https://pbaunach.github.io/portfolio/dreamforce-demo/', desc: 'Financial Services Cloud, from story map to a live prototype on the keynote stage.' }
+    ].map((x, i) => ({ ...x, bg: bgs[i] }));
+    const words = ['AI interfaces', 'Design systems', 'RAG agents', 'Human-in-the-loop', '0 → 1', 'Rapid prototyping', 'Brand'];
+    const run = (k) => words.map((w, i) => React.createElement('span', { key: k + i, style: { display: 'inline-flex', alignItems: 'center', gap: 40, paddingRight: 40 } }, w, React.createElement('span', { style: { color: 'oklch(0.82 0.15 85)' } }, '✦')));
+    const marquee = React.createElement('div', { style: { display: 'flex', width: 'max-content', whiteSpace: 'nowrap', fontSize: 40, fontWeight: 800, letterSpacing: '-.02em', animation: 'pbMarquee 28s linear infinite' } }, run('a'), run('b'));
+    const pulse = React.createElement('span', { style: { width: 10, height: 10, borderRadius: '50%', background: 'oklch(0.65 0.18 150)', animation: 'pbPulse 1.6s ease-in-out infinite', display: 'inline-block' } });
+    const run2 = (k) => words.map((w, i) => React.createElement('span', { key: k + i, style: { display: 'inline-flex', alignItems: 'center', gap: 32, paddingRight: 32 } }, w, React.createElement('span', { style: { display: 'inline-block', width: 22, height: 22, borderRadius: i % 2 ? '50%' : 4, border: '3px solid #141414', background: bgs[i % 4] } })));
+    const marquee2 = React.createElement('div', { style: { display: 'flex', width: 'max-content', whiteSpace: 'nowrap', fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', color: '#141414', animation: 'pbMarquee 34s linear infinite reverse' } }, run2('a'), run2('b'));
+    const h = (v) => () => this.setState({ hov: v });
+    const hov = this.state.hov;
+    const ce = React.createElement;
+    const touched = this.state.wipeTouched, wv = this.state.wipe ?? 50;
+    const imgS = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none', userSelect: 'none' };
+    const tag = (t, side, bg, fg) => ce('span', { style: { position: 'absolute', top: 14, [side]: 14, padding: '4px 10px', background: bg, color: fg, border: '2px solid #141414', borderRadius: 8, fontSize: 12, fontWeight: 800, fontFamily: "'Bricolage Grotesque',sans-serif", zIndex: 3 } }, t);
+    const wipeFrame = ce('div', { ref: this._wipeRef, onPointerDown: (e) => { e.preventDefault(); this._wipeEl = e.currentTarget; this.setState({ wipeDrag: true }); this._setWipe(e.clientX); },
+      style: { position: 'relative', width: '100%', aspectRatio: '1301 / 750', border: '3px solid #141414', borderRadius: 20, overflow: 'hidden', boxShadow: '8px 8px 0 #141414', cursor: 'ew-resize', touchAction: 'none', background: '#f5f7fb' } },
+      ce('img', { src: 'assets/salon-line.png', alt: 'Wireframe storefront', draggable: false, style: imgS }),
+      ce('img', { src: 'assets/salon-color.png', alt: 'Finished storefront', draggable: false, style: { ...imgS, clipPath: touched ? `inset(0 0 0 ${wv}%)` : undefined, animation: touched ? 'none' : 'pbWipe 3.2s ease-in-out infinite alternate' } }),
+      ce('div', { style: { position: 'absolute', top: 0, bottom: 0, width: 3, marginLeft: -1.5, background: '#141414', zIndex: 2, left: touched ? `${wv}%` : undefined, animation: touched ? 'none' : 'pbWipeH 3.2s ease-in-out infinite alternate' } },
+        ce('div', { style: { position: 'absolute', top: '50%', left: '50%', width: 48, height: 48, margin: '-24px 0 0 -24px', borderRadius: '50%', background: 'oklch(0.82 0.15 85)', border: '3px solid #141414', boxShadow: '3px 3px 0 #141414', display: 'grid', placeItems: 'center', fontSize: 20, fontWeight: 800 } }, '⇆')),
+      tag('PROTOTYPE', 'left', '#fff', '#141414'), tag('PRODUCTION', 'right', 'oklch(0.72 0.14 245)', '#fff'));
+    const runner = ce('div', { style: { position: 'absolute', left: 0, bottom: -6, animation: 'pbRun 13s linear infinite' } }, ce('img', { src: 'assets/fred-run.png', alt: '', style: { width: 190, display: 'block', animation: 'pbHop .45s ease-in-out infinite' } }));
+    const ufo = ce('img', { src: 'assets/asp-ufo-light.png', alt: '', style: { width: '100%', display: 'block', animation: 'pbBob 2.6s ease-in-out infinite' } });
+    const waver = ce('img', { src: 'assets/fred-wave.png', alt: 'Frederick waving hello', style: { width: '100%', display: 'block', transformOrigin: '50% 100%', animation: 'pbWave 2.4s ease-in-out infinite' } });
+    const artifacts3 = artifacts.map((x, i) => ({ ...x, art: i === 1, wireO: hov === 'art1' ? 0 : 1, fredO: hov === 'art1' ? 1 : 0, enter: h('art' + i), leave: h(null) }));
+    return { projects, active: P[a], count: P.length, artifacts, marquee, marquee2, pulse, stickers, loop, loopStatus,
+      wipeFrame, runner, ufo, waver, artifacts3, hovOut: h(null), hovStatIn: h('stat'), hovAspIn: h('asp'),
+      jumpY: hov === 'stat' ? -38 : 0, jumpR: hov === 'stat' ? -8 : 0, rocketY: hov === 'asp' ? -520 : 0, rocketO: hov === 'asp' ? 0 : 1 };
+  }
+}
+</script>
+</body>
+</html>

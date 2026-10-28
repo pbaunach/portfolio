@@ -1,0 +1,31 @@
+{%- comment -%}
+  Telby builder-critic loop: a scripted, self-running run for one icon, in Telby's
+  own UI. Needs live-work.css and live-work.js on the page (extra_css / extra_js).
+{%- endcomment -%}
+<figure class="lw lw--telby">
+  <div class="lw-app ts" data-lw="loop" tabindex="0" aria-label="Looping animation of Telby's builder-critic loop drawing a bell icon. Hover or focus to pause.">
+    <div class="ts-top"><span class="ts-logo">Telby</span><span class="ts-crumb">Icons / <b>bell</b></span><span class="ts-live"><i></i>scripted run</span></div>
+    <div class="ts-body">
+      <div class="ts-canvas">
+        <div class="ts-board">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs><pattern id="ts-grid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M1 0H0V1" fill="none" stroke="#eef3f6" stroke-width=".06"/></pattern></defs>
+            <rect width="24" height="24" fill="url(#ts-grid)"/>
+            <g fill="none" stroke="#16202b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path class="ts-shape" data-shape="body" d="M6 16v-5.5a6 6 0 0 1 12 0V16"/>
+              <line class="ts-shape" data-shape="lip" x1="4" y1="16" x2="20" y2="16"/>
+              <path class="ts-shape" data-shape="clapper" d="M10 17a2 2 0 0 0 4 0"/>
+            </g>
+            <circle class="ts-shape" data-shape="dot" cx="18.5" cy="4.5" r="2.5" fill="#2a4be0" stroke="#fff" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="ts-raster" aria-hidden="true"><canvas width="24" height="24"></canvas><span>PNG &rarr; critic</span></div>
+      </div>
+      <div class="ts-panel">
+        <div class="ts-panel-head">Assistant</div>
+        <div class="ts-thread" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+  <figcaption class="lw-note">A scripted run of the loop, using Telby&rsquo;s real tool names and critic verdicts. Hover to pause.</figcaption>
+</figure>

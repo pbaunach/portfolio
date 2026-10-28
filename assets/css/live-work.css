@@ -1,0 +1,887 @@
+/* Live-work demos: small working versions of the products inside a case study.
+   The frame and the note under it use the portfolio's tokens; everything inside
+   .lw-app uses that product's own type and colors (.og = Orchard, .ts = Telby),
+   taken from the product source and screenshots. Behaviour lives in
+   assets/js/live-work.js. Space Grotesk and Archivo come from the page. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ---------- Portfolio frame ---------- */
+.lw {
+  margin: 0;
+}
+
+.lw-app {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+}
+
+.lw-app:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.lw-note {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+.lw--telby {
+  max-width: 820px;
+  margin-bottom: 2.5rem;
+}
+
+.lw--orchie {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ================================================================
+   Orchard (.og): the routing path as a node graph, in Orchard's navy,
+   Inter, green and teal. It follows the flow chart above it, simplified:
+   message, screen, one lane, desk + chat history, reply. Nodes have a
+   double outline; wires are an SVG drawn behind them. Every box has a
+   fixed size, so switching examples never changes the frame's height.
+   ================================================================ */
+.og {
+  --o-bg: #08121d;
+  --o-card: #0c2235;
+  --o-ring: #16304a;
+  --o-line: #1f3a50;
+  --o-wire: #2c4862;
+  --o-text: #e4e9ed;
+  --o-muted: #8ea3b5;
+  --o-faint: #5d7487;
+  --o-green: #3cd343;
+  --o-teal: #13c7e5;
+  --o-warn: #f2a14a;
+  background: var(--o-bg);
+  color: var(--o-text);
+  font-family: Inter, system-ui, sans-serif;
+  padding: 1.25rem 1.5rem 1.25rem;
+  border-color: #000;
+}
+
+.og-hint {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--o-muted);
+}
+
+.og-asks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--o-line);
+}
+
+/* The choices read as chat messages: a bubble with a tail corner. */
+.og-ask {
+  font: 500 0.78rem/1.2 Inter, system-ui, sans-serif;
+  padding: 0.45rem 0.7rem;
+  border-radius: 12px 12px 12px 3px;
+  border: 1px solid var(--o-line);
+  background: var(--o-card);
+  color: var(--o-text);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.og-ask:hover,
+.og-ask[aria-pressed="true"] {
+  border-color: var(--o-teal);
+  color: var(--o-teal);
+}
+
+.og-ask:focus-visible {
+  outline: 2px solid var(--o-teal);
+  outline-offset: 2px;
+}
+
+.og-graph {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr) minmax(0, 0.8fr) minmax(0, 0.95fr) minmax(0, 1.7fr);
+  column-gap: 2.25rem;
+  height: 19rem;
+}
+
+.og-wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.og-wires > path {
+  fill: none;
+  stroke: var(--o-wire);
+  stroke-width: 1.5;
+  marker-end: url(#og-arrow);
+  transition: stroke 0.25s;
+}
+
+.og-wires > path.is-on { stroke: var(--o-teal); marker-end: url(#og-arrow-on); }
+.og-wires > path.is-warn { stroke: var(--o-warn); marker-end: url(#og-arrow-warn); }
+.og-wires > path.is-out { stroke: var(--o-green); marker-end: url(#og-arrow-out); }
+
+.og-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.og-col--lanes { gap: 0.45rem; }
+.og-col--reply { justify-content: stretch; }
+
+/* Double outline: a hairline ring, a gap of page color, then the card. */
+.og-node {
+  position: relative;
+  padding: 3px;
+  border: 1px solid var(--o-ring);
+  border-radius: 12px;
+  transition: border-color 0.25s, opacity 0.25s;
+}
+
+.og-card {
+  border: 1px solid var(--o-line);
+  border-radius: 9px;
+  background: var(--o-card);
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+
+.og-node.is-on { border-color: rgba(19, 199, 229, 0.35); }
+.og-node.is-on .og-card { border-color: var(--o-teal); }
+.og-node.is-skip { opacity: 0.32; }
+
+.og-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.og-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.og-sub {
+  margin: 0;
+  padding: 0 0.75rem 0.65rem;
+  font-size: 0.72rem;
+  color: var(--o-muted);
+}
+
+/* Two lines of quote, always, so a short message and a long one take the
+   same room. */
+.og-quote {
+  margin: 0;
+  padding: 0.6rem 0.75rem 0.7rem;
+  border-top: 1px solid var(--o-line);
+  height: calc(2 * 1.4em + 1.3rem);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--o-muted);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.og-node.is-on .og-quote { color: var(--o-text); }
+
+.og-status {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-left: auto;
+  flex: none;
+  border-radius: 50%;
+  background: var(--o-faint);
+}
+
+.og-node--screen.is-busy .og-status { background: var(--o-teal); animation: ogPulse 0.8s ease-in-out infinite; }
+.og-node--screen.is-done .og-status { background: var(--o-green); }
+@keyframes ogPulse { 50% { opacity: 0.3; } }
+
+/* Lanes: one small node each, like the branches in the flow chart */
+.og-lane .og-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  height: 2.1rem;
+  padding: 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.og-lane i {
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: none;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.25s;
+}
+
+.og-lane.is-on i { background: var(--o-teal); }
+.og-lane--guard .og-card { border-style: dashed; border-color: rgba(242, 161, 74, 0.45); }
+.og-lane--guard.is-on { border-color: rgba(242, 161, 74, 0.4); }
+.og-lane--guard.is-on .og-card { border-style: solid; border-color: var(--o-warn); color: var(--o-warn); }
+.og-lane--guard.is-on i { background: var(--o-warn); }
+
+/* The reply fills its column, and its text area has a fixed height */
+.og-node--reply,
+.og-node--reply .og-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.og-node--reply .og-card { box-sizing: border-box; }
+.og-node--reply.is-on { border-color: rgba(60, 211, 67, 0.35); }
+.og-node--reply.is-on .og-card { border-color: var(--o-green); }
+
+.og-node--reply .og-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.og-node--reply .og-title::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--o-green);
+}
+
+.og-tag {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--o-faint);
+}
+
+.og-reply {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0.65rem 0.75rem;
+  border-top: 1px solid var(--o-line);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.og-reply p { margin: 0; }
+.og-wait { color: var(--o-faint); }
+
+.og-next {
+  height: 2.6rem;
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  border-top: 1px solid var(--o-line);
+}
+
+.og-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.og-pill--next {
+  color: var(--o-green);
+  border: 1px solid var(--o-green);
+  font-weight: 600;
+}
+
+.og-pill--next:empty { display: none; }
+
+/* Why this route: one fixed strip under the graph */
+.og-why {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  margin: 1.4rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--o-line);
+  height: 2.9rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--o-muted);
+  overflow: hidden;
+}
+
+.og-why b {
+  flex: none;
+  color: var(--o-text);
+  font-weight: 600;
+}
+
+/* Stacked: the steps run top to bottom with short drops instead of wires. */
+@media (max-width: 860px) {
+  .og { padding: 1rem 1rem 1.1rem; }
+  .og-graph { grid-template-columns: minmax(0, 1fr); row-gap: 1.6rem; height: auto; }
+  .og-wires { display: none; }
+  .og-col--lanes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
+  .og-node--reply { height: 15rem; }
+  .og-col + .og-col::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -1.6rem;
+    height: 1.6rem;
+    border-left: 1.5px solid var(--o-wire);
+  }
+  .og-why { height: 4.4rem; flex-direction: column; gap: 0.15rem; }
+}
+
+/* ================================================================
+   Telby (.ts): a small looping run of the builder-critic loop
+   ================================================================ */
+.ts {
+  --t-accent: #2a4be0; --t-soft: #e9edff; --t-ink: #16202b; --t-ink-2: #38434f; --t-text-2: #55606b; --t-faint: #93a0ac;
+  --t-panel: #fbfcfd; --t-canvas: #e7eef3; --t-input: #ffffff; --t-fill: #edf2f6; --t-hair: #dce5eb; --t-card: #e1e9ee;
+  --t-critic-text: #b45309; --t-critic-bg: #fbf4e4; --t-ok: #15803d;
+  font-family: Archivo, system-ui, sans-serif; color: var(--t-ink); background: var(--t-panel);
+}
+.ts-top { display: flex; align-items: center; gap: 12px; padding: 8px 14px; border-bottom: 1px solid var(--t-hair); font-size: 12px; }
+.ts-logo { font: 700 14px "Space Grotesk", system-ui, sans-serif; letter-spacing: -.02em; }
+.ts-crumb { color: var(--t-text-2); }
+.ts-crumb b { color: var(--t-ink); font-weight: 600; }
+.ts-live { margin-left: auto; display: flex; align-items: center; gap: 6px; font: 500 10.5px "JetBrains Mono", monospace; color: var(--t-faint); }
+.ts-live i { width: 6px; height: 6px; border-radius: 50%; background: var(--t-ok); animation: tsPulse 1.4s ease-in-out infinite; }
+.ts.is-paused .ts-live i { animation: none; background: var(--t-faint); }
+@keyframes tsPulse { 50% { opacity: .25; } }
+/* Fixed row height: without it the thread's content stretches the row and the
+   centered artboard drifts down as messages arrive. */
+.ts-body { display: grid; grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: 340px; }
+.ts-canvas { position: relative; background: var(--t-canvas); display: grid; place-items: center; }
+.ts-board { position: relative; width: 200px; aspect-ratio: 1; background: var(--t-input); box-shadow: 0 1px 2px rgba(22, 32, 43, .08), 0 0 0 1px var(--t-card); }
+.ts-board svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ts-shape { opacity: 0; transition: opacity .2s, transform .4s cubic-bezier(.3, 1.4, .5, 1); }
+.ts-shape.is-in { opacity: 1; }
+.ts-shape.is-reset { transition: none; }
+.ts-raster {
+  position: absolute; top: 10px; right: 10px; display: flex; align-items: center; gap: 6px; padding: 5px 7px;
+  background: var(--t-input); border: 1px solid var(--t-card); border-radius: 6px; font: 500 10px "JetBrains Mono", monospace; color: var(--t-text-2);
+  opacity: 0; transition: opacity .2s;
+}
+.ts-raster.is-in { opacity: 1; }
+.ts-raster canvas { width: 32px; height: 32px; image-rendering: pixelated; border: 1px solid var(--t-card); background: #fff; }
+.ts-panel { border-left: 1px solid var(--t-hair); display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; }
+.ts-panel-head { padding: 8px 12px; border-bottom: 1px solid var(--t-hair); font: 600 12px "Space Grotesk", system-ui, sans-serif; }
+/* The thread is pinned to the bottom, so new lines push older ones up and out. */
+.ts-thread { flex: 1; min-height: 0; overflow: hidden; padding: 10px 12px; display: flex; flex-direction: column; justify-content: flex-end; gap: 7px; }
+.ts-thread > * { flex: none; animation: tsIn .22s ease-out; }
+@keyframes tsIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.ts-prompt { align-self: flex-end; max-width: 90%; padding: 6px 10px; background: var(--t-soft); border-radius: 9px 9px 2px 9px; font-size: 12px; }
+.ts-plan { border: 1px solid var(--t-card); border-radius: 8px; background: var(--t-input); padding: 7px 9px; }
+.ts-plan-h { display: flex; justify-content: space-between; font: 600 11px "Space Grotesk", system-ui, sans-serif; color: var(--t-text-2); margin-bottom: 4px; }
+.ts-plan-h em { font-style: normal; color: var(--t-ok); }
+.ts-plan ol { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 2px; font-size: 11px; line-height: 1.35; color: var(--t-ink-2); }
+.ts-chip, .ts-call { font: 500 10px "JetBrains Mono", monospace; padding: 1px 5px; border-radius: 4px; background: var(--t-fill); color: var(--t-ink-2); border: 1px solid var(--t-hair); }
+.ts-plan .ts-chip { margin-left: 4px; }
+.ts-round { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.ts-round-h { font: 600 10px "Space Grotesk", system-ui, sans-serif; color: var(--t-text-2); text-transform: uppercase; letter-spacing: .05em; margin-right: 2px; }
+.ts-call { animation: tsIn .18s ease-out; }
+.ts-critique { margin: 0; padding: 6px 8px; border-radius: 6px; background: var(--t-critic-bg); color: var(--t-critic-text); font-size: 11.5px; line-height: 1.4; }
+.ts-critique.is-ok { background: #ecf8f0; color: var(--t-ok); font-weight: 600; }
+.ts-result { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid var(--t-card); border-radius: 8px; background: var(--t-input); font-size: 12px; }
+.ts-result svg { width: 26px; height: 26px; border: 1px solid var(--t-card); border-radius: 5px; padding: 3px; }
+.ts-result small { display: block; color: var(--t-ok); font-size: 11px; }
+.ts-thread.is-fading > * { opacity: 0; transition: opacity .35s; }
+
+@media (max-width: 640px) {
+  .ts-body { grid-template-columns: 1fr; grid-template-rows: 200px 270px; }
+  .ts-board { width: 150px; }
+  .ts-panel { border-left: 0; border-top: 1px solid var(--t-hair); }
+}
+
+/* ================================================================
+   Telby tokens (.tk): tokens, semantic roles and a live set. Icons draw
+   with .tk-d (default role) and .tk-a (accent role), so the CSS variables
+   below are the whole cascade: the script only flips them, and each icon
+   picks the change up a beat after the one before it (--i).
+   ================================================================ */
+.tk {
+  --tk-primary: #16202b;
+  --tk-spot: #2a4be0;
+  --tk-accent: var(--tk-primary);
+  --tk-stroke: 2;
+}
+.tk.is-duo { --tk-accent: var(--tk-spot); }
+
+.tk-body { display: grid; grid-template-columns: 200px 220px minmax(0, 1fr); grid-template-rows: 250px; }
+.tk-col { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.tk-col + .tk-col { border-left: 1px solid var(--t-hair); }
+.tk-head, .tk-col--set .ts-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tk-list { padding: 10px; display: flex; flex-direction: column; gap: 4px; }
+.tk-group { margin: 6px 6px 2px; font: 600 9.5px "Space Grotesk", system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--t-faint); }
+.tk-group:first-child { margin-top: 0; }
+
+.tk-tok, .tk-role { display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 7px; }
+.tk-role { justify-content: space-between; background: var(--t-input); border: 1px solid var(--t-card); }
+.tk-name { display: flex; flex-direction: column; font: 500 11.5px "JetBrains Mono", monospace; color: var(--t-ink); }
+.tk-name small { font-size: 10px; color: var(--t-faint); }
+.tk-sw { width: 20px; height: 20px; flex: none; border-radius: 5px; box-shadow: inset 0 0 0 1px rgba(22, 32, 43, .12); }
+.tk-tok[data-tok="spot"] .tk-sw { background: var(--tk-spot); transition: background-color .35s; }
+.tk-line { width: 20px; height: 20px; flex: none; display: grid; align-items: center; }
+.tk-line i { display: block; height: calc(var(--tk-stroke) * 1.5px); border-radius: 2px; background: var(--t-ink); transition: height .35s; }
+.tk-num { margin-left: auto; min-width: 30px; padding: 2px 6px; border: 1px solid var(--t-card); border-radius: 5px; background: var(--t-input); font: 500 11px "JetBrains Mono", monospace; text-align: center; }
+.tk-chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 7px; border: 1px solid var(--t-hair); border-radius: 5px; background: var(--t-fill); font: 500 10.5px "JetBrains Mono", monospace; color: var(--t-ink-2); }
+.tk-chip i { width: 9px; height: 9px; border-radius: 2px; }
+.tk-chip[data-accent] i { background: var(--tk-accent); transition: background-color .35s; }
+
+/* A row the script just changed flashes once. */
+.tk .is-hit { animation: tkHit 1.2s ease-out; }
+@keyframes tkHit { 0%, 35% { background: var(--t-soft); box-shadow: inset 0 0 0 1px var(--t-accent); } 100% { box-shadow: inset 0 0 0 1px transparent; } }
+
+.tk-modes { display: inline-flex; padding: 2px; border-radius: 6px; background: var(--t-fill); }
+.tk-modes b { padding: 1px 7px; border-radius: 4px; font: 500 10px "JetBrains Mono", monospace; color: var(--t-faint); transition: background-color .25s, color .25s; }
+.tk:not(.is-duo) .tk-modes [data-mode="mono"],
+.tk.is-duo .tk-modes [data-mode="duo"] { background: var(--t-input); color: var(--t-ink); box-shadow: 0 1px 2px rgba(22, 32, 43, .12); }
+
+.tk-col--set { position: relative; background: var(--t-canvas); }
+.tk-count { font: 500 10px "JetBrains Mono", monospace; color: var(--t-faint); }
+.tk-grid { padding: 14px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.tk-grid svg { width: 100%; aspect-ratio: 1; padding: 22%; background: var(--t-input); border-radius: 8px; box-shadow: 0 0 0 1px var(--t-card); overflow: visible; }
+.tk-grid svg * {
+  fill: none; stroke: var(--tk-primary); stroke-width: var(--tk-stroke); stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke .35s calc(var(--i) * 60ms), fill .35s calc(var(--i) * 60ms), stroke-width .35s calc(var(--i) * 60ms);
+}
+.tk-grid svg .tk-a { stroke: var(--tk-accent); }
+.tk-grid svg .tk-f { fill: var(--tk-accent); stroke: none; }
+.tk.is-reset *, .tk.is-reset .tk-grid svg * { transition: none !important; }
+
+.tk-cap {
+  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); margin: 0; max-width: calc(100% - 28px);
+  padding: 5px 12px; border-radius: 999px; background: var(--t-ink); color: #fff; font-size: 11.5px; font-weight: 500; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; transition: opacity .3s;
+}
+.tk-cap:empty, .tk-cap.is-out { opacity: 0; }
+
+@media (max-width: 760px) {
+  .tk-body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto; }
+  .tk-col--set { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--t-hair); padding-bottom: 44px; }
+  .tk-grid { gap: 8px; }
+}
+@media (max-width: 480px) {
+  .tk-body { grid-template-columns: minmax(0, 1fr); }
+  .tk-col + .tk-col { border-left: 0; border-top: 1px solid var(--t-hair); }
+  .tk-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ================================================================
+   VectorAgent (.va): a scripted agent purchase, in the tokens from
+   vectoragent.telby.io (near-black navy, Inter + JetBrains Mono, cyan,
+   emerald and amber). The log on the left, the basket and the ledger on
+   the right. Fixed heights, so the frame never changes size as lines arrive.
+   ================================================================ */
+.va {
+  --v-bg: #0b0f17;
+  --v-surface: #10151f;
+  --v-recess: #070a10;
+  --v-line: rgba(255, 255, 255, 0.08);
+  --v-line2: rgba(255, 255, 255, 0.14);
+  --v-fg: #f3f4f6;
+  --v-soft: #a1a9b6;
+  --v-mute: #7d8696;
+  --v-cyan: #06b6d4;
+  --v-emerald: #10b981;
+  --v-amber: #f59e0b;
+  background: var(--v-bg);
+  color: var(--v-fg);
+  font-family: Inter, system-ui, sans-serif;
+  text-align: left;
+  border: 0;
+}
+
+.va-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--v-line);
+  font-size: 12.5px;
+}
+
+.va-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.va-logo svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--v-cyan);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.va-logo svg circle { fill: var(--v-cyan); stroke: none; }
+.va-crumb { color: var(--v-soft); }
+
+.va-live {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 10.5px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-mute);
+}
+
+.va-live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--v-emerald);
+  animation: vaPulse 1.4s ease-in-out infinite;
+}
+
+.va.is-paused .va-live i { animation: none; background: var(--v-mute); }
+@keyframes vaPulse { 50% { opacity: 0.25; } }
+
+.va-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-rows: 360px;
+}
+
+/* The log is pinned to the bottom, so new lines push older ones up and out. */
+.va-log {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 18px;
+  background: var(--v-recess);
+  border-right: 1px solid var(--v-line);
+  font: 400 12px/1.5 "JetBrains Mono", ui-monospace, monospace;
+}
+
+.va-log > * { flex: none; animation: vaIn 0.22s ease-out; }
+@keyframes vaIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.va-log.is-fading > * { opacity: 0; transition: opacity 0.35s; }
+
+.va-line { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 8px; color: var(--v-soft); }
+.va-line b { font-weight: 500; color: var(--v-fg); }
+.va-who { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--v-mute); padding-top: 1px; }
+.va-line[data-who="agent"] .va-who { color: var(--v-cyan); }
+.va-line[data-who="ledger"] .va-who { color: var(--v-emerald); }
+.va-line.is-402 b { color: var(--v-amber); }
+.va-line.is-ok b { color: var(--v-emerald); }
+
+.va-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 14px 16px 16px;
+  gap: 12px;
+}
+
+.va-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--v-soft);
+}
+
+.va-head b { font: 600 14px "JetBrains Mono", ui-monospace, monospace; color: var(--v-fg); }
+
+.va-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.va-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px 8px;
+  border: 1px solid var(--v-line);
+  border-radius: 10px;
+  background: var(--v-surface);
+  opacity: 0;
+  transition: opacity 0.3s, border-color 0.3s;
+  overflow: hidden;
+}
+
+.va-tile svg {
+  width: 30px;
+  height: 30px;
+  transition: filter 0.4s, opacity 0.4s;
+}
+
+.va-tile svg * {
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.va-tile .va-d { stroke: var(--v-fg); }
+.va-tile .va-a { stroke: var(--v-cyan); }
+
+.va-name { font: 400 9.5px "JetBrains Mono", ui-monospace, monospace; color: var(--v-mute); }
+
+.va-tag {
+  font: 600 9.5px "JetBrains Mono", ui-monospace, monospace;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--v-line2);
+  color: var(--v-soft);
+}
+
+.va-tile[data-tier="free"] .va-tag { color: var(--v-emerald); border-color: rgba(16, 185, 129, 0.4); }
+.va-tile[data-tier="standard"] .va-tag { color: var(--v-cyan); border-color: rgba(6, 182, 212, 0.4); }
+.va-tile[data-tier="premium"] .va-tag { color: var(--v-amber); border-color: rgba(245, 158, 11, 0.45); }
+
+/* Requested: in the basket, not yet priced */
+.va-tile.is-queued { opacity: 0.45; }
+.va-tile.is-queued svg { opacity: 0.35; }
+
+/* Priced: paid icons show only the watermarked preview */
+.va-tile.is-preview { opacity: 1; }
+.va-tile.is-preview svg { filter: blur(1.4px); opacity: 0.55; }
+.va-tile.is-preview::after {
+  content: "PREVIEW";
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font: 700 9px "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.12em;
+  color: rgba(245, 158, 11, 0.85);
+}
+
+.va-tile.is-free { opacity: 0.7; }
+
+/* Delivered: every icon crisp, each one stamped with the payment */
+.va-tile.is-in { opacity: 1; border-color: rgba(16, 185, 129, 0.45); }
+.va-tile.is-in svg { filter: none; opacity: 1; }
+.va-tile.is-in::after {
+  content: "tx \2713";
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  font: 600 8.5px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-emerald);
+}
+
+.va-tile[data-tier="premium"].is-in svg { animation: vaWiggle 1.6s ease-in-out infinite; }
+@keyframes vaWiggle { 50% { transform: translateY(-2px); } }
+
+.va-ledger {
+  margin-top: auto;
+  padding: 10px 12px;
+  border: 1px solid var(--v-line);
+  border-radius: 10px;
+  background: var(--v-recess);
+  font: 400 11.5px "JetBrains Mono", ui-monospace, monospace;
+}
+
+.va-ledger-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  color: var(--v-mute);
+}
+
+.va-ledger-row b { font-weight: 500; color: var(--v-soft); transition: color 0.3s; }
+.va-ledger-row b.is-minus { color: var(--v-amber); }
+.va-ledger-row b.is-plus { color: var(--v-emerald); }
+
+.va-close {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 7px;
+  border-top: 1px solid var(--v-line);
+  color: var(--v-soft);
+}
+
+.va-ring {
+  --p: 0;
+  width: 14px;
+  height: 14px;
+  flex: none;
+  border-radius: 50%;
+  background: conic-gradient(var(--v-emerald) calc(var(--p) * 1%), var(--v-line2) 0);
+}
+
+.va-close.is-waiting .va-ring { animation: vaFill 2.8s linear forwards; }
+.va-close.is-closed .va-ring { --p: 100; }
+@property --p { syntax: "<number>"; inherits: false; initial-value: 0; }
+@keyframes vaFill { to { --p: 100; } }
+
+@media (max-width: 760px) {
+  .va-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: 230px auto; }
+  .va-log { border-right: 0; border-bottom: 1px solid var(--v-line); padding: 12px 14px; font-size: 11px; }
+  .va-line { grid-template-columns: 44px minmax(0, 1fr); }
+  .va-crumb { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .va-tile[data-tier="premium"].is-in svg { animation: none; }
+}
+
+/* ================================================================
+   VectorAgent flow (.vf): the purchase diagram, stepping through its six
+   stages. Node, edge and packet states copy the live demo on
+   vectoragent.telby.io: active nodes and edges go cyan (emerald while money
+   moves) and a glowing packet travels the edge's real path.
+   ================================================================ */
+.vf {
+  --v-bg: #0b0f17;
+  --v-surface: #10151f;
+  --v-line: rgba(255, 255, 255, 0.08);
+  --v-line2: rgba(255, 255, 255, 0.14);
+  --v-fg: #f3f4f6;
+  --v-soft: #a1a9b6;
+  --v-mute: #7d8696;
+  --v-cyan: #06b6d4;
+  --v-emerald: #10b981;
+  background: var(--v-bg);
+  color: var(--v-fg);
+  font-family: Inter, system-ui, sans-serif;
+  padding: 1.75rem;
+  border: 0;
+  /* Diagram on the left, the steps beside it */
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.vf-svg {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.vf-node .shell { fill: #121923; stroke: var(--v-line2); stroke-width: 1; transition: fill 0.3s, stroke 0.3s; }
+.vf-node .body { fill: rgba(255, 255, 255, 0.022); }
+.vf-node .rule { stroke: var(--v-line); stroke-width: 1; fill: none; transition: stroke 0.3s; }
+.vf-node .nm { fill: var(--v-fg); font: 600 12px Inter, system-ui, sans-serif; }
+.vf-node .sub { fill: var(--v-mute); font: 400 9px "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.1em; }
+.vf-node .gly { fill: none; stroke: #5c6878; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
+.vf-node .pill rect { fill: rgba(255, 255, 255, 0.05); stroke: var(--v-line); stroke-width: 1; }
+.vf-node .pill text { fill: var(--v-soft); font: 400 9px "JetBrains Mono", ui-monospace, monospace; text-anchor: middle; }
+.vf-node .led { fill: #2a3440; transition: fill 0.3s; }
+
+.vf-node.on .shell { stroke: var(--v-cyan); fill: #0f1e26; }
+.vf-node.on .rule { stroke: rgba(6, 182, 212, 0.28); }
+.vf-node.on .gly { stroke: var(--v-cyan); }
+.vf-node.on .led { fill: var(--v-cyan); }
+.vf-node.on.pay .shell { stroke: var(--v-emerald); fill: #0e1d19; }
+.vf-node.on.pay .rule { stroke: rgba(16, 185, 129, 0.28); }
+.vf-node.on.pay .gly { stroke: var(--v-emerald); }
+.vf-node.on.pay .led { fill: var(--v-emerald); }
+
+.vf-edge { stroke: #232e3b; stroke-width: 1.5; fill: none; marker-end: url(#vf-arw); transition: stroke 0.3s; }
+.vf-edge.both { marker-start: url(#vf-arw); }
+.vf-edge.value { stroke: #1e2835; stroke-dasharray: 5 5; }
+.vf-edge.hot { stroke: var(--v-cyan); marker-end: url(#vf-arwc); }
+.vf-edge.both.hot { marker-start: url(#vf-arwc); }
+.vf-edge.hot.pay { stroke: var(--v-emerald); marker-end: url(#vf-arwe); }
+.vf-edge.both.hot.pay { marker-start: url(#vf-arwe); }
+
+.vf-badge circle { fill: var(--v-bg); stroke: var(--v-cyan); stroke-width: 1.2; transition: fill 0.3s; }
+.vf-badge text { fill: var(--v-cyan); font: 500 10px "JetBrains Mono", ui-monospace, monospace; text-anchor: middle; transition: fill 0.3s; }
+.vf-badge.on circle { fill: var(--v-cyan); }
+.vf-badge.on text { fill: var(--v-bg); }
+.vf-badge.on.pay circle { fill: var(--v-emerald); stroke: var(--v-emerald); }
+
+.vf-packet { opacity: 0; transition: opacity 0.2s; }
+.vf.is-flying .vf-packet { opacity: 1; }
+
+/* The six steps, as buttons: hovering or focusing one shows it */
+.vf-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.4rem;
+}
+
+.vf-steps li { margin: 0; }
+
+.vf-steps button {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 0.15rem 0.6rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--v-line);
+  border-radius: 10px;
+  background: var(--v-surface);
+  color: var(--v-soft);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.vf-steps button:focus-visible { outline: 2px solid var(--v-cyan); outline-offset: 2px; }
+
+.vf-n {
+  grid-row: 1 / 3;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1.2px var(--v-cyan);
+  color: var(--v-cyan);
+  font: 500 0.7rem "JetBrains Mono", ui-monospace, monospace;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.vf-steps b { color: var(--v-fg); font-size: 0.84rem; font-weight: 600; line-height: 1.3; }
+.vf-steps button > span:last-child { font-size: 0.76rem; line-height: 1.45; }
+
+.vf-steps button.is-on { border-color: rgba(6, 182, 212, 0.55); background: #0f1e26; }
+.vf-steps button.is-on .vf-n { background: var(--v-cyan); color: var(--v-bg); }
+.vf-steps button[data-pay].is-on { border-color: rgba(16, 185, 129, 0.55); background: #0e1d19; }
+.vf-steps button[data-pay].is-on .vf-n { background: var(--v-emerald); box-shadow: inset 0 0 0 1.2px var(--v-emerald); }
+
+@media (max-width: 900px) {
+  .vf { grid-template-columns: minmax(0, 1fr); padding: 1.25rem 0.9rem 1rem; }
+}
