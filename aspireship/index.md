@@ -166,8 +166,8 @@ extra_css: [/assets/css/side-project.css]
   <div class="sp-wrap sp-outro-inner">
     <div>
       <span class="sp-kicker">My role</span>
-      <h2 class="sp-title sp-title--sm" id="sp-role-title">The only product and design person, for six years.</h2>
-      <p class="sp-lead">Head of Product &amp; Design since 2020, at a company that has been as large as sixteen people and as small as four. I designed one system across the independent learner, the enterprise team seat, the employer&rsquo;s hiring tools, and the admin our placement team ran the business on, along with the brand.</p>
+      <h2 class="sp-title sp-title--sm" id="sp-role-title">Head of Product &amp; Design since 2020</h2>
+      <p class="sp-lead">I designed one system across the independent learner, the enterprise team seat, the employer&rsquo;s hiring tools, and the admin our placement team ran the business on, along with the brand.</p>
     </div>
     <div class="sp-outro-actions">
       <a href="{{ '/brand-guidelines/' | relative_url }}" class="button button-primary">See the brand guidelines</a>
