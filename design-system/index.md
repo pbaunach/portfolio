@@ -9,7 +9,7 @@ layout: case-study
   <div class="case-study-section-inner">
     <div class="case-study-hero-inner">
       <h1 class="case-study-title">Building a Shared Language (Project BFF)</h1>
-      <p class="case-study-hero-summary">I built a platform-agnostic, CSS-based design system from the ground up to unify a fragmented product suite. This project details how I established the architecture and components that scaled across our entire ecosystem, drastically simplifying the handoff between design and engineering.</p>
+      <p class="case-study-hero-summary">I built a platform-agnostic, CSS-based design system from the ground up to unify a fragmented product suite. This project details how I established the architecture and components that scaled across our entire ecosystem, drastically simplifying the handoff between design and engineering. In 2026 I rebuilt it as BFF 2, a design system that AI agents can build with as well as people.</p>
     </div>
     <!--
     <div class="case-study-hero-dashboard">
@@ -33,7 +33,8 @@ layout: case-study
   <div class="major-section-inner">
     <div class="subsection">
       <p class="case-study-intro-cta case-study-intro-cta--above-title">
-        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View BFF Documentation</a>
+        <a href="{{ '/bff-2/' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View BFF 2 Documentation</a>
+        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View the 2016 Original</a>
       </p>
       <h2>Design System Screens</h2>
       <p>We built the system using Atomic Design principles to ensure every component was modular, reusable, and logically structured. This allowed us to scale the interface rapidly while maintaining total visual consistency across both platforms.</p>
@@ -62,7 +63,7 @@ layout: case-study
         <img src="{{ '/assets/img/design-system/bff-example.png' | relative_url }}" alt="BFF design system documentation example">
       </figure>
       <p class="subsection-cta-center">
-        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View Full Documentation</a>
+        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View the Original Documentation</a>
       </p>
     </div>
   </div>

@@ -163,12 +163,13 @@ extra_js: [/assets/js/live-work.js]
       <span class="archive-num">01</span>
       <div class="archive-main">
         <h3 class="archive-title">Building a Shared Language <span class="archive-title-sub">(Project BFF)</span></h3>
-        <p class="archive-desc">A platform-agnostic, CSS-based design system built from the ground up to unify a fragmented product suite and simplify design-to-eng handoff.</p>
+        <p class="archive-desc">A platform-agnostic, CSS-based design system built in 2016 to unify a fragmented product suite, and rebuilt in 2026 for people and AI agents.</p>
       </div>
       <span class="archive-tag">Design Systems</span>
       <div class="archive-links">
         <a href="{{ '/design-system/' | relative_url }}" class="archive-link">System <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="{{ '/bff/index.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">Docs <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
+        <a href="{{ '/bff-2/' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">BFF 2 docs <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
+        <a href="{{ '/bff/index.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">2016 original <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
     </li>
 
