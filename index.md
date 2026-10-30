@@ -103,7 +103,7 @@ extra_js: [/assets/js/live-work.js]
     <div class="lab-grid">
       <article class="lab-card lab-card--wide">
         <div class="lab-poster lab-poster--live" aria-hidden="true">
-          {% include demos/va-loop.html log_only=true %}
+          {% include demos/va-loop.html log_only=true still=true %}
         </div>
         <div class="lab-card-copy">
           <h3 class="lab-name"><a href="{{ '/case-studies/vector-agent/' | relative_url }}" class="lab-link">VectorAgent</a></h3>

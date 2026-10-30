@@ -66,6 +66,18 @@
       ],
       "port": 4013,
       "url": "http://localhost:4013"
+    },
+    {
+      "name": "bff-docs",
+      "runtimeExecutable": "npm.cmd",
+      "runtimeArgs": [
+        "run",
+        "docs",
+        "--prefix",
+        "C:\\Cursor Apps\\bff-2"
+      ],
+      "port": 6006,
+      "autoPort": false
     }
   ]
 }

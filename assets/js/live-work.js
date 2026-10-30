@@ -10,10 +10,11 @@
   function $$(root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
 
   /* Plays a [time in ms, action] script on a loop. Pauses on hover, focus and
-     off screen. Under reduced motion it runs every step before `stillAt` once
-     and stops there, as a still frame. */
+     off screen. Under reduced motion, or when the root carries data-still (a
+     card cover that should never move), it runs every step before `stillAt`
+     once and stops there, as a still frame. */
   function play(root, script, loop, stillAt) {
-    if (reduceMotion) {
+    if (reduceMotion || root.hasAttribute('data-still')) {
       script.forEach(function (s) { if (s[0] < stillAt) s[1](); });
       return;
     }
