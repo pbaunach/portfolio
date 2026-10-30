@@ -65,7 +65,7 @@ extra_js: [/assets/js/live-work.js]
     </header>
 
     <ul class="sp-stats">
-      <li><b>2 of 4</b><span>agents bought something, given funds, a catalog and no instructions.</span></li>
+      <li><b>2 of 4</b><span>agents bought something. All four had a funded wallet and no nudge to use the tool; only the fourth was told it could spend.</span></li>
       <li><b>3 prices</b><span>free, $0.002 and $0.010, so every request makes the agent decide whether the better icon is worth paying for.</span></li>
       <li><b>2 transactions</b><span>per purchase: a Soroban payment, then a classic Stellar receipt holding a hash of what was bought.</span></li>
     </ul>
@@ -74,6 +74,12 @@ extra_js: [/assets/js/live-work.js]
       <h3 class="sp-sub">How one purchase works</h3>
       <p class="sp-sub-lead">Six steps, from the request to the receipt. It plays through on its own, or hover a step to see where it happens.</p>
       {% include demos/va-flow.html %}
+    </div>
+
+    <div class="sp-flow sp-flow--va">
+      <h3 class="sp-sub">What the receipt proves</h3>
+      <p class="sp-sub-lead">The last step is the one that turns a payment into a license. Here is a real settlement, and everything a stranger needs to check it without taking my word for any of it.</p>
+      {% include demos/va-receipt.html %}
       <p class="sp-flow-actions">
         <a href="https://vectoragent.telby.io/" target="_blank" rel="noopener noreferrer" class="button button-primary">Try it out</a>
         <a href="https://vectoragent.telby.io/ledger" target="_blank" rel="noopener noreferrer" class="button button-outline">Verify on the ledger</a>

@@ -1,0 +1,62 @@
+{%- comment -%}
+  One real settlement and the trail it leaves, read off Stellar testnet: the
+  itemised manifest on the left, and on the right the digest of those exact
+  bytes, the ledger entry holding it, and what a reader can do with both. Every
+  value is real and both hashes link to the explorer, so the figure is itself
+  checkable. Static: needs live-work.css, no JS, nothing animates.
+{%- endcomment -%}
+<div class="lw-app va vr">
+  <div class="va-top">
+    <span class="va-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18c3-9 9-12 16-12" /><circle cx="20" cy="6" r="2"/></svg>VectorAgent</span>
+    <span class="va-crumb">Receipt</span>
+    <span class="va-live">one real settlement</span>
+  </div>
+  <div class="vr-body">
+    <div class="vr-manifest">
+      <div class="vr-head"><span>Manifest &middot; 7 icons</span><b>$0.0180</b></div>
+      <ul class="vr-items">
+        <li data-tier="free"><b>box-stack</b><em>free</em><i>$0.000</i></li>
+        <li data-tier="standard"><b>inventory-low</b><em>standard</em><i>$0.002</i></li>
+        <li data-tier="standard"><b>out-of-stock</b><em>standard</em><i>$0.002</i></li>
+        <li data-tier="premium"><b>out-of-stock.anim-fade</b><em>premium</em><i>$0.010</i></li>
+        <li data-tier="standard"><b>stock-count</b><em>standard</em><i>$0.002</i></li>
+        <li data-tier="standard"><b>stock-out</b><em>standard</em><i>$0.002</i></li>
+        <li data-tier="free"><b>stock-ticker</b><em>free</em><i>$0.000</i></li>
+      </ul>
+      <p class="vr-foot">Serialised to <b>524 bytes</b> of canonical JSON: fixed field order, items
+        sorted by id. The sort is part of the body, so anyone can rebuild the exact bytes.
+        <a href="https://stellar.expert/explorer/testnet/tx/ec6405b887dede5453ef4ac663760791e657f2cea1bfd5e4727b7f62a6409751" target="_blank" rel="noopener noreferrer">paid in ec6405b8&hellip;</a>
+      </p>
+    </div>
+    <ol class="vr-proof">
+      <li>
+        <span class="vr-n">1</span>
+        <div>
+          <b>Hashed</b>
+          <p>sha256 over those bytes. Change one price, one id or the order, and nothing below matches.</p>
+          <code>5a759b7d&hellip;a643b843</code>
+        </div>
+      </li>
+      <li>
+        <span class="vr-n">2</span>
+        <div>
+          <b>Written to the ledger</b>
+          <p>A <code>manage_data</code> entry whose name is the first 32 characters of the payment
+            hash, so the link between the money and the list is public too.</p>
+          <code>va:ec6405b887dede5453ef4ac663760791</code>
+          <a href="https://stellar.expert/explorer/testnet/tx/f60c428f17cad889bfeffed7d3b2361ee0b30dbbefcf4fa8aa87f29d9baadda8" target="_blank" rel="noopener noreferrer">receipt f60c428f&hellip;</a>
+        </div>
+      </li>
+      <li>
+        <span class="vr-n">3</span>
+        <div>
+          <b>Re-checked by the reader</b>
+          <p>The settlements page fetches every manifest and re-hashes it in your browser. Anything
+            that does not match the chain is dropped rather than shown, so the page can never vouch
+            for a list the ledger has not already committed to.</p>
+          <a href="https://vectoragent.telby.io/ledger" target="_blank" rel="noopener noreferrer">watch it happen</a>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>

@@ -877,3 +877,179 @@
 @media (max-width: 900px) {
   .vf { grid-template-columns: minmax(0, 1fr); padding: 1.25rem 0.9rem 1rem; }
 }
+
+
+/* ---------------------------------------------------------------------------
+   VectorAgent receipt (.vr): one settlement and the trail it leaves. Static,
+   so it borrows the .va tokens and chrome and adds no behaviour. The manifest
+   sits on the recess the way the live site's artifact panel does, and the
+   three proof steps reuse the numbered-step shape from the flow diagram above
+   it, so the two figures in this section read as one pair.
+   --------------------------------------------------------------------------- */
+.vr-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.vr-manifest {
+  padding: 16px 18px 18px;
+  border-right: 1px solid var(--v-line);
+  background: var(--v-recess);
+}
+
+.vr-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--v-line);
+  font: 500 10.5px "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--v-mute);
+}
+
+.vr-head b {
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v-fg);
+}
+
+.vr-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vr-items li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--v-line);
+  font: 400 11.5px "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* An id can be long enough to need a break, and a mono column has no good
+   place to put an ellipsis: the tail of an id is the part that identifies it. */
+.vr-items b { font-weight: 400; color: var(--v-fg); overflow-wrap: anywhere; }
+
+.vr-items em {
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--v-mute);
+  border: 1px solid var(--v-line2);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
+.vr-items li[data-tier="standard"] em { color: var(--v-cyan); border-color: rgba(6, 182, 212, 0.45); }
+.vr-items li[data-tier="premium"] em { color: var(--v-amber); border-color: rgba(245, 158, 11, 0.45); }
+
+.vr-items i {
+  font-style: normal;
+  color: var(--v-soft);
+  min-width: 46px;
+  text-align: right;
+}
+
+.vr-foot {
+  margin: 12px 0 0;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--v-mute);
+}
+
+.vr-foot b { color: var(--v-soft); font-weight: 500; }
+
+.vr-proof {
+  list-style: none;
+  margin: 0;
+  padding: 16px 18px 18px;
+  display: grid;
+  gap: 15px;
+  align-content: start;
+}
+
+.vr-proof > li {
+  display: grid;
+  grid-template-columns: 1.45rem minmax(0, 1fr);
+  gap: 10px;
+}
+
+.vr-n {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1.2px var(--v-cyan);
+  color: var(--v-cyan);
+  font: 500 0.7rem "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* The last step is the one the reader performs, and green is the settled
+   colour everywhere else in these figures. */
+.vr-proof > li:last-child .vr-n {
+  box-shadow: inset 0 0 0 1.2px var(--v-emerald);
+  color: var(--v-emerald);
+}
+
+.vr-proof b {
+  display: block;
+  color: var(--v-fg);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.vr-proof p {
+  margin: 4px 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--v-soft);
+}
+
+.vr-proof > li > div > code {
+  display: block;
+  margin-top: 7px;
+  padding: 6px 9px;
+  border-radius: 6px;
+  background: var(--v-recess);
+  border: 1px solid var(--v-line);
+  font: 400 11px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-fg);
+  overflow-wrap: anywhere;
+}
+
+/* A name inside a sentence stays inside the sentence. */
+.vr-proof p code {
+  font: 400 0.95em "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-fg);
+}
+
+.vr-foot a,
+.vr-proof a {
+  display: inline-block;
+  margin-top: 7px;
+  font: 400 11px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--v-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.35);
+}
+
+.vr-foot a:hover,
+.vr-proof a:hover { border-bottom-color: var(--v-cyan); }
+
+.vr-foot a:focus-visible,
+.vr-proof a:focus-visible { outline: 2px solid var(--v-cyan); outline-offset: 2px; }
+
+@media (max-width: 760px) {
+  .vr-body { grid-template-columns: minmax(0, 1fr); }
+  .vr-manifest { border-right: 0; border-bottom: 1px solid var(--v-line); }
+}
