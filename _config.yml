@@ -21,6 +21,10 @@ defaults:
     values:
       layout: case-study
 
+# Google Apps Script web app URL (ends in /exec) that emails Peter on each new
+# visitor. Setup steps are in tools/visit-ping/Code.gs. Empty turns the ping off.
+visit_ping_url: "https://script.google.com/macros/s/AKfycbwrD2RC_0LcF6euWtqrDYh_MlDlblSkFwDiLOiAmKVqKELYT7QyYFiqHqZfja03NXfc9A/exec"
+
 markdown: kramdown
 highlighter: rouge
 
@@ -34,6 +38,8 @@ exclude:
   - frederick-marketing-automation
   # Session handoff notes for the Orchard portfolio review. Never publish.
   - _handoff
+  # Source for the Apps Script that _includes/visit-ping.html talks to. Not a page.
+  - tools
   # Raw Windows exes for the Sleeper's Tomb demo (any version). The page serves the
   # zipped copy; skipping the exe keeps about 114 MB out of every build.
   - sleepers-tomb/builds/*/windows/*.exe

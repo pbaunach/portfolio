@@ -1,0 +1,65 @@
+{% if site.visit_ping_url and site.visit_ping_url != "" %}
+<!-- First-visit email ping. The first time a browser opens any page, it sends one
+     request to the Google Apps Script in tools/visit-ping/Code.gs, which emails Peter
+     the landing page and referrer. Later page views and return visits send nothing.
+     The same random visitor ID is set as a Clarity custom tag on every session, so the
+     email's ID finds that visitor's recordings (Recordings > Filters > Custom tags).
+     Open any page once with ?me to stop pinging from this browser; ?notme undoes it.
+     Renders nothing until visit_ping_url is set in _config.yml. -->
+<script>
+  (function () {
+    var url = {{ site.visit_ping_url | jsonify }};
+    var store;
+    try { store = window.localStorage; store.getItem("pb_vid"); } catch (e) { return; }
+
+    var q = location.search;
+    if (/[?&]me(=|&|$)/.test(q)) store.setItem("pb_me", "1");
+    if (/[?&]notme(=|&|$)/.test(q)) store.removeItem("pb_me");
+    if (store.getItem("pb_me")) return;
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
+
+    var ua = navigator.userAgent || "";
+    if (navigator.webdriver || /bot|crawl|spider|slurp|headless|lighthouse|preview|scan/i.test(ua)) return;
+
+    var id = store.getItem("pb_vid");
+    var isNew = !id;
+    if (isNew) {
+      id = Math.random().toString(36).slice(2, 10);
+      store.setItem("pb_vid", id);
+    }
+    if (typeof window.clarity === "function") window.clarity("set", "visitor_id", id);
+    if (!isNew) return;
+
+    function send() {
+      var tz = "";
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+      var body = JSON.stringify({
+        id: id,
+        page: location.pathname + location.search,
+        title: document.title,
+        referrer: document.referrer,
+        timezone: tz,
+        language: navigator.language || "",
+        width: window.innerWidth,
+        ua: ua
+      });
+      // text/plain keeps this a simple request, so Apps Script needs no CORS preflight.
+      var blob = new Blob([body], { type: "text/plain" });
+      if (!(navigator.sendBeacon && navigator.sendBeacon(url, blob))) {
+        fetch(url, { method: "POST", mode: "no-cors", keepalive: true, body: blob });
+      }
+    }
+
+    // Prerendered pages that are never shown don't count as a visit.
+    if (document.visibilityState === "hidden") {
+      document.addEventListener("visibilitychange", function once() {
+        if (document.visibilityState !== "visible") return;
+        document.removeEventListener("visibilitychange", once);
+        send();
+      });
+    } else {
+      send();
+    }
+  })();
+</script>
+{% endif %}
