@@ -1,4 +1,0 @@
-import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-CsJyRqpi.js";import{i as n,r}from"./react-Bcviin_k.js";import{o as i,s as a}from"./blocks-BsnwBHoz.js";import{d as o,n as s}from"./Foundations-AE_j4j_M.js";function c(e){let t={code:`code`,h1:`h1`,p:`p`,...n(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(i,{title:`Foundations/Density`}),`
-`,(0,u.jsx)(t.h1,{id:`density`,children:`Density`}),`
-`,(0,u.jsxs)(t.p,{children:[`Controls take their height and padding from `,(0,u.jsx)(t.code,{children:`--bff-control-*`}),` tokens. Set `,(0,u.jsx)(t.code,{children:`data-density`}),` on any ancestor to change everything inside it at once, rather than resizing components one by one.`]}),`
-`,(0,u.jsx)(s,{})]})}function l(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;function d(){return(d=e((()=>{u=t(),r(),a(),o()})))()}d();export{l as default};
