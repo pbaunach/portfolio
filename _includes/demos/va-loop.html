@@ -6,6 +6,7 @@
   transaction that bought them. The steps and the $0.014 basket mirror the
   live site; the ledger wait is shortened. Needs live-work.css and live-work.js.
     log_only=true  just the log, no basket or ledger: a decorative cover for a card
+    still=true     show the finished purchase as a still frame instead of looping
 {%- endcomment -%}
 {%- capture ic_cloud -%}<path class="va-d" d="M7 18a4.5 4.5 0 0 1-.5-9 6 6 0 0 1 11.5 1.5A3.75 3.75 0 0 1 17.5 18z"/><polyline class="va-a" points="9.5 14 12 11.5 14.5 14"/>{%- endcapture -%}
 {%- capture ic_lock -%}<rect class="va-d" x="5" y="11" width="14" height="10" rx="2"/><path class="va-a" d="M8 11V8a4 4 0 0 1 8 0v3"/>{%- endcapture -%}
@@ -14,7 +15,7 @@
 {%- capture ic_search -%}<circle class="va-d" cx="11" cy="11" r="6"/><line class="va-d" x1="15.5" y1="15.5" x2="20" y2="20"/>{%- endcapture -%}
 {%- capture ic_cal -%}<rect class="va-d" x="4" y="5" width="16" height="15" rx="2"/><line class="va-d" x1="4" y1="10" x2="20" y2="10"/><line class="va-d" x1="8.5" y1="3" x2="8.5" y2="7"/><line class="va-d" x1="15.5" y1="3" x2="15.5" y2="7"/>{%- endcapture -%}
 {%- if include.log_only %}
-<div class="lw-app va va--log" data-lw="va" aria-hidden="true">
+<div class="lw-app va va--log" data-lw="va" aria-hidden="true"{% if include.still %} data-still{% endif %}>
 {%- else %}
 <div class="lw-app va" data-lw="va" tabindex="0" aria-label="Looping animation of an AI agent buying a basket of six icons from VectorAgent: a 402 challenge with free previews, one signed payment, a wait for the ledger to close, and the icons delivered with the transaction that bought them. Hover or focus to pause.">
 {%- endif %}

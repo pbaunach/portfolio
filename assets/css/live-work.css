@@ -577,6 +577,7 @@
 }
 
 .va-log > * { flex: none; animation: vaIn 0.22s ease-out; }
+.va[data-still] .va-log > * { animation: none; }
 @keyframes vaIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 .va-log.is-fading > * { opacity: 0; transition: opacity 0.35s; }
 
