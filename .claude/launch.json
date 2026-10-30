@@ -80,32 +80,28 @@
       "autoPort": false
     },
     {
-      "name": "bff-docs-bff1",
+      "name": "bff-sample",
       "runtimeExecutable": "npm.cmd",
       "runtimeArgs": [
         "run",
         "dev",
         "--prefix",
-        "C:\\Cursor Apps\\bff-2-bff1\\apps\\docs",
-        "--",
-        "-p",
-        "6007"
+        "C:\\Cursor Apps\\bff-2\\apps\\sample"
       ],
-      "port": 6007,
+      "port": 5180,
       "autoPort": false
     },
     {
-      "name": "bff1-reference",
-      "runtimeExecutable": "npx.cmd",
+      "name": "bff-site",
+      "runtimeExecutable": "npm.cmd",
       "runtimeArgs": [
-        "-y",
-        "http-server",
-        "C:\\Users\\pbaun\\AppData\\Local\\Temp\\claude\\C--Cursor-Apps-Portfolio\\544a4b4d-8204-4445-ae83-6b03b37f422e\\scratchpad\\bff1-docs",
-        "-p",
-        "4020",
-        "-c-1"
+        "run",
+        "dev",
+        "--prefix",
+        "C:\\Cursor Apps\\bff-2\\apps\\site"
       ],
-      "port": 4020
+      "port": 5190,
+      "autoPort": false
     }
   ]
 }
