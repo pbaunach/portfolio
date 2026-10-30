@@ -1,4 +1,0 @@
-import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-CsJyRqpi.js";import{i as n,r}from"./react-Bcviin_k.js";import{o as i,s as a}from"./blocks-BsnwBHoz.js";import{d as o,o as s}from"./Foundations-AE_j4j_M.js";function c(e){let t={code:`code`,h1:`h1`,p:`p`,...n(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(i,{title:`Foundations/Motion`}),`
-`,(0,u.jsx)(t.h1,{id:`motion`,children:`Motion`}),`
-`,(0,u.jsxs)(t.p,{children:[`Three durations and two easings. Under `,(0,u.jsx)(t.code,{children:`prefers-reduced-motion`}),` every duration becomes 0ms, so components never need their own media query.`]}),`
-`,(0,u.jsx)(s,{})]})}function l(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;function d(){return(d=e((()=>{u=t(),r(),a(),o()})))()}d();export{l as default};
