@@ -1,4 +1,0 @@
-import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-wseOPJ9U.js";import{i as n,r}from"./react-DGBXd3BL.js";import{o as i,s as a}from"./blocks-BeTJN8Vc.js";import{c as o,d as s}from"./Foundations-B5DnheLl.js";function c(e){let t={code:`code`,h1:`h1`,p:`p`,...n(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(i,{title:`Foundations/Spacing`}),`
-`,(0,u.jsx)(t.h1,{id:`spacing`,children:`Spacing`}),`
-`,(0,u.jsxs)(t.p,{children:[`A 4px grid. The half steps (`,(0,u.jsx)(t.code,{children:`0-5`}),`, `,(0,u.jsx)(t.code,{children:`1-5`}),`) are for icon gaps and tight inline spacing.`]}),`
-`,(0,u.jsx)(o,{})]})}function l(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;function d(){return(d=e((()=>{u=t(),r(),a(),s()})))()}d();export{l as default};
