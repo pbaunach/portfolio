@@ -34,7 +34,6 @@ layout: case-study
     <div class="subsection">
       <p class="case-study-intro-cta case-study-intro-cta--above-title">
         <a href="{{ '/bff-2/' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View BFF 2 Documentation</a>
-        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener noreferrer">View the 2016 Original</a>
       </p>
       <h2>Design System Screens</h2>
       <p>We built the system using Atomic Design principles to ensure every component was modular, reusable, and logically structured. This allowed us to scale the interface rapidly while maintaining total visual consistency across both platforms.</p>
@@ -62,9 +61,6 @@ layout: case-study
       <figure class="case-study-screenshot">
         <img src="{{ '/assets/img/design-system/bff-example.png' | relative_url }}" alt="BFF design system documentation example">
       </figure>
-      <p class="subsection-cta-center">
-        <a href="{{ '/bff/index.html' | relative_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">View the Original Documentation</a>
-      </p>
     </div>
   </div>
 </section>

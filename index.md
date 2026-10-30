@@ -168,9 +168,7 @@ extra_js: [/assets/js/live-work.js]
       <span class="archive-tag">Design Systems</span>
       <div class="archive-links">
         <a href="{{ '/design-system/' | relative_url }}" class="archive-link">System <span class="archive-link-arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="{{ '/bff-2/' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">BFF 2 docs <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
-        <a href="{{ '/bff/index.html' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">2016 original <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>
-      </div>
+        <a href="{{ '/bff-2/' | relative_url }}" class="archive-link" target="_blank" rel="noopener noreferrer">BFF 2 docs <span class="archive-link-arrow" aria-hidden="true">&#8599;</span></a>      </div>
     </li>
 
     <li class="archive-row">
