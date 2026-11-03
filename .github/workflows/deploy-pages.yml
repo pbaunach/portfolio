@@ -3,6 +3,8 @@ name: Deploy Jekyll + Orchard Prototype to GitHub Pages
 on:
   push:
     branches: [main]
+  # Adds a "Run workflow" button on the Actions tab for redeploying without a push.
+  workflow_dispatch:
 
 permissions:
   contents: read
