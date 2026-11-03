@@ -1,0 +1,63 @@
+name: Deploy Jekyll + Orchard Prototype to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      - name: Add Linux platform and install Bundler dependencies
+        run: |
+          bundle lock --add-platform x86_64-linux
+          bundle install
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Merge Vite build into Jekyll output
+        run: |
+          mkdir -p _site/orchard-prototype
+          cp -r orchard-prototype/. _site/orchard-prototype/
+          # Ensure Vite-built assets are also available at site root for any `/assets/...` paths
+          mkdir -p _site/assets
+          cp -r orchard-prototype/assets/. _site/assets/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

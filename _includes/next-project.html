@@ -1,0 +1,36 @@
+{%- comment -%}
+  "Next project": a slim link at the end of a deep dive to the next one in
+  _data/project_order.yml, looping from the last back to the first. It finds
+  the current page by page.url, so it needs no parameters. Styled in
+  side-project.css.
+{%- endcomment -%}
+{%- assign order = site.data.project_order -%}
+{%- assign next = nil -%}
+{%- for p in order -%}
+  {%- if p.url == page.url -%}
+    {%- if forloop.last -%}{%- assign next = order[0] -%}{%- else -%}{%- assign next = order[forloop.index] -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if next -%}
+{%- assign next_img = next.image -%}
+{%- if next_img -%}{%- unless next_img contains '://' -%}{%- assign next_img = next_img | relative_url -%}{%- endunless -%}{%- endif -%}
+<nav class="sp-next" aria-label="Next project">
+  <div class="sp-wrap">
+    <a class="sp-next-card" href="{{ next.url | relative_url }}">
+      <span class="sp-next-thumb" aria-hidden="true">
+        {%- if next_img %}
+        <img src="{{ next_img }}" alt="" loading="lazy">
+        {%- else %}
+        <span class="sp-next-tile"><svg viewBox="0 0 24 24"><path d="M4 18c3-9 9-12 16-12"/><circle cx="20" cy="6" r="2"/></svg>{{ next.name }}</span>
+        {%- endif %}
+      </span>
+      <span class="sp-next-copy">
+        <span class="sp-next-label">Next project</span>
+        <span class="sp-next-name">{{ next.name }}</span>
+        <span class="sp-next-tag">{{ next.tagline }}</span>
+      </span>
+      <span class="sp-next-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</nav>
+{%- endif -%}

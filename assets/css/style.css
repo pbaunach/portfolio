@@ -1,0 +1,4924 @@
+/* Design tokens (Telby-inspired light theme) */
+:root {
+  --background: #f5f8fa;
+  --foreground: #16202b;
+  --muted: #e8ecef;
+  --muted-foreground: #5c6373;
+  --card: #ffffff;
+  --card-foreground: #2d3542;
+  --border: rgba(22, 32, 43, 0.12);
+  --primary: #1a4e8c;
+  --primary-hover: #143a69;
+  --primary-foreground: #ffffff;
+  --radius-lg: 0.9rem;
+  --radius-xl: 1.2rem;
+  --shadow-soft: 0 18px 50px rgba(22, 32, 43, 0.12);
+  --shadow-subtle: 0 8px 24px rgba(22, 32, 43, 0.07);
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* The header is sticky, so nav jumps to #projects, #lab and #artifacts stop below it */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6,
+.site-nav a,
+.section-title,
+.case-study-title,
+.logo-placeholder {
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.site-header {
+  background: rgba(245, 248, 250, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Vertical only. The shorthand would zero out .container's horizontal
+     padding, pinning the logo and nav to the viewport edge below 960px. */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  gap: 1.5rem;
+}
+
+.site-logo {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+
+.site-logo-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.site-logo-name__primary {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+.site-logo-name__dot {
+  color: var(--primary);
+}
+
+.site-logo-name__secondary {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  letter-spacing: 0.02em;
+  margin-top: 0.15rem;
+}
+
+.logo-placeholder {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 78, 140, 0.15);
+  border: 1px solid rgba(26, 78, 140, 0.4);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--primary);
+  background-color: rgba(26, 78, 140, 0.08);
+}
+
+.site-main {
+  padding: 0;
+}
+
+.site-main--home {
+  padding-bottom: 3rem;
+}
+
+/* Home hero: editorial two-column intro (headline, then copy + meta table) */
+.home-hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 0;
+  padding: 2.75rem 0 3.25rem;
+  box-sizing: border-box;
+  background-color: #0b1220;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.home-hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.home-hero .intro-headline {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f5f8fa;
+  margin: 0;
+  white-space: nowrap;
+  text-shadow: none;
+}
+
+.home-hero .intro-emphasis {
+  color: #7fb3e8;
+}
+
+.home-hero .intro-copy {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #dde5ef;
+  margin: 0;
+  max-width: 42ch;
+  text-shadow: none;
+}
+
+/* Hero split: copy on the left, the prototype-to-production wipe on the right */
+.home-hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.home-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-width: 0;
+}
+
+.home-hero .intro-headline--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
+  font-size: clamp(2rem, 4.6vw, 3.3rem);
+}
+
+.intro-line {
+  display: block;
+}
+
+/* "Prototype" is drawn like a draft: outlined letterforms sitting between
+   dashed cap-height and baseline guides that run past the word. */
+.intro-proto {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 1.2px #7fb3e8;
+  letter-spacing: 0.005em;
+}
+
+.intro-proto::before {
+  content: "";
+  position: absolute;
+  left: -0.3em;
+  right: -0.3em;
+  top: 0.24em;
+  bottom: 0.2em;
+  border-top: 1px dashed rgba(127, 179, 232, 0.45);
+  border-bottom: 1px dashed rgba(127, 179, 232, 0.45);
+  pointer-events: none;
+}
+
+/* A dimension tick at each end of the guides */
+.intro-proto::after {
+  content: "";
+  position: absolute;
+  left: -0.12em;
+  right: -0.12em;
+  top: 0.1em;
+  bottom: 0.06em;
+  border-left: 1px solid rgba(127, 179, 232, 0.55);
+  border-right: 1px solid rgba(127, 179, 232, 0.55);
+  pointer-events: none;
+}
+
+/* "Production" is the finished surface: a solid, lit fill */
+.intro-prod {
+  display: inline-block;
+  background: linear-gradient(100deg, #ffffff 0%, #d6e7f8 40%, #7fb3e8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 22px rgba(127, 179, 232, 0.3));
+}
+
+.home-hero-copy .intro-copy {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+/* Before/after wipe: the draft underneath, the shipped screen clipped over it */
+.hero-wipe-wrap {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.hero-wipe {
+  --x: 50%;
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ratio, 1461 / 960);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-wipe:focus-visible {
+  outline: 2px solid #7fb3e8;
+  outline-offset: 4px;
+}
+
+.hero-wipe img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.hero-wipe-top {
+  clip-path: inset(0 0 0 var(--x));
+}
+
+.hero-wipe-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--x);
+  width: 2px;
+  margin-left: -1px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(11, 18, 32, 0.25);
+  z-index: 2;
+}
+
+.hero-wipe-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: -1.25rem 0 0 -1.25rem;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 6px 18px rgba(11, 18, 32, 0.35);
+  display: grid;
+  place-items: center;
+}
+
+.hero-wipe-knob svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-wipe.is-idle .hero-wipe-top { animation: heroWipe 3.6s ease-in-out infinite alternate; }
+.hero-wipe.is-idle .hero-wipe-bar { animation: heroWipeBar 3.6s ease-in-out infinite alternate; }
+@keyframes heroWipe { from { clip-path: inset(0 0 0 18%); } to { clip-path: inset(0 0 0 82%); } }
+@keyframes heroWipeBar { from { left: 18%; } to { left: 82%; } }
+
+.hero-wipe-tag {
+  position: absolute;
+  top: 0.7rem;
+  z-index: 3;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(11, 18, 32, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #dde5ef;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.hero-wipe-tag--l { left: 0.7rem; }
+.hero-wipe-tag--r { right: 0.7rem; }
+
+.hero-wipe-cap {
+  text-align: right;
+  color: #8fa7c4;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-wipe.is-idle .hero-wipe-top,
+  .hero-wipe.is-idle .hero-wipe-bar { animation: none; }
+}
+
+@media (max-width: 860px) {
+  .home-hero-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+}
+
+/* Hero contributions heatmap. Hidden until the JS has data, so a failed or
+   slow third-party fetch never leaves an empty frame in the hero. */
+.gh-chart-mount {
+  display: none;
+  margin-top: 3rem;
+}
+
+.gh-chart-mount.is-ready {
+  display: block;
+}
+
+.gh-chart {
+  --gh-cell: 13px;
+  --gh-gap: 3px;
+  --gh-gutter: 2.1rem;
+  position: relative;
+}
+
+.gh-chart-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.gh-chart-total {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.9);
+  margin: 0;
+}
+
+.gh-chart-link {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7fb3e8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.gh-chart-link:hover {
+  text-decoration: underline;
+}
+
+/* The plot is wider than a narrow viewport, so it scrolls on its own rather
+   than forcing the page sideways. */
+.gh-chart-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}
+
+/* Shrink-wrap the plot to the grid so the legend right-aligns to the last
+   column instead of to the wider hero column. Wider than a small viewport, at
+   which point the scroll container above takes over. */
+.gh-chart-plot {
+  width: max-content;
+}
+
+.gh-chart-months,
+.gh-chart-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(var(--gh-weeks), var(--gh-cell));
+  gap: var(--gh-gap);
+}
+
+.gh-chart-months {
+  margin-left: var(--gh-gutter);
+  margin-bottom: 0.4rem;
+  height: 0.9rem;
+}
+
+.gh-chart-month {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(148, 163, 184, 0.75);
+  white-space: nowrap;
+  grid-row: 1;
+}
+
+.gh-chart-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.gh-chart-days {
+  display: grid;
+  grid-template-rows: repeat(7, var(--gh-cell));
+  gap: var(--gh-gap);
+  width: var(--gh-gutter);
+  flex: none;
+}
+
+.gh-chart-day {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: var(--gh-cell);
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.gh-chart-grid {
+  grid-template-rows: repeat(7, var(--gh-cell));
+  grid-auto-columns: var(--gh-cell);
+}
+
+.gh-chart-cell {
+  width: var(--gh-cell);
+  height: var(--gh-cell);
+  border-radius: 2px;
+  background-color: var(--gh-level-0);
+  outline: 1px solid rgba(148, 163, 184, 0.06);
+  outline-offset: -1px;
+}
+
+.gh-chart-cell--pad {
+  background-color: transparent;
+  outline: none;
+}
+
+/* Ramp runs into the hero's own accent blue so the heatmap reads as part of
+   the page rather than a GitHub widget dropped onto it. */
+.gh-chart {
+  --gh-level-0: rgba(148, 163, 184, 0.11);
+  --gh-level-1: #1c3a5c;
+  --gh-level-2: #2d5f96;
+  --gh-level-3: #4a8bc9;
+  --gh-level-4: #7fb3e8;
+}
+
+.gh-chart-cell[data-level="1"] { background-color: var(--gh-level-1); }
+.gh-chart-cell[data-level="2"] { background-color: var(--gh-level-2); }
+.gh-chart-cell[data-level="3"] { background-color: var(--gh-level-3); }
+.gh-chart-cell[data-level="4"] { background-color: var(--gh-level-4); }
+
+.gh-chart-grid .gh-chart-cell:not(.gh-chart-cell--pad):hover {
+  outline: 1px solid rgba(226, 232, 240, 0.85);
+  outline-offset: 0;
+}
+
+.gh-chart-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gh-gap);
+  margin-top: 0.7rem;
+}
+
+.gh-chart-legend-text {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.gh-chart-legend-text:first-child {
+  margin-right: 0.15rem;
+}
+
+.gh-chart-legend-text:last-child {
+  margin-left: 0.15rem;
+}
+
+.gh-chart-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  background-color: #f5f8fa;
+  color: #0b1220;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.gh-chart-tip.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gh-chart-tip { transition: none; }
+}
+
+@media (max-width: 720px) {
+  .gh-chart-mount {
+    margin-top: 2.25rem;
+  }
+}
+
+/* Below this the total and the handle collide on one line, so stack them. */
+@media (max-width: 560px) {
+  .gh-chart-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-hero .intro-headline {
+    white-space: normal;
+  }
+}
+
+.site-footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 1.5rem 0 2rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+/* Home / index */
+.intro {
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.intro-eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.intro-headline {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+.intro-headline .intro-emphasis {
+  color: #7fb3e8;
+}
+
+.intro-copy {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  font-weight: 400;
+  font-family: 'Archivo', system-ui, sans-serif;
+  color: var(--muted-foreground);
+}
+
+.intro-copy .intro-emphasis {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Outcomes strip: 4 stat blocks between intro and project highlights */
+.outcomes-strip {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+}
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.outcome-value {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.outcome-label {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+}
+
+.project-grid {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* The hero already carries 3.25rem of its own bottom padding, so the standard
+   4rem section gap stacks into a canyon under it. */
+.home-hero + .project-grid {
+  margin-top: 2.25rem;
+}
+
+.home-hero .project-grid {
+  margin-top: 0;
+}
+
+.project-grid + .project-grid {
+  margin-top: 4rem;
+}
+
+.project-grid-header {
+  margin: 0 0;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted-foreground);
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  color: var(--muted-foreground);
+  font-size: 0.98rem;
+}
+
+.project-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.project-grid--case-study .project-grid-inner {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-grid-inner {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.project-card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: border-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+a.project-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: rgba(26, 78, 140, 0.55);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  background: var(--card);
+}
+
+.project-card--dnd:hover {
+  border-color: rgba(220, 38, 38, 0.7);
+}
+
+.project-card-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.project-card-actions .button {
+  flex: 1 1 50%;
+  min-width: 0;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.project-card-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card-title-link:hover {
+  color: var(--primary);
+}
+
+.project-card .project-cover a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Feature card: 50/50 row layout (must come after .project-card to override flex-direction) */
+.project-card--feature {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.project-card--feature .project-cover--logo-left {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  aspect-ratio: auto;
+  min-height: 10rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.project-card--feature .project-cover-wordmark {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  max-width: 50%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+}
+
+.project-card--feature .project-body {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  justify-content: center;
+  padding: 2rem 2rem 2rem 1.5rem;
+}
+
+/* Split highlight: two cards side-by-side ("For Work" / "For Fun") */
+.project-grid--split .project-grid-inner {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.project-card--split {
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+}
+
+.project-card-eyebrow {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid rgba(26, 78, 140, 0.7);
+  color: var(--primary);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.project-card-eyebrow--fun {
+  background: #1a0a0a;
+  border-color: rgba(252, 165, 165, 0.75);
+  color: #fca5a5;
+}
+
+/* Card meta row: status chip + role label sitting above the title */
+.project-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 0 0.85rem;
+  flex-wrap: wrap;
+}
+
+.project-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.project-status-chip--now {
+  background: var(--primary);
+  color: #0b1120;
+}
+
+.project-status-chip--exploring {
+  background: #34d399;
+  color: #022c22;
+}
+
+.project-role-label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  line-height: 1;
+}
+
+.project-card--split .project-cover--split-hero {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  padding: 0;
+  display: block;
+}
+
+.project-card--split .project-cover--split-hero .project-cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Orchard hero in split: contained on a dark panel so the dashboard reads */
+.project-card--split .project-cover--orchard.project-cover--split-hero {
+  background: #131d28;
+}
+
+.project-card--split .project-cover--orchard.project-cover--split-hero .project-cover-img {
+  position: relative;
+  inset: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
+/* Horizontal card: image on the left, content on the right (full grid width) */
+.project-grid--split .project-card.project-card--horizontal {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.project-card.project-card--horizontal .project-cover--split-hero {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  aspect-ratio: auto;
+  min-height: 22rem;
+}
+
+.project-card.project-card--horizontal .project-body {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  justify-content: center;
+  padding: 2rem 2rem 2rem 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .project-grid--split .project-card.project-card--horizontal {
+    flex-direction: column;
+  }
+  .project-card.project-card--horizontal .project-cover--split-hero {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+  .project-card.project-card--horizontal .project-body {
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.6rem;
+  }
+}
+
+/* Unbound Codex hero in split: contained on a deep tavern-dark panel */
+.project-card--split .project-cover--unbound.project-cover--split-hero {
+  background: #1a0f0a;
+}
+
+.project-card--split .project-cover--unbound.project-cover--split-hero .project-cover-img {
+  position: relative;
+  inset: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
+.project-card--split .project-body {
+  flex: 1 1 auto;
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.6rem;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push action buttons to the bottom so both split cards' CTAs bottom-align */
+.project-card--split .project-card-actions,
+.project-card--split .project-body > .button {
+  margin-top: auto;
+}
+
+/* Other notable projects: same layout as case study (cover left, body right on desktop) */
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-cover {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  aspect-ratio: auto;
+  min-height: 10rem;
+  padding: 1.25rem 1.25rem;
+}
+
+.project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-body {
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  padding: 2rem 2rem 2rem 1.5rem;
+  justify-content: center;
+}
+
+.project-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.9rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.75);
+  overflow: hidden;
+}
+
+.project-cover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-cover-wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 70%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.project-cover span,
+.project-cover-label {
+  position: relative;
+  z-index: 1;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.75rem;
+}
+
+.project-cover--orchard {
+  background: #131d28;
+}
+
+.project-cover--orchard .project-cover-img {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
+.project-cover--aspireship {
+  background: #4810a4;
+}
+
+.project-cover--mindbody {
+  background: radial-gradient(circle at top left, #f97316, #ec4899);
+}
+
+.project-cover--ai {
+  background: radial-gradient(circle at top left, #6366f1, var(--primary));
+}
+
+.project-cover--bff {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+.project-cover--frederick {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
+}
+
+.project-cover--personas {
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+}
+
+.project-cover--financial {
+  background: #131d28;
+}
+
+.project-cover--financial .project-cover-img {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: contain;
+  margin: 10px;
+}
+
+.project-cover--dnd {
+  background: linear-gradient(135deg, #1a0a0a 0%, #9b2226 100%);
+}
+
+.project-body {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.project-body h3 {
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
+.project-challenge {
+  font-size: 0.92rem;
+  color: var(--card-foreground);
+}
+
+.project-stat {
+  font-size: 0.86rem;
+  color: var(--muted-foreground);
+}
+
+.project-context {
+  font-size: 0.9rem;
+  color: var(--card-foreground);
+}
+
+.project-meta {
+  font-size: 0.86rem;
+  color: var(--muted-foreground);
+}
+
+.project-summary {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--card-foreground);
+  font-weight: 400;
+  padding: 10px 0 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.3rem;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.button-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 4px 12px rgba(26, 78, 140, 0.18);
+}
+
+.button-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(26, 78, 140, 0.28);
+}
+
+/* Red glowy button (Passion Project / D&D) */
+.button-campaign {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+}
+
+.button-campaign:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.25);
+}
+
+/* Explore button: emerald variant for self-directed projects */
+.button-explore {
+  background: #34d399;
+  color: #022c22;
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.15);
+}
+
+.button-explore:hover {
+  background: #10b981;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(52, 211, 153, 0.25);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.button-ghost:hover {
+  background: rgba(22, 32, 43, 0.05);
+  border-color: rgba(22, 32, 43, 0.25);
+}
+
+/* Outline style: blue outline and text, low-opacity blue background */
+.button-outline {
+  background: rgba(26, 78, 140, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(26, 78, 140, 0.35);
+  box-shadow: none;
+}
+
+.button-outline:hover {
+  background: rgba(26, 78, 140, 0.14);
+  border-color: rgba(26, 78, 140, 0.6);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(26, 78, 140, 0.14);
+}
+
+/* Side Projects: compact two-up cards with a walkthrough-video cover */
+.project-grid.project-grid--side .project-grid-inner.project-grid-inner--side {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.side-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: border-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.side-card:hover {
+  border-color: rgba(26, 78, 140, 0.55);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  background: var(--card);
+}
+
+.side-card-cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.side-card-cover--telby {
+  background: radial-gradient(circle at 30% 20%, #1e3a8a, #0b1120 70%);
+}
+
+.side-card-cover--unbound {
+  background: radial-gradient(circle at 30% 20%, #4c1d95, #0b1120 70%);
+}
+
+.side-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Walkthrough cover: the video's poster under the case-study play disc. The whole
+   cover is the click target, so the disc grows on cover hover rather than its own,
+   and the focus ring sits on the disc because the card's overflow clips the link. */
+.side-card-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 18, 32, 0.35);
+  transition: background-color 0.18s ease;
+}
+
+.side-card-video:hover .side-card-video-overlay {
+  background: rgba(11, 18, 32, 0.2);
+}
+
+.side-card-video:focus-visible {
+  outline: none;
+}
+
+.side-card-video .csb-hero-video-play {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.side-card-video .csb-hero-video-play svg {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.2rem;
+}
+
+.side-card-video:hover .csb-hero-video-play,
+.side-card-video:focus-visible .csb-hero-video-play {
+  transform: scale(1.05);
+}
+
+.side-card-video:focus-visible .csb-hero-video-play {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-card-video-overlay {
+    transition: none;
+  }
+
+  .side-card-video:hover .csb-hero-video-play,
+  .side-card-video:focus-visible .csb-hero-video-play {
+    transform: none;
+  }
+}
+
+.side-card-placeholder {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: rgba(249, 250, 251, 0.92);
+  letter-spacing: 0.01em;
+}
+
+.side-card-placeholder-dot {
+  color: var(--primary);
+}
+
+.side-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 1.6rem;
+}
+
+.side-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.side-card-role {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  line-height: 1;
+}
+
+.side-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.side-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.side-card-title a:hover {
+  color: var(--primary);
+}
+
+.side-card-summary {
+  color: var(--card-foreground);
+  font-size: 0.94rem;
+  margin-bottom: 1.1rem;
+}
+
+.side-card-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.side-card-actions {
+  margin-top: auto;
+}
+
+@media (max-width: 720px) {
+  .project-grid.project-grid--side .project-grid-inner.project-grid-inner--side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Archive list: text-forward alternative to image cards (Other Notable Projects) */
+.project-grid--archive {
+  gap: 0;
+}
+
+.archive-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-header .section-title {
+  margin-bottom: 0;
+}
+
+.archive-meta {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive-row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 9rem 8.5rem;
+  grid-template-areas: "num main tag links";
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-num {
+  grid-area: num;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding-top: 0.15rem;
+}
+
+.archive-main {
+  grid-area: main;
+}
+
+.archive-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+}
+
+.archive-title-sub {
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+.archive-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+  margin: 0;
+  max-width: 54ch;
+}
+
+.archive-tag {
+  grid-area: tag;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  padding-top: 0.2rem;
+}
+
+.archive-links {
+  grid-area: links;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-top: 0.2rem;
+}
+
+.archive-link {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.archive-link-arrow {
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: transform 0.15s ease;
+}
+
+.archive-link:hover {
+  color: var(--primary-hover);
+}
+
+.archive-link:hover .archive-link-arrow {
+  transform: translateX(2px);
+}
+
+@media (max-width: 720px) {
+  .archive-row {
+    grid-template-columns: 1.75rem 1fr;
+    grid-template-areas:
+      "num main"
+      "num tag"
+      "num links";
+    gap: 0.5rem 1rem;
+  }
+
+  .archive-tag {
+    padding-top: 0.4rem;
+  }
+
+  .archive-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 0.35rem;
+  }
+}
+
+/* Case study layout – full-width bands */
+.case-study-body {
+  padding: 0;
+  position: relative;
+}
+
+/* Case study: right-hand sticky nav (desktop only) */
+.case-study-nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .case-study-nav {
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 11rem;
+  }
+
+  .case-study-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .case-study-nav li {
+    margin-bottom: 0.35rem;
+  }
+
+  .case-study-nav a {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    margin-left: 0;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .case-study-nav a:hover {
+    color: var(--card-foreground);
+  }
+
+  .case-study-nav a:focus {
+    outline: none;
+    color: var(--foreground);
+  }
+
+  .case-study-nav a.active {
+    color: var(--foreground);
+    font-weight: 700;
+    border-left: 2px solid var(--primary);
+    border-left-color: var(--primary);
+  }
+}
+
+/* Case study: scroll offset so anchored sections sit below the sticky header */
+.case-study-body [id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Intro section (title + My Role) */
+.case-study-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.5rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Orchard hero: background image, scales with viewport, subdued so content stays focal */
+/* Case study parallax hero (same structure as home, theme-specific gradients) */
+.case-study-intro--hero {
+  position: relative;
+  overflow: hidden;
+}
+.case-study-intro--hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 0.5;
+}
+.case-study-intro--hero .case-study-hero-bg,
+.case-study-intro--hero .case-study-hero-dots {
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  right: -15%;
+  bottom: -15%;
+  z-index: 0;
+  will-change: transform;
+}
+.case-study-intro--hero .case-study-hero-dots {
+  pointer-events: none;
+  background-image: radial-gradient(circle at 50% 50%, rgba(224, 231, 255, 0.1) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.case-study-intro--hero .case-study-section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Orchard hero with dashboard image sitting on bottom, peeking out */
+.case-study-intro--with-dashboard {
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.case-study-intro--with-dashboard .case-study-section-inner {
+  padding-bottom: 2rem;
+}
+.case-study-intro--with-dashboard .case-study-title {
+  text-align: center;
+}
+
+/* Hero with title only (no dashboard image): vertical center, title padding only */
+.case-study-intro--title-only {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+.case-study-intro--title-only .case-study-section-inner {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.case-study-intro--title-only .case-study-title {
+  margin: 0;
+  margin-bottom: 0;
+  padding: 0 0 2.5rem 0;
+  text-align: center;
+}
+.case-study-intro--title-only .case-study-section-inner h1.case-study-title,
+.case-study-intro--title-only .case-study-body .case-study-title {
+  margin-bottom: 0;
+}
+
+/* Center hero titles on Design System, Brand Guidelines, Personas, Demo, D&D pages */
+.case-study-intro--theme-bff .case-study-title,
+.case-study-intro--theme-brand .case-study-title,
+.case-study-intro--theme-personas .case-study-title,
+.case-study-intro--theme-demo .case-study-title,
+.case-study-intro--theme-dnd .case-study-title {
+  text-align: center;
+}
+
+.case-study-hero-dashboard {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -40px;
+}
+.case-study-hero-dashboard img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+  box-shadow: 0 -12px 40px rgba(22, 32, 43, 0.1);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.case-study-intro--role-only {
+  padding-top: 2rem;
+}
+
+/* Case study hero: gradient (20% opacity at 25%) to full color at 100%, parallax kept via JS */
+.case-study-intro--theme-orchard .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(34, 59, 76, 0.04) 25%, rgba(34, 59, 76, 0.12) 100%);
+}
+
+/* Orchard Career Counselor screens page: green hero gradient */
+.case-study-intro--orchard-screens-hero.case-study-intro--theme-orchard .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(60, 211, 67, 0.05) 25%, rgba(60, 211, 67, 0.15) 100%);
+}
+
+.case-study-intro--theme-bff .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(84, 212, 138, 0.05) 25%, rgba(84, 212, 138, 0.16) 100%);
+}
+
+.case-study-intro--theme-brand .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(72, 16, 164, 0.04) 25%, rgba(72, 16, 164, 0.12) 100%);
+}
+
+.case-study-intro--theme-personas .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(218, 68, 83, 0.05) 25%, rgba(218, 68, 83, 0.13) 100%);
+}
+
+.case-study-intro--theme-demo .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(13, 157, 218, 0.05) 25%, rgba(13, 157, 218, 0.14) 100%);
+}
+
+.case-study-intro--theme-dnd .case-study-hero-bg {
+  background: linear-gradient(to bottom, rgba(6, 78, 59, 0.05) 25%, rgba(6, 78, 59, 0.14) 100%);
+}
+
+.case-study-intro--theme-bff .case-study-hero-dots,
+.case-study-intro--theme-brand .case-study-hero-dots,
+.case-study-intro--theme-personas .case-study-hero-dots,
+.case-study-intro--theme-demo .case-study-hero-dots,
+.case-study-intro--theme-dnd .case-study-hero-dots {
+  background-image: radial-gradient(circle at 50% 50%, rgba(224, 231, 255, 0.1) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Dark panel behind title + summary (same treatment as home hero) – Design System, Brand, Personas, Demo */
+.case-study-intro--title-only .case-study-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 1rem auto;
+  padding: 1.75rem 2rem;
+  background: transparent;
+  border-radius: var(--radius-lg);
+}
+
+.case-study-intro--title-only .case-study-hero-inner .case-study-title {
+  padding-top: 0;
+  padding-bottom: 0.75rem;
+}
+
+.case-study-intro--title-only .case-study-hero-summary {
+  margin: 0;
+  margin-top: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.case-study-hero-cta {
+  margin: 1.5rem 0 0;
+}
+
+/* Thesis card: pull-quote treatment after hero, before Act 1 */
+.case-study-thesis {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: transparent;
+}
+
+.case-study-thesis-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.case-study-thesis-eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 1.1rem !important;
+}
+
+.case-study-thesis-quote {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 !important;
+  letter-spacing: -0.01em;
+}
+
+/* Context line under a thesis quote: names the study the claim above rests on,
+   so a stat band following it has an antecedent instead of arriving cold. */
+.case-study-thesis-context {
+  max-width: 62ch;
+  margin: 1.4rem auto 0 !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  text-wrap: pretty;
+}
+
+.case-study-thesis--dnd .case-study-thesis-eyebrow {
+  color: #34d399;
+}
+
+/* Act divider: bold band between acts */
+.case-study-act {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.25rem 1.5rem;
+  box-sizing: border-box;
+  background: var(--muted);
+  border-top: 1px solid rgba(26, 78, 140, 0.18);
+  border-bottom: 1px solid rgba(26, 78, 140, 0.18);
+}
+
+.case-study-act-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.case-study-act-number {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.9;
+  color: var(--primary);
+  letter-spacing: -0.05em;
+}
+
+.case-study-act-label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted-foreground);
+  margin: 0 0 0.4rem !important;
+  line-height: 1;
+}
+
+.case-study-act-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0 0 0.55rem !important;
+  letter-spacing: -0.01em;
+}
+
+.case-study-act-intro {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0.65rem 0 0 !important;
+  max-width: 70ch;
+}
+
+/* Hero image: full-width screenshot below title in case study hero */
+.case-study-hero-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.case-study-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(22, 32, 43, 0.13);
+  margin: 0;
+}
+
+/* Editorial hero: dark, centered, serif title with cyan accent */
+.case-study-intro--editorial {
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  background: transparent;
+}
+
+.case-study-intro--editorial .case-study-section-inner {
+  max-width: 1100px;
+}
+
+.editorial-hero {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.editorial-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 1.5rem !important;
+}
+
+.editorial-hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.editorial-hero-eyebrow-sep {
+  opacity: 0.55;
+  margin: 0 0.15em;
+}
+
+.editorial-hero-title {
+  font-family: 'Bitter', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  margin: 0 auto !important;
+  max-width: 30ch;
+  text-align: center;
+}
+
+.editorial-hero-accent {
+  color: var(--primary);
+}
+
+.editorial-hero-accent--amp {
+  color: var(--primary);
+}
+
+.editorial-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  margin: 1.75rem 0 0 !important;
+}
+
+.editorial-hero-meta-sep {
+  color: rgba(148, 163, 184, 0.4);
+  font-weight: 300;
+}
+
+/* Hero image follows the title within the same section, at 75% width */
+.case-study-intro--editorial .case-study-hero-image {
+  max-width: 825px;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+
+/* Editorial thesis: serif quote with cyan italic accent, plus 3 navigation cards */
+.case-study-thesis--editorial {
+  padding: 3rem 1.5rem 5rem;
+  background: transparent;
+}
+
+.case-study-thesis--editorial .case-study-thesis-eyebrow {
+  color: var(--primary);
+}
+
+.case-study-thesis--editorial .case-study-thesis-quote {
+  font-family: 'Bitter', Georgia, serif !important;
+  font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: var(--foreground) !important;
+  letter-spacing: -0.005em !important;
+  max-width: 26ch;
+  margin: 0 auto !important;
+}
+
+.case-study-thesis--editorial .thesis-accent {
+  color: var(--primary);
+  font-style: italic;
+}
+
+.thesis-cards {
+  margin: 3rem auto 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.thesis-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.75rem 1.75rem 1.6rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.thesis-card:hover {
+  border-color: rgba(26, 78, 140, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.thesis-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.thesis-card-num {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  letter-spacing: 0.04em;
+}
+
+.thesis-card-title {
+  font-family: 'Bitter', Georgia, serif !important;
+  font-weight: 600 !important;
+  font-size: 1.45rem !important;
+  color: var(--foreground) !important;
+  margin: 0 0 0.6rem !important;
+  text-align: left !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.005em;
+  padding-right: 2.5rem;
+}
+
+.thesis-card-desc {
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  color: var(--muted-foreground) !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .thesis-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Unify every content container on a screens-style case study to a single 1100px
+   width, so the hero, thesis, act dividers, content sections and My Role all line
+   up on one measure. Opted into per page via the hero class. Without it a page
+   inherits the component defaults, which disagree with each other (760 / 720 /
+   1100 / 1200). Add new case studies to this list. */
+.case-study-intro--orchard-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--orchard-screens-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--orchard-screens-hero ~ .major-section .major-section-inner,
+.case-study-intro--orchard-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--orchard-screens-hero ~ .case-study-section .case-study-section-inner,
+.case-study-intro--telby-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--telby-screens-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--telby-screens-hero ~ .major-section .major-section-inner,
+.case-study-intro--telby-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--telby-screens-hero ~ .case-study-section .case-study-section-inner,
+.case-study-intro--aspireship-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--aspireship-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--aspireship-hero ~ .major-section .major-section-inner,
+.case-study-intro--aspireship-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--aspireship-hero ~ .case-study-section .case-study-section-inner,
+.case-study-intro--frederick-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--frederick-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--frederick-hero ~ .major-section .major-section-inner,
+.case-study-intro--frederick-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--frederick-hero ~ .case-study-section .case-study-section-inner {
+  max-width: 1100px;
+}
+
+/* Unbound Codex screens page: same treatment as Telby/Orchard (blue accent, flat
+   screenshot hero inheriting the shared rounded-corner + soft-shadow). */
+
+/* Unify content widths across the Unbound screens page */
+.case-study-intro--unbound-screens-hero ~ .case-study-thesis .case-study-thesis-inner,
+.case-study-intro--unbound-screens-hero ~ .case-study-act .case-study-act-inner,
+.case-study-intro--unbound-screens-hero ~ .major-section .major-section-inner,
+.case-study-intro--unbound-screens-hero ~ .major-section .major-section-inner.major-section-inner--wide,
+.case-study-intro--unbound-screens-hero ~ .case-study-section .case-study-section-inner {
+  max-width: 1100px;
+}
+
+/* Wide content container for case study sections that need more room (side-by-side layouts) */
+.major-section-inner--wide {
+  max-width: 1200px;
+}
+
+/* Lead paragraph: prominent intro line under the section title */
+.case-study-lead {
+  font-size: 1.1rem !important;
+  line-height: 1.55 !important;
+  color: var(--card-foreground) !important;
+  margin: 0 0 1.75rem !important;
+}
+
+/* Side-by-side callout row: large screenshot left, commentary right */
+.case-study-callout-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin: 3.5rem 0;
+}
+
+.cs-callout-figure {
+  position: relative;
+  margin: 0 0 3rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cs-callout-figure:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-callout-row .cs-callout-figure {
+  margin: 0;
+}
+
+.cs-callout-figure:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.cs-callout-figure:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.cs-callout-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Full-width flow diagram: a white canvas with a hairline border so the diagram
+   reads as its own card against the page background, and room to breathe. */
+.cs-callout-figure--diagram {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+.cs-figure-caption {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* On narrow screens the diagram is already tiny; give the image back the padding. */
+@media (max-width: 768px) {
+  .cs-callout-figure--diagram {
+    padding: 0.6rem 0.6rem 0.4rem;
+  }
+
+  .cs-figure-caption {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+.cs-callout-notes-side {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.cs-callout-notes-side li {
+  position: relative;
+  padding-left: 36px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+  margin: 0 !important;
+}
+
+.cs-callout-notes-side li > .cs-callout-num {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  margin-top: 0;
+}
+
+@media (min-width: 900px) {
+  .cs-callout-notes-side {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .case-study-callout-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Sub-mode heading: Explore / Plan / Learn within Section 3 */
+.case-study-sub-mode {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.55rem !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  margin: 3rem 0 0.5rem !important;
+  letter-spacing: -0.01em;
+  text-align: left !important;
+  line-height: 1.15 !important;
+}
+
+.case-study-sub-mode + p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  color: var(--card-foreground) !important;
+  margin: 0 0 1.25rem !important;
+}
+
+.case-study-sub-mode:first-of-type {
+  margin-top: 0 !important;
+}
+
+.case-study-act--dnd {
+  border-top-color: rgba(52, 211, 153, 0.28);
+  border-bottom-color: rgba(52, 211, 153, 0.28);
+}
+
+.case-study-act--dnd .case-study-act-number {
+  color: #34d399;
+}
+
+/* Annotated screenshot: numbered callout markers + commentary list */
+.case-study-screenshot--callouts {
+  margin: 1.5rem 0 !important;
+}
+
+.cs-screenshot-frame {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.cs-screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.cs-callout-marker {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(26, 78, 140, 0.22);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cs-callout-notes {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1.1rem 0 0 !important;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cs-callout-notes li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+  margin: 0 !important;
+}
+
+.cs-callout-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(26, 78, 140, 0.15);
+  border: 1px solid rgba(26, 78, 140, 0.5);
+  color: var(--primary);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.case-study-screenshot--callouts.callouts-dnd .cs-callout-marker {
+  background: #34d399;
+  color: #022c22;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(52, 211, 153, 0.22);
+}
+
+.case-study-screenshot--callouts.callouts-dnd .cs-callout-num {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: #34d399;
+}
+
+.case-study-section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Intro: two columns – My Role (left) and orchard-orchie screenshot (right) */
+.case-study-intro-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.case-study-intro-content {
+  min-width: 0;
+}
+
+.case-study-intro-media {
+  min-width: 0;
+}
+
+.case-study-intro-media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  display: block;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* CTA in Enter Orchie section */
+.case-study-cta-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.case-study-cta-helper {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+/* Major sections: 6 distinct bands with subsections grouped inside */
+.major-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2rem 1.5rem 2.25rem;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(148, 163, 184, 0.06);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+}
+
+.major-section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.major-section-inner.major-section-inner--wide {
+  max-width: 1200px;
+}
+
+/* Subsections: aligned with their major section, subtle separation */
+.subsection {
+  padding: 1.5rem 0;
+}
+
+.subsection:first-child {
+  margin-bottom: 1.5rem;
+}
+
+/* CTA above a section title (e.g. View BFF Documentation in Design System Screens) */
+.case-study-intro-cta--above-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.subsection-cta-center {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.subsection:not(:first-child) {
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Major section background variants – distinct band identity */
+.major-section--problem {
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.18);
+}
+
+/* Orchard case study: static gradient border (orchard blue ↔ green) + soft glow (no motion) */
+.orchard-problem-glow {
+  position: relative;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 2px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(19, 199, 229, 0.7) 0%,
+    rgba(60, 211, 67, 0.7) 45%,
+    rgba(19, 199, 229, 0.7) 100%
+  );
+  box-shadow:
+    0 0 18px rgba(19, 199, 229, 0.18),
+    0 0 32px rgba(60, 211, 67, 0.18);
+}
+
+.orchard-problem-glow__inner {
+  position: relative;
+  z-index: 1;
+  padding: 1.35rem 1.6rem 1.5rem;
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.major-section--problem .orchard-problem-glow__inner h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  text-align: left;
+}
+
+/* Glow callout lists (e.g. Checking the Compass) */
+.orchard-problem-glow__list {
+  margin: 0;
+  padding-left: 1.35rem;
+}
+
+.orchard-problem-glow__list li {
+  margin-bottom: 0.4rem;
+}
+
+.orchard-problem-glow__list li:last-child {
+  margin-bottom: 0;
+}
+
+.orchard-problem-glow__list strong {
+  color: var(--foreground);
+}
+
+.major-section--turbulence .orchard-problem-glow {
+  margin-top: 1.25rem;
+}
+
+/* Orchard: Problem + Initial Hypothesis in one band, no rule between subsections */
+.major-section--problem .subsection:nth-child(2) {
+  border-top: none;
+  padding-top: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.major-section--thesis {
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.12);
+}
+
+.major-section--pivot {
+  background: rgba(26, 78, 140, 0.05);
+  border-left: 4px solid rgba(26, 78, 140, 0.35);
+}
+
+.major-section--turbulence {
+  position: relative;
+  background: rgba(26, 78, 140, 0.05);
+  border: 2px solid var(--primary);
+  border-radius: 0.75rem;
+  padding: 3rem 1.5rem 3.5rem;
+  box-shadow: 0 0 24px rgba(26, 78, 140, 0.12);
+  overflow: hidden;
+}
+
+.major-section--turbulence .major-section-inner {
+  position: relative;
+}
+
+.major-section--turbulence .subsection h2 {
+  color: var(--foreground);
+}
+
+.major-section--turbulence .subsection:not(:first-child) > h2 {
+  font-size: 1.4rem;
+}
+
+.major-section--north-star {
+  background: rgba(26, 78, 140, 0.05);
+  border-left: 4px solid rgba(26, 78, 140, 0.45);
+}
+
+.major-section--impact {
+  background: rgba(26, 78, 140, 0.05);
+  border-left: 4px solid rgba(26, 78, 140, 0.25);
+}
+
+.major-section--impact .subsection > h3 {
+  text-align: center;
+}
+
+/* Alternate section style (e.g. Design System in Action) – blue-gray, distinct from pivot/north-star */
+.major-section--alt {
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.18);
+}
+
+/* Design system page: two alternating section styles for clear visual break */
+.major-section--design-a {
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.14);
+}
+
+.major-section--design-b {
+  background: linear-gradient(to top, rgba(26, 78, 140, 0.07), rgba(26, 78, 140, 0.02));
+  border-left: 4px solid rgba(26, 78, 140, 0.25);
+}
+
+/* D&D case study: PDF button above Design Problem title (uses .button .button-primary for glow) */
+#design-problem .dnd-pdf-button-wrap {
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+/* D&D case study: stacking callouts (problem on top, opportunity below) */
+#design-problem .dnd-callouts-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+#design-problem .dnd-callout {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg, 0.9rem);
+}
+#design-problem .dnd-callout--problem {
+  background: #161416;
+}
+#design-problem .dnd-callout--opportunity {
+  background: #313335;
+}
+#design-problem .dnd-callout__title {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 21pt;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+#design-problem .dnd-callout--problem .dnd-callout__title {
+  color: #c53131;
+}
+#design-problem .dnd-callout--opportunity .dnd-callout__title {
+  color: #f2cd7e;
+}
+#design-problem .dnd-callout__blurb {
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-size: 14pt;
+  color: #f4f1ec;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* D&D case study: "The Logic" callout (transparent, hero-like) below each section blurb */
+.dnd-logic-callout {
+  background: rgba(26, 78, 140, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0 1.5rem;
+}
+.dnd-logic-callout__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 0.5rem;
+}
+.dnd-logic-callout p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--card-foreground);
+}
+.dnd-logic-callout p + p {
+  margin-top: 0.75rem;
+}
+.dnd-logic-callout ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--card-foreground);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.dnd-logic-callout li {
+  margin-bottom: 0.35rem;
+}
+.dnd-logic-callout li:last-child {
+  margin-bottom: 0;
+}
+
+/* Orchard case study: 1px bordered body paragraphs (same treatment as D&D .dnd-logic-callout) */
+.case-study--orchard .major-section .subsection > p {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0 1.5rem;
+  background: rgba(26, 78, 140, 0.04);
+}
+
+.case-study--orchard .major-section .subsection > p:first-of-type {
+  margin-top: 0;
+}
+
+.case-study-section-inner p.case-study-wordmark,
+.case-study-wordmark {
+  text-align: center;
+  margin: 0 0 3rem;
+}
+
+
+.case-study-wordmark img {
+  display: inline-block;
+  height: auto;
+  max-width: 200px;
+}
+
+.case-study-body .case-study-title,
+.case-study-section-inner h1.case-study-title {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  font-weight: 650;
+}
+
+.case-study-section-inner h2,
+.major-section-inner h2,
+.subsection--center-title h2 {
+  text-align: center;
+}
+
+.subsection h2 {
+  font-size: 1.35rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* Major section headline (first h2 in each band) – larger */
+.major-section-inner > .subsection:first-child > h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+
+/* Subsection headlines (subsequent h2s in each band) – smaller */
+.major-section-inner > .subsection:not(:first-child) > h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.case-study-section-inner h3,
+.major-section-inner h3,
+.subsection h3 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--card-foreground);
+}
+
+.case-study-section-inner h3:first-child,
+.major-section-inner h3:first-child,
+.subsection h3:first-child {
+  margin-top: 0;
+}
+
+.case-study-section-inner p,
+.major-section-inner p,
+.subsection p {
+  margin-bottom: 1rem;
+  color: var(--card-foreground);
+  line-height: 1.65;
+}
+
+.case-study-section-inner p:last-child,
+.major-section-inner p:last-child,
+.subsection p:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-body ul,
+.case-study-section-inner ul,
+.major-section-inner ul,
+.subsection ul {
+  padding-left: 1.35rem;
+  margin-bottom: 1rem;
+  color: var(--card-foreground);
+  line-height: 1.65;
+}
+
+.case-study-body li,
+.case-study-section-inner li,
+.major-section-inner li,
+.subsection li {
+  margin-bottom: 0.5rem;
+}
+
+.case-study-body strong,
+.case-study-section-inner strong,
+.major-section-inner strong,
+.subsection strong {
+  font-weight: 600;
+}
+
+.case-study-prototype-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.case-study-prototype-link a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.case-study-prototype-link a:hover {
+  text-decoration: underline;
+}
+
+/* Callout blocks (role, findings) */
+.case-study-callout {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0;
+}
+
+.case-study-my-role {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  color: var(--card-foreground);
+}
+
+.case-study-callout p {
+  margin-bottom: 0.75rem;
+}
+
+.case-study-callout p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.case-study-callout ul {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.case-study-callout li {
+  margin-bottom: 0.4rem;
+}
+
+.case-study-callout strong {
+  color: var(--foreground);
+}
+
+.case-study-callout--thesis-intro > h2:first-child {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: left;
+  color: var(--foreground);
+}
+
+.case-study-callout--thesis-intro > p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Role callout: more prominent, left accent */
+.case-study-callout--role {
+  background: var(--card);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow-subtle);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.case-study-callout--role .case-study-callout__heading {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.case-study-callout--role .case-study-callout__heading + .case-study-callout__heading {
+  margin-top: 1.5rem;
+}
+
+.case-study-callout--role .case-study-callout__role-title {
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.case-study-callout--role ul {
+  margin-top: 0.5rem;
+}
+
+/* Screenshot placeholder */
+.case-study-screenshot {
+  margin: 1.5rem 0;
+}
+
+.case-study-screenshot img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+/* A line under a screenshot. It sits outside the figure, which opens the lightbox on click. */
+.case-study-caption {
+  margin: -0.75rem 0 2rem;
+  color: var(--muted-foreground);
+  font-size: 0.9375rem;
+}
+
+.case-study-caption a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.case-study-caption a:hover {
+  text-decoration: underline;
+}
+
+/* Phone-style screenshot: narrow, centered, mimics phone screen */
+.case-study-screenshot--phone {
+  max-width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.case-study-screenshot--phone img {
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Clickable screenshot: show it's interactive */
+.case-study-screenshot {
+  cursor: pointer;
+}
+
+/* Brand guidelines / User personas tabs (shadcn-style) */
+.brand-guidelines-tabs-section {
+  background: var(--muted);
+  border-left: 4px solid rgba(22, 32, 43, 0.18);
+}
+
+.brand-guidelines-tabs .tabs-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.35rem;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.brand-guidelines-tabs .tab-btn {
+  padding: 0.65rem 1.35rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius-lg) - 2px);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-guidelines-tabs .tab-btn:hover {
+  color: var(--card-foreground);
+}
+
+.brand-guidelines-tabs .tab-btn.active {
+  color: var(--primary);
+  background: rgba(26, 78, 140, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.brand-guidelines-tabs .tab-panel {
+  display: none;
+  text-align: left;
+}
+
+.brand-guidelines-tabs .tab-panel.active {
+  display: block;
+}
+
+.brand-guidelines-pdf-cta {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.brand-guidelines-pdf-cta p {
+  margin-bottom: 0.75rem;
+}
+
+.brand-guidelines-gallery .case-study-screenshot {
+  margin-bottom: 1.5rem;
+}
+
+.brand-guidelines-gallery .case-study-screenshot:last-child {
+  margin-bottom: 0;
+}
+
+/* Orchard Career Counselor: mobile screens in one row, modest size */
+.orchard-mobile-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.orchard-mobile-row .orchard-mobile-screenshot {
+  flex: 0 1 auto;
+  margin: 0;
+  max-width: 160px;
+}
+.orchard-mobile-row .orchard-mobile-screenshot img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Lightbox: viewport-fit by default; click image to zoom; carousel prev/next */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Visibility flips at once on open (the fade still comes from opacity), or it sits
+   at hidden for the first frame and the close button refuses focus. On close the
+   base rule's delayed flip keeps the fade-out visible. */
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease, visibility 0s;
+}
+
+/* When zoomed, allow scroll to pan */
+.lightbox.is-open.is-zoomed {
+  overflow: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.lightbox-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.lightbox.is-open.is-zoomed .lightbox-inner {
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  padding: 4rem 5rem 4rem 4rem;
+}
+
+/* Wrapper constrains image to viewport until zoomed; click toggles zoom */
+.lightbox-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+  max-height: 100vh;
+  cursor: zoom-in;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.lightbox.is-zoomed .lightbox-img-wrap {
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+  flex: none;
+}
+
+.lightbox-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  display: block;
+  pointer-events: none;
+}
+
+.lightbox.is-zoomed .lightbox-img {
+  max-width: none;
+  max-height: none;
+}
+
+/* Flow diagrams have transparent backgrounds; give them a white canvas in the
+   lightbox so line and label detail isn't lost against the dark backdrop. */
+.lightbox-img--diagram {
+  background: #fff;
+  padding: 1.75rem;
+  box-sizing: border-box;
+}
+
+/* Video variant (home-page side-project walkthroughs). The width is the largest
+   that fits the viewport at the recording's own aspect ratio, so the frame never
+   letterboxes and never jumps when the metadata loads. */
+.lightbox-video {
+  display: block;
+  width: min(1200px, calc(100vw - 4rem), calc((100vh - 6rem) * var(--video-aspect, 1.7778)));
+  height: auto;
+  aspect-ratio: var(--video-aspect, 1.7778);
+  border-radius: var(--radius-lg);
+  background: #000;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-close:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-prev:focus,
+.lightbox-next:hover,
+.lightbox-next:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-prev:focus,
+.lightbox-next:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.lightbox-prev.is-hidden,
+.lightbox-next.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .lightbox-inner {
+    gap: 0.5rem;
+  }
+
+  .lightbox.is-open.is-zoomed .lightbox-inner {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-next {
+    right: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    transition: none;
+  }
+}
+
+/* Screens carousel modal (Orchard: "Just the Screens Please") */
+.screens-carousel-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 4rem;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.screens-carousel-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.screens-carousel-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+.screens-carousel-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.screens-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.screens-carousel-slides {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.screens-carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.screens-carousel-slide.is-current {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+.screens-carousel-slide-img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+.screens-carousel-prev,
+.screens-carousel-next {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.screens-carousel-prev:hover,
+.screens-carousel-prev:focus,
+.screens-carousel-next:hover,
+.screens-carousel-next:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+.screens-carousel-prev:focus,
+.screens-carousel-next:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.screens-carousel-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.screens-carousel-close:hover,
+.screens-carousel-close:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+.screens-carousel-close:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.screens-carousel-counter {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.case-study-intro-cta {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+.case-study-intro-cta .button,
+.case-study-intro-cta a.button {
+  min-height: 2.5rem;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+}
+.case-study-intro-cta .button + .button,
+.case-study-intro-cta .button + a {
+  margin-left: 0.75rem;
+}
+.case-study-cta--problem {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .screens-carousel-modal {
+    padding: 2rem 1rem 4rem;
+  }
+  .screens-carousel-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .screens-carousel-slide-img {
+    max-height: 70vh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .screens-carousel-modal,
+  .screens-carousel-slide {
+    transition: none;
+  }
+}
+
+.case-study-screenshot-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  border: 2px dashed rgba(22, 32, 43, 0.25);
+  background: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* About page */
+.about-page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.about-content {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--card-foreground);
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .project-grid-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-card--feature {
+    flex-direction: column;
+  }
+
+  .project-card--feature .project-cover--logo-left {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    padding: 1rem;
+  }
+
+  .project-card--feature .project-cover-wordmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 50%;
+  }
+
+  .project-card--feature .project-body {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  /* Split highlight: stack to one column on mobile */
+  .project-grid--split .project-grid-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Outcomes strip: stack to 2-column on mobile */
+  .outcomes-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .outcome-value {
+    font-size: 1.2rem;
+  }
+
+  .outcome-label {
+    font-size: 0.78rem;
+  }
+
+  /* Hero headline scales down */
+  .intro-headline {
+    font-size: 1.7rem;
+  }
+
+  .intro-eyebrow {
+    font-size: 0.78rem;
+  }
+
+  .intro-copy {
+    font-size: 1rem;
+  }
+
+  /* Split-card action buttons stack vertically on mobile so labels never wrap awkwardly */
+  .project-card--split .project-card-actions {
+    flex-wrap: wrap;
+  }
+
+  .project-card--split .project-card-actions .button {
+    flex: 1 1 100%;
+  }
+
+  /* Other notable projects: stack cover on top, body below (same as case study on mobile) */
+  .project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card {
+    flex-direction: column;
+  }
+
+  .project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .project-grid:not(.project-grid--case-study):not(.project-grid--split) .project-card .project-body {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .site-header .header-inner {
+    padding: 1rem;
+  }
+
+  .site-main--home {
+    padding-top: 0;
+  }
+
+  .logo-placeholder {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.9rem;
+  }
+
+  .site-nav {
+    gap: 0.1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .site-nav a {
+    position: relative;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.82rem;
+  }
+
+
+  .hero-card {
+    padding: 1.25rem;
+  }
+
+  .case-study-card {
+    padding: 1rem 1.2rem;
+  }
+
+  .case-study-hero-dashboard {
+    margin-bottom: -65px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .home-hero-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  .case-study-intro--title-only .case-study-hero-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  .major-section[class*="major-section--"] {
+    border-left: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-body {
+    padding: 1rem 1.1rem 1.2rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+  }
+
+  .case-study-section-inner .case-study-title {
+    font-size: 1.5rem;
+  }
+
+  .case-study-section {
+    padding: 1.75rem 1rem;
+  }
+
+  .case-study-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .major-section {
+    padding: 1.75rem 1rem 2rem;
+  }
+
+  .major-section[class*="major-section--"] {
+    border-left: none;
+  }
+
+  .major-section--turbulence {
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  .subsection:not(:first-child) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .case-study-screenshot--phone {
+    max-width: 55%;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .hero-highlight {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+.site-nav a.site-nav__link--active {
+  font-weight: 600;
+  color: var(--primary) !important;
+  border-radius: 0;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* Phones: the four links don't fit beside the name, so they get their own row */
+@media (max-width: 640px) {
+  html { scroll-padding-top: 6.75rem; }
+
+  .site-header .header-inner {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    padding-bottom: 0.4rem;
+  }
+
+  /* Pull the row out by the links' padding so the text lines up with the name */
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 -0.55rem;
+    width: calc(100% + 1.1rem);
+  }
+}
+
+/* ============================================================
+   Deep-dive hero treatments
+   ============================================================ */
+
+/* Other Notable Projects (Design System, Brand, Personas, Dreamforce):
+   dark hero modeled on telby.io's dark CTA — deep navy, subtle grid, light title. */
+.case-study-intro--title-only {
+  background: #0b1220;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Override each theme's light wash → uniform deep navy */
+.case-study-intro--theme-bff.case-study-intro--title-only .case-study-hero-bg,
+.case-study-intro--theme-brand.case-study-intro--title-only .case-study-hero-bg,
+.case-study-intro--theme-personas.case-study-intro--title-only .case-study-hero-bg,
+.case-study-intro--theme-demo.case-study-intro--title-only .case-study-hero-bg {
+  background: #0b1220;
+}
+
+/* Grid pattern instead of dots on the dark hero */
+.case-study-intro--title-only .case-study-hero-dots {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+.case-study-intro--title-only .case-study-title {
+  color: #f5f8fa;
+}
+
+/* Side projects + Orchard (editorial heroes): keep light, add a subtle light grid
+   and the same 1px bottom border as the landing-page hero */
+.case-study-intro--editorial {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgba(22, 32, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 32, 43, 0.04) 1px, transparent 1px);
+  background-size: 46px 46px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   Case study: supporting screens + impact stats
+   Used by the Aspireship case study. A supporting screen reuses the same
+   .case-study-callout-row geometry as an annotated screen (image left,
+   text right) so the whole page keeps one rhythm. The only difference is
+   a caption in place of the numbered notes.
+   ========================================================================== */
+
+.case-study-callout-row .case-study-screenshot {
+  margin: 0;
+}
+
+/* Border lives with the shared screenshot-border rule further down. */
+.case-study-callout-row .case-study-screenshot img {
+  box-shadow: var(--shadow-subtle);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case-study-callout-row .case-study-screenshot img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.cs-screen-note {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+.cs-screen-note strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .cs-screen-note {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+/* Portrait-orientation screen: capped so a tall asset does not tower over
+   the landscape screens sharing the same column. */
+.case-study-callout-row .case-study-screenshot--portrait {
+  max-width: 560px;
+}
+
+/* Impact stat row */
+.cs-impact-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 0;
+}
+
+.cs-impact-stat {
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+}
+
+.cs-impact-stat-num {
+  display: block;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--primary);
+}
+
+.cs-impact-stat-label {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 760px) {
+  .cs-impact-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Case study: screenshot border
+   A 1px edge so light-UI screenshots read as framed against the page. Applies
+   to every screenshot across the case studies. On the annotated figure the
+   border sits on the figure rather than the img, so it follows the rounded
+   corners instead of being clipped by the figure's overflow.
+   ========================================================================== */
+
+.cs-callout-figure,
+.case-study-callout-row .case-study-screenshot img {
+  border: 1px solid #c0c9cf;
+}
+
+/* The two flow diagrams are drawn illustrations on a flat background, not UI
+   captures, so a frame reads as a stray box around artwork. Explicitly opted
+   out rather than excluded by a blanket pattern. */
+.cs-callout-figure:has(img[src*="vision-critic-flow"]),
+.cs-callout-figure:has(img[src*="uc-rag-flow"]) {
+  border: none;
+}
+
+/* Half-width callout figure, centered in its column. For isolated screens
+   (a single chat panel) that get blown up at the full column width.
+   Callout markers are positioned in percentages, so they scale with it. */
+.case-study-callout-row .cs-callout-figure--half {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 899px) {
+  .case-study-callout-row .cs-callout-figure--half {
+    max-width: 70%;
+  }
+}
+
+/* Aspireship card cover: a brand illustration rather than a screenshot, so it
+   is contained instead of cropped and pinned to the bottom, with the plate
+   colour matching the artwork's own background so the fill is invisible. */
+.project-card--split .project-cover--aspireship.project-cover--split-hero {
+  background: #4810a4;
+}
+
+/* The screenshot fills the whole cover; a little of its edges is cropped. */
+.project-card--split .project-cover--aspireship.project-cover--split-hero .project-cover-img {
+  object-position: top left;
+}
+
+/* Cropped hero image. A very wide source scaled to the hero width renders its
+   detail too small to read. Constraining the box to a taller ratio and
+   covering crops the sides instead, so the artwork renders larger and sharper.
+   Lower the ratio to crop harder and zoom further. */
+.case-study-hero-image--crop img {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 700px) {
+  .case-study-hero-image--crop img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ==========================================================================
+   Case study stat ribbon
+   Full-bleed band of headline outcomes. Distinct from .cs-impact-stats, which
+   is a card row sitting inside the text column.
+   ========================================================================== */
+
+.cs-stat-ribbon {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.5rem 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.cs-stat-ribbon-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cs-stat-ribbon-eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  margin: 0 0 1.75rem !important;
+}
+
+.cs-stat-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.5rem;
+  align-items: start;
+}
+
+.cs-stat-ribbon-item {
+  text-align: center;
+}
+
+.cs-stat-ribbon-num {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.cs-stat-ribbon-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 860px) {
+  .cs-stat-ribbon-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Case study problem strip
+   Full-bleed band of problem-space facts. Deliberately muted rather than
+   using the celebratory .cs-stat-ribbon treatment: these are the conditions
+   the product exists to answer, not outcomes it achieved.
+   ========================================================================== */
+
+.cs-problem-strip {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.75rem 1.5rem;
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Width and gap deliberately match .thesis-cards so each stat lands in the
+   same column as the card that answers it. */
+.cs-problem-strip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cs-problem-item {
+  text-align: center;
+}
+
+/* Index matching the .thesis-card-num of the card that answers this stat.
+   Wider tracking than the card's so it reads as a label, not another figure
+   sitting on top of a large numeral. */
+.cs-problem-num {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--muted-foreground);
+}
+
+.cs-problem-lead {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+
+.cs-problem-text {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  text-wrap: balance;
+}
+
+
+.cs-problem-source {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  opacity: 0.72;
+}
+
+/* Problem strip: eyebrow, and a grid matched to .thesis-cards so each stat
+   sits in the same column as the card that answers it. */
+.cs-problem-eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 1.75rem !important;
+}
+
+.cs-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Three-beat sequence: the question, the evidence, the answer. Split from one
+   thesis block, so the question loses its bottom air and the solution block
+   pulls its cards up under the eyebrow that replaced the quote. */
+.case-study-thesis--question {
+  padding-bottom: 2.5rem;
+}
+
+/* Wider than the shared editorial 26ch so the question lands on two lines
+   instead of three. Scoped here so the Aspireship thesis keeps its own
+   measure. balance evens the two lines out. */
+.case-study-thesis--question .case-study-thesis-quote {
+  max-width: 38ch;
+  text-wrap: balance;
+}
+
+.case-study-thesis--solution {
+  padding-top: 3rem;
+}
+
+.case-study-thesis--solution .thesis-cards {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 760px) {
+  .cs-problem-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Orchard case study, top of page
+   Hero band, problem panel, guiding principles, and the media-left /
+   notes-right rows that carry the annotated screens. Everything here is
+   prefixed .csb- and lives outside .case-study-section-inner /
+   .major-section-inner, so the shared case-study typography rules (centred
+   h2s, 720px measure) do not apply and nothing leaks onto other pages.
+   ========================================================================== */
+
+/* One ink for every dark card and reflection heading in the band system. */
+.case-study-body {
+  --csb-ink: #0c2235;
+}
+
+/* Hero band: the same dark grid as the home hero and the artifacts pages
+   (/design-system/, /brand-guidelines/), painted straight onto the section
+   because this hero has no parallax layers. */
+.case-study-intro--csb-hero {
+  padding: 3.25rem 1.5rem 3rem;
+  text-align: center;
+  background-color: #0b1220;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.case-study-intro--csb-hero .case-study-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.case-study-intro--csb-hero .csb-hero-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.1rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #f5f8fa;
+  margin: 0 !important;
+}
+
+.case-study-intro--csb-hero .csb-hero-sub {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.05rem, 2.1vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #f5f8fa;
+  margin: 0.85rem 0 0 !important;
+  text-wrap: balance;
+}
+
+.csb-hero-accent {
+  color: #2ed6f2;
+}
+
+.case-study-intro--csb-hero .csb-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(203, 213, 225, 0.82);
+  margin: 1.15rem 0 0 !important;
+}
+
+.csb-hero-meta-sep {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+/* Lead-in label. The negative margin eats most of the flex gap so the colon
+   sits tight against the first item instead of reading as another list entry. */
+.csb-hero-meta-label {
+  margin-right: -0.4rem;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+/* Product walkthrough under the meta line. Sits on the hero grid like a
+   framed screen, with the same hairline as the band borders. */
+.case-study-intro--csb-hero .csb-hero-video {
+  position: relative;
+  max-width: 960px;
+  margin: 2.25rem auto 0;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #060b14;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+}
+
+.case-study-intro--csb-hero .csb-hero-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  background: #060b14;
+}
+
+/* Play button over the poster, the same green-to-gold pill as the product's own
+   landing-page player. Shown only once the script has wired it up, and the script
+   removes it on the first play, so it never returns on pause. The overlay ignores
+   the pointer so the native controls underneath keep working; only the button
+   takes clicks. */
+.csb-hero-video-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 18, 32, 0.35);
+  pointer-events: none;
+}
+
+.csb-hero-video.has-play-button .csb-hero-video-overlay {
+  display: flex;
+}
+
+/* Every play disc wears the same translucent white ring; the fill and the
+   drop-shadow tint are the only things that change per project. */
+.csb-hero-video-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #0f1115;
+  cursor: pointer;
+  pointer-events: auto;
+  background:
+    linear-gradient(20deg, rgba(82, 194, 142, 0) 3%, rgba(82, 186, 194, 1) 90%),
+    linear-gradient(161deg, rgb(225, 212, 108) 0%, rgb(82, 194, 142) 100%);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(8, 44, 36, 0.72);
+  transition: transform 0.2s ease;
+}
+
+.csb-hero-video-play:hover,
+.csb-hero-video-play:focus-visible {
+  transform: scale(1.05);
+}
+
+.csb-hero-video-play:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Telby's recording is 16:9, and its play disc is the cobalt one from the
+   product's own landing-page player. The home-page card uses the same disc. */
+.case-study-intro--csb-hero .csb-hero-video--telby video {
+  aspect-ratio: 16 / 9;
+}
+
+/* Orchard's walkthrough is 16:9 too, and its disc runs the product's teal into
+   its growth green, with the navy canvas colour as the arrow. */
+.case-study-intro--csb-hero .csb-hero-video--orchard video {
+  aspect-ratio: 16 / 9;
+}
+
+.csb-hero-video--orchard .csb-hero-video-play {
+  color: #0c2235;
+  background: linear-gradient(160deg, #13c7e5 0%, #3cd343 100%);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(6, 52, 60, 0.72);
+}
+
+.csb-hero-video--telby .csb-hero-video-play,
+.side-card-cover--telby .csb-hero-video-play {
+  color: #fff;
+  background: linear-gradient(180deg, #4a69f3 0%, #2a4be0 100%);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(14, 24, 84, 0.72);
+}
+
+/* The triangle's visual centre sits left of its box, so nudge it right. */
+.csb-hero-video-play svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: 0.25rem;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 640px) {
+  .csb-hero-video-play {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .csb-hero-video-play svg {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csb-hero-video-play {
+    transition: none;
+  }
+
+  .csb-hero-video-play:hover,
+  .csb-hero-video-play:focus-visible {
+    transform: none;
+  }
+}
+
+/* Every card grid below is a <ul>, so it inherits the case-study list indent
+   and bottom margin. Reset them here, at a specificity that clears
+   `.case-study-body ul`, or each grid sits 1.35rem right of its own title. */
+.case-study-body .csb-stat-list,
+.case-study-body .csb-principles,
+.case-study-body .csb-reflect {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-study-body .csb-stat,
+.case-study-body .csb-principle,
+.case-study-body .csb-reflect-card {
+  margin-bottom: 0;
+}
+
+/* Shared full-bleed band + 1100px measure, matching the rest of the page. */
+.csb-problem,
+.csb-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+}
+
+.csb-problem {
+  padding: 3rem 1.5rem;
+}
+
+/* The section header is its own full-bleed strip, so consecutive sections read
+   as separate chapters rather than one long scroll. Side padding lives on the
+   body rather than the band, so the strip can run edge to edge. */
+.csb-band-head {
+  padding: 1.15rem 1.5rem;
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Widened past the shared 1100px measure by exactly its own padding, so the
+   body's content edge lines up with the title inside the header strip. */
+.csb-band-inner.csb-band-body {
+  max-width: calc(1100px + 3rem);
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.csb-problem-inner,
+.csb-band-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.csb-section-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  text-align: left;
+  margin: 0;
+}
+
+/* Problem: the question on the left, the evidence stacked on the right. The
+   copy column is vertically centred against the taller stat stack. */
+.csb-problem {
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.csb-problem-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.csb-problem-question {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  text-align: left;
+  margin: 0 0 0.85rem;
+}
+
+.csb-problem-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+.csb-stat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.csb-stat {
+  display: grid;
+  grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.35rem 1.6rem;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+}
+
+.csb-stat-lead {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--csb-ink);
+  text-align: center;
+}
+
+.csb-stat-text {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+/* Attribution sits under its claim, flush right, so the eye reads number →
+   claim → source without the sources forming their own column. */
+.csb-stat-source {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  text-align: right;
+}
+
+.csb-stat-source::before {
+  content: '- ';
+}
+
+/* Guiding principles: dark cards, one accent colour each. */
+.csb-band--principles .csb-band-body {
+  padding-bottom: 3.5rem;
+}
+
+.csb-principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.csb-principle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.6rem 1.75rem 1.75rem;
+  background: var(--csb-ink);
+  border-radius: var(--radius-lg);
+}
+
+.csb-principle-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.csb-principle-title--cyan { color: #2ed6f2; }
+.csb-principle-title--green { color: #3fdc4a; }
+.csb-principle-title--pink { color: #f45fa5; }
+
+.csb-principle-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.82);
+  margin: 0;
+}
+
+/* Closing CTA: its own quiet band so the button is not carrying the legacy
+   .subsection padding stack that used to sit around it. */
+.csb-band--cta {
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.csb-band--cta .csb-band-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  padding-top: 2.25rem;
+  padding-bottom: 2.75rem;
+}
+
+/* My Role: bordered cards rather than the stat panel's shadow, so a
+   reflective closing section reads quieter than the evidence up top. */
+.csb-reflect {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.csb-reflect-card {
+  padding: 1.35rem 1.5rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.csb-reflect-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--csb-ink);
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+
+.csb-reflect-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+/* Annotated row: the artwork carries the width, the notes sit beside it in a
+   narrow column so a long diagram and a short screenshot share one rhythm. */
+.csb-row {
+  display: grid;
+  grid-template-columns: minmax(0, 3.1fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.csb-row + .csb-row {
+  margin-top: 1.75rem;
+}
+
+.csb-row-media {
+  margin: 0;
+}
+
+.csb-row-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  cursor: zoom-in;
+}
+
+/* The flow diagram is a light drawing on white, so it needs a frame and inner
+   padding to read as an object. The product screenshots do not. */
+.csb-row-media--framed {
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.csb-row-media--framed img {
+  border-radius: 0;
+}
+
+.csb-row-notes {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+}
+
+.csb-note {
+  margin: 0;
+  padding: 1.15rem 1.25rem;
+  background: var(--muted);
+  border-radius: var(--radius-lg);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--card-foreground);
+}
+
+/* Every row on this page shares one geometry, so every screenshot renders at
+   the same width. Wider notes column than Orchard because several rows stack
+   three or four notes where Orchard's carry one. */
+.case-study-intro--csb-hero-aspireship ~ .csb-band .csb-row {
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+}
+
+/* Per-page accent, so four pages on one chrome still read as four projects.
+   Each is a lifted tint of that product's own brand colour, bright enough to
+   hold on the #0b1220 hero band. */
+.case-study-intro--csb-hero-telby .csb-hero-accent { color: #7b93ff; }   /* cobalt #2A4BE0 */
+.case-study-intro--csb-hero-unbound .csb-hero-accent { color: #ede3c2; } /* dawn */
+
+.csb-principle-title--telbyamber { color: #e8b34a; }  /* critic accent */
+.csb-principle-title--telbycobalt { color: #7b93ff; }
+.csb-principle-title--telbygreen { color: #3ec99a; }  /* success */
+.csb-principle-title--ucarcane { color: #a38de6; }
+.csb-principle-title--uctide { color: #74b3e4; }
+.csb-principle-title--ucember { color: #e89a5e; }
+
+/* Constraint card: the right-hand column on a page with no impact metrics.
+   Same card as a stat, but the lead is a claim rather than a figure, so it
+   sits above its explanation instead of beside it. */
+.csb-stat--constraint {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  padding: 1.15rem 1.5rem 1.25rem;
+}
+
+.csb-stat-name {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--csb-ink);
+  margin: 0 0 0.4rem;
+}
+
+.csb-stat--constraint .csb-stat-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+/* Numbered notes, for pages whose screens are annotated with pinned markers.
+   The badge hangs in the note's padding so the text block stays flush. */
+.case-study-body .csb-row-notes--numbered {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.csb-row-notes--numbered .csb-note {
+  position: relative;
+  padding-left: 2.9rem;
+  margin-bottom: 0;
+}
+
+.csb-note-num {
+  position: absolute;
+  left: 1.15rem;
+  top: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--csb-ink);
+  color: #f5f8fa;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Every row on these two pages is annotated and several carry five or more
+   notes, so the notes column needs the most measure of any page in the set. */
+.case-study-intro--csb-hero-telby ~ .csb-band .csb-row,
+.case-study-intro--csb-hero-unbound ~ .csb-band .csb-row {
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+}
+
+/* A four-item contributions list. */
+.csb-reflect--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Aspireship's figures are ranges ("45% -> 89%"), not single numbers, so they
+   need a wider column than Orchard's. Scoped to this page via the hero class. */
+.case-study-intro--csb-hero-aspireship ~ .csb-problem .csb-stat {
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+}
+
+.case-study-intro--csb-hero-aspireship ~ .csb-problem .csb-stat-lead {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+}
+
+/* Aspireship accent: the brand purple is too dark to read on the hero band, so
+   the accent is a lifted tint of it. */
+.case-study-intro--csb-hero-aspireship .csb-hero-accent {
+  color: #a98bf5;
+}
+
+.csb-principle-title--violet { color: #a98bf5; }
+.csb-principle-title--amber { color: #fb923c; }
+
+/* A card whose whole body is the link. It has to carry the card's own column
+   layout, or the title and description collapse together. */
+.csb-principle-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.csb-principle:has(.csb-principle-link) {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.csb-principle:has(.csb-principle-link):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(12, 34, 53, 0.25);
+}
+
+.csb-principle-link:focus-visible {
+  outline: 2px solid #a98bf5;
+  outline-offset: 4px;
+  border-radius: 0.35rem;
+}
+
+/* Lead paragraph under a section header strip. */
+.csb-band-lead {
+  max-width: 68ch;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--card-foreground);
+}
+
+/* Sub-heading within a band, for a section that splits into two halves. */
+.csb-sub-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.csb-row + .csb-sub-title {
+  margin-top: 3rem;
+}
+
+/* Bolded lead-in on a caption note. */
+.csb-note-lead {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 900px) {
+  .csb-problem-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .csb-principles,
+  .csb-reflect,
+  .csb-reflect--four {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* The per-page two-column rows above are more specific than a bare
+     .csb-row, so they have to be listed here or they keep a squeezed notes
+     column on a phone instead of stacking under their screenshot. */
+  .csb-row,
+  .case-study-intro--csb-hero-aspireship ~ .csb-band .csb-row,
+  .case-study-intro--csb-hero-telby ~ .csb-band .csb-row,
+  .case-study-intro--csb-hero-unbound ~ .csb-band .csb-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+}
+
+@media (max-width: 620px) {
+  /* The Aspireship override above is more specific, so it has to be repeated
+     here or its range figures keep a two-column card on a phone. */
+  .csb-stat,
+  .case-study-intro--csb-hero-aspireship ~ .csb-problem .csb-stat {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .csb-stat-lead {
+    text-align: left;
+  }
+
+  /* Stacked rows render the artwork at phone width, so the desktop 32px pins
+     would cover the flow diagram. Scale them down; the matching badge in each
+     note keeps the number legible. */
+  .csb-row-media .cs-callout-marker {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.55), 0 0 0 3px rgba(26, 78, 140, 0.22);
+  }
+}

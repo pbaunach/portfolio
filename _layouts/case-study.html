@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<article class="case-study{% if page.title contains 'Orchard' %} case-study--orchard{% endif %}">
+  <section class="case-study-body">
+    {{ content }}
+  </section>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="View image" aria-hidden="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <button type="button" class="lightbox-prev" aria-label="Previous image">&larr;</button>
+      <div class="lightbox-img-wrap" title="Click to zoom in or out">
+        <img class="lightbox-img" src="" alt="" />
+      </div>
+      <button type="button" class="lightbox-next" aria-label="Next image">&rarr;</button>
+      <div class="lightbox-counter" aria-live="polite"></div>
+    </div>
+  </div>
+  {% if page.title contains "Orchard" %}
+  <div id="screens-carousel-modal" class="screens-carousel-modal" role="dialog" aria-modal="true" aria-label="Orchard screens carousel" aria-hidden="true">
+    <div class="screens-carousel-backdrop" aria-hidden="true"></div>
+    <div class="screens-carousel-inner">
+      <button type="button" class="screens-carousel-close" aria-label="Close carousel">&times;</button>
+      <div class="screens-carousel-nav">
+        <button type="button" class="screens-carousel-prev" aria-label="Previous image">&larr;</button>
+        <div class="screens-carousel-slides" role="list"></div>
+        <button type="button" class="screens-carousel-next" aria-label="Next image">&rarr;</button>
+      </div>
+      <div class="screens-carousel-counter" aria-live="polite"></div>
+    </div>
+  </div>
+  {% endif %}
+</article>
+<script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/case-study-nav.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/video-play-button.js' | relative_url }}" defer></script>
+{% if page.title contains "Orchard" %}
+<script src="{{ '/assets/js/screens-carousel.js' | relative_url }}" defer></script>
+{% endif %}

@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>x402 &amp; Soroban Deep Dive</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0B0F17" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     VectorAgent provenance deck.
+
+     The alternate framing: the product is verifiable provenance for
+     AI-generated software, with assets as the delivery mechanism and the
+     settlement itself as the license record. Pricing stays agent-initiated
+     and per-use, because the premise is that no human is left in the
+     purchase decision.
+
+     Same 960x540 stage and deck engine as the other decks in this
+     folder. The look is a dark developer-tool aesthetic: one slate
+     ground, hairline borders, cyan for emphasis and emerald kept
+     for anything that reads as a positive result.
+     ============================================================ */
+
+  :root {
+    --slide-w: 960px;
+    --slide-h: 540px;
+
+    --bg:      #0B0F17;                  /* slide ground */
+    --surface: #10151F;                  /* cards */
+    --recess:  #070A10;                  /* terminals + code, set back from the ground */
+    --line:    rgba(255, 255, 255, 0.08);
+    --line-2:  rgba(255, 255, 255, 0.14);
+
+    --fg:      #F3F4F6;
+    --fg-soft: #A1A9B6;                  /* body copy inside cards */
+    --fg-mute: #7D8696;                  /* labels, footers */
+
+    --cyan:    #06B6D4;
+    --emerald: #10B981;
+    --rose:    #F87171;                  /* failure markers on the problem slide only */
+
+    --sans: 'Inter', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+  html { background: #05070B; }
+
+  body {
+    font-family: var(--sans);
+    margin: 0;
+    padding: 0;
+    background: #05070B;
+    color: var(--fg);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Deck shell ---------- */
+
+  .deck {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    position: relative;
+    transform-origin: center center;
+    flex: none;
+  }
+
+  .slide-wrap { position: absolute; inset: 0; }
+
+  /* One slide at a time while presenting. The incoming slide fades in ON TOP of
+     the outgoing one, which stays fully opaque underneath until the fade
+     finishes, otherwise both sit at partial opacity mid-transition and the dark
+     page background flashes through. */
+  body:not(.overview) .slide-wrap {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body:not(.overview) .slide-wrap.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+    transition: opacity 180ms ease-out;
+  }
+  body:not(.overview) .slide-wrap.is-leaving {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body:not(.overview) .slide-wrap.is-active { transition: none; }
+    .progress { transition: none; }
+    .cursor { animation: none !important; }
+  }
+
+  /* ---------- Slide ---------- */
+
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    padding: 40px 56px 52px;
+    background-color: var(--bg);
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px var(--line), 0 24px 60px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* A faint blueprint grid that fades out from the top-right corner, with a
+     cyan wash behind it. Both sit under the content. */
+  .slide::before,
+  .slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .slide::before {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    -webkit-mask-image: radial-gradient(ellipse 62% 70% at 100% 0%, #000 0%, transparent 72%);
+            mask-image: radial-gradient(ellipse 62% 70% at 100% 0%, #000 0%, transparent 72%);
+  }
+  .slide::after {
+    background: radial-gradient(ellipse 48% 56% at 100% 0%, rgba(6, 182, 212, 0.10) 0%, transparent 70%);
+  }
+  /* Title and closing slides light the grid from the centre instead. */
+  .slide.hero::before {
+    -webkit-mask-image: radial-gradient(ellipse 60% 66% at 50% 42%, #000 0%, transparent 74%);
+            mask-image: radial-gradient(ellipse 60% 66% at 50% 42%, #000 0%, transparent 74%);
+  }
+  .slide.hero::after {
+    background: radial-gradient(ellipse 46% 52% at 50% 38%, rgba(6, 182, 212, 0.13) 0%, transparent 72%);
+  }
+
+  .s-head { flex: none; }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+  }
+  .eyebrow .idx { color: var(--cyan); }
+
+  h1, h2, h3, h4, p { margin: 0; }
+
+  .s-title {
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 1.16;
+    color: var(--fg);
+    max-width: 740px;
+    text-wrap: balance;
+  }
+
+  .s-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 22px;
+  }
+
+  .s-foot {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--fg-mute);
+  }
+  .s-foot .wm { display: inline-flex; align-items: center; gap: 7px; }
+  .s-foot .wm svg { color: var(--cyan); }
+  .s-foot .pg { font-variant-numeric: tabular-nums; }
+  .s-foot .by { color: var(--fg-soft); }
+
+  .cy { color: var(--cyan); }
+  .em { color: var(--emerald); }
+  .hi { color: var(--fg); font-weight: 500; }
+
+  /* ---------- Shared pieces ---------- */
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .card h3 {
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--fg);
+    margin: 0 0 6px;
+  }
+  .card p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-soft);
+  }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+  }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.86em;
+    color: var(--cyan);
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 4px;
+    padding: 1px 5px;
+    white-space: nowrap;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1;
+    color: var(--fg-soft);
+    padding: 5px 8px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .chip.em { color: var(--emerald); border-color: rgba(16, 185, 129, 0.35); background: rgba(16, 185, 129, 0.08); }
+  .chip.cy { color: var(--cyan);    border-color: rgba(6, 182, 212, 0.35);  background: rgba(6, 182, 212, 0.08); }
+
+  /* Terminal window: three dots, a title, then the session. */
+  .term {
+    background: var(--recess);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+  }
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--fg-mute);
+  }
+  .term-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.14); }
+  .term-bar .ttl { margin-left: 8px; }
+  .term-bar .rt { margin-left: auto; }
+  .term-body {
+    margin: 0;
+    padding: 13px 16px 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--fg-soft);
+    white-space: pre;
+  }
+  .term .ps  { color: var(--cyan); }
+  .term .cmd { color: var(--fg); }
+  .term .ok  { color: var(--emerald); }
+
+  .cursor {
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    margin-left: 6px;
+    vertical-align: -2px;
+    background: var(--cyan);
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ---------- 1 · Title ---------- */
+
+  .hero-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 6px;
+  }
+  .logo-tile {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line-2);
+    border-radius: 11px;
+    background: var(--surface);
+    color: var(--cyan);
+    margin-bottom: 20px;
+  }
+  .wordmark {
+    font-size: 66px;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    color: var(--fg);
+  }
+  .wordmark span { color: var(--cyan); }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--fg-soft);
+    max-width: 520px;
+    margin-top: 16px;
+    text-wrap: balance;
+  }
+  .hero-stack .term { width: 470px; margin-top: 30px; }
+
+  /* ---------- 2 · Problem ---------- */
+
+  .readout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 16px;
+    background: var(--recess);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .readout .tile {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 100% 11px,
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 11px 100%,
+      rgba(248, 113, 113, 0.06);
+    color: var(--rose);
+    font-size: 12px;
+    font-weight: 600;
+    overflow: hidden;
+  }
+  .readout .ro { min-width: 0; display: flex; flex-direction: column; white-space: nowrap; }
+  .readout .dim { color: var(--fg-mute); }
+  .readout .err { color: var(--rose); }
+
+  /* ---------- 3 · Solution + 4 · Matching ---------- */
+
+  .split { display: grid; grid-template-columns: 372px 1fr; gap: 28px; align-items: center; }
+
+  .feat { display: grid; grid-template-columns: 20px 1fr; gap: 12px; padding: 15px 0; }
+  /* Slide 4 runs four points in the same column, so it needs a tighter rhythm. */
+  .split.tight .feat { padding: 10px 0; }
+  .split.tight .feat p { font-size: 12px; }
+  .feat + .feat { border-top: 1px solid var(--line); }
+  .feat:first-child { padding-top: 0; }
+  .feat:last-child { padding-bottom: 0; }
+  .feat svg { color: var(--emerald); margin-top: 1px; }
+  .feat h3 { font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 5px; }
+  .feat p { font-size: 12.5px; line-height: 1.55; color: var(--fg-soft); }
+
+  .code {
+    margin: 0;
+    padding: 14px 0;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    line-height: 1.75;
+    color: var(--fg-soft);
+    white-space: pre;
+  }
+  .code .ln { display: block; padding: 0 16px; }
+  .code .ln.hl {
+    background: rgba(16, 185, 129, 0.09);
+    box-shadow: inset 2px 0 0 var(--emerald);
+  }
+  .t-com  { color: var(--fg-mute); }
+  .t-tag  { color: var(--cyan); }
+  .t-attr { color: var(--fg-soft); }
+  .t-str  { color: var(--fg); }
+  .ln.hl .t-attr, .ln.hl .t-str { color: var(--emerald); }
+
+  .asset-foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .asset-foot .preview {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 100% 12px,
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 12px 100%,
+      rgba(16, 185, 129, 0.06);
+    color: var(--fg);
+  }
+
+  /* ---------- 5 · Why now ---------- */
+
+  .std { position: relative; }
+  .std .label { margin-bottom: 10px; }
+  .std h3 { font-size: 17px; margin-bottom: 8px; }
+  .std .backed { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+  .std .wire {
+    margin-top: auto;
+    padding-top: 14px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--fg-mute);
+    white-space: nowrap;
+  }
+  .std .wire b { font-weight: 500; color: var(--cyan); }
+
+  /* The plus sign sitting on the seam between the two standards. */
+  .plus {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 26px;
+    height: 26px;
+    margin: -13px 0 0 -13px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1;
+    color: var(--cyan);
+    z-index: 2;
+  }
+
+  .takeaway {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border: 1px dashed rgba(6, 182, 212, 0.5);
+    border-radius: 10px;
+    background: rgba(6, 182, 212, 0.05);
+    overflow: hidden;
+  }
+  .takeaway p { padding: 15px 20px; font-size: 15px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3; }
+  .takeaway .have { color: var(--fg-soft); border-right: 1px dashed rgba(6, 182, 212, 0.35); display: flex; align-items: center; gap: 9px; }
+  .takeaway .have svg { color: var(--emerald); flex: none; }
+  .takeaway .gap { color: var(--fg); }
+
+  /* ---------- 6 · Proof ---------- */
+
+  .flow { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr; align-items: stretch; }
+  .flow .card { padding: 14px 16px; }
+  .flow .label { display: flex; gap: 8px; margin-bottom: 8px; }
+  .flow .label b { font-weight: 500; color: var(--cyan); }
+  .flow .card.done { border-color: rgba(16, 185, 129, 0.35); }
+  .flow .card.done .label b { color: var(--emerald); }
+  .flow .card p { font-size: 12px; line-height: 1.6; }
+  .flow .arrow { display: grid; place-items: center; color: var(--fg-mute); }
+
+  .ascii {
+    margin: 14px 0 0;
+    padding: 13px 0 12px;
+    background: var(--recess);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.32;
+    white-space: pre;
+    display: flex;
+    justify-content: center;
+  }
+  .a-hd { color: var(--fg-mute); letter-spacing: 0; font-weight: 500; }
+  .a-ln { color: #4A5262; }
+  .a-fg { color: var(--fg); }
+  .a-cy { color: var(--cyan); }
+  .a-em { color: var(--emerald); }
+  .a-nt { color: var(--fg-mute); }
+
+  /* ---------- 6 · Proof cards ---------- */
+
+  .proof-cards { margin-top: 14px; }
+  .proof-cards .card { padding: 13px 16px; }
+  .proof-cards .card h3 { font-size: 13.5px; margin-bottom: 5px; }
+  .proof-cards .card p { font-size: 12px; line-height: 1.55; }
+
+  /* The honest-scope strip that closes the proof slide. */
+  /* Block, not flex: inline children like <code> or a highlighted phrase would
+     otherwise each become their own flex item and get squeezed into a column. */
+  .scope {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: 1px dashed var(--line-2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fg-mute);
+  }
+  .scope .label { margin-right: 11px; color: var(--fg-soft); }
+
+  /* ---------- 7 · Business model ---------- */
+
+  .tier .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .tier .price {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--fg);
+    margin: 4px 0 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+  }
+  .tier .price small {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0;
+    color: var(--fg-mute);
+  }
+
+
+  .splitbar { margin-top: 18px; }
+  .splitbar .top { margin-bottom: 9px; }
+  .splitbar .bar-row { display: grid; grid-template-columns: 9fr 1fr; gap: 4px; height: 34px; }
+  .splitbar .seg {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .splitbar .seg.creator  { background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.45); color: var(--emerald); }
+  .splitbar .seg.platform { background: rgba(6, 182, 212, 0.16);  border: 1px solid rgba(6, 182, 212, 0.45);  color: var(--cyan); justify-content: center; padding: 0; }
+  .splitbar .legend { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--fg-soft); }
+
+  /* ---------- 8 · Go-to-market ---------- */
+
+  .rows { display: flex; flex-direction: column; gap: 10px; }
+  .row {
+    display: grid;
+    grid-template-columns: 28px 1fr 336px;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 16px 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .row .n { font-family: var(--mono); font-size: 11px; color: var(--cyan); }
+  .row h3 { font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .row p { font-size: 12.5px; line-height: 1.5; color: var(--fg-soft); }
+  .row .proof {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    padding: 10px 14px;
+    background: var(--recess);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: var(--fg-soft);
+    white-space: nowrap;
+  }
+  .row .proof .ps { color: var(--cyan); }
+  .row .proof .cmd { color: var(--fg); }
+  .row .proof .ok { color: var(--emerald); }
+  .row .proof .dim { color: var(--fg-mute); }
+  .row .proof .chips { gap: 5px; }
+
+  /* ---------- 9 · Expansion ---------- */
+
+  .roadmap {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .roadmap th {
+    text-align: left;
+    padding: 11px 18px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+    background: var(--recess);
+    border-bottom: 1px solid var(--line);
+  }
+  .roadmap td {
+    padding: 16px 18px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: var(--fg-soft);
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  .roadmap tr:last-child td { border-bottom: 0; }
+  .roadmap .ph { font-family: var(--mono); font-size: 11.5px; color: var(--fg-mute); white-space: nowrap; }
+  .roadmap .as { color: var(--fg); font-weight: 500; }
+  .roadmap .as small { font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--fg-mute); margin-left: 6px; }
+  .roadmap .pr { font-family: var(--mono); font-size: 12px; color: var(--cyan); white-space: nowrap; }
+  .roadmap tr.now td { background: rgba(6, 182, 212, 0.05); }
+  .roadmap tr.now td:first-child { box-shadow: inset 2px 0 0 var(--cyan); }
+  .roadmap tr.now .ph { color: var(--fg); }
+  .roadmap .chip { margin-left: 8px; vertical-align: 1px; }
+
+  /* The appendix pricing table carries five columns, so rows run tighter and
+     the numeric cells align right against each other. */
+  .roadmap.tight th,
+  .roadmap.tight td { padding: 7px 16px; }
+  .roadmap.tight td { font-size: 12.5px; }
+  .roadmap.tight th:nth-child(n+2),
+  .roadmap.tight td.pr,
+  .roadmap .nu { text-align: right; }
+  .roadmap .nu { font-family: var(--mono); font-size: 12px; color: var(--fg); white-space: nowrap; }
+  .roadmap .nu.em { color: var(--emerald); }
+  .roadmap.tight .as small { display: block; margin-left: 0; margin-top: 2px; }
+
+  /* flex-shrink:0 matters: the s-body column would otherwise squeeze this
+     strip and overflow:hidden would silently clip the margin lines. */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); flex-shrink: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); overflow: hidden; }
+  .stages > div { padding: 10px 16px; border-right: 1px solid var(--line); }
+  .stages > div:last-child { border-right: 0; }
+  .stages .vol { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-mute); }
+  .stages .net { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; }
+  .stages .net.pos { color: var(--emerald); }
+  .stages .net.neg { color: var(--fg-mute); }
+  .stages .sub { font-size: 11px; color: var(--fg-soft); margin-top: 2px; }
+
+  /* ---------- 10 · Vision ---------- */
+
+  .vision { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-bottom: 8px; }
+  .vision .eyebrow { margin-bottom: 18px; }
+  .vision h2 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    max-width: 720px;
+    text-wrap: balance;
+  }
+  .vision .close {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--fg-soft);
+    max-width: 640px;
+    margin-top: 22px;
+    text-wrap: pretty;
+  }
+  .vision .oneliner {
+    margin-top: 30px;
+    padding: 10px 16px;
+    background: var(--recess);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--fg);
+  }
+  .vision .oneliner .ps { color: var(--cyan); margin-right: 8px; }
+
+  /* Appendix divider: the same centred stack, but only a label and a title. */
+  .vision.divider h2 { font-size: 34px; letter-spacing: -0.03em; }
+  .vision.divider .eyebrow { margin-bottom: 14px; }
+
+  /* ---------- 11 · Appendix, data ---------- */
+
+  .numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  .numbers .card { padding: 12px 15px; }
+  .numbers .card.key { border-color: rgba(6, 182, 212, 0.35); background: rgba(6, 182, 212, 0.05); }
+  .numbers .label { margin-bottom: 9px; color: var(--fg-soft); }
+  .numbers .card.key .label { color: var(--cyan); }
+  .numbers dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 5px 10px;
+    align-items: baseline;
+  }
+  .numbers dt {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--fg);
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+  .numbers dt.em { color: var(--emerald); }
+  .numbers dd { margin: 0; font-size: 11px; line-height: 1.35; color: var(--fg-soft); }
+  /* Pricing figures run longer than the research ones, so the term column widens. */
+  .numbers.wide dl { grid-template-columns: 96px 1fr; }
+
+  /* ---------- 12 · Appendix, sources ---------- */
+
+  .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; align-content: start; }
+  .sources .src { font-size: 10.5px; line-height: 1.4; color: var(--fg-soft); }
+  .sources .src b { color: var(--fg); font-weight: 600; }
+  .sources .src.read b { color: var(--cyan); }
+  .sources .src a,
+  .sources .src .nolink {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--mono);
+    font-size: 9px;
+    line-height: 1.3;
+    color: var(--fg-mute);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sources .src a:hover { color: var(--cyan); }
+
+  /* ---------- Overview (grid) mode ---------- */
+
+  body.overview { overflow: auto; }
+  body.overview .deck { position: static; display: block; padding: 28px 28px 110px; }
+  body.overview .stage {
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    gap: 20px;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  body.overview .slide-wrap {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: 2px solid transparent;
+    transition: outline-color 140ms ease, transform 140ms ease;
+  }
+  body.overview .slide-wrap:hover { transform: translateY(-3px); }
+  body.overview .slide-wrap.is-active { outline-color: var(--cyan); }
+  body.overview .slide-wrap .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  body.overview .slide-wrap::after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #E4E9ED;
+    background: rgba(5, 7, 11, 0.8);
+    border-radius: 4px;
+    padding: 1px 6px;
+    z-index: 8;
+  }
+
+  /* ---------- Chrome ---------- */
+
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--cyan);
+    transition: width 220ms ease;
+    z-index: 40;
+  }
+
+  .bar {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px;
+    background: rgba(11, 15, 23, 0.86);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 999px;
+    z-index: 50;
+    transition: opacity 250ms ease;
+  }
+  body.idle .bar { opacity: 0.14; }
+  .bar:hover, .bar:focus-within { opacity: 1 !important; }
+
+  .bar button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: #A1A9B6;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 9px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+  }
+  .bar button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  .bar button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 1px; }
+  .bar button:disabled { opacity: 0.3; cursor: default; }
+  .bar .count {
+    color: var(--fg-mute);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 10px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .bar .sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 5px 3px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .edge {
+    position: fixed;
+    top: 0; bottom: 0;
+    width: 14%;
+    z-index: 20;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .edge.prev { left: 0; }
+  .edge.next { right: 0; }
+  .edge:disabled { cursor: default; }
+  .edge:focus, .edge:focus-visible { outline: none; }
+  body.overview .edge { display: none; }
+
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 11px;
+    color: #3D4656;
+    z-index: 45;
+    transition: opacity 250ms ease;
+  }
+  body.idle .hint { opacity: 0; }
+  body.overview .hint { display: none; }
+
+  @media (max-width: 760px) {
+    .hint { display: none; }
+    .bar button { padding: 9px 10px; }
+  }
+
+  /* ---------- Print / PDF ---------- */
+
+  @page { size: 960px 540px; margin: 0; }
+
+  @media print {
+    body, body.overview { background: #fff; overflow: visible; }
+    .bar, .hint, .progress, .edge { display: none !important; }
+    .cursor { animation: none !important; }
+    .deck { position: static; display: block; padding: 0; }
+    .stage {
+      display: block !important;
+      width: var(--slide-w) !important;
+      height: auto !important;
+      max-width: none;
+      margin: 0;
+      transform: none !important;
+    }
+    .slide-wrap {
+      position: relative !important;
+      inset: auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      aspect-ratio: auto !important;
+      overflow: visible !important;
+      outline: none !important;
+      transform: none !important;
+      break-after: page;
+      page-break-after: always;
+    }
+    .slide-wrap::after { display: none !important; }
+    .slide-wrap .slide {
+      position: relative !important;
+      transform: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<button class="edge prev" id="edgePrev" tabindex="-1" aria-label="Previous slide"></button>
+<button class="edge next" id="edgeNext" tabindex="-1" aria-label="Next slide"></button>
+
+<div class="deck" id="deck">
+  <div class="stage" id="stage">
+
+<!-- SLIDE 1 - Title -->
+<div class="slide hero">
+  <div class="hero-stack">
+    <div class="logo-tile" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+        <path d="M3 13C3 6.5 6.5 3 13 3" />
+        <rect x="1.4" y="11.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" />
+        <rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" />
+      </svg>
+    </div>
+    <h1 class="wordmark">x<span>402</span></h1>
+    <p class="hero-sub">How a sub-cent payment becomes a license, and what Soroban does with it</p>
+    <div class="term">
+      <div class="term-bar"><i></i><i></i><i></i><span class="ttl">~/vector-agent</span><span class="rt cy">test:pricing</span></div>
+<pre class="term-body"><span class="ps">$</span> <span class="cmd">npm run test:pricing</span>
+<span class="ps">402</span>  vector-db quoted $0.002 USDC on stellar:testnet
+<span class="ps">tx </span>  0a0155746e73&#8230;ccfb  invoke_host_function, success
+<span class="ok">200</span>  &lt;svg data-va-tx="0a0155&#8230;"/&gt; released after close
+<span class="ok"> ok</span>  vault balance confirmed on Horizon<span class="cursor"></span></pre>
+    </div>
+  </div>
+  <footer class="s-foot"><span class="by">Technical deep dive</span><span class="pg">01 / 14</span></footer>
+</div>
+
+<!-- SLIDE 2 - The four parties -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">02</span>Architecture</p>
+    <h2 class="s-title">Four parties, and only one of them holds a key</h2>
+  </header>
+  <div class="s-body">
+    <div class="grid-2">
+      <div class="card std">
+        <p class="label">1 &#183; The calling agent</p>
+        <h3>Never sees a 402</h3>
+        <p>Claude Code, Cursor, anything speaking MCP. <span class="hi">It never signs anything and never holds a wallet.</span></p>
+      </div>
+      <div class="card std">
+        <p class="label">2 &#183; The MCP server</p>
+        <h3>Plays the client half</h3>
+        <p>Holds the agent keypair. <code>@x402/fetch</code> catches the challenge, signs and retries, then stamps the license onto its own copy.</p>
+      </div>
+      <div class="card std">
+        <p class="label">3 &#183; The resource server</p>
+        <h3>Quotes and withholds</h3>
+        <p>Prices the route and releases the asset on settlement. <span class="hi">Holds no secret key</span>, only the vault's public address.</p>
+      </div>
+      <div class="card std">
+        <p class="label">4 &#183; Facilitator and ledger</p>
+        <h3>Verifies and submits</h3>
+        <p>An OpenZeppelin-hosted testnet facilitator checks the envelope, submits it, and <span class="hi">pays the network fee</span>, so the agent needs USDC but not XLM.</p>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Why it splits this way</span>The server cannot spend and the agent cannot self-certify. The only party holding a key is the one whose money moves.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">02 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 3 - The round trip -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">03</span>Protocol</p>
+    <h2 class="s-title">The round trip, header by header</h2>
+  </header>
+  <div class="s-body">
+<pre class="ascii" aria-label="Sequence diagram: the MCP server requests an icon, receives HTTP 402 with the payment requirements in a header and a free assessment payload in the body, retries with a signed payment envelope, and receives the asset with the transaction hash once the ledger closes."><span><span class="a-hd">MCP SERVER                                        RESOURCE SERVER</span>
+<span class="a-ln">    |                                                           |</span>
+<span class="a-ln">    |---</span><span class="a-fg"> 1  GET /icons/vector-db </span><span class="a-ln">------------------------------&gt;|</span>   <span class="a-nt">no payment yet</span>
+<span class="a-ln">    |                                                           |</span>
+<span class="a-ln">    |&lt;---</span><span class="a-cy"> 2  402  PAYMENT-REQUIRED </span><span class="a-ln">-----------------------------|</span>   <span class="a-nt">scheme, payTo, amount</span>
+<span class="a-ln">    |</span>           <span class="a-nt">body: tier, price, tags, preview_url</span>            <span class="a-ln">|</span>   <span class="a-nt">free to read</span>
+<span class="a-ln">    |                                                           |</span>
+<span class="a-ln">    |---</span><span class="a-fg"> 3  GET  X-PAYMENT: signed envelope </span><span class="a-ln">-------------------&gt;|</span>   <span class="a-nt">agent wallet signs</span>
+<span class="a-ln">    |</span>        <span class="a-nt">[ facilitator:  verify -&gt; submit -&gt; close ]</span>        <span class="a-ln">|</span>   <span class="a-nt">~5s, the floor</span>
+<span class="a-ln">    |                                                           |</span>
+<span class="a-ln">    |&lt;---</span><span class="a-em"> 4  200  PAYMENT-RESPONSE: tx hash </span><span class="a-ln">--------------------|</span>   <span class="a-nt">asset released</span>
+<span class="a-ln">    |                                                           |</span></span></pre>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Two headers carry the protocol</h3>
+        <p><span class="hi">PAYMENT-REQUIRED</span> going out, <span class="hi">PAYMENT-RESPONSE</span> coming back. Both are base64 JSON, and the second one is where the transaction hash arrives.</p>
+      </div>
+      <div class="card">
+        <h3>The retry is the payment</h3>
+        <p>There is no second endpoint and no checkout. The same GET is repeated with a signed envelope attached.</p>
+      </div>
+      <div class="card done">
+        <h3>Settlement gates the body</h3>
+        <p>The route handler runs, but nothing reaches the caller until the facilitator confirms the transfer cleared.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">03 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 4 - The 402 body -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">04</span>Protocol</p>
+    <h2 class="s-title">The 402 is not a dead end</h2>
+  </header>
+  <div class="s-body">
+    <div class="grid-2">
+      <div class="card std">
+        <p class="label">In the header</p>
+        <h3>What a machine needs to pay</h3>
+        <p>Scheme, network, the vault address to pay, and the exact amount. Parsed by the client, never read by a person.</p>
+        <p class="wire"><b>&lt;</b> PAYMENT-REQUIRED: exact &#183; stellar:testnet</p>
+      </div>
+      <div class="card std">
+        <p class="label">In the body</p>
+        <h3>What an agent needs to decide</h3>
+        <p>Tier, price, description, tags, slots, and a <span class="hi">watermarked 96px preview</span>. Enough to judge the asset, useless as the asset.</p>
+        <p class="wire"><b>&lt;</b> preview_url: /preview/vector-db.png</p>
+      </div>
+    </div>
+
+    <table class="roadmap tight">
+      <thead>
+        <tr><th scope="col">Request</th><th scope="col">What happens</th><th scope="col">Billable</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="as">Unknown id<small>a typo, a hallucinated name</small></td>
+          <td>404 resolved <span class="hi">ahead of the payment middleware</span>, so it never mints a challenge</td>
+          <td class="nu">never</td>
+        </tr>
+        <tr>
+          <td class="as">Free icon<small>the baseline set</small></td>
+          <td>200 with the SVG, no 402 round trip at all</td>
+          <td class="nu">never</td>
+        </tr>
+        <tr class="now">
+          <td class="as">Paid icon<small>standard or premium</small></td>
+          <td>402 with the preview, then the SVG once the transfer settles</td>
+          <td class="nu em">on settle</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">04 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 5 - Dynamic pricing -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">05</span>Protocol</p>
+    <h2 class="s-title">One endpoint, three prices</h2>
+  </header>
+  <div class="s-body">
+    <div class="split">
+      <div class="card">
+<pre class="code"><span class="ln"><span class="t-str">"GET /icons/:iconId"</span>: {</span><span class="ln">  accepts: {</span><span class="ln">    scheme: <span class="t-str">"exact"</span>,</span><span class="ln">    payTo: config.vaultPublicKey,</span><span class="ln hl">    price: (ctx) =&gt; getIcon(idFrom(ctx.path))</span><span class="ln hl">             ?.price ?? TIERS.standard.price,</span><span class="ln">    network: <span class="t-str">"stellar:testnet"</span>,</span><span class="ln">  },</span><span class="ln">  <span class="t-com">// the free assessment payload</span></span><span class="ln">  unpaidResponseBody: (ctx) =&gt; ({ &#8230; }),</span><span class="ln">}</span></pre>
+      </div>
+      <div>
+        <div class="feat">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+          <div>
+            <h3>Price is a function, not a constant</h3>
+            <p>The x402 route config takes a callback, so <span class="hi">one route quotes three tiers</span>: $0.000, $0.002 and $0.010.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+          <div>
+            <h3>The tier belongs to the asset</h3>
+            <p>Not to the endpoint. Adding a tier is catalogue data, <span class="hi">not a new route and not a new contract</span>.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+          <div>
+            <h3>The quote is what settles</h3>
+            <p><code>test:pricing</code> asserts both halves: that standard and premium are quoted <span class="hi">and settled</span> at their tier price, checked on Horizon rather than in our own logs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">05 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 6 - Soroban settlement -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">06</span>Soroban</p>
+    <h2 class="s-title">USDC on Stellar is a contract, not a balance</h2>
+  </header>
+  <div class="s-body">
+    <div class="grid-3">
+      <div class="card std">
+        <p class="label">The token is a contract</p>
+        <h3>Paying means invoking</h3>
+        <p>USDC is reached through a <span class="hi">Stellar Asset Contract</span>, the stock token contract every asset gets. Settling is a <code>transfer</code> invocation, not a classic payment operation.</p>
+      </div>
+      <div class="card std">
+        <p class="label">The agent authorizes it</p>
+        <h3>Signed, then submitted</h3>
+        <p>The Stellar scheme builds the invocation and an Ed25519 signer authorizes it. <span class="hi">The facilitator submits it and pays the fee</span>, so the agent needs USDC but not XLM.</p>
+      </div>
+      <div class="card std">
+        <p class="label">The ledger reads oddly</p>
+        <h3>Where it actually shows up</h3>
+        <p>It lands as <code>invoke_host_function</code>, with the real from, to and amount inside <code>asset_balance_changes</code>. Anything reading Horizon must handle both shapes.</p>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Worth knowing</span>USDC carries <span class="hi">7 decimals</span> on Stellar, so prices are integers underneath: $0.002 is 20,000 atomic units. Basket totals are summed in those units and only then formatted, which is why a 25-icon total is exact rather than a float that drifts.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">06 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 7 - Latency -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">07</span>Latency</p>
+    <h2 class="s-title">Half the wait is after the money has moved</h2>
+  </header>
+  <div class="s-body">
+    <table class="roadmap tight">
+      <thead>
+        <tr><th scope="col">Segment</th><th scope="col">Measured</th><th scope="col">What it is</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="as">Request to ledger close</td>
+          <td class="nu">~4.9&#8211;5.6s</td>
+          <td>The protocol floor. Stellar testnet closes a ledger every <span class="hi">exactly 5.00 seconds</span></td>
+        </tr>
+        <tr class="now">
+          <td class="as">Ledger close to response</td>
+          <td class="nu em">~1.8&#8211;4.8s</td>
+          <td>Facilitator confirmation. <span class="hi">Pure overhead</span>, and it happens after the transfer already cleared</td>
+        </tr>
+        <tr>
+          <td class="as">Free icon</td>
+          <td class="nu">51 ms</td>
+          <td>No challenge, no settlement, straight to the SVG</td>
+        </tr>
+        <tr>
+          <td class="as">402 challenge only</td>
+          <td class="nu">4 ms</td>
+          <td>Quoting a price costs nothing worth measuring</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="takeaway">
+      <p class="have">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+        A single paid fetch is ~8&#8211;10s end to end.
+      </p>
+      <p class="gap">Twenty icons one at a time is <span class="cy">about three minutes.</span></p>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">07 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 8 - Baskets -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">08</span>Latency</p>
+    <h2 class="s-title">One settlement, twenty-five assets</h2>
+  </header>
+  <div class="s-body">
+    <div class="term">
+      <div class="term-bar"><i></i><i></i><i></i><span class="ttl">~/vector-agent</span><span class="rt cy">test:bundle</span></div>
+<pre class="term-body"><span class="ps">$</span> <span class="cmd">npm run test:bundle</span>
+<span class="ps">  5</span> icons sequentially   <span class="ps">39.00s</span>   7.80s each
+<span class="ok">  5</span> icons as one basket  <span class="ok"> 7.50s</span>   5.2x faster, same $0.010 spent
+<span class="ok"> 20</span> icons as one basket  <span class="ok"> 8.06s</span>   versus roughly 180s one at a time<span class="cursor"></span></pre>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Latency is per settlement</h3>
+        <p>Not per icon. A twenty-icon basket costs about the same wall time as buying one, because it waits for one ledger close instead of twenty.</p>
+      </div>
+      <div class="card">
+        <h3>The basket keeps the ordering</h3>
+        <p>An unknown id rejects the whole basket <span class="hi">before the middleware</span>, so nothing is charged. Free icons ride along at no cost.</p>
+      </div>
+      <div class="card done">
+        <h3>The tool says so itself</h3>
+        <p><code>fetch_vector_icons</code> explains the tradeoff in its own description, so a calling agent has a reason to prefer the basket.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">08 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 9 - License attribute -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">09</span>Provenance</p>
+    <h2 class="s-title">The payer writes the receipt</h2>
+  </header>
+  <div class="s-body">
+    <div class="split">
+      <div class="card">
+<pre class="code"><span class="ln"><span class="t-tag">&lt;svg</span></span><span class="ln">  <span class="t-attr">data-va-asset</span>=<span class="t-str">"vector-db"</span></span><span class="ln">  <span class="t-attr">data-va-license</span>=<span class="t-str">"standard"</span></span><span class="ln hl">  <span class="t-attr">data-va-tx</span>=<span class="t-str">"0a0155746e73&#8230;ccfb"</span></span><span class="ln hl">  <span class="t-attr">data-va-network</span>=<span class="t-str">"stellar:testnet"</span></span><span class="ln"><span class="t-tag">&gt;</span></span><span class="ln">  <span class="t-com">&lt;!-- paths --&gt;</span></span><span class="ln"><span class="t-tag">&lt;/svg&gt;</span></span></pre>
+      </div>
+      <div>
+        <div class="feat">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+          <div>
+            <h3>The MCP server stamps it, not the server</h3>
+            <p>The Stellar scheme settles <span class="hi">after</span> the route handler has built its body, so the resource server cannot know the hash yet. The payer can.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+          <div>
+            <h3>The network attribute is load-bearing</h3>
+            <p>A bare hash is meaningless without knowing <span class="hi">which ledger to resolve it against</span>, and resolving it is the entire point.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+          <div>
+            <h3>Free assets are stamped too</h3>
+            <p>With a tier and no citation. The claim is that an audit finds zero <span class="hi">unattributed</span> assets, and "free" answers the question while a missing attribute does not.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">09 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 10 - Verification -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">10</span>Provenance</p>
+    <h2 class="s-title">Resolved against the ledger, never against us</h2>
+  </header>
+  <div class="s-body">
+    <div class="grid-2">
+      <div class="card std">
+        <p class="label">What resolving proves</p>
+        <h3>Facts read off Horizon</h3>
+        <p>A settled transfer, of this amount, to this account, at this time. The verifier additionally checks the amount <span class="hi">matches the asset's tier price</span>. None of it asks VectorAgent anything, so the audit still works if the company is gone.</p>
+        <p class="wire"><b>&gt;</b> npx tsx scripts/audit-licenses.ts ./src</p>
+      </div>
+      <div class="card std">
+        <p class="label">What it does not prove</p>
+        <h3>The gap that is still open</h3>
+        <p>That the transfer bought <span class="hi">this</span> icon. The asset id is not carried inside the transaction, so that link still comes from our records. A basket is looser again: one settlement covers the total, so a verifier can only check this asset's price fits inside it.</p>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Closing it</span>The asset id has to travel with the money, either in a Stellar memo or inside a contract call. That is the next slide, and it is the real argument for writing a contract rather than using the stock one.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">10 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 11 - Contract design -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">11</span>Soroban &#183; Design</p>
+    <h2 class="s-title">What a contract of our own would close</h2>
+  </header>
+  <div class="s-body">
+    <div class="grid-3">
+      <div class="card std">
+        <p class="label">Gap 1 &#183; Binding</p>
+        <h3>Put the asset id in the ledger</h3>
+        <p>A <code>purchase(asset_id, amount)</code> entry point writes the id into the entry itself. The citation stops being "a payment of the right size" and becomes <span class="hi">proof this payment bought this asset</span>.</p>
+      </div>
+      <div class="card std">
+        <p class="label">Gap 2 &#183; The split</p>
+        <h3>Pay the creator in the same call</h3>
+        <p>The 90/10 split lives in our accounting today, which means trusting us. One invocation paying both parties makes the <span class="hi">royalty as checkable as the purchase</span>.</p>
+      </div>
+      <div class="card std">
+        <p class="label">Gap 3 &#183; Baskets</p>
+        <h3>Receipt the whole basket</h3>
+        <p>A manifest hash in the call lets a verifier confirm an asset was <span class="hi">in the basket that settled</span>, instead of checking only that the total was large enough to cover it.</p>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Not built</span>There is no contract source in the PoC. Settlement today uses the stock Stellar Asset Contract, which is why the binding gap exists at all. A contract of our own adds a deployment, an upgrade story and an audit surface, and none of those are free: it buys verifiability, and it costs trust that has to be re-earned in code.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">11 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 12 - Open problems -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">12</span>Open</p>
+    <h2 class="s-title">Three things the rail does not solve</h2>
+  </header>
+  <div class="s-body">
+    <div class="grid-3">
+      <div class="card std">
+        <p class="label">01 &#183; Overhead</p>
+        <h3>The facilitator half</h3>
+        <p>Up to 4.8 seconds <span class="hi">after the money has already moved</span>. It is the removable half of the wait, and PayAI took x402 on Base from 1.7s to 750ms by chasing exactly this.</p>
+      </div>
+      <div class="card std">
+        <p class="label">02 &#183; First contact</p>
+        <h3>The genuine one-off</h3>
+        <p>An agent that has never paid us before, with no funded wallet, wanting one asset once. <span class="hi">No deployed x402 pattern solves this without pre-funding.</span></p>
+      </div>
+      <div class="card std">
+        <p class="label">03 &#183; The tempting shortcut</p>
+        <h3>Release on verification</h3>
+        <p>Handing the asset over once the envelope verifies, before it settles, is what we reached for first. A production deployment measured <span class="hi">86.95% leakage under burst</span>. It is a vulnerability class, not a pattern.</p>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <p class="have">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8" /><path d="M6.5 10.2l2.4 2.4 4.6-5" /></svg>
+        The loop works and the money is real.
+      </p>
+      <p class="gap">What is unfinished is <span class="cy">speed, onboarding and binding.</span></p>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">12 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 13 - Appendix, stack -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">13</span>Appendix &#183; Stack</p>
+    <h2 class="s-title">What is actually installed</h2>
+  </header>
+  <div class="s-body">
+    <div class="numbers wide">
+      <div class="card key">
+        <p class="label">The x402 packages</p>
+        <dl>
+          <dt>@x402/core</dt><dd>2.26.0 &#183; client, resource server, scheme registry</dd>
+          <dt>@x402/express</dt><dd>2.26.0 &#183; the payment middleware on the route</dd>
+          <dt>@x402/fetch</dt><dd>2.26.0 &#183; wraps fetch with the client half</dd>
+          <dt>@x402/stellar</dt><dd>2.26.0 &#183; ExactStellarScheme, Ed25519 signer</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">The Stellar side</p>
+        <dl>
+          <dt>sdk 17.1.0</dt><dd>@stellar/stellar-sdk</dd>
+          <dt>network</dt><dd>stellar:testnet, settled in USDC</dd>
+          <dt>facilitator</dt><dd>OpenZeppelin-hosted testnet facilitator</dd>
+          <dt>explorer</dt><dd>Horizon, plus stellar.expert for a human to look</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">Where the keys live</p>
+        <dl>
+          <dt>AGENT</dt><dd>secret held only by the MCP server, the only spender</dd>
+          <dt>VAULT</dt><dd>public key only, on the resource server</dd>
+          <dt>dashboard</dt><dd>public keys and public ledger data, no secret</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="label">What proves it</p>
+        <dl>
+          <dt>test:pricing</dt><dd>quoted and settled price, checked on Horizon</dd>
+          <dt>test:mcp</dt><dd>only fetch can spend; search and preview are free</dd>
+          <dt>test:bundle</dt><dd>batching, measured against sequential</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="scope"><span class="label">Scope</span>Testnet throughout. Nothing here has run against pubnet, and no figure on these slides is a mainnet measurement.</p>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">13 / 14</span>
+  </footer>
+</div>
+
+<!-- SLIDE 14 - Appendix, sources -->
+<div class="slide">
+  <header class="s-head">
+    <p class="eyebrow"><span class="idx">14</span>Appendix &#183; Sources</p>
+    <h2 class="s-title">Where each of these came from</h2>
+  </header>
+  <div class="s-body">
+    <div class="sources">
+      <p class="src read"><b>PoC source</b> &#183; src/server.ts. The three-case ordering, dynamic pricing, the basket route and its limit.<span class="nolink">C:\Cursor Apps\Vector-Agent\src\server.ts</span></p>
+      <p class="src read"><b>PoC source</b> &#183; src/license.ts. The stamp, who writes it and why, and the verification checks.<span class="nolink">C:\Cursor Apps\Vector-Agent\src\license.ts</span></p>
+      <p class="src read"><b>PoC source</b> &#183; src/horizon.ts. Why a settlement arrives as invoke_host_function.<span class="nolink">C:\Cursor Apps\Vector-Agent\src\horizon.ts</span></p>
+      <p class="src read"><b>PoC README</b> &#183; every latency and basket figure on slides 7 and 8, as measured.<span class="nolink">C:\Cursor Apps\Vector-Agent\README.md</span></p>
+      <p class="src"><b>PayAI</b> &#183; sub-second x402 settlement on Base, the 1.7s to 750ms figure.<a href="https://blog.payai.network/sub-second-x402-settlement-on-base-with-flashblocks/">blog.payai.network/sub-second-x402-settlement-on-base-with-flashblocks</a></p>
+      <p class="src"><b>arXiv</b> &#183; the 86.95% leakage measurement under burst.<a href="https://arxiv.org/pdf/2605.30998">arxiv.org/pdf/2605.30998</a></p>
+      <p class="src"><b>Circle</b> &#183; testnet USDC faucet, how the agent wallet is funded.<a href="https://faucet.circle.com">faucet.circle.com</a></p>
+      <p class="src"><b>Stellar Horizon</b> &#183; the testnet endpoint every citation resolves against.<a href="https://horizon-testnet.stellar.org">horizon-testnet.stellar.org</a></p>
+      <p class="src"><b>npm</b> &#183; package versions as installed, read from package.json.<span class="nolink">@x402/* 2.26.0 &#183; @stellar/stellar-sdk 17.1.0 &#183; @modelcontextprotocol/sdk 1.30.0</span></p>
+      <p class="src"><b>Not measured</b> &#183; no mainnet figures, no cost-per-settlement at scale, no contract gas.<span class="nolink">testnet only; a deployed contract does not exist to measure</span></p>
+    </div>
+  </div>
+  <footer class="s-foot">
+    <span class="wm"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13C3 6.5 6.5 3 13 3" /><rect x="1.2" y="11.2" width="3.6" height="3.6" rx="0.6" fill="currentColor" stroke="none" /><rect x="11.4" y="1.4" width="3.2" height="3.2" rx="0.6" fill="currentColor" stroke="none" /></svg>vectoragent</span>
+    <span class="pg">14 / 14</span>
+  </footer>
+</div>
+
+  </div>
+</div>
+
+<nav class="bar" id="bar" aria-label="Deck controls">
+  <button id="btnPrev" title="Previous (left arrow)" aria-label="Previous slide">&lsaquo;</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="btnNext" title="Next (right arrow)" aria-label="Next slide">&rsaquo;</button>
+  <span class="sep"></span>
+  <button id="btnGrid" title="All slides (O)">Slides</button>
+  <button id="btnFull" title="Fullscreen (F)">Full</button>
+  <button id="btnPrint" title="Print / save as PDF (P)">PDF</button>
+</nav>
+
+<div class="hint">&larr; &rarr; to navigate &middot; O for all slides &middot; F fullscreen</div>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var wraps = [];
+  var index = 0;
+
+  // Wrap each slide so present mode and grid mode can share one DOM.
+  slides.forEach(function (slide, i) {
+    var wrap = document.createElement('div');
+    wrap.className = 'slide-wrap';
+    wrap.setAttribute('data-num', i + 1);
+    slide.parentNode.insertBefore(wrap, slide);
+    wrap.appendChild(slide);
+    wrap.addEventListener('click', function () {
+      if (document.body.classList.contains('overview')) {
+        go(i);
+        setOverview(false);
+      }
+    });
+    wraps.push(wrap);
+  });
+
+  var total = wraps.length;
+  var count = document.getElementById('count');
+  var progress = document.getElementById('progress');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+  var edgePrev = document.getElementById('edgePrev');
+  var edgeNext = document.getElementById('edgeNext');
+
+  function fit() {
+    if (document.body.classList.contains('overview')) {
+      // Thumbnails: scale each slide down to its wrapper width.
+      wraps.forEach(function (wrap) {
+        var s = wrap.clientWidth / 960;
+        wrap.querySelector('.slide').style.transform = 'scale(' + s + ')';
+      });
+      return;
+    }
+    wraps.forEach(function (wrap) {
+      wrap.querySelector('.slide').style.transform = '';
+    });
+    var pad = window.innerWidth < 760 ? 16 : 48;
+    var s = Math.min(
+      (window.innerWidth - pad * 2) / 960,
+      (window.innerHeight - pad * 2) / 540
+    );
+    stage.style.transform = 'scale(' + Math.max(s, 0.1) + ')';
+  }
+
+  var leaveTimer;
+  var shown = -1;
+
+  function render() {
+    // Keep the slide we're leaving painted underneath the incoming one so the
+    // page background never shows through the crossfade.
+    clearTimeout(leaveTimer);
+    wraps.forEach(function (wrap) { wrap.classList.remove('is-leaving'); });
+
+    var outgoing = shown !== index && wraps[shown] ? wraps[shown] : null;
+    if (outgoing) { outgoing.classList.add('is-leaving'); }
+
+    wraps.forEach(function (wrap, i) {
+      wrap.classList.toggle('is-active', i === index);
+    });
+    shown = index;
+
+    if (outgoing) {
+      leaveTimer = setTimeout(function () {
+        outgoing.classList.remove('is-leaving');
+      }, 200);
+    }
+
+    count.textContent = (index + 1) + ' / ' + total;
+    progress.style.width = (total > 1 ? (index / (total - 1)) * 100 : 100) + '%';
+    var atStart = index === 0;
+    var atEnd = index === total - 1;
+    btnPrev.disabled = edgePrev.disabled = atStart;
+    btnNext.disabled = edgeNext.disabled = atEnd;
+  }
+
+  function go(i, push) {
+    var next = Math.max(0, Math.min(total - 1, i));
+    if (next === index && push !== true) { render(); return; }
+    index = next;
+    render();
+    var hash = '#' + (index + 1);
+    if (location.hash !== hash) {
+      history.replaceState(null, '', hash);
+    }
+    if (document.body.classList.contains('overview')) {
+      wraps[index].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function setOverview(on) {
+    document.body.classList.toggle('overview', on);
+    document.getElementById('btnGrid').textContent = on ? 'Present' : 'Slides';
+    fit();
+    if (on) {
+      wraps[index].scrollIntoView({ block: 'center' });
+    }
+  }
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  }
+
+  // Controls. Blurring keeps a clicked edge zone from holding focus.
+  btnPrev.onclick = function () { go(index - 1); };
+  btnNext.onclick = function () { go(index + 1); };
+  edgePrev.onclick = function () { this.blur(); go(index - 1); };
+  edgeNext.onclick = function () { this.blur(); go(index + 1); };
+  document.getElementById('btnGrid').onclick = function () {
+    setOverview(!document.body.classList.contains('overview'));
+  };
+  document.getElementById('btnFull').onclick = toggleFullscreen;
+  document.getElementById('btnPrint').onclick = function () {
+    var wasOverview = document.body.classList.contains('overview');
+    if (wasOverview) { setOverview(false); }
+    window.print();
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'n') {
+      go(index + 1); e.preventDefault();
+    } else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') {
+      go(index - 1); e.preventDefault();
+    } else if (k === 'Home') {
+      go(0); e.preventDefault();
+    } else if (k === 'End') {
+      go(total - 1); e.preventDefault();
+    } else if (k === 'o' || k === 'O') {
+      setOverview(!document.body.classList.contains('overview')); e.preventDefault();
+    } else if (k === 'Escape') {
+      if (document.body.classList.contains('overview')) { setOverview(false); e.preventDefault(); }
+    } else if (k === 'f' || k === 'F') {
+      toggleFullscreen(); e.preventDefault();
+    } else if (k === 'p' || k === 'P') {
+      window.print(); e.preventDefault();
+    } else if (/^[1-9]$/.test(k)) {
+      go(parseInt(k, 10) - 1); e.preventDefault();
+    }
+  });
+
+  // Touch swipe
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX;
+    ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (document.body.classList.contains('overview')) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      go(dx < 0 ? index + 1 : index - 1);
+    }
+  }, { passive: true });
+
+  // Auto-hide chrome when idle
+  var idleTimer;
+  function wake() {
+    document.body.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      document.body.classList.add('idle');
+    }, 2600);
+  }
+  ['mousemove', 'keydown', 'touchstart', 'click'].forEach(function (evt) {
+    document.addEventListener(evt, wake, { passive: true });
+  });
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function () {
+    var n = parseInt(location.hash.replace('#', ''), 10);
+    if (n) { go(n - 1, true); }
+  });
+
+  // Boot
+  var start = parseInt(location.hash.replace('#', ''), 10);
+  index = start ? Math.max(0, Math.min(total - 1, start - 1)) : 0;
+  render();
+  fit();
+  wake();
+})();
+</script>
+
+</body>
+</html>

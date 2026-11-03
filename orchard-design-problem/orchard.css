@@ -1,0 +1,265 @@
+/* ============================================================
+   Orchard Design System — Colors & Type
+   ------------------------------------------------------------
+   Dark-theme-first. Deep navy canvas, bright teal/green accents.
+   Source of truth: figma "Orchard.fig" + METADATA.md usage counts.
+   ============================================================ */
+
+/* ---- Fonts ------------------------------------------------- */
+/* Open Sans (body + heading), Inter (buttons + UI), Bitter (serif),
+   Cooper-Black-adjacent display face (wordmark).
+   Loaded from Google Fonts — no TTFs bundled. If you need offline
+   fonts, drop them into fonts/ and rewrite @font-face below. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&family=Bitter:wght@400;600;700&family=Quicksand:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap');
+
+:root {
+  /* ---- Brand accents (from METADATA top colors) ----------- */
+  --orchard-teal:        #13C7E5;   /* primary accent / active / focus / buttons */
+  --orchard-teal-hover:  #26D0C8;
+
+  --orchard-green:       #3CD343;   /* growth / progress / sprout */
+  --orchard-green-hover: #4CDB53;
+  --orchard-green-deep:  #1CB71C;   /* alt darker green */
+  --orchard-green-bg:    #0E4A1F;   /* green-tinted card surface */
+
+  --orchard-pink:        #F759B3;   /* sparkle / AI indicator */
+  --orchard-pink-deep:   #EA1B66;   /* notification / accent pink */
+  --orchard-yellow:      #E8F948;   /* highlight (sparse) */
+  --orchard-orange:      #F29820;   /* sprout-dirt orange */
+
+  /* ---- Neutrals (dark ramp) ------------------------------- */
+  --ink-0:    #000000;
+  --ink-1:    #08121D;   /* recessed surface / input bg / chat panel */
+  --ink-2:    #0C2235;   /* CANVAS — default page background */
+  --ink-3:    #001226;   /* alt deep navy (signup hero) */
+  --ink-4:    #223B4C;   /* ELEVATED surface — cards, nav rail, dividers */
+  --ink-5:    #516F84;   /* muted stroke / placeholder text */
+  --ink-6:    #6B717D;
+  --ink-7:    #B5BFC8;
+  --ink-8:    #DCE0E3;
+  --ink-9:    #E4E9ED;   /* primary body text */
+  --ink-10:   #F6F7FA;
+  --ink-11:   #FFFFFF;   /* strong heading */
+
+  /* ---- Light-UI neutrals (used in growth-report light mode) */
+  --light-bg:     #F9FAFB;
+  --light-surface:#FFFFFF;
+  --light-border: #E5E7EB;
+  --light-muted:  #D1D5DB;
+  --light-text-2: #6B717D;
+  --light-text-3: #107A85;
+
+  /* ---- Semantic tokens (dark theme) ----------------------- */
+  --bg-canvas:     var(--ink-2);
+  --bg-elevated:   var(--ink-4);
+  --bg-recessed:   var(--ink-1);
+  --bg-rail:       var(--ink-4);
+  --bg-top-nav:    var(--ink-2);
+
+  --fg-primary:    var(--ink-11);   /* headings, emphasized */
+  --fg-body:       var(--ink-9);    /* paragraph body */
+  --fg-muted:      var(--ink-5);    /* placeholders, meta */
+  --fg-inverse:    var(--ink-1);    /* text on teal/green buttons is white; this is for light surfaces */
+
+  --border-subtle: var(--ink-4);
+  --border-muted:  var(--ink-5);
+  --border-strong: var(--ink-7);
+
+  --accent-primary:   var(--orchard-teal);
+  --accent-growth:    var(--orchard-green);
+  --accent-ai:        var(--orchard-pink);
+  --accent-button:    var(--orchard-teal);
+
+  /* ---- Shadows -------------------------------------------- */
+  --shadow-card:   0 2px 2px 0 rgba(8,18,29,0.25);
+  --shadow-button: 0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow-pop:    0 8px 24px 0 rgba(0,0,0,0.35);
+
+  /* ---- Radius --------------------------------------------- */
+  --r-sm:    4px;
+  --r-md:    6px;     /* buttons */
+  --r-lg:    8px;     /* cards, default */
+  --r-xl:    12px;
+  --r-pill:  100px;   /* Ask Orchie input, icon badges */
+
+  /* ---- Spacing (4px base) --------------------------------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  10px;    /* chat stack gap */
+  --space-4:  12px;
+  --space-5:  16px;
+  --space-6:  20px;    /* card padding / canonical gap */
+  --space-7:  24px;    /* top-nav padding / section */
+  --space-8:  32px;
+  --space-9:  40px;
+  --space-10: 60px;    /* icon rail width / top nav height-adjacent */
+
+  /* ---- Layout --------------------------------------------- */
+  --rail-w:      60px;
+  --top-nav-h:   64px;
+  --chat-w:      340px;
+  --content-max: 1084px;
+
+  /* ---- Type scale ----------------------------------------- */
+  --font-sans:    'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-ui:      'Inter', 'Open Sans', system-ui, sans-serif;
+  --font-serif:   'Bitter', Georgia, serif;
+  --font-display: 'Quicksand', 'Nunito', 'Open Sans', sans-serif;
+
+  --fs-xs:  11px;
+  --fs-sm:  12px;
+  --fs-md:  14px;   /* default body */
+  --fs-lg:  16px;   /* emphasized body / primary reading size */
+  --fs-xl:  18px;
+  --fs-2xl: 20px;   /* card titles, secondary headings */
+  --fs-3xl: 24px;   /* section headings ("Next Steps", "Overview") */
+  --fs-4xl: 32px;
+  --fs-5xl: 48px;   /* hero display */
+
+  /* Orchard uses unusually tight line-height; keep it on purpose */
+  --lh-tight:  1.15;
+  --lh-ui:     20px;   /* absolute — matches figma spec on 14/16px */
+  --lh-normal: 1.45;
+  --lh-prose:  1.6;
+}
+
+/* ============================================================
+   Semantic type styles — drop these classes anywhere.
+   ============================================================ */
+
+.h1, h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-4xl);
+  line-height: var(--lh-tight);
+  color: var(--fg-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.h2, h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-3xl);
+  line-height: 1.2;
+  color: var(--fg-primary);
+  margin: 0;
+}
+
+.h3, h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-2xl);
+  line-height: 1.25;
+  color: var(--fg-body);
+  margin: 0;
+}
+
+.h4, h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-ui);
+  color: var(--fg-primary);
+  margin: 0;
+}
+
+.p, p {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-ui);
+  color: var(--fg-body);
+  margin: 0;
+}
+
+.p-sm, .meta {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-md);
+  line-height: var(--lh-ui);
+  color: var(--fg-body);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-ui);
+  color: var(--fg-body);
+  letter-spacing: 0.01em;
+}
+
+.caption {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-ui);
+  color: var(--fg-muted);
+}
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-5xl);
+  line-height: 1;
+  color: var(--fg-primary);
+}
+
+.serif-pull {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-xl);
+  line-height: 1.35;
+  color: var(--fg-body);
+}
+
+code, .code {
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  font-size: 13px;
+  background: var(--ink-1);
+  color: var(--orchard-teal);
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+}
+
+/* Buttons use Inter */
+.btn-text {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: var(--fs-lg);
+  line-height: 24px;
+}
+
+/* ============================================================
+   Base resets + page shell (dark)
+   ============================================================ */
+
+html, body {
+  background: var(--bg-canvas);
+  color: var(--fg-body);
+  font-family: var(--font-sans);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+::selection { background: var(--orchard-teal); color: var(--ink-1); }
+
+:focus-visible {
+  outline: 2px solid var(--orchard-teal);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
