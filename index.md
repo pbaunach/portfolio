@@ -35,7 +35,7 @@ extra_js: [/assets/js/live-work.js]
         </p>
       </div>
       <figure class="hero-wipe-wrap">
-        <div class="hero-wipe" data-wipe tabindex="0" role="slider" aria-label="{{ wipe_label }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--ratio: {{ wipe_ratio }}">
+        <div class="hero-wipe" data-wipe tabindex="0" role="slider" aria-label="{{ wipe_label }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="33" style="--ratio: {{ wipe_ratio }}">
           <img src="{{ ill }}{{ wipe_under }}" alt="{{ wipe_under_alt }}" draggable="false">
           <img class="hero-wipe-top" src="{{ ill }}{{ wipe_over }}" alt="{{ wipe_over_alt }}" draggable="false">
           <div class="hero-wipe-bar" aria-hidden="true">

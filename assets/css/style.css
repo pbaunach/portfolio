@@ -293,7 +293,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .hero-wipe {
-  --x: 50%;
+  --x: 33%;
   position: relative;
   width: 100%;
   aspect-ratio: var(--ratio, 1461 / 960);
@@ -364,11 +364,6 @@ h1, h2, h3, h4, h5, h6,
   stroke-linejoin: round;
 }
 
-.hero-wipe.is-idle .hero-wipe-top { animation: heroWipe 3.6s ease-in-out infinite alternate; }
-.hero-wipe.is-idle .hero-wipe-bar { animation: heroWipeBar 3.6s ease-in-out infinite alternate; }
-@keyframes heroWipe { from { clip-path: inset(0 0 0 18%); } to { clip-path: inset(0 0 0 82%); } }
-@keyframes heroWipeBar { from { left: 18%; } to { left: 82%; } }
-
 .hero-wipe-tag {
   position: absolute;
   top: 0.7rem;
@@ -397,11 +392,6 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: 0.18em;
   text-transform: uppercase;
   line-height: 1.9;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-wipe.is-idle .hero-wipe-top,
-  .hero-wipe.is-idle .hero-wipe-bar { animation: none; }
 }
 
 @media (max-width: 860px) {

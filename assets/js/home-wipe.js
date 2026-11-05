@@ -1,13 +1,12 @@
-/* Home hero before/after wipe. Idles with a slow CSS sweep until someone
-   touches it, then follows the pointer for good. Works as a slider from the
-   keyboard too. */
+/* Home hero before/after wipe. Rests one-third open and follows the pointer
+   while dragged. Works as a slider from the keyboard too. */
 (function () {
   'use strict';
 
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var START = 33;
 
   document.querySelectorAll('[data-wipe]').forEach(function (el) {
-    var value = 50;
+    var value = START;
     var dragging = false;
 
     function set(v) {
@@ -15,19 +14,16 @@
       el.style.setProperty('--x', value + '%');
       el.setAttribute('aria-valuenow', String(Math.round(value)));
     }
-    function stopIdle() { el.classList.remove('is-idle'); }
     function fromPointer(e) {
       var r = el.getBoundingClientRect();
       set(((e.clientX - r.left) / r.width) * 100);
     }
 
-    set(50);
-    if (!reduceMotion) el.classList.add('is-idle');
+    set(START);
 
     el.addEventListener('pointerdown', function (e) {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       e.preventDefault();
-      stopIdle();
       dragging = true;
       el.focus({ preventScroll: true });
       fromPointer(e);
@@ -43,7 +39,6 @@
       if (e.key === 'End') step = 100;
       if (step === undefined) return;
       e.preventDefault();
-      stopIdle();
       set(value + step);
     });
   });
