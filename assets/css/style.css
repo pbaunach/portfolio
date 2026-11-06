@@ -4337,7 +4337,7 @@ a.project-card {
   outline-offset: 4px;
 }
 
-/* Telby's recording is 16:9, and its play disc is the cobalt one from the
+/* Telby's recording is 16:9, and its play disc is the blue one from the
    product's own landing-page player. The home-page card uses the same disc. */
 .case-study-intro--csb-hero .csb-hero-video--telby video {
   aspect-ratio: 16 / 9;
@@ -4358,8 +4358,19 @@ a.project-card {
 .csb-hero-video--telby .csb-hero-video-play,
 .side-card-cover--telby .csb-hero-video-play {
   color: #fff;
-  background: linear-gradient(180deg, #4a69f3 0%, #2a4be0 100%);
+  background: linear-gradient(180deg, #4d8bff 0%, #2f6bf0 100%);
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.36), 0 18px 44px -10px rgba(14, 24, 84, 0.72);
+}
+
+/* A line under the walkthrough that says how it was made (silent, model waits
+   sped up). Fills the video's width, on the dark hero band. */
+.case-study-intro--csb-hero .csb-hero-video-note {
+  max-width: 960px;
+  margin: 0.9rem auto 0;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(148, 163, 184, 0.85);
 }
 
 /* The triangle's visual centre sits left of its box, so nudge it right. */
@@ -4706,7 +4717,7 @@ a.project-card {
 /* Per-page accent, so four pages on one chrome still read as four projects.
    Each is a lifted tint of that product's own brand colour, bright enough to
    hold on the #0b1220 hero band. */
-.case-study-intro--csb-hero-telby .csb-hero-accent { color: #7b93ff; }   /* cobalt #2A4BE0 */
+.case-study-intro--csb-hero-telby .csb-hero-accent { color: #6ea4ff; }   /* Telby's accent text blue */
 .case-study-intro--csb-hero-unbound .csb-hero-accent { color: #ede3c2; } /* dawn */
 
 .csb-principle-title--telbyamber { color: #e8b34a; }  /* critic accent */

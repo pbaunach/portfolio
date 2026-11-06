@@ -112,23 +112,23 @@ extra_js: [/assets/js/live-work.js]
           <p class="lab-desc">An icon store where AI agents pay their own way, a fraction of a cent at a time. Each payment doubles as proof of ownership. In four blind tests, all four agents used it, and two paid.</p>
           <p class="lab-actions">
             <span class="button button-primary" aria-hidden="true">View the Case Study</span>
-            <a href="https://vectoragent.telby.io/" class="button button-outline" target="_blank" rel="noopener noreferrer">Try it out</a>
+            <a href="https://vectoragent.telby.io/" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit VectorAgent</a>
           </p>
         </div>
       </article>
 
       <article class="lab-card lab-card--wide lab-card--flip">
-        <div class="lab-poster" aria-hidden="true">
-          <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" loading="lazy">
+        <div class="lab-poster lab-poster--live" aria-hidden="true">
+          {% include demos/telby-tokens.html cover=true %}
         </div>
         <div class="lab-card-copy">
           <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link">Telby</a></h3>
-          <span class="lab-kind">AI SVG icon builder</span>
+          <span class="lab-kind">Living icon design system</span>
           <p class="lab-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
-          <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.</p>
+          <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that. Every icon is bound to shared tokens, so one change updates the whole set.</p>
           <p class="lab-actions">
             <span class="button button-primary" aria-hidden="true">View the Screens</span>
-            <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">Try the demo</a>
+            <a href="https://telby.io" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit Telby.io</a>
           </p>
         </div>
       </article>

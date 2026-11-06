@@ -19,7 +19,7 @@
 - name: Telby
   url: /telby-icon-builder/
   tagline: Icon sets drift. I wanted one that couldn’t.
-  image: https://telby.io/walkthrough/telby-walkthrough-poster.jpg
+  image: /assets/img/telby/next-thumb.svg
 
 - name: Unbound Codex
   url: /unbound-codex/
