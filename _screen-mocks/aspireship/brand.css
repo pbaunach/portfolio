@@ -1,0 +1,10 @@
+/* Aspireship brand gradients and shared bits for the screen mocks. */
+html, body { margin: 0; }
+body { overflow: hidden; -webkit-font-smoothing: antialiased; }
+.g-purple { background-image: linear-gradient(160deg, #713EE9 0%, #4810A4 55%); }
+.g-blue   { background-image: linear-gradient(135deg, #35BAFD 0%, #2357FD 100%); }
+.g-pink   { background-image: linear-gradient(135deg, #F59495 0%, #E23DDF 100%); }
+.g-green  { background-image: linear-gradient(135deg, #CDEB30 0%, #0DA818 100%); }
+.g-orange { background-image: linear-gradient(135deg, #FEC476 0%, #FD7448 100%); }
+.g-violet { background-image: linear-gradient(135deg, #AB75FD 0%, #3D74FD 100%); }
+.ico { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }

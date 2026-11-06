@@ -67,7 +67,7 @@ extra_css: [/assets/css/side-project.css]
       <span class="sp-stage-tag">Try before you buy</span>
       <div class="sp-shot">
         <figure class="cs-callout-figure">
-          <img src="{{ '/assets/img/aspireship-screens/Course-01.png' | relative_url }}" alt="Aspireship course overview with the first section unlocked and the later lessons visible behind a lock">
+          <img src="{{ '/assets/img/aspireship-screens/Course-01-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Course-01-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Course-01-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Course-01-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Course-01-polished.png' | relative_url }} 2726w" sizes="(max-width: 940px) 92vw, 880px" alt="Aspireship course overview with the first section unlocked and the later lessons visible behind a lock">
         </figure>
         <p class="sp-shot-cap">Section 1 is free for everyone, and the upgrade prompt waits at the end of it, after four lessons and two quizzes. Locked lessons stay visible so the upgrade is concrete. Paid conversion went from 3% to 15%.</p>
       </div>
@@ -75,12 +75,12 @@ extra_css: [/assets/css/side-project.css]
 
     <ul class="sp-cards sp-cards--two sp-cards--after-stage">
       <li>
-        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Course-02.png' | relative_url }}" alt="Aspireship lesson player with transcript and lesson list"></figure>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Course-02-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Course-02-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Course-02-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Course-02-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Course-02-polished.png' | relative_url }} 2678w" sizes="(max-width: 900px) 92vw, 560px" alt="Aspireship lesson player with transcript and lesson list"></figure>
         <h4>Getting people over the hump</h4>
         <p>Section 1 ends with a recorded roleplay, and that&rsquo;s where students stalled for fear of failing. Practice runs, and saying up front that the assessment could be retaken, took completion from 45% to 89%.</p>
       </li>
       <li>
-        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Video-Library-01.png' | relative_url }}" alt="Aspireship video library home"></figure>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Video-Library-01-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Video-Library-01-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Video-Library-01-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Video-Library-01-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Video-Library-01-polished.png' | relative_url }} 2724w" sizes="(max-width: 900px) 92vw, 560px" alt="Aspireship video library home"></figure>
         <h4>A reason to come back</h4>
         <p>Live events, new videos and categories gave people a reason to open Aspireship in a week they weren&rsquo;t taking a course, and the same library let a sales manager onboard a whole team.</p>
       </li>
@@ -101,12 +101,12 @@ extra_css: [/assets/css/side-project.css]
     <h3 class="sp-side">The candidate</h3>
     <ul class="sp-cards sp-cards--two">
       <li>
-        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Candidate-02.png' | relative_url }}" alt="Aspireship candidate matches with double opt-in status"></figure>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Candidate-02-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }} 2660w" sizes="(max-width: 900px) 92vw, 560px" alt="Aspireship candidate matches with double opt-in status"></figure>
         <h4>They say yes first</h4>
         <p>A match never reaches the employer until the candidate is interested, so nobody gets shopped around while they&rsquo;re still employed. Every match says whose move it is, and base pay sits right on the card.</p>
       </li>
       <li>
-        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Candidate-03.png' | relative_url }}" alt="Aspireship candidate profile as seen by an employer"></figure>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Candidate-03-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Candidate-03-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Candidate-03-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/Candidate-03-polished.png' | relative_url }} 1510w" sizes="(max-width: 900px) 92vw, 560px" alt="Aspireship candidate profile as seen by an employer"></figure>
         <h4>Proof before the resume</h4>
         <p>Employers see a recorded intro and an unscripted roleplay clip first, and the resume last. Career changers lose on the resume, so we led with the closest thing to watching them do the job.</p>
       </li>
@@ -115,12 +115,12 @@ extra_css: [/assets/css/side-project.css]
     <h3 class="sp-side">The employer</h3>
     <ul class="sp-cards sp-cards--two">
       <li>
-        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Employer-02.png' | relative_url }}" alt="Aspireship employer candidate profile criteria"></figure>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Employer-02-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Employer-02-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Employer-02-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Employer-02-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Employer-02-polished.png' | relative_url }} 2720w" sizes="(max-width: 900px) 92vw, 560px" alt="Aspireship employer candidate profile criteria"></figure>
         <h4>Will you hire a career changer?</h4>
         <p>Every employer had to answer before matching began, with &ldquo;no SaaS experience&rdquo; and &ldquo;never held this title&rdquo; asked separately because they&rsquo;re different risks. A nice sentiment became a filter the matching could use.</p>
       </li>
       <li>
-        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Employer-01.png' | relative_url }}" alt="Aspireship employer match queue"></figure>
+        <figure class="cs-callout-figure"><img src="{{ '/assets/img/aspireship-screens/Employer-01-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Employer-01-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Employer-01-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Employer-01-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Employer-01-polished.png' | relative_url }} 2722w" sizes="(max-width: 900px) 92vw, 560px" alt="Aspireship employer match queue"></figure>
         <h4>The badge is the credential</h4>
         <p>For a candidate with no relevant work history, the Graduate badge and their Aspireship achievements are the whole credential, so they get more weight on the card than anything but the name.</p>
       </li>
@@ -140,7 +140,7 @@ extra_css: [/assets/css/side-project.css]
 
     <div class="sp-audit sp-audit--first">
       <figure class="cs-callout-figure">
-        <img src="{{ '/assets/img/aspireship-screens/Internal-01.png' | relative_url }}" alt="Aspireship internal admin dashboard">
+        <img src="{{ '/assets/img/aspireship-screens/Internal-01-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Internal-01-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Internal-01-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Internal-01-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Internal-01-polished.png' | relative_url }} 2732w" sizes="(max-width: 900px) 92vw, 660px" alt="Aspireship internal admin dashboard">
       </figure>
       <div class="sp-audit-copy">
         <span class="sp-flag">The dashboard</span>
@@ -151,7 +151,7 @@ extra_css: [/assets/css/side-project.css]
 
     <div class="sp-audit sp-audit--flip">
       <figure class="cs-callout-figure">
-        <img src="{{ '/assets/img/aspireship-screens/Internal-03.png' | relative_url }}" alt="Aspireship internal match suggestions with reasons">
+        <img src="{{ '/assets/img/aspireship-screens/Internal-03-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Internal-03-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Internal-03-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Internal-03-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Internal-03-polished.png' | relative_url }} 2722w" sizes="(max-width: 900px) 92vw, 660px" alt="Aspireship internal match suggestions with reasons">
       </figure>
       <div class="sp-audit-copy">
         <span class="sp-flag">Match suggestions</span>
