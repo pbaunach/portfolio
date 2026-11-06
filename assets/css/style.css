@@ -3973,7 +3973,7 @@ a.project-card {
   background: #4810a4;
 }
 
-/* The screenshot fills the whole cover; a little of its edges is cropped. */
+/* The cover image is drawn at the card's 16:10 ratio, so it fills the card uncropped. */
 .project-card--split .project-cover--aspireship.project-cover--split-hero .project-cover-img {
   object-position: top left;
 }

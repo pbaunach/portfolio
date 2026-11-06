@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+  Polished recreation of assets/img/aspireship-screens/Candidate-03.png (candidate profile, employer view).
+  Same content and structure as the original screenshot, restyled with Aspireship brand tokens.
+  Photos and achievement badges are cropped from the original screenshot.
+  Render: sh _screen-mocks/aspireship/render.sh candidate-03 Candidate-03-polished 755 888
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aspireship · Candidate profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="brand.js"></script>
+<link rel="stylesheet" href="brand.css">
+<style>body { width: 755px; height: 888px; }</style>
+</head>
+<body class="font-sans text-ink bg-gray-50">
+
+  <!-- Header -->
+  <header class="g-pink relative flex h-[180px] flex-col items-center justify-center text-white">
+    <svg viewBox="0 0 755 180" class="absolute inset-0 h-full w-full" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3">
+      <g opacity=".7"><path d="M180 64v14M173 71h14M706 74v14M699 81h14"/><circle cx="100" cy="118" r="6"/><circle cx="668" cy="148" r="6"/><circle cx="54" cy="52" r="3" fill="currentColor" stroke="none"/><circle cx="562" cy="42" r="3" fill="currentColor" stroke="none"/><circle cx="722" cy="70" r="3" fill="currentColor" stroke="none"/></g>
+    </svg>
+    <img src="img/cand-robert.png" alt="" class="relative h-[100px] w-[100px] rounded-full object-cover ring-4 ring-white shadow-lg">
+    <h1 class="relative mt-2.5 text-[20px] font-semibold">Robert Schmitt</h1>
+  </header>
+
+  <div class="flex gap-5 px-4 pt-5">
+    <!-- Left column -->
+    <section class="w-[436px] shrink-0">
+      <h2 class="text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Candidate introduction</h2>
+      <div class="relative mt-2.5 h-[245px] overflow-hidden rounded-2xl bg-ink shadow-card">
+        <img src="img/cand-robert-intro.png" alt="" class="h-full w-full object-cover">
+        <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink/80 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-center gap-3 px-3 pb-2.5 text-white">
+          <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-purple shadow"><svg viewBox="0 0 24 24" class="ml-0.5 h-3.5 w-3.5" fill="currentColor"><path d="M8 5.5v13l10.5-6.5Z"/></svg></span>
+          <div class="relative h-1 flex-1 rounded-full bg-white/25"><span class="absolute left-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-white"></span></div>
+          <span class="text-[11px] font-medium tabular-nums text-white/85">03:35</span>
+          <svg viewBox="0 0 24 24" class="ico h-4 w-4 text-white/90"><path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg>
+        </div>
+      </div>
+
+      <h2 class="mt-5 text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">From the candidate</h2>
+      <div class="mt-2 space-y-2 text-[13px] leading-relaxed text-gray-700">
+        <p>I have 10+ years of sales experience, primarily selling to SMB customers in the health, wellness and retail industries.</p>
+        <p>I have a consistent track record of success with a history of building strong relationships internally and externally.</p>
+        <p>I'm a lifelong learner, I'm passionate about helping small businesses and am seeking a new challenge at a fast-growth startup.</p>
+      </div>
+
+      <h2 class="mt-5 text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Project video clip</h2>
+      <div class="mt-2 flex gap-3 rounded-2xl bg-purple/[.06] p-3.5 ring-1 ring-inset ring-purple/15">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-purple text-white"><svg viewBox="0 0 24 24" class="ico h-4 w-4" style="stroke-width:2"><path d="M12 11v5M12 7.5h.01"/></svg></span>
+        <div class="text-[12.5px] leading-relaxed text-gray-700">
+          <div class="text-[13px] font-semibold text-ink">Project Guidelines</div>
+          <p class="mt-1">This is a raw roleplay with unscripted responses.</p>
+          <p class="mt-1">Candidates were given video prompts from the perspective of a prospect/customer and asked to respond as they would in a live conversation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right column -->
+    <aside class="min-w-0 flex-1 space-y-5">
+      <div class="rounded-2xl bg-white p-4 shadow-card ring-1 ring-gray-150">
+        <dl class="space-y-3 text-[13px]">
+          <div><dt class="text-[10.5px] font-medium uppercase tracking-[.06em] text-gray-400">Role</dt><dd class="leading-snug">Business Development Representative</dd></div>
+          <div><dt class="text-[10.5px] font-medium uppercase tracking-[.06em] text-gray-400">Location</dt><dd>Scottsdale AZ</dd></div>
+        </dl>
+        <div class="mt-3.5 space-y-2 text-[13px]">
+          <div class="flex items-center gap-2.5"><span class="grid h-7 w-7 place-items-center rounded-lg bg-[#0A66C2] text-[11px] font-bold text-white">in</span><span class="text-purple">/in/robertmschmitt/</span></div>
+          <div class="flex items-center gap-2.5"><span class="grid h-7 w-7 place-items-center rounded-lg bg-purple/[.07] text-purple"><svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg></span><span class="text-purple">Resume</span></div>
+        </div>
+        <div class="mt-4 border-t border-gray-150 pt-3">
+          <div class="mb-2 text-[11.5px] font-semibold text-gray-700">Are you interested in this candidate?</div>
+          <div class="grid grid-cols-2 gap-2">
+            <span class="rounded-full bg-[#0DA818] py-2 text-center text-[12.5px] font-semibold text-white shadow-sm">Interested</span>
+            <span class="rounded-full bg-white py-2 text-center text-[12.5px] font-medium text-gray-700 ring-1 ring-inset ring-gray-300">Not Interested</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Aspireship achievements</h2>
+        <ul id="badges" class="mt-2 space-y-1 rounded-2xl bg-white p-2 shadow-card ring-1 ring-gray-150 text-[13px]"></ul>
+      </div>
+    </aside>
+  </div>
+
+<script>
+  // Achievement badges: the product's own badge art, cut from the original screenshot.
+  const items = [
+    { name: 'SaaS Sales Foundations',       img: 'badge-sales-foundations.png', w: 21 },
+    { name: 'SaaS Sales Intensive',         img: 'badge-sales-intensive.png',   w: 26 },
+    { name: 'RevOps Foundations',           img: 'badge-revops.png',            w: 21 },
+    { name: 'Customer Success Foundations', img: 'badge-cs.png',                w: 21 },
+  ];
+  document.getElementById('badges').innerHTML = items.map(b => `
+    <li class="flex items-center gap-3 rounded-xl px-2 py-2">
+      <span class="flex w-[30px] shrink-0 justify-center"><img src="img/${b.img}" alt="" style="width:${b.w * 1.15}px;height:${26 * 1.15}px"></span>
+      <span class="font-medium">${b.name}</span>
+    </li>`).join('');
+</script>
+</body>
+</html>

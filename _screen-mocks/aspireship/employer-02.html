@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  Polished recreation of assets/img/aspireship-screens/Employer-02.png (employer job: candidate profile criteria).
+  Same content and structure as the original screenshot, restyled with Aspireship brand tokens.
+  Render: sh _screen-mocks/aspireship/render.sh employer-02 Employer-02-polished 1360 763
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aspireship · Job candidate profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="brand.js"></script>
+<script src="parts.js"></script>
+<link rel="stylesheet" href="brand.css">
+<style>
+  body { width: 1360px; height: 763px; }
+  .fade-bottom { -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent 100%); mask-image: linear-gradient(to bottom, #000 85%, transparent 100%); }
+</style>
+</head>
+<body class="font-sans text-ink bg-gray-50">
+<div class="flex h-full">
+  <div id="sidebar" class="contents"></div>
+
+  <main class="flex min-w-0 flex-1 flex-col">
+    <!-- Job header -->
+    <header class="border-b border-gray-150 bg-white px-7 pb-0 pt-5">
+      <div class="flex items-start gap-3.5">
+        <span class="g-orange grid h-12 w-12 shrink-0 place-items-center rounded-xl text-white shadow-sm">
+          <svg viewBox="2 1 20 20" class="h-8 w-8" fill="currentColor"><ellipse cx="7" cy="9" rx="1.9" ry="2.4"/><ellipse cx="17" cy="9" rx="1.9" ry="2.4"/><ellipse cx="10.2" cy="5.6" rx="1.8" ry="2.3"/><ellipse cx="13.8" cy="5.6" rx="1.8" ry="2.3"/><path d="M12 11c-2.6 0-5 2.9-5 5.3 0 1.6 1.2 2.4 2.6 2.4 1 0 1.6-.5 2.4-.5s1.4.5 2.4.5c1.4 0 2.6-.8 2.6-2.4 0-2.4-2.4-5.3-5-5.3Z"/></svg>
+        </span>
+        <div class="flex-1">
+          <div class="text-[13px] font-medium text-purple">Acme Acquisitions Corp.</div>
+          <h1 class="text-[20px] font-semibold leading-tight tracking-tight">Sales Development Representative</h1>
+        </div>
+        <span class="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-[#D92D20] ring-1 ring-inset ring-[#D92D20]/40">Close Job</span>
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-white text-gray-600 ring-1 ring-inset ring-gray-300">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
+        </span>
+      </div>
+      <div class="mt-3.5 flex items-center gap-8 text-[12.5px]">
+        <div class="flex items-center gap-2"><span class="text-gray-600">Status</span><span class="inline-flex items-center gap-1.5 rounded-full bg-[#0DA818]/10 px-2.5 py-0.5 font-semibold text-[#0B8A14]"><span class="h-1.5 w-1.5 rounded-full bg-[#0DA818]"></span>Open</span></div>
+        <div><span class="text-gray-600">Date Opened</span> <span class="ml-1 font-medium">Nov 22, 2022</span></div>
+        <div><span class="text-gray-600">Open Matches</span> <span class="ml-1 font-medium">3</span></div>
+      </div>
+      <nav class="mt-3 flex gap-7 text-[13.5px]">
+        <span class="pb-3 text-gray-600">Job Post</span>
+        <span class="border-b-[3px] border-purple pb-2.5 font-semibold text-purple">Candidate Profile</span>
+        <span class="pb-3 text-gray-600">Job History</span>
+        <span class="pb-3 text-gray-600">Matches</span>
+      </nav>
+    </header>
+
+    <!-- Candidate profile form -->
+    <div class="fade-bottom min-h-0 flex-1 overflow-hidden px-7 pt-5">
+      <div class="grid w-[900px] grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-white p-4 shadow-card ring-1 ring-gray-150">
+          <p class="text-[13.5px] font-medium leading-snug">Will you consider candidates for this role without experience in a SaaS/Tech role?</p>
+          <div id="q1" class="mt-3 flex gap-2"></div>
+        </div>
+        <div class="rounded-2xl bg-white p-4 shadow-card ring-1 ring-gray-150">
+          <p class="text-[13.5px] font-medium leading-snug">Will you consider candidates for this role who haven't held this type of position in the past?</p>
+          <div id="q2" class="mt-3 flex gap-2"></div>
+        </div>
+      </div>
+
+      <p class="mt-6 text-[14px] font-semibold">Choose from the attributes below that best describe a candidate who will be successful in this role.</p>
+      <div id="attrs" class="w-[900px]"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+  document.getElementById('sidebar').innerHTML = ASP.employerSidebar('jobs', 'Hiring');
+
+  const radio = (label, on) => on
+    ? `<span class="inline-flex items-center gap-2 rounded-full bg-purple/[.07] px-3.5 py-1.5 text-[13px] font-medium text-purple ring-1 ring-inset ring-purple/30"><span class="grid h-4 w-4 place-items-center rounded-full ring-[1.5px] ring-purple"><span class="h-2 w-2 rounded-full bg-purple"></span></span>${label}</span>`
+    : `<span class="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-[13px] text-gray-700 ring-1 ring-inset ring-gray-300"><span class="h-4 w-4 rounded-full ring-[1.5px] ring-inset ring-gray-300"></span>${label}</span>`;
+  document.getElementById('q1').innerHTML = radio('Yes', true) + radio('No', false);
+  document.getElementById('q2').innerHTML = radio('Yes', true) + radio('No', false);
+
+  const A = 'Has an outgoing personality, no fear in picking up the phone and dialing. Some might say that he/she has the "gift of gab".';
+  const B = 'Has a more formal communication style and is comfortable interacting with business owners and executives.';
+  const option = (text, on) => on
+    ? `<div class="g-purple flex items-start gap-3 rounded-xl px-4 py-3 text-[13px] leading-snug text-white shadow-lift">
+         <span class="mt-px grid h-5 w-5 shrink-0 place-items-center rounded-md bg-white text-purple"><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>${text}</div>`
+    : `<div class="flex items-start gap-3 rounded-xl bg-white px-4 py-3 text-[13px] leading-snug text-gray-700 shadow-card ring-1 ring-gray-150">
+         <span class="mt-px h-5 w-5 shrink-0 rounded-md bg-white ring-[1.5px] ring-inset ring-gray-300"></span>${text}</div>`;
+  const group = (opts) => `<div class="mt-4 text-[11px] font-semibold uppercase tracking-[.08em] text-gray-600">Personality</div>
+    <div class="mt-2 grid grid-cols-2 gap-3">${opts}</div>`;
+  document.getElementById('attrs').innerHTML =
+    group(option(A, true) + option(B, false)) +
+    group(option(A, false) + option(B, false)) +
+    group(option(A, false) + option(B, false));
+</script>
+</body>
+</html>

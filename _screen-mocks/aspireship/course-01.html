@@ -1,0 +1,240 @@
+<!doctype html>
+<!--
+  Polished recreation of assets/img/aspireship-screens/Course-01.png.
+  Same content and structure as the original screenshot, restyled with
+  Aspireship brand tokens (see tokens in tailwind.config below).
+  Render: see _screen-mocks/README.md.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aspireship · Course overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="brand.js"></script>
+<link rel="stylesheet" href="brand.css">
+<style>body { width: 1363px; height: 908px; }</style>
+</head>
+<body class="font-sans text-ink bg-gray-50">
+<div class="flex h-full">
+
+  <!-- Sidebar -->
+  <aside class="g-purple relative w-[260px] shrink-0 overflow-hidden px-4 pt-6 text-white">
+    <!-- Logo: brand line-art rocket + wordmark -->
+    <div class="flex items-center gap-2.5 px-1">
+      <svg viewBox="0 0 24 24" class="h-9 w-9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.5c-2.6 1.8-4 4.6-4 8.2 0 1.9.4 3.6 1 5h6c.6-1.4 1-3.1 1-5 0-3.6-1.4-6.4-4-8.2Z"/>
+        <circle cx="12" cy="9.3" r="1.7"/>
+        <path d="M8.5 12.8c-1.5.8-2.5 2.2-2.5 3.9l3-.9M15.5 12.8c1.5.8 2.5 2.2 2.5 3.9l-3-.9"/>
+        <path d="M10.6 18.4v1.8M12 18.4v3.1M13.4 18.4v1.8"/>
+      </svg>
+      <span class="text-[22px] font-medium tracking-tight">Aspireship</span>
+    </div>
+
+    <!-- User -->
+    <div class="mt-6 flex items-center gap-2.5 rounded-2xl bg-white/10 p-2.5 pr-3 ring-1 ring-inset ring-white/15">
+      <div class="g-pink grid h-10 w-10 place-items-center rounded-full text-sm font-semibold shadow-sm ring-2 ring-white/30">SS</div>
+      <div class="min-w-0 flex-1">
+        <div class="whitespace-nowrap text-[13.5px] font-medium leading-tight">Sally Salesperson</div>
+        
+      </div>
+      <svg viewBox="0 0 24 24" class="ico h-4 w-4 text-white/70"><path d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+    </div>
+
+    <!-- Nav -->
+    <nav class="mt-7 space-y-1 text-[14px]">
+      <a class="flex items-center gap-3 rounded-xl bg-white px-3 py-2.5 font-medium text-purple shadow-sm">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M12 2.5c-2.6 1.8-4 4.6-4 8.2 0 1.9.4 3.6 1 5h6c.6-1.4 1-3.1 1-5 0-3.6-1.4-6.4-4-8.2Z"/><circle cx="12" cy="9.3" r="1.6"/><path d="M8.5 12.8c-1.5.8-2.5 2.2-2.5 3.9l3-.9M15.5 12.8c1.5.8 2.5 2.2 2.5 3.9l-3-.9M12 18.6v2.6"/></svg>
+        Aspireships
+      </a>
+      <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-white/75">
+        <svg viewBox="0 0 24 24" class="ico"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M5.8 16c.6-1.4 1.8-2.2 3.2-2.2s2.6.8 3.2 2.2M14.5 10h3.5M14.5 13.5h3.5"/></svg>
+        My Matches
+      </a>
+      <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-white/75">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75ZM3 9.75h18"/><circle cx="12" cy="15" r="1.6"/></svg>
+        Live!
+      </a>
+      <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-white/75">
+        <svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="6.5" r="2.75"/><circle cx="6" cy="16.5" r="2.75"/><circle cx="18" cy="16.5" r="2.75"/></svg>
+        Community
+      </a>
+      <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-white/75">
+        <svg viewBox="0 0 24 24" class="ico"><rect x="6" y="6" width="15" height="13" rx="2.25"/><path d="M3 15.5V5.25A2.25 2.25 0 0 1 5.25 3H16.5"/><path d="m12 10 4 2.5-4 2.5Z"/></svg>
+        Video Library
+      </a>
+    </nav>
+
+  </aside>
+
+  <!-- Main -->
+  <main class="flex-1 px-9 pt-7">
+    <h1 class="text-[30px] font-semibold tracking-tight">SaaS Sales Foundations</h1>
+
+    <div class="mt-4 flex gap-7">
+      <!-- Left column -->
+      <section class="w-[730px] shrink-0">
+        <div class="mb-2 text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Up next</div>
+
+        <!-- Up next card -->
+        <article class="flex gap-5 rounded-2xl bg-white p-3.5 shadow-card ring-1 ring-gray-150">
+          <!-- Lesson video frame: Skip Miller at the flip chart -->
+          <div class="relative h-[106px] w-[188px] shrink-0 overflow-hidden rounded-xl ring-1 ring-ink/5">
+            <img src="img/skip-miller-buy-sell.png" alt="" class="h-full w-full object-cover object-left">
+            <div class="absolute inset-y-0 left-[66%] grid -translate-x-1/2 place-items-center">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-purple text-white shadow-lift ring-2 ring-white/80">
+                <svg viewBox="0 0 24 24" class="ml-0.5 h-4 w-4" fill="currentColor"><path d="M8 5.5v13l10.5-6.5Z"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="flex min-w-0 flex-col justify-center pr-4">
+            <div class="flex items-center gap-2">
+              <h2 class="text-[18px] font-semibold leading-snug">The Buy/Sell Process</h2>
+            </div>
+            <div class="mt-1 flex items-center gap-1.5 text-[12px] text-gray-600">
+              <svg viewBox="0 0 24 24" class="ico h-3.5 w-3.5"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+              ~32 minutes
+            </div>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-gray-700">Best-Selling Author &amp; Sales Training Expert, Skip Miller, walks us through the "Buy/Sell Process" that helps you think like a buyer!</p>
+          </div>
+        </article>
+
+        <!-- Welcome row -->
+        <div class="mt-3 flex items-center gap-3.5 rounded-2xl bg-white px-4 py-3 shadow-card ring-1 ring-gray-150">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-purple/[.07] text-purple">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 5.5v13l10.5-6.5Z"/></svg>
+          </span>
+          <span class="text-[14px] text-ink">Welcome - Intro to the SaaS Sales Foundations</span>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="mt-4 flex items-end justify-between">
+          <div>
+            <h3 class="text-[15px] font-semibold">Section 1: Intro to the SaaS Sales Process</h3>
+            <div class="mt-0.5 text-[12px] text-gray-600">4 lessons <span class="mx-1 text-gray-300">•</span> ~50 mins</div>
+          </div>
+          <div class="flex items-center gap-3 pb-0.5">
+            <div class="h-2 w-[140px] overflow-hidden rounded-full bg-gray-150"><div class="g-blue h-full w-1/4 rounded-full"></div></div>
+            <span class="w-10 text-right text-[15px] font-semibold">25%</span>
+          </div>
+        </div>
+
+        <ul class="mt-2.5 overflow-hidden rounded-2xl bg-white p-1.5 shadow-card ring-1 ring-gray-150 text-[14px]">
+          <li class="flex items-center gap-3.5 rounded-xl bg-purple/[.06] px-3 py-2 ring-1 ring-inset ring-purple/15">
+            <span class="g-green grid h-8 w-8 place-items-center rounded-full text-white shadow-sm">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+            </span>
+            <span class="flex-1 font-medium">The Buy/Sell Process</span>
+            <span class="rounded-full bg-[#0DA818]/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#0B8A14]">Completed</span>
+          </li>
+          <li class="flex items-center gap-3.5 px-3 py-2">
+            <span class="grid h-8 w-8 place-items-center rounded-lg bg-gray-50 text-gray-600 ring-1 ring-inset ring-gray-150">
+              <svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
+            </span>
+            <span class="flex-1">Quiz - The Buy/Sell Process</span>
+          </li>
+          <li class="flex items-center gap-3.5 px-3 py-2">
+            <span class="grid h-8 w-8 place-items-center rounded-lg bg-gray-50 text-gray-600 ring-1 ring-inset ring-gray-150">
+              <svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+            </span>
+            <span class="flex-1">Asking Questions</span>
+          </li>
+          <li class="flex items-center gap-3.5 px-3 py-2">
+            <span class="grid h-8 w-8 place-items-center rounded-lg bg-gray-50 text-gray-600 ring-1 ring-inset ring-gray-150">
+              <svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
+            </span>
+            <span class="flex-1">Quiz - Asking Questions</span>
+          </li>
+        </ul>
+
+        <!-- Upgrade CTA -->
+        <div class="mt-3.5 flex justify-center">
+          <button class="g-purple rounded-full px-7 py-2.5 text-[14px] font-semibold text-white shadow-lift">Upgrade to unlock full course</button>
+        </div>
+
+        <!-- Section 2 (locked) -->
+        <div class="mt-3.5">
+          <h3 class="text-[15px] font-semibold">Section 2: Applying Consultative Selling</h3>
+          <div class="mt-0.5 text-[12px] text-gray-600">4 lessons <span class="mx-1 text-gray-300">•</span> ~1 hr 10 mins</div>
+        </div>
+
+        <div class="relative mt-2.5 overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-gray-150">
+          <ul class="p-1.5 text-[14px] text-gray-700 blur-[1px]">
+            <li class="flex items-center gap-3.5 px-3 py-1.5"><span class="h-7 w-7 rounded-lg bg-gray-150"></span>The Demo</li>
+            <li class="flex items-center gap-3.5 px-3 py-1.5"><span class="h-7 w-7 rounded-lg bg-gray-150"></span>Quiz - The Demo</li>
+            <li class="flex items-center gap-3.5 px-3 py-1.5"><span class="h-7 w-7 rounded-lg bg-gray-150"></span>Handling Objections</li>
+            <li class="flex items-center gap-3.5 px-3 py-1.5"><span class="h-7 w-7 rounded-lg bg-gray-150"></span>Quiz - Handling Objections</li>
+          </ul>
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#713EE9]/70 to-[#4810A4]/85 text-white">
+            <span class="grid h-12 w-12 place-items-center rounded-full bg-white/15 ring-1 ring-white/30">
+              <svg viewBox="0 0 24 24" class="ico h-6 w-6"><path d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+            </span>
+            <span class="text-[15px] font-semibold">Upgrade now to continue your learning</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right column -->
+      <aside class="w-[300px] shrink-0 space-y-6">
+        <div>
+          <div class="mb-2 text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Course progress</div>
+          <div class="flex items-center gap-3.5 rounded-2xl bg-white p-3 shadow-card ring-1 ring-gray-150">
+            <div class="g-pink relative grid h-[60px] w-[60px] shrink-0 place-items-center overflow-hidden rounded-xl text-white">
+              <svg viewBox="0 0 60 60" class="absolute inset-0 h-full w-full" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><g opacity=".8"><path d="M10 9v6M7 12h6"/><circle cx="50" cy="48" r="3"/><circle cx="49" cy="11" r="1.5" fill="currentColor" stroke="none"/></g></svg>
+              <svg viewBox="0 0 24 24" class="relative h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 18.5a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17.2 9.6 4.5 4.5 0 0 1 17 18.5Z"/></svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-[13.5px] font-semibold leading-tight">SaaS Sales Foundations</div>
+              <div class="mt-2.5 flex items-center gap-2.5">
+                <div class="h-2 flex-1 overflow-hidden rounded-full bg-gray-150"><div class="g-blue h-full w-[3%] min-w-[8px] rounded-full"></div></div>
+                <span class="text-[15px] font-semibold">3%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-2 text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Resources</div>
+          <ul class="divide-y divide-gray-150 rounded-2xl bg-white px-1.5 shadow-card ring-1 ring-gray-150 text-[13px]">
+            <li class="flex items-center gap-3 px-2.5 py-3">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-purple/[.07] text-purple"><svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg></span>
+              <span class="flex-1 leading-snug"><span class="text-gray-600">Blog:</span> The Fastest Growing Careers in SaaS</span>
+              <svg viewBox="0 0 24 24" class="ico h-4 w-4 text-gray-400"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </li>
+            <li class="flex items-center gap-3 px-2.5 py-3">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-purple/[.07] text-purple"><svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg></span>
+              <span class="flex-1 leading-snug"><span class="text-gray-600">Blog:</span> Complete SaaS Sales Tech Stack</span>
+              <svg viewBox="0 0 24 24" class="ico h-4 w-4 text-gray-400"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </li>
+            <li class="flex items-center gap-3 px-2.5 py-3">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-purple/[.07] text-purple"><svg viewBox="0 0 24 24" class="ico h-4 w-4"><path d="M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"/></svg></span>
+              <span class="flex-1 leading-snug">Have a question? Ask us</span>
+              <svg viewBox="0 0 24 24" class="ico h-4 w-4 text-gray-400"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="mb-2 text-[12px] font-semibold uppercase tracking-[.08em] text-gray-600">Take a break!</div>
+          <div class="relative flex items-center gap-3.5 overflow-hidden rounded-2xl bg-white px-4 py-3 shadow-card ring-1 ring-gray-150">
+            <!-- Brand mug illustration: black line art, purple steam and sparkles -->
+            <svg viewBox="0 0 66 76" class="h-[46px] w-[40px] shrink-0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+              <rect x="16" y="34" width="30" height="38" rx="3" stroke="#001226"/>
+              <path d="M46 44h6v18h-6" stroke="#001226"/>
+              <path d="M25 12c-4 4 4 8 0 14M35 12c-4 4 4 8 0 14" stroke="#4810A4"/>
+              <path d="M9 4v10M4 9h10" stroke="#001226" stroke-width="3.5"/>
+              <circle cx="58" cy="26" r="5" stroke="#4810A4" stroke-width="3.5"/>
+              <circle cx="7" cy="30" r="2.5" fill="#4810A4" stroke="none"/>
+            </svg>
+            <div>
+              <div class="text-[14.5px] font-medium">Don't forget to hydrate!</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</body>
+</html>

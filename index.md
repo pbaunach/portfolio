@@ -77,7 +77,7 @@ extra_js: [/assets/js/live-work.js]
 
     <div class="project-card project-card--split project-card--for-work">
       <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
-        <img src="{{ '/assets/img/aspireship-screens/Employer-01-matches.png' | relative_url }}" alt="An employer's Matches screen in Aspireship: two Staff Pick candidates with their photos, target role, location, Aspireship achievements and Interested or Not Interested buttons" class="project-cover-img">
+        <img src="{{ '/assets/img/aspireship-screens/Cover-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Cover-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Cover-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Cover-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Cover-polished.png' | relative_url }} 2480w" sizes="(max-width: 900px) 92vw, 520px" alt="Aspireship's employer Matches screen on a laptop, with candidate cards for staff picks and graduates. A candidate's profile floats beside it with an intro video and Aspireship achievements." class="project-cover-img">
       </a>
       <div class="project-body">
         <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link">Aspireship: The Career Change Marketplace</a></h3>

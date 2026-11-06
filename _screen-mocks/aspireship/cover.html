@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+  Home page card cover for the Aspireship case study.
+  Two real polished screens: the employer's Matches screen in a laptop, with the
+  candidate profile an employer opens floating in front. Brand gradient and sparkles behind.
+  Render: sh _screen-mocks/aspireship/render.sh cover Cover-polished 1240 775
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aspireship · Card cover</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="brand.js"></script>
+<link rel="stylesheet" href="brand.css">
+<style>
+  body { width: 1240px; height: 775px; }
+  .bg { background: radial-gradient(120% 90% at 15% 0%, #8A5CF0 0%, #5B1FC4 38%, #4810A4 62%, #2E0A70 100%); }
+  .base { background: linear-gradient(#E7E9EE, #B9BEC8 60%, #8F95A1); }
+</style>
+</head>
+<body>
+<div class="bg relative h-full w-full overflow-hidden">
+  <!-- Sparkles -->
+  <svg viewBox="0 0 1240 775" class="absolute inset-0 h-full w-full text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3">
+    <g opacity=".5">
+      <path d="M1000 70v22M989 81h22"/><path d="M70 640v18M61 649h18"/><path d="M1190 640v16M1182 648h16"/>
+      <circle cx="1100" cy="120" r="8"/><circle cx="40" cy="90" r="7"/><circle cx="1120" cy="720" r="6"/>
+    </g>
+    <g opacity=".45" fill="currentColor" stroke="none">
+      <circle cx="1060" cy="64" r="3"/><circle cx="1076" cy="76" r="2"/><circle cx="110" cy="40" r="3"/><circle cx="1200" cy="420" r="3"/><circle cx="30" cy="380" r="3"/>
+    </g>
+  </svg>
+
+  <!-- Laptop: employer Matches -->
+  <div class="absolute left-[58px] top-[100px]">
+    <div class="rounded-[22px] bg-[#0B0F1A] p-[14px] pb-[18px] shadow-[0_30px_60px_-20px_rgba(10,0,40,.65)] ring-1 ring-white/15">
+      <div class="relative h-[520px] w-[832px] overflow-hidden rounded-[6px] bg-white">
+        <img src="../../assets/img/aspireship-screens/Employer-01-polished.png" alt="" class="h-full w-full object-cover object-top">
+      </div>
+    </div>
+    <div class="base relative -ml-[48px] h-[20px] w-[956px] rounded-b-[16px] rounded-t-[3px] shadow-[0_14px_24px_-8px_rgba(10,0,40,.6)]">
+      <span class="absolute left-1/2 top-0 h-[7px] w-[150px] -translate-x-1/2 rounded-b-[8px] bg-[#9AA0AB]"></span>
+    </div>
+  </div>
+
+  <!-- Floating window: candidate profile -->
+  <div class="absolute right-[56px] top-[196px] w-[360px] overflow-hidden rounded-[18px] bg-white shadow-[0_34px_60px_-18px_rgba(10,0,40,.7)] ring-[6px] ring-white/25">
+    <img src="../../assets/img/aspireship-screens/Candidate-03-polished.png" alt="" class="block w-full">
+  </div>
+</div>
+</body>
+</html>

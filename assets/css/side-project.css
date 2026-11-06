@@ -328,6 +328,12 @@
   object-position: top center;
 }
 
+/* Aspireship's screens are wider than 16:10 (about 7:4), so a 16:10 frame
+   clipped their sidebars. Match the frame to the screens instead. */
+.sp-aspire .sp-cards .cs-callout-figure {
+  aspect-ratio: 7 / 4;
+}
+
 .sp-cards h4 {
   margin: 0 0 0.35rem;
   font-family: 'Space Grotesk', system-ui, sans-serif;
