@@ -82,18 +82,6 @@ sitemap: false
       margin-bottom: 0.75rem;
     }
 
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      text-decoration: none;
-    }
-
-    .back:hover { color: var(--ink); }
-    .back:focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 4px; }
-
     .head {
       display: flex;
       flex-wrap: wrap;
@@ -337,8 +325,6 @@ sitemap: false
 <body>
   <main class="wrap">
     <header class="topbar">
-      <a class="back" href="{{ '/sleepers-tomb/' | relative_url }}">&larr; Back to downloads</a>
-
       <div class="head">
         <h1>Sleeper&rsquo;s Tomb</h1>
         <p class="eyebrow">Web version &middot; Build {{ v }}</p>
@@ -364,7 +350,7 @@ sitemap: false
 
     <div class="tools">
       <button type="button" class="tool-btn" id="fullscreen-btn" data-clarity-event="fullscreen" disabled hidden>Fullscreen</button>
-      <p class="hint">Needs a recent desktop browser. If it runs poorly, use the Windows or Mac download.</p>
+      <p class="hint">Needs a recent desktop browser.</p>
     </div>
   </main>
 
