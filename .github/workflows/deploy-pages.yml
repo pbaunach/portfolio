@@ -63,3 +63,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # The site is about 500 MB (Sleeper's Tomb builds, PDFs, finserv demo), and
+          # GitHub can take longer than the 10-minute default to process it.
+          timeout: 1800000
