@@ -3966,14 +3966,12 @@ a.project-card {
   }
 }
 
-/* Aspireship card cover: a brand illustration rather than a screenshot, so it
-   is contained instead of cropped and pinned to the bottom, with the plate
-   colour matching the artwork's own background so the fill is invisible. */
+/* Aspireship card cover: brand purple behind the screenshot while it loads. */
 .project-card--split .project-cover--aspireship.project-cover--split-hero {
   background: #4810a4;
 }
 
-/* The cover image is drawn at the card's 16:10 ratio, so it fills the card uncropped. */
+/* The My Matches screenshot fills the cover from the top left; a little of its right edge is cropped. */
 .project-card--split .project-cover--aspireship.project-cover--split-hero .project-cover-img {
   object-position: top left;
 }

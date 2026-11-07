@@ -2,8 +2,10 @@
 // Load after brand.js. Tailwind's Play CDN picks up classes in injected markup.
 
 const ASP = (() => {
-  const ico = (p, cls = 'h-[18px] w-[18px]') => `<svg viewBox="0 0 24 24" class="ico ${cls}">${p}</svg>`;
-  const ROCKET = '<path d="M12 2.5c-2.6 1.8-4 4.6-4 8.2 0 1.9.4 3.6 1 5h6c.6-1.4 1-3.1 1-5 0-3.6-1.4-6.4-4-8.2Z"/><circle cx="12" cy="9.3" r="1.6"/><path d="M8.5 12.8c-1.5.8-2.5 2.2-2.5 3.9l3-.9M15.5 12.8c1.5.8 2.5 2.2 2.5 3.9l-3-.9M12 18.6v2.6"/>';
+  const ico = (p, cls = 'h-[18px] w-[18px]') => p.startsWith('<svg') ? p.replace('CLS', cls) : `<svg viewBox="0 0 24 24" class="ico ${cls}">${p}</svg>`;
+  // The rocket mark from the brand wordmark, drawn on its own 112-unit grid.
+  const MARK_PATHS = '<path d="M31.2,53.55c-5.03-2.04-10.97-1.08-15.11,2.05c-1.64,1.24-4.07-0.06-4.24-2.11c-0.4-4.75,2-10.43,5.73-14.15c4.91-4.91,11.95-6.39,18.14-4.45"/><path d="M58.07,79.9c2.59,5.21,1.72,11.67-1.61,16.08c-1.24,1.64,0.06,4.07,2.11,4.24c4.75,0.4,10.43-2,14.15-5.73c4.85-4.85,6.36-11.78,4.52-17.93"/><path d="M22.99 71.09 4.81 89.27M33.49 77.73 32 79.21M26.14 85.08 4.43 106.79M39.75 88.23 21.57 106.41"/><path stroke-linecap="square" d="M53.61,78.37l0.86,0.01c14.12,0.27,27.84-4.14,37.76-14.06c13.69-13.69,17.01-33.02,11.78-53.63c-0.51-2-2.22-3.59-4.23-4.01c-19.72-4.15-38.86-0.95-52.5,12.69c-9.95,9.95-14.85,23.24-14.85,37.11l0.06,1.1"/><path d="M51.75,81.18l0.51-0.51c1.16-1.16,1.16-3.03,0-4.19L34.73,58.96c-1.16-1.16-3.03-1.16-4.19,0l-0.51,0.51c-1.16,1.16-1.16,3.03,0,4.19l17.52,17.52C48.72,82.34,50.59,82.34,51.75,81.18z"/><circle cx="74.8" cy="36.42" r="11.58"/>';
+  const ROCKET = `<svg viewBox="0 0 112 112" class="CLS shrink-0" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">${MARK_PATHS}</svg>`;
   const ICONS = {
     dashboard: '<rect x="3.5" y="3.5" width="7" height="9" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.5"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.5"/><rect x="3.5" y="15.5" width="7" height="5" rx="1.5"/>',
     aspireships: ROCKET,
@@ -24,11 +26,7 @@ const ASP = (() => {
     const group = (label) => `<div class="px-3 pb-1 pt-4 text-[10.5px] font-semibold uppercase tracking-[.1em] text-white/45">${label}</div>`;
     return `<aside class="g-purple flex w-[240px] shrink-0 flex-col px-4 pt-6 pb-5 text-white">
       <div class="flex items-center gap-2.5 px-1">
-        <svg viewBox="0 0 24 24" class="h-9 w-9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2.5c-2.6 1.8-4 4.6-4 8.2 0 1.9.4 3.6 1 5h6c.6-1.4 1-3.1 1-5 0-3.6-1.4-6.4-4-8.2Z"/><circle cx="12" cy="9.3" r="1.7"/>
-          <path d="M8.5 12.8c-1.5.8-2.5 2.2-2.5 3.9l3-.9M15.5 12.8c1.5.8 2.5 2.2 2.5 3.9l-3-.9"/><path d="M10.6 18.4v1.8M12 18.4v3.1M13.4 18.4v1.8"/>
-        </svg>
-        <span class="text-[21px] font-medium tracking-tight">Aspireship</span>
+        <img src="img/aspireship-wordmark-white.svg" alt="Aspireship" class="block h-[32px] w-auto">
       </div>
       <div class="mt-6 flex items-center gap-2.5 rounded-2xl bg-white/10 p-2.5 pr-3 ring-1 ring-inset ring-white/15">
         <div class="g-pink grid h-9 w-9 shrink-0 place-items-center rounded-full text-[13px] font-semibold ring-2 ring-white/30">TT</div>
@@ -87,11 +85,7 @@ const ASP = (() => {
       : `<a class="flex items-center gap-3 rounded-xl px-3 py-2 text-gray-700">${ico(ADMIN[key])}${label}</a>`;
     return `<aside class="g-purple flex w-[210px] shrink-0 flex-col px-3.5 pt-5 pb-5 text-white">
       <div class="flex items-center gap-2 px-1">
-        <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2.5c-2.6 1.8-4 4.6-4 8.2 0 1.9.4 3.6 1 5h6c.6-1.4 1-3.1 1-5 0-3.6-1.4-6.4-4-8.2Z"/><circle cx="12" cy="9.3" r="1.7"/>
-          <path d="M8.5 12.8c-1.5.8-2.5 2.2-2.5 3.9l3-.9M15.5 12.8c1.5.8 2.5 2.2 2.5 3.9l-3-.9"/><path d="M10.6 18.4v1.8M12 18.4v3.1M13.4 18.4v1.8"/>
-        </svg>
-        <span class="text-[19px] font-medium tracking-tight">Aspireship</span>
+        <img src="img/aspireship-wordmark-white.svg" alt="Aspireship" class="block h-[28px] w-auto">
       </div>
       <div class="mt-5 flex items-center gap-2.5 rounded-2xl bg-white/10 p-2 pr-3 ring-1 ring-inset ring-white/15">
         <div class="g-pink grid h-8 w-8 shrink-0 place-items-center rounded-full text-[12px] font-semibold ring-2 ring-white/30">PB</div>
@@ -111,5 +105,5 @@ const ASP = (() => {
     </aside>`;
   }
 
-  return { ico, ICONS, employerSidebar, adminSidebars, badge };
+  return { ico, ICONS, MARK_PATHS, employerSidebar, adminSidebars, badge };
 })();

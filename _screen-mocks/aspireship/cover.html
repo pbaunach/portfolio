@@ -1,8 +1,10 @@
 <!doctype html>
 <!--
-  Home page card cover for the Aspireship case study.
-  Two real polished screens: the employer's Matches screen in a laptop, with the
-  candidate profile an employer opens floating in front. Brand gradient and sparkles behind.
+  Home page card cover for the Aspireship case study. Device-free on purpose, so it
+  doesn't echo the Orchard cover's laptop and phone next to it on the home page.
+  Two real match cards from the employer Matches screen float staggered on the left,
+  with the top of Robert Schmitt's candidate profile beside them, the brand's rocket mark
+  and the brand sparkles. Everything shown is cropped from the polished renders.
   Render: sh _screen-mocks/aspireship/render.sh cover Cover-polished 1240 775
 -->
 <html lang="en">
@@ -14,8 +16,11 @@
 <link rel="stylesheet" href="brand.css">
 <style>
   body { width: 1240px; height: 775px; }
-  .bg { background: radial-gradient(120% 90% at 15% 0%, #8A5CF0 0%, #5B1FC4 38%, #4810A4 62%, #2E0A70 100%); }
-  .base { background: linear-gradient(#E7E9EE, #B9BEC8 60%, #8F95A1); }
+  .bg { background: radial-gradient(120% 95% at 12% 0%, #8A5CF0 0%, #5B1FC4 36%, #4810A4 62%, #2E0A70 100%); }
+  /* A window onto one region of a render: the image is placed so only that region shows. */
+  .crop { position: absolute; overflow: hidden; background: #fff;
+          box-shadow: 0 0 0 1px rgba(255,255,255,.18), 0 34px 60px -20px rgba(16,0,48,.75); }
+  .crop img { position: absolute; max-width: none; }
 </style>
 </head>
 <body>
@@ -23,30 +28,39 @@
   <!-- Sparkles -->
   <svg viewBox="0 0 1240 775" class="absolute inset-0 h-full w-full text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3">
     <g opacity=".5">
-      <path d="M1000 70v22M989 81h22"/><path d="M70 640v18M61 649h18"/><path d="M1190 640v16M1182 648h16"/>
-      <circle cx="1100" cy="120" r="8"/><circle cx="40" cy="90" r="7"/><circle cx="1120" cy="720" r="6"/>
+      <path d="M92 74v20M82 84h20"/><path d="M610 70v16M602 78h16"/><path d="M1186 640v18M1177 649h18"/><path d="M58 700v14M51 707h14"/>
+      <circle cx="430" cy="58" r="7"/><circle cx="36" cy="170" r="7"/><circle cx="660" cy="722" r="6"/>
     </g>
     <g opacity=".45" fill="currentColor" stroke="none">
-      <circle cx="1060" cy="64" r="3"/><circle cx="1076" cy="76" r="2"/><circle cx="110" cy="40" r="3"/><circle cx="1200" cy="420" r="3"/><circle cx="30" cy="380" r="3"/>
+      <circle cx="190" cy="40" r="3"/><circle cx="206" cy="52" r="2"/><circle cx="560" cy="34" r="3"/><circle cx="1220" cy="470" r="3"/>
+      <circle cx="30" cy="420" r="3"/><circle cx="880" cy="738" r="3"/><circle cx="896" cy="726" r="2"/>
     </g>
   </svg>
 
-  <!-- Laptop: employer Matches -->
-  <div class="absolute left-[58px] top-[100px]">
-    <div class="rounded-[22px] bg-[#0B0F1A] p-[14px] pb-[18px] shadow-[0_30px_60px_-20px_rgba(10,0,40,.65)] ring-1 ring-white/15">
-      <div class="relative h-[520px] w-[832px] overflow-hidden rounded-[6px] bg-white">
-        <img src="../../assets/img/aspireship-screens/Employer-01-polished.png" alt="" class="h-full w-full object-cover object-top">
-      </div>
-    </div>
-    <div class="base relative -ml-[48px] h-[20px] w-[956px] rounded-b-[16px] rounded-t-[3px] shadow-[0_14px_24px_-8px_rgba(10,0,40,.6)]">
-      <span class="absolute left-1/2 top-0 h-[7px] w-[150px] -translate-x-1/2 rounded-b-[8px] bg-[#9AA0AB]"></span>
-    </div>
-  </div>
+  <!-- The rocket mark from the brand wordmark -->
+  <svg viewBox="0 0 112 112" class="absolute left-[1052px] top-[34px] h-[136px] w-[136px] text-white shrink-0" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M31.2,53.55c-5.03-2.04-10.97-1.08-15.11,2.05c-1.64,1.24-4.07-0.06-4.24-2.11c-0.4-4.75,2-10.43,5.73-14.15c4.91-4.91,11.95-6.39,18.14-4.45"/><path d="M58.07,79.9c2.59,5.21,1.72,11.67-1.61,16.08c-1.24,1.64,0.06,4.07,2.11,4.24c4.75,0.4,10.43-2,14.15-5.73c4.85-4.85,6.36-11.78,4.52-17.93"/><path d="M22.99 71.09 4.81 89.27M33.49 77.73 32 79.21M26.14 85.08 4.43 106.79M39.75 88.23 21.57 106.41"/><path stroke-linecap="square" d="M53.61,78.37l0.86,0.01c14.12,0.27,27.84-4.14,37.76-14.06c13.69-13.69,17.01-33.02,11.78-53.63c-0.51-2-2.22-3.59-4.23-4.01c-19.72-4.15-38.86-0.95-52.5,12.69c-9.95,9.95-14.85,23.24-14.85,37.11l0.06,1.1"/><path d="M51.75,81.18l0.51-0.51c1.16-1.16,1.16-3.03,0-4.19L34.73,58.96c-1.16-1.16-3.03-1.16-4.19,0l-0.51,0.51c-1.16,1.16-1.16,3.03,0,4.19l17.52,17.52C48.72,82.34,50.59,82.34,51.75,81.18z"/><circle cx="74.8" cy="36.42" r="11.58"/></svg>
 
-  <!-- Floating window: candidate profile -->
-  <div class="absolute right-[56px] top-[196px] w-[360px] overflow-hidden rounded-[18px] bg-white shadow-[0_34px_60px_-18px_rgba(10,0,40,.7)] ring-[6px] ring-white/25">
-    <img src="../../assets/img/aspireship-screens/Candidate-03-polished.png" alt="" class="block w-full">
+  <!-- Match cards from the employer Matches screen (Employer-01), staggered -->
+  <div id="cards"></div>
+
+  <!-- Candidate profile, top of Candidate-03 -->
+  <div class="crop rounded-[18px]" style="left:610px; top:222px; width:580px; height:374px; z-index:5">
+    <img src="../../assets/img/aspireship-screens/Candidate-03-polished.png" alt="" style="left:0; top:0; width:580px">
   </div>
 </div>
+
+<script>
+  // Card regions in Employer-01 at CSS size (the render is 1361 x 1025).
+  const S = 0.85, W = 342, H = 392;
+  const cards = [
+    { x: 268, y: 168, left: 56,  top: 250, z: 2 },  // Derek Decady, staff pick
+    { x: 630, y: 168, left: 296, top: 164, z: 3 },  // Renny Noel, staff pick, marked Interested
+  ];
+  document.getElementById('cards').innerHTML = cards.map(c => `
+    <div class="crop rounded-[15px]" style="left:${c.left}px; top:${c.top}px; width:${W * S}px; height:${H * S}px; z-index:${c.z}">
+      <img src="../../assets/img/aspireship-screens/Employer-01-polished.png" alt=""
+           style="width:${1361 * S}px; left:${-c.x * S}px; top:${-c.y * S}px">
+    </div>`).join('');
+</script>
 </body>
 </html>
