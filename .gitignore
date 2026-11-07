@@ -27,9 +27,8 @@ Thumbs.db
 orchard-prototype/node_modules/
 orchard-prototype/dist/
 
-# Sleeper's Tomb demo: the raw Windows exe is about 109 MiB, over GitHub's 100 MiB
-# per-file push limit. The pages serve a zip of it instead (see _data/sleepers_tomb.yml),
-# so every version's exe stays out of git.
+# Sleeper's Tomb: only the web build is published. A Windows exe is over GitHub's
+# 100 MiB per-file push limit, so keep any local one out of git.
 sleepers-tomb/builds/**/*.exe
 
 # Private working files. The repo is public, so keeping these out of the Jekyll build

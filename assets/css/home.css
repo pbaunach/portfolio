@@ -235,7 +235,7 @@
   border-left: 1px solid var(--border);
 }
 
-/* VectorAgent's cover is the live purchase log itself, edge to edge */
+/* A live cover: the product demo itself, edge to edge (VectorAgent, Telby) */
 .lab-poster--live {
   display: flex;
   background: #0b0f17;
@@ -265,6 +265,20 @@
   flex: 1;
   border-right: 0;
   border-bottom: 0;
+}
+
+/* Telby's cover is its token demo in cover mode, filling the poster */
+.lab-poster--live .tk {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.lab-poster--live .tk-body {
+  min-height: 19rem;
 }
 
 .lab-card--wide > .lab-card-copy {

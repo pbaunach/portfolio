@@ -2,12 +2,12 @@
    idea": numbered chapters, each with a header, a dotted "stage" that holds the
    chapter's live demo or key screen like an artboard, and one supporting row,
    then a closing strip. Chapters alternate white and the idea section's gray.
-   Each page sets its own accent with a modifier class (Telby's cobalt is the
+   Each page sets its own accent with a modifier class (Telby's blue is the
    default); the numbered points use the site primary so they match the
    callout markers on the diagrams. */
 
 .sp-section {
-  --sp-accent: #2a4be0;
+  --sp-accent: #2f6bf0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);

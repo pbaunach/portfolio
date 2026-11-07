@@ -77,7 +77,7 @@ extra_js: [/assets/js/live-work.js]
 
     <div class="project-card project-card--split project-card--for-work">
       <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
-        <img src="{{ '/assets/img/aspireship-screens/Cover-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Cover-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Cover-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Cover-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Cover-polished.png' | relative_url }} 2480w" sizes="(max-width: 900px) 92vw, 520px" alt="Aspireship's employer Matches screen on a laptop, with candidate cards for staff picks and graduates. A candidate's profile floats beside it with an intro video and Aspireship achievements." class="project-cover-img">
+        <img src="{{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Candidate-02-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }} 2660w" sizes="(max-width: 900px) 92vw, 520px" alt="A candidate's My Matches screen in Aspireship, with three matches for sales roles and where each one stands" class="project-cover-img">
       </a>
       <div class="project-body">
         <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link">Aspireship: The Career Change Marketplace</a></h3>
@@ -112,23 +112,23 @@ extra_js: [/assets/js/live-work.js]
           <p class="lab-desc">An icon store where AI agents pay their own way, a fraction of a cent at a time. Each payment doubles as proof of ownership. In four blind tests, all four agents used it, and two paid.</p>
           <p class="lab-actions">
             <span class="button button-primary" aria-hidden="true">View the Case Study</span>
-            <a href="https://vectoragent.telby.io/" class="button button-outline" target="_blank" rel="noopener noreferrer">Try it out</a>
+            <a href="https://vectoragent.telby.io/" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit VectorAgent</a>
           </p>
         </div>
       </article>
 
       <article class="lab-card lab-card--wide lab-card--flip">
-        <div class="lab-poster" aria-hidden="true">
-          <img src="https://telby.io/walkthrough/telby-walkthrough-poster.jpg" alt="" loading="lazy">
+        <div class="lab-poster lab-poster--live" aria-hidden="true">
+          {% include demos/telby-tokens.html cover=true %}
         </div>
         <div class="lab-card-copy">
           <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link">Telby</a></h3>
-          <span class="lab-kind">AI SVG icon builder</span>
+          <span class="lab-kind">Living icon design system</span>
           <p class="lab-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
-          <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that.</p>
+          <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that. Every icon is bound to shared tokens, so one change updates the whole set.</p>
           <p class="lab-actions">
             <span class="button button-primary" aria-hidden="true">View the Screens</span>
-            <a href="https://telby.io/demo/editor/icon_3874d48b" class="button button-outline" target="_blank" rel="noopener noreferrer">Try the demo</a>
+            <a href="https://telby.io" class="button button-outline" target="_blank" rel="noopener noreferrer">Visit Telby.io</a>
           </p>
         </div>
       </article>

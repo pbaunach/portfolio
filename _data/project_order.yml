@@ -9,7 +9,7 @@
 - name: Aspireship
   url: /aspireship/
   tagline: The career change marketplace, scaling one product across four audiences.
-  image: /assets/img/aspireship-screens/web/Cover-polished-640.webp
+  image: /assets/img/aspireship-screens/web/Candidate-02-polished-640.webp
 
 - name: VectorAgent
   url: /case-studies/vector-agent/
@@ -19,7 +19,7 @@
 - name: Telby
   url: /telby-icon-builder/
   tagline: Icon sets drift. I wanted one that couldn’t.
-  image: https://telby.io/walkthrough/telby-walkthrough-poster.jpg
+  image: /assets/img/telby/next-thumb.svg
 
 - name: Unbound Codex
   url: /unbound-codex/
