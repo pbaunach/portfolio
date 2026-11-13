@@ -59,34 +59,34 @@ extra_js: [/assets/js/live-work.js]
 
   <div class="project-grid-inner">
     <div class="project-card project-card--split project-card--for-work">
-      <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero">
-        <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard Growth Report on desktop and the weekly summary on mobile" class="project-cover-img">
+      <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-cover project-cover--orchard project-cover--split-hero" draggable="false">
+        <img src="{{ '/assets/img/orchard-cover.png' | relative_url }}" alt="Orchard Growth Report on desktop and the weekly summary on mobile" class="project-cover-img" draggable="false">
       </a>
       <div class="project-body">
-        <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link">Orchard: The AI Career Readiness Platform</a></h3>
+        <h3><a href="{{ '/orchard-career-counselor/' | relative_url }}" class="project-card-title-link" draggable="false">Orchard: The AI Career Readiness Platform</a></h3>
         <p class="project-role-label">Head of Product &amp; Design</p>
         <p class="project-summary">
           An AI mentor that helps high schoolers find clarity and assurance in an uncertain future, plus a readiness score that shows them how they&rsquo;re growing.
         </p>
         <p class="project-card-actions">
-          <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary">View the Screens</a>
-          <a href="{{ '/deck/problem-solving-process.html' | relative_url }}" class="button button-outline">The Design Process</a>
+          <a href="{{ '/orchard-career-counselor/' | relative_url }}" class="button button-primary" draggable="false">View the Screens</a>
+          <a href="{{ '/deck/problem-solving-process.html' | relative_url }}" class="button button-outline" draggable="false">The Design Process</a>
         </p>
       </div>
     </div>
 
     <div class="project-card project-card--split project-card--for-work">
-      <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero">
-        <img src="{{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Candidate-02-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }} 2660w" sizes="(max-width: 900px) 92vw, 520px" alt="A candidate's My Matches screen in Aspireship, with three matches for sales roles and where each one stands" class="project-cover-img">
+      <a href="{{ '/aspireship/' | relative_url }}" class="project-cover project-cover--aspireship project-cover--split-hero" draggable="false">
+        <img src="{{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }}" srcset="{{ '/assets/img/aspireship-screens/web/Candidate-02-polished-640.webp' | relative_url }} 640w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1080.webp' | relative_url }} 1080w, {{ '/assets/img/aspireship-screens/web/Candidate-02-polished-1600.webp' | relative_url }} 1600w, {{ '/assets/img/aspireship-screens/Candidate-02-polished.png' | relative_url }} 2660w" sizes="(max-width: 900px) 92vw, 520px" alt="A candidate's My Matches screen in Aspireship, with three matches for sales roles and where each one stands" class="project-cover-img" draggable="false">
       </a>
       <div class="project-body">
-        <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link">Aspireship: The Career Change Marketplace</a></h3>
+        <h3><a href="{{ '/aspireship/' | relative_url }}" class="project-card-title-link" draggable="false">Aspireship: The Career Change Marketplace</a></h3>
         <p class="project-role-label">Head of Product &amp; Design</p>
         <p class="project-summary">
           Scaling one product across four audiences: the independent learner, the enterprise team, the hiring employer, and the internal placement staff.
         </p>
         <p class="project-card-actions">
-          <a href="{{ '/aspireship/' | relative_url }}" class="button button-primary">View the Screens</a>
+          <a href="{{ '/aspireship/' | relative_url }}" class="button button-primary" draggable="false">View the Screens</a>
         </p>
       </div>
     </div>
@@ -106,7 +106,7 @@ extra_js: [/assets/js/live-work.js]
           {% include demos/va-loop.html log_only=true still=true %}
         </div>
         <div class="lab-card-copy">
-          <h3 class="lab-name"><a href="{{ '/case-studies/vector-agent/' | relative_url }}" class="lab-link">VectorAgent</a></h3>
+          <h3 class="lab-name"><a href="{{ '/case-studies/vector-agent/' | relative_url }}" class="lab-link" draggable="false">VectorAgent</a></h3>
           <span class="lab-kind">Agent-to-agent payments</span>
           <p class="lab-tagline">Can an AI agent buy something on its own and prove it owns it?</p>
           <p class="lab-desc">An icon store where AI agents pay their own way, a fraction of a cent at a time. Each payment doubles as proof of ownership. In four blind tests, all four agents used it, and two paid.</p>
@@ -122,7 +122,7 @@ extra_js: [/assets/js/live-work.js]
           {% include demos/telby-tokens.html cover=true %}
         </div>
         <div class="lab-card-copy">
-          <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link">Telby</a></h3>
+          <h3 class="lab-name"><a href="{{ '/telby-icon-builder/' | relative_url }}" class="lab-link" draggable="false">Telby</a></h3>
           <span class="lab-kind">Living icon design system</span>
           <p class="lab-tagline">Icon sets drift. I wanted one that couldn&rsquo;t.</p>
           <p class="lab-desc">You know the folder. One icon is a little heavier than the rest, one blue is almost right, and three files are called &ldquo;final.&rdquo; Telby is my side project to fix that. Every icon is bound to shared tokens, so one change updates the whole set.</p>
@@ -138,7 +138,7 @@ extra_js: [/assets/js/live-work.js]
           <img src="{{ '/assets/img/unbound-codex/portfolio-card.png' | relative_url }}" alt="" loading="lazy">
         </div>
         <div class="lab-card-copy">
-          <h3 class="lab-name"><a href="{{ '/unbound-codex/' | relative_url }}" class="lab-link">Unbound Codex</a></h3>
+          <h3 class="lab-name"><a href="{{ '/unbound-codex/' | relative_url }}" class="lab-link" draggable="false">Unbound Codex</a></h3>
           <span class="lab-kind">RAG-based TTRPG agent</span>
           <p class="lab-tagline">I wanted an AI that remembers my campaign, not one that writes it.</p>
           <p class="lab-desc">Run a campaign long enough and you forget half of what you made up. Most AI tools fill the gaps by inventing more. Unbound Codex is my side project that does the opposite.</p>
