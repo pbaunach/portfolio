@@ -62,9 +62,22 @@
   outline-offset: 3px;
 }
 
-.project-card--split .project-card-actions .button-outline {
+/* Both buttons sit above the stretched link, so each one shows its own
+   hover and press state. */
+.project-card--split .project-card-actions .button {
   position: relative;
   z-index: 2;
+}
+
+/* A slight drag while clicking (common on touchpads) starts dragging the
+   link instead of following it, so the click does nothing. These card links
+   and images can't be dragged. index.md also sets draggable="false" on them
+   for Firefox, which ignores this property. */
+.project-card--split a,
+.project-card--split img,
+.lab-card a,
+.lab-card img {
+  -webkit-user-drag: none;
 }
 
 .project-card--split .project-role-label {
