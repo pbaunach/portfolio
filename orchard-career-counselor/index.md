@@ -193,7 +193,7 @@ extra_js: [/assets/js/live-work.js]
   <div class="sp-wrap sp-outro-inner">
     <div>
       <span class="sp-kicker">My role</span>
-      <h2 class="sp-title sp-title--sm" id="sp-role-title">Head of Product &amp; Design at a four-person company.</h2>
+      <h2 class="sp-title sp-title--sm" id="sp-role-title">Head of Product &amp; Design.</h2>
       <p class="sp-lead">I owned product strategy, design, the prototype and the brand. Over four iterations I framed the problem, tested each hypothesis, and made the case to move on from the ones that failed, from a content library to an AI mentor built around the CRI. Our engineer built the scoring model and chose the LLM behind it.</p>
     </div>
     <div class="sp-outro-actions">
